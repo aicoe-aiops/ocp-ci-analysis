@@ -25,7 +25,13 @@ For a detailed guide on how to adjust your notebooks etc, please consult documen
       gpg --keyserver keyserver.ubuntu.com --recv EFDB9AFBD18936D9AB6B2EECBD2C73FF891FBC7E
       ```
 
-   5. If you'd like to be able to build the manifest on your own as well, please list your GPG key in the [`.sops.yaml` file](.sops.yaml), `pgp` section. With your key present there, you can later generate the full manifests using `kustomize` (with `ksops` installed, please follow ksops [guide](https://github.com/viaduct-ai/kustomize-sops#0-verify-requirements).
+   5. Import tcoufal's key (so he can help out) [A76372D361282028A99F9A47590B857E0288997C](https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xa76372d361282028a99f9a47590b857e0288997c)
+
+      ```bash
+      gpg --keyserver keyserver.ubuntu.com --recv A76372D361282028A99F9A47590B857E0288997C
+      ```
+
+   6. If you'd like to be able to build the manifest on your own as well, please list your GPG key in the [`.sops.yaml` file](.sops.yaml), `pgp` section (add to the comma separated list). With your key present there, you can later generate the full manifests using `kustomize` yourself (`ksops` has to be installed, please follow ksops [guide](https://github.com/viaduct-ai/kustomize-sops#0-verify-requirements).
 
 4. Create a secret and encrypt it with `sops`:
 
