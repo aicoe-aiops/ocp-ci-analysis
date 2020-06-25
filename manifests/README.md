@@ -2,7 +2,7 @@
 
 If you'd like to automate your Jupyter notebooks using Argo, please use these kustomize manifests. If you follow the steps bellow, your application is fully set and ready to be deployed via Argo CD.
 
-For a detailed guide on how to adjust your notebooks etc, please consult documentation in the [OpenShift SME project](https://github.com/aicoe-aiops/openshift-sme-mailing-list-analysis/blob/master/argo/README.md)
+For a detailed guide on how to adjust your notebooks etc, please consult [documentation](https://github.com/aicoe-aiops/data-science-workflows/blob/master/Automating%20via%20Argo.md)
 
 1. Replace all `<VARIABLE>` mentions with your project name, respective url or any fitting value
 2. Define your automation run structure in the `templates` section of [`cron-workflow.yaml`](./cron-workflow.yml)
@@ -42,6 +42,7 @@ For a detailed guide on how to adjust your notebooks etc, please consult documen
    # Mind that `SECRET_NAME` must match the `SECRET_NAME` used in `cron-workflow.yaml`
    oc create secret generic <SECRET_NAME> \
      --from-literal=path=<BASE_PATH_WITHIN_CEPH_BUCKET> \
+     --from-literal=bucket=<BUCKET> \
      --from-literal=access-key-id=<AWS_ACCESS_KEY_ID> \
      --from-literal=secret-access-key=<AWS_SECRET_ACCESS_KEY> \
      --dry-run -o yaml |
