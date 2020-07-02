@@ -48,3 +48,5 @@ For a detailed guide on how to adjust your notebooks etc, please consult [docume
      --dry-run -o yaml |
    sops --input-type=yaml --output-type=yaml -e /dev/stdin > ceph-creds.yaml
    ```
+
+Note: You can use the S2I image, that was built by [s2i-custom-notebook](https://github.com/AICoE/s2i-custom-notebook) for this automation. This image is expected to be used by default, therefore the `workingDir` is adjusted to `/opt/app-root/backup`. Please change or remove this settings in case you plan on using different image.
