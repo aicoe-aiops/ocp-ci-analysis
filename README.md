@@ -8,6 +8,8 @@ Project Organization
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── Pipfile            <- Pipfile stating package configuration as used by Pipenv.
+    ├── Pipfile.lock       <- Pipfile.lock stating a pinned down software stack with as used by Pipenv.
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
