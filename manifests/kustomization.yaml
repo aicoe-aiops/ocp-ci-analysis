@@ -4,7 +4,7 @@ kind: Kustomization
 commonLabels:
   app.kubernetes.io/name: aiops-analytics
   app.kubernetes.io/component: <CHANGE_ME>
-  app.kubernetes.io/managed-by: aicoe-aiops-argocd
+  app.kubernetes.io/managed-by: aicoe-aiops-devops-argocd
 
 resources:
   - imagestream.yaml
