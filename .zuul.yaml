@@ -1,0 +1,10 @@
+- project:
+    check:
+      jobs:
+        - "noop"
+    gate:
+      jobs:
+        - "noop"
+    kebechet-auto-gate:
+      jobs:
+        - "noop"
