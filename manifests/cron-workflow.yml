@@ -68,6 +68,8 @@ spec:
             - --config
             - .jupyter/jupyter_nbconvert_config.py
             - "notebooks/{{inputs.parameters.notebook}}"
+          # If using different image than built by https://github.com/AICoE/s2i-custom-notebook, please change or remote the workingDir settings
+          workingDir: /opt/app-root/backup
           volumeMounts:
             - name: local-data-storage
               mountPath: /mnt/data
