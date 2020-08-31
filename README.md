@@ -52,6 +52,7 @@ Project Organization
     │       └── visualize.py
     │
     ├── .thoth.yaml        <- Thoth's configuration file
+    ├── .aicoe-ci.yaml     <- AICoE CI configuration file (https://github.com/AICoE/aicoe-ci)
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
 
