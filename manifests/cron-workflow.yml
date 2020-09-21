@@ -102,3 +102,10 @@ spec:
                 secretKeyRef:
                   key: secret-access-key
                   name: <SECRET_NAME>
+          resources:
+            requests:
+              cpu: 500m
+              memory: 1Gi
+            limits:
+              cpu: '2'
+              memory: 4Gi
