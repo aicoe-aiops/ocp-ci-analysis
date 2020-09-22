@@ -8,8 +8,20 @@ commonLabels:
   app.kubernetes.io/managed-by: aicoe-aiops-devops-argocd
 
 resources:
+  - cronwf.yaml
   - imagestream.yaml
-  - cron-workflow.yml
+  - postsync-wf.yaml
+  - wftmpl.yaml
 
 generators:
   - ksops.yaml
+
+patchesJson6902:
+- patch: &patch |
+    - op: remove
+      path: /metadata/name
+  target:
+    group: argoproj.io
+    version: v1alpha1
+    kind: Workflow
+    name: ignored
