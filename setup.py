@@ -1,3 +1,5 @@
+"""Package manifest for this template repo."""
+
 from setuptools import find_packages, setup
 
 setup(
