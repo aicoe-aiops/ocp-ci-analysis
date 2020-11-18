@@ -11,6 +11,11 @@ Sphinx = "*"
 [packages]
 src = {editable = true, path = "./"}
 awscli = "*"
+pandas = "*"
+numpy = "*"
+scikit-learn = "*"
+matplotlib = "*"
+seaborn = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.6"
