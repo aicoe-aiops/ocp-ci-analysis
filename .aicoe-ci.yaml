@@ -3,14 +3,14 @@
 check:
   - thoth-precommit
   # Uncomment following line to build a public image of this repo
-  # - thoth-build
+  - thoth-build
 
 # Uncomment following lines to build a public image of this repo
-# build:
-#   build-stratergy: Source
-#   build_source_script: "image:///opt/app-root/builder"
-#   base-image: quay.io/thoth-station/s2i-custom-notebook:latest
-#   registry: quay.io
-#   registry-org: aicoe
-#   registry-project: <CHANGE-ME>
-#   registry-secret: aicoe-pusher-secret
+build:
+  build-stratergy: Source
+  build-source-script: "image:///opt/app-root/builder"
+  base-image: quay.io/thoth-station/s2i-custom-notebook:latest
+  registry: quay.io
+  registry-org: aicoe
+  registry-project: ocp-ci-analysis
+  registry-secret: aicoe-pusher-secret
