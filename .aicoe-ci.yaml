@@ -10,6 +10,7 @@ build:
   build-stratergy: Source
   build-source-script: "image:///opt/app-root/builder"
   base-image: quay.io/thoth-station/s2i-custom-notebook:latest
+  custom-tag: latest
   registry: quay.io
   registry-org: aicoe
   registry-project: ocp-ci-analysis
