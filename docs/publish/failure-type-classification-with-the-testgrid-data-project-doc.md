@@ -8,7 +8,7 @@ In continuous integration (CI) project workflow, developers frequently integrate
 
 In this project, our objective is to automate the failure type classification task with the Testgrid data. As we don’t have labeled data to address this problem, we will focus on unsupervised learning methods and heuristics. Figure 1 shows the TestGrid data with different patterns to analyze the type of failure.
 
-![image alt text](../assets/images/annotated_testgrid.png)
+![image alt text](https://user-images.githubusercontent.com/4494906/99848891-95745180-2b48-11eb-9a4e-f9cf5da59ab0.png)
 
  Figure 1: Different type of failures in TestGrid
 
