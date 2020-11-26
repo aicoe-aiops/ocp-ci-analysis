@@ -33,7 +33,7 @@ types that need to be addressed and identify what kind of ML approaches are poss
 
 - Outcome will be notebooks that explain the data, how to access it and preprocess it in a data science friendly
   format (see this
-  [notebook for TestGrid data](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/TestGrid_EDA.ipynb)
+  [notebook for TestGrid data](notebooks/TestGrid_EDA.ipynb)
   for an example).
 
 **2 )** Failure type classification with the Testgrid data to address an existing manual process executed by subject
