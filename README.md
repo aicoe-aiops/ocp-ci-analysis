@@ -14,7 +14,7 @@ and tests of software before it is merged into a production code base. If you ar
 platform like Kubernetes or OpenShift, these builds and tests will produce a lot of data that can be difficult to parse
 when you are trying to figure out why a build is failing or why a certain set of tests aren’t passing.
 
-OpensShift, Kubernetes and a few other platforms have made their CI data public. This is real world multimodal
+OpenShift, Kubernetes and a few other platforms have made their CI data public. This is real world multimodal
 production operations data, a rarity for public data sets today. This represents a great starting point and first initial
 problem for the AIOps community to tackle. Our aim is to begin cultivating this open source AIOps project by
 developing, integrating and operating AI tools for CI by leveraging the open data that has been made available by
@@ -31,14 +31,14 @@ OpenShift engineers.
 **1 )** Exploratory data analysis of available data sources (gcsweb, TestGrid, Sippy) to understand the different data
 types that need to be addressed and identify what kind of ML approaches are possible.
 
-- Outcome will be notebooks that explain the data, how to access it and preprocess it in a data science friendly
+* Outcome will be notebooks that explain the data, how to access it and preprocess it in a data science friendly
   format (see this
-  [notebook for TestGrid data](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/TestGrid_EDA.ipynb)
+  [notebook for TestGrid data](notebooks/TestGrid_EDA.ipynb)
   for an example).
 
 **2 )** Failure type classification with the Testgrid data to address an existing manual process executed by subject
 matter experts (SME).
 
-- Automate the manual process outlined by an SME [here](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/1).
+* Automate the manual process outlined by an SME [here](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/1).
 
 **3 )** Tooling to generate analysis reports for platforms, grids and test within the TestGrid data.
