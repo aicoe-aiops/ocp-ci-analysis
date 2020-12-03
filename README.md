@@ -24,21 +24,39 @@ The higher order goal to keep in mind for any tools developed here should be to 
 time to resolution for issues that are signaled by anything present in the CI data. There are a lot of ways that this
 could be done, and instead of pre-defining a specific problem to solve, our immediate thinking is to make the initial
 tools and relevant data as accessible as possible to foster collaboration and contributions between data scientists and
-OpenShift engineers.
+DevOps engineers.
 
-## First Step/ Ways to get Involved:
+## Current Work
 
-**1 )** Exploratory data analysis of available data sources (gcsweb, TestGrid, Sippy) to understand the different data
-types that need to be addressed and identify what kind of ML approaches are possible.
+* Interactive and reproducible notebooks for the [entire project](https://github.com/aicoe-aiops/ocp-ci-analysis) are available as an image on a public [jupyterhub](https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login) instance on the MOC.
+* Video explainer (forthcoming)
 
-* Outcome will be notebooks that explain the data, how to access it and preprocess it in a data science friendly
-  format (see this
-  [notebook for TestGrid data](notebooks/TestGrid_EDA.ipynb)
-  for an example).
 
-**2 )** Failure type classification with the Testgrid data to address an existing manual process executed by subject
-matter experts (SME).
+## Active Projects:
 
-* Automate the manual process outlined by an SME [here](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/1).
+**1 ) Data Access and Management**
 
-**3 )** Tooling to generate analysis reports for platforms, grids and test within the TestGrid data.
+There is a lot of operations data available to us between gcsweb, prow and TestGrid, as data scientists, we need to develop methods for accessing and processing it in data science friendly formats and identify what kind of ML approaches are possible. The outcome of this work will be a set of reproducible notebooks that explain the data and make it easy to start performing analysis or training models.
+
+* [TestGrid data access and preprocessing](notebooks/TestGrid_EDA.ipynb)
+* [Indepth TestGrid exploratory data analysis for machine learing](notebooks/TestGrid_indepth_EDA.ipynb)
+* [TestGrid sample dataset](data/raw/testgrid_810.json.gz)
+* Prow data access and preprocessing (forthcoming)
+*  gcsweb data access and preprocessing (forthcoming)
+
+**2 ) TestGrid Failure Type Classification**
+
+Automate an existing manual process of identifying different failure types for individual testgrids, identifying flakey tests, infra flakes, install flakes and new test failures. [Detailed project description](docs/failure-type-classification-with-the-testgrid-data-project-doc.md)
+
+* [Flake detection in TestGrid](notebooks/Testgrid_flakiness_detection.ipynb)
+* [Failure Type Classification](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/41)
+
+**3 ) Improved Reporting and Visualization**
+
+Any analysis or predictive tool needs to be accessible and actionable for them to drive value to the end user. To that end, we are also looking at ways to improve upon the existing reporting and visualizations available to developers who rely on CI data.
+
+* [Review existing CI data reporting tools](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/32)
+
+## Contribute:
+
+Please review our [issues](https://github.com/aicoe-aiops/ocp-ci-analysis/issues) page, we welcome contributions there by creating new issues for additional analysis projects or taking on an existing analysis issue.
