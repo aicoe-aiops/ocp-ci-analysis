@@ -12,7 +12,6 @@ repos:
       - id: check-merge-conflict
       - id: end-of-file-fixer
       - id: name-tests-test
-      - id: check-added-large-files
       - id: check-byte-order-marker
       - id: check-case-conflict
       - id: check-docstring-first
