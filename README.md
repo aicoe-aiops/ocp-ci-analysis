@@ -38,17 +38,17 @@ DevOps engineers.
 
 There is a lot of operations data available to us between gcsweb, prow and TestGrid, as data scientists, we need to develop methods for accessing and processing it in data science friendly formats and identify what kind of ML approaches are possible. The outcome of this work will be a set of reproducible notebooks that explain the data and make it easy to start performing analysis or training models.
 
-* [TestGrid data access and preprocessing](notebooks/TestGrid_EDA.ipynb)
-* [Indepth TestGrid exploratory data analysis for machine learing](notebooks/TestGrid_indepth_EDA.ipynb)
+* [TestGrid data access and preprocessing](notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
+* [Indepth TestGrid exploratory data analysis for machine learing](notebooks/data-sources/TestGrid/testgrid_indepth_EDA.ipynb)
 * [TestGrid sample dataset](data/raw/testgrid_810.json.gz)
 * Prow data access and preprocessing (forthcoming)
-*  gcsweb data access and preprocessing (forthcoming)
+* gcsweb data access and preprocessing (forthcoming)
 
 **2 ) TestGrid Failure Type Classification**
 
-Automate an existing manual process of identifying different failure types for individual testgrids, identifying flakey tests, infra flakes, install flakes and new test failures. [Detailed project description](docs/failure-type-classification-with-the-testgrid-data-project-doc.md)
+Automate an existing manual process of identifying different failure types for individual testgrids, identifying flakey tests, infra flakes, install flakes and new test failures. [Detailed project description](notebooks/failure-type-classification/README.md)
 
-* [Flake detection in TestGrid](notebooks/Testgrid_flakiness_detection.ipynb)
+* [Flake detection in TestGrid](notebooks/failure-type-classification/background/testgrid_flakiness_detection.ipynb)
 * [Failure Type Classification](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/41)
 
 **3 ) Improved Reporting and Visualization**
