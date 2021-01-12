@@ -29,7 +29,9 @@ DevOps engineers.
 ## Current Work
 
 * Interactive and reproducible notebooks for the [entire project](https://github.com/aicoe-aiops/ocp-ci-analysis) are available as an image on a public [jupyterhub](https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login) instance on the MOC.
-* Video explainer (forthcoming)
+* The following video describes the TestGrid ecosystem and data source as well as existing tools to access and prepare data for analysis with python.
+
+`video: https://www.youtube.com/watch?v=lY75bDv6kd4&feature=youtu.be`
 
 
 ## Active Projects:
