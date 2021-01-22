@@ -12,6 +12,7 @@ Sphinx = "*"
 src = {editable = true, path = "./"}
 awscli = "*"
 pandas = "*"
+pandas_profiling = "<2.10"
 numpy = "*"
 scikit-learn = "*"
 matplotlib = "*"
