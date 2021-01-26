@@ -9,7 +9,7 @@ coverage = "*"
 Sphinx = "*"
 
 [packages]
-src = {editable = true, path = "./"}
+src = {editable = true,path = "./"}
 awscli = "*"
 pandas = "*"
 pandas_profiling = "<2.10"
@@ -17,6 +17,7 @@ numpy = "*"
 scikit-learn = "*"
 matplotlib = "*"
 seaborn = "*"
+ipynb = "*"
 
 [requires]
 python_version = "3.6"
