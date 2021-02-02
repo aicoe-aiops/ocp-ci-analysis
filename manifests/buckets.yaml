@@ -1,0 +1,10 @@
+apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: black_flake
+spec:
+  generateBucketName: black_flake-
+  storageClassName: ocs-storagecluster-ceph-rgw
+  additionalConfig:
+    maxObjects: "1000"
+    maxSize: "4G"
