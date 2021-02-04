@@ -11,6 +11,7 @@ Sphinx = "*"
 [packages]
 src = {editable = true,path = "./"}
 awscli = "*"
+boto3 = "*"
 pandas = "*"
 pandas_profiling = "<2.10"
 numpy = "*"
