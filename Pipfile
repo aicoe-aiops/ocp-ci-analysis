@@ -9,7 +9,6 @@ coverage = "*"
 Sphinx = "*"
 
 [packages]
-src = {editable = true,path = "./"}
 awscli = "*"
 boto3 = "*"
 pandas = "*"
@@ -19,6 +18,7 @@ scikit-learn = "*"
 matplotlib = "*"
 seaborn = "*"
 ipynb = "*"
+bs4 = "*"
 
 [requires]
 python_version = "3.6"
