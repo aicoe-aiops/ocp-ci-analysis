@@ -6,7 +6,7 @@ check:
 build:
   build-stratergy: Source
   build-source-script: "image:///opt/app-root/builder"
-  base-image: quay.io/thoth-station/s2i-custom-py38-notebook:latest
+  base-image: quay.io/thoth-station/s2i-elyra-custom-notebook:latest
   custom-tag: latest
   registry: quay.io
   registry-org: aicoe
