@@ -18,7 +18,7 @@ scikit-learn = "*"
 matplotlib = "*"
 seaborn = "*"
 ipynb = "*"
-bs4 = "*"
+beautifulsoup4 = "==4.7.1"
 
 [requires]
 python_version = "3.6"
