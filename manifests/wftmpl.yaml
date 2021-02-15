@@ -1,63 +1,66 @@
 apiVersion: argoproj.io/v1alpha1
 kind: WorkflowTemplate
 metadata:
-  name: <CHANGE_ME>
+  name: ocp-ci-analysis
 spec:
   entrypoint: entrypoint
   templates:
-    # - name: entrypoint
-    #   steps:
-    #     - - name: data-collection
-    #         template: data-collection
-    #     - - name: analysis
-    #         template: analysis
-    #
-    # - name: data-collection
-    #   dag:
-    #     tasks:
-    #       - name: collect-raw-data
-    #         template: notebook-executor
-    #         arguments:
-    #           parameters: [{name: notebook, value: <PATH_WITHIN_NOTEBOOKS_FOLDER>}]
-    #       - ...
-    #
-    # - name: analysis
-    #   steps:
-    #     - - name: contributor-analysis
-    #         template: notebook-executor
-    #         arguments:
-    #           parameters: [{name: notebook, value: <PATH_WITHIN_NOTEBOOKS_FOLDER>}]
-    #       - ...
+    - name: entrypoint
+      steps:
+        - - name: metrics
+            template: metrics
+
+    - name: metrics
+      dag:
+        tasks:
+          - name: number-of-flakes
+            template: notebook-executor
+            arguments:
+              parameters:
+                [{ name: notebook, value: data-sources/TestGrid/number_of_flakes.ipynb }]
+
+          - name: persistent-failures
+            template: notebook-executor
+            arguments:
+              parameters:
+                [{ name: notebook, value: data-sources/TestGrid/persistent_failures_analysis.ipynb}]
+
+          - name: test-pass-failures
+            template: notebook-executor
+            arguments:
+              parameters:
+                [{ name: notebook, value: data-sources/TestGrid/test_pass_failures.ipynb}]
 
     - name: notebook-executor
       inputs:
         parameters:
           - name: notebook
+          - name: memory-limit
+            value: 4Gi
       outputs:
         artifacts:
-          - name: rendered_notebook
+          - name: "{{inputs.parameters.notebook}}"
             path: "/mnt/data/notebooks/{{inputs.parameters.notebook}}"
             archive:
               none: {}
             s3:
-              endpoint: s3.upshift.redhat.com:443
-              bucket: <CHANGE_ME>
+              endpoint: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
+              bucket: black-flake
               key: "production_data/rendered_notebooks/{{inputs.parameters.notebook}}"
               accessKeySecret:
-                key: access-key-id
-                name: <SECRET_NAME>
+                key: AWS_ACCESS_KEY_ID
+                name: black-flake
               secretKeySecret:
-                key: secret-access-key
-                name: <SECRET_NAME>
+                key: AWS_SECRET_ACCESS_KEY
+                name: black-flake
+      podSpecPatch: '{"containers":[{"name":"main", "resources":{"limits":{"memory": "{{inputs.parameters.memory-limit}}" }}}]}'
       container:
-        image: <CHANGE_ME>:latest
-        command: [jupyter-nbconvert]
+        image: ocp-ci-analysis:latest
+        command: [./notebook-executor.sh]
         args:
-          - --config
-          - .jupyter/jupyter_nbconvert_config.py
-          - "notebooks/{{inputs.parameters.notebook}}"
-        # If using different image than built by https://github.com/AICoE/s2i-custom-notebook, please change or remote the workingDir settings
-        workingDir: /opt/app-root/backup
+          - "notebooks/{{inputs.parameters.notebook}}" # input
+          - "/mnt/data/notebooks/{{inputs.parameters.notebook}}" # output
+        workingDir: /opt/app-root/src
         volumeMounts:
           - name: local-data-storage
             mountPath: /mnt/data
@@ -66,34 +69,36 @@ spec:
             value: /mnt/data
           - name: RUN_IN_AUTOMATION
             value: "true"
-          - name: NOTEBOOK_NAME
-            value: "{{inputs.parameters.notebook}}"
           - name: S3_ENDPOINT_URL
-            value: https://s3.upshift.redhat.com
+            value: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
           - name: S3_PROJECT_KEY
-            valueFrom:
-              secretKeyRef:
-                key: path
-                name: <SECRET_NAME>
+            value: ""
           - name: S3_BUCKET
-            valueFrom:
-              secretKeyRef:
-                key: bucket
-                name: <SECRET_NAME>
+            value: black-flake
           - name: AWS_ACCESS_KEY_ID
             valueFrom:
               secretKeyRef:
-                key: access-key-id
-                name: <SECRET_NAME>
+                key: AWS_ACCESS_KEY_ID
+                name: black-flake
           - name: AWS_SECRET_ACCESS_KEY
             valueFrom:
               secretKeyRef:
-                key: secret-access-key
-                name: <SECRET_NAME>
+                key: AWS_SECRET_ACCESS_KEY
+                name: black-flake
         resources:
           requests:
             cpu: 500m
             memory: 1Gi
           limits:
-            cpu: '2'
+            cpu: "2"
             memory: 4Gi
+
+  volumeClaimTemplates:
+    - metadata:
+        name: local-data-storage
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 10Gi
