@@ -17,19 +17,19 @@ spec:
             template: notebook-executor
             arguments:
               parameters:
-                [{ name: notebook, value: data-sources/TestGrid/number_of_flakes.ipynb }]
+                [{ name: notebook, value: data-sources/TestGrid/metrics/number_of_flakes.ipynb }]
 
           - name: persistent-failures
             template: notebook-executor
             arguments:
               parameters:
-                [{ name: notebook, value: data-sources/TestGrid/persistent_failures_analysis.ipynb}]
+                [{ name: notebook, value: data-sources/TestGrid/metrics/persistent_failures_analysis.ipynb}]
 
           - name: test-pass-failures
             template: notebook-executor
             arguments:
               parameters:
-                [{ name: notebook, value: data-sources/TestGrid/test_pass_failures.ipynb}]
+                [{ name: notebook, value: data-sources/TestGrid/metrics/test_pass_failures.ipynb}]
 
     - name: notebook-executor
       inputs:
