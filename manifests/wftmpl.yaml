@@ -7,13 +7,7 @@ spec:
   templates:
     - name: entrypoint
       steps:
-        - - name: metrics
-            template: metrics
-
-    - name: metrics
-      dag:
-        tasks:
-          - name: number-of-flakes
+        - - name: number-of-flakes
             template: notebook-executor
             arguments:
               parameters:
