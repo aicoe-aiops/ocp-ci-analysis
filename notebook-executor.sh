@@ -8,6 +8,9 @@ OUTPUT_FILE=$2
 # Ensure output folder exists
 mkdir -p "$(dirname $OUTPUT_FILE)"
 
+# The working directory
+WORKDIR=$(dirname $INPUT_FILE)
+
 # Execute the notebook
 # -k                              Sets the kernel name to the one available in the image
 # --log-output                    Log everything to stdout
@@ -17,5 +20,6 @@ mkdir -p "$(dirname $OUTPUT_FILE)"
 papermill \
     -k python3 \
     --log-output --log-level DEBUG \
+    --cwd $WORKDIR \
     --request-save-on-cell-execute --autosave-cell-every 10 \
     $INPUT_FILE $OUTPUT_FILE
