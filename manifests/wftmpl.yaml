@@ -38,7 +38,7 @@ spec:
             archive:
               none: {}
             s3:
-              endpoint: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
+              endpoint: https://rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
               bucket: black-flake
               key: "production_data/rendered_notebooks/{{inputs.parameters.notebook}}"
               accessKeySecret:
@@ -64,7 +64,7 @@ spec:
           - name: RUN_IN_AUTOMATION
             value: "true"
           - name: S3_ENDPOINT_URL
-            value: rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
+            value: https://rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
           - name: S3_PROJECT_KEY
             value: ""
           - name: S3_BUCKET
