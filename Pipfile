@@ -23,3 +23,9 @@ papermill = "*"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = false
+
+[thoth.allow_prereleases]
+black = true
