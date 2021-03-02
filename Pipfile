@@ -19,6 +19,13 @@ matplotlib = "*"
 seaborn = "*"
 ipynb = "*"
 beautifulsoup4 = "==4.7.1"
+papermill = "*"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = false
+
+[thoth.allow_prereleases]
+black = true

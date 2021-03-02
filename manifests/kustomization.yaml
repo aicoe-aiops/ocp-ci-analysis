@@ -4,3 +4,5 @@ commonLabels:
   app.kubernetes.io/name: black_flake
 resources:
   - buckets.yaml
+  - cronwf.yaml
+  - wftmpl.yaml

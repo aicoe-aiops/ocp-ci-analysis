@@ -3,7 +3,7 @@ kind: ObjectBucketClaim
 metadata:
   name: black-flake
 spec:
-  generateBucketName: black-flake-
+  bucketName: black-flake
   storageClassName: ocs-storagecluster-ceph-rgw
   additionalConfig:
     maxObjects: "1000"
