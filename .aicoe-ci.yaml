@@ -1,11 +1,8 @@
 # Setup and configuring aicoe-ci with configuration file `.aicoe-ci.yaml`
 # Example `.aicoe-ci.yaml` with a full list of config options is available here: https://github.com/AICoE/aicoe-ci/blob/master/docs/.aicoe-ci.yaml
 check:
-  - thoth-precommit
-  # Uncomment following line to build a public image of this repo
   - thoth-build
 
-# Uncomment following lines to build a public image of this repo
 build:
   build-stratergy: Source
   build-source-script: "image:///opt/app-root/builder"
