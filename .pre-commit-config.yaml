@@ -6,7 +6,7 @@ repos:
       - id: remove-tabs
 
   - repo: git://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0
+    rev: v3.4.0
     hooks:
       - id: trailing-whitespace
       - id: check-merge-conflict
@@ -27,7 +27,7 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.3.0
+    rev: v3.4.0
     hooks:
       - id: check-toml
       - id: check-yaml
@@ -35,7 +35,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.790
+    rev: v0.812
     hooks:
       - id: mypy
         exclude: '^(docs|tasks|tests)|setup\.py'
@@ -47,7 +47,7 @@ repos:
       - id: black
 
   - repo: https://github.com/tomcatling/black-nb
-    rev: '0.3.0'
+    rev: '0.4.0'
     hooks:
       - id: black-nb
 
