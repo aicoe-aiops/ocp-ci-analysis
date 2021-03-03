@@ -22,7 +22,7 @@ beautifulsoup4 = "==4.7.1"
 papermill = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = false
