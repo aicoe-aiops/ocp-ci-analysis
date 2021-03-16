@@ -4,7 +4,7 @@ metadata:
   name: black-flake
 spec:
   bucketName: black-flake
-  storageClassName: ocs-storagecluster-ceph-rgw
+  storageClassName: openshift-storage.noobaa.io
   additionalConfig:
     maxObjects: "1000"
     maxSize: "4G"
