@@ -1,6 +1,6 @@
 ### Notebooks
 
-This folder contains various reproducible and interactive Jupyter notebooks created for the project. These notebooks are also available for viewing on our public [JupyterHub instance](https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login).
+This folder contains various reproducible and interactive Jupyter notebooks created for the project. These notebooks are also available for viewing on our public [JupyterHub instance](https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/login).
 The notebook organizational structure is described in detail below.
 
 #### Data Sources
@@ -19,6 +19,7 @@ This folder contains:
       2. [`sippy-analysis.ipynb`](data-sources/Sippy/stage/sippy-analysis.ipynb) - Notebook analyzing the OpenShift CI test/job data from the [testgrid dashboards](https://testgrid.k8s.io/redhat-openshift-informing) that Sippy provides
 
 * a [`TestGrid`](data-sources/TestGrid) folder which consists of:
+  1. [`Metrics`](data-sources/TestGrid/metrics) - This folder contains notebooks that define, calculate, and save several KPIs that we believe are relevant to various personas (developer, manager, etc.) involved in the CI process.
   1. [`testgrid_EDA.ipynb`](data-sources/TestGrid/testgrid_EDA.ipynb) - Notebook which explores the existing TestGrid data at testgrid.k8s.io, giving specific attention to [Red Hat's OpenShift CI dashboards](https://testgrid.k8s.io/redhat-openshift-informing)
   2. [`testgrid_indepth_EDA.ipynb`](data-sources/TestGrid/testgrid_indepth_EDA.ipynb) - Notebook which follows up on the above notebook and provides additional insights to the testgrid data
   3. a [`background`](data-sources/TestGrid/background) folder which contains:
