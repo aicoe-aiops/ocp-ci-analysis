@@ -20,10 +20,11 @@ This folder contains:
 
 * a [`TestGrid`](data-sources/TestGrid) folder which consists of:
   1. [`Metrics`](data-sources/TestGrid/metrics) - This folder contains notebooks that define, calculate, and save several KPIs that we believe are relevant to various personas (developer, manager, etc.) involved in the CI process.
-  1. [`testgrid_EDA.ipynb`](data-sources/TestGrid/testgrid_EDA.ipynb) - Notebook which explores the existing TestGrid data at testgrid.k8s.io, giving specific attention to [Red Hat's OpenShift CI dashboards](https://testgrid.k8s.io/redhat-openshift-informing)
-  2. [`testgrid_indepth_EDA.ipynb`](data-sources/TestGrid/testgrid_indepth_EDA.ipynb) - Notebook which follows up on the above notebook and provides additional insights to the testgrid data
+  1. [`testgrid_EDA.ipynb`](data-sources/TestGrid/testgrid_EDA.ipynb) - Notebook which explores the existing TestGrid data at testgrid.k8s.io, giving specific attention to [Red Hat's OpenShift CI dashboards](https://testgrid.k8s.io/redhat-openshift-informing).
+  2. [`testgrid_indepth_EDA.ipynb`](data-sources/TestGrid/testgrid_indepth_EDA.ipynb) - Notebook which follows up on the above notebook and provides additional insights to the testgrid data.
+  3. [`testgrid_metadata_EDA.ipynb`](data-sources/TestGrid/testgrid_metadata_EDA.ipynb) - Notebook which explores metadata present at a Test level within the existing TestGrid data at testgrid.k8s.io.
   3. a [`background`](data-sources/TestGrid/background) folder which contains:
-      1. [`testgrid_feature_confirmation.ipynb`](data-sources/TestGrid/background/testgrid_feature_confirmation.ipynb) - Notebook determining if the testgrid features analzed in the [testgrid_EDA.ipynb](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb) notebook are uniform across grids
+      1. [`testgrid_feature_confirmation.ipynb`](data-sources/TestGrid/background/testgrid_feature_confirmation.ipynb) - Notebook determining if the testgrid features analzed in the [testgrid_EDA.ipynb](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb) notebook are uniform across grids.
 
 #### Failure Type Classification
 
