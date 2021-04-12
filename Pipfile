@@ -24,6 +24,7 @@ papermill = "*"
 python-dotenv = "*"
 black = "==20.8b1"
 pyarrow = "*"
+prometheus-api-client = "*"
 
 [requires]
 python_version = "3.8"
