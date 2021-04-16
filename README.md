@@ -1,64 +1,118 @@
-# AI Supported Continuous Integration Testing
 
-_Developing AI tools for developers by leveraging the open data made available by OpenShift and Kubernetes CI
-platforms._
+# AI Supported Continuous Integration
 
-AI Ops is a critical component of supporting any Open Hybrid Cloud infrastructure. As the systems we operate become
-larger and more complex, intelligent monitoring tools and response agents will become a necessity. In an effort to
-accelerate the development, access and reliability of these intelligent operations solutions, our aim here is to
-provide access to an open community, open operations data and open infrastructure for data scientists and devops
-engineers.
+_Developing AI tools for developers by leveraging the data made openly available by OpenShift and Kubernetes CI platforms._
 
-One major component of the operations workflow is Continuous Integration (CI), which involves running automated builds
-and tests of software before it is merged into a production code base. If you are developing a container orchestration
-platform like Kubernetes or OpenShift, these builds and tests will produce a lot of data that can be difficult to parse
-when you are trying to figure out why a build is failing or why a certain set of tests aren’t passing.
+AIOps is a critical component of supporting any Open Hybrid Cloud infrastructure. As the systems we operate become larger and more complex, intelligent monitoring tools and response agents will become a necessity. In an effort to accelerate the development, access and reliability of these intelligent operations, we aim to provide access to an open community with open operations data and an open infrastructure for data scientists and DevOps
+engineers to collaberate.
 
-OpenShift, Kubernetes and a few other platforms have made their CI data public. This is real world multimodal
-production operations data, a rarity for public data sets today. This represents a great starting point and first initial
-problem for the AIOps community to tackle. Our aim is to begin cultivating this open source AIOps project by
-developing, integrating and operating AI tools for CI by leveraging the open data that has been made available by
-OpenShift, Kubernetes and others.
+One major component of the software development and operations workflow is Continuous Integration (CI), which involves running automated builds and tests of software before it is merged into a production code base. For example, if you are developing a container orchestration platform like Kubernetes or OpenShift, these are huge code bases with large builds and many tests that will produce a lot of data that can be difficult to parse if you are trying to figure out why a build is failing or why a certain set of tests aren’t passing.
 
-The higher order goal to keep in mind for any tools developed here should be to assist developers in decreasing their
-time to resolution for issues that are signaled by anything present in the CI data. There are a lot of ways that this
-could be done, and instead of pre-defining a specific problem to solve, our immediate thinking is to make the initial
-tools and relevant data as accessible as possible to foster collaboration and contributions between data scientists and
-DevOps engineers.
+OpenShift, Kubernetes and a few other platforms have made their CI data public. This is real world multimodal production operations data, a rarity for public data sets today. This presents a great starting point and a first initial area of investigation for the AIOps community to tackle. Our aim is to cultivate open source AIOps projects by developing, integrating and operating AI tools for CI by leveraging the open data that has been made available by OpenShift, Kubernetes and others.
 
-## Current Work
+## Try it out!
 
-* Interactive and reproducible notebooks for the [entire project](https://github.com/aicoe-aiops/ocp-ci-analysis) are available as an image on a public [jupyterhub](https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login) instance on the MOC.
-* The following video describes the TestGrid ecosystem and data source as well as existing tools to access and prepare data for analysis with python.
+There are interactive and reproducible notebooks for this entire [project](https://github.com/aicoe-aiops/ocp-ci-analysis) available for anyone to start using on a public [JupyterHub](https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/login) instance on the [Massachusetts Open Cloud](https://massopen.cloud/) (MOC) right now! After signing in, please select the `ocp-ci-analysis:latest` image from the dropdown on the spawner page to explore this project.
 
-`video: https://www.youtube.com/watch?v=lY75bDv6kd4&feature=youtu.be`
+<br>
+
+## Current Work:
+
+###  Data Engineering: Metrics and KPIs for CI
+
+Before we attempt to apply any AI or machine learning techniques to improve the CI workflow, it is important that we know how to both quantify and evaluate the current state of the CI workflow. In order to do this we must establish and collect the relevant metrics and key performance indicators (KPIs) needed to measure it. This is a critical first step as it allows us to quantify the state of CI operations, as well as apply the KPIs we will need to evaluate the impact of our AI tools in the future.
+
+There are currently five open datasets that can be used to help us fully describe the CI process: Testgrid, Prow, Github, Telemetry and Bugzilla. This data is currently stored in disperate locations and does not exist in a data science friendly format ready for analysis. Below are our current efforts to collect and prepare each of these datasets for further analysis.
+
+<br>
+
+####  TestGrid:
+
+According to the project's [readme](https://github.com/GoogleCloudPlatform/testgrid), TestGrid is a, "highly configurable, interactive dashboard for viewing your test results in a grid!" In other words, it’s an aggregation and visualization platform for CI data. Testgrid primarily reports categorical metrics about which tests passed or failed during specific builds over a configurable time window.
+
+* [List of metrics and KPI's from TestGrid](notebooks/data-sources/TestGrid/metrics/README.md)
+* [TestGrid data access and pre-processing](notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
+* [Collect raw data notebook](notebooks/data-sources/TestGrid/metrics/get_raw_data.ipynb)
+* Visualization notebook
+* [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
+* [Explainer video](https://www.youtube.com/watch?v=lY75bDv6kd4)
+
+<br>
+
+#### Prow/GCS Artifacts:
+
+TestGrid provides the results of tests, but if we want to triage an issue and see the actual logs generated during the building and testing process, we will need to access the logs generated by [prow](https://prow.ci.openshift.org/) and stored in google cloud storage. This dataset contains all of the log data generated for each build and each job as directories and text files in remote storage.
+
+* Notebook (forthcoming)
+
+<br>
+
+#### Github:
+
+The builds and tests run by the CI process are required because of changes that are happening in the applications code base. The goal of CI is to automatically identify if any of these code changes will cause problems for the deployed application. Therefore, we also include information such as metadata and diff’s about the PR’s associated with the builds run by Prow. This dataset contains a mix of numerical, categorical and textual data types.
+
+* Notebook (forthcoming)
+
+<br>
+
+#### Bugzilla:
+
+[Bugzilla](https://bugzilla.redhat.com/) is Red Hat’s bug-tracking system and is used to submit and review defects that have been found in Red Hat distributions. In addition to TestGrid, analyzing bugs related to OpenShift CI can help us get into automated root cause analysis. This is primarily a dataset of human written text.
+
+* Notebook (forthcoming)
+
+<br>
+
+#### Telemetry:
+
+The builds and tests we are interested in analyzing run in the cloud and produce metrics about the resources they are using and report any alerts they experience while running. These metrics are stored in Thanos for users to query. Here we have primarily numerical time series data that describes the underlying state of the cluster running these builds and tests.
+
+* [Telemerty EDA notebook](notebooks/data-sources/Telemetry/telemetry_EDA.ipynb)
+
+<br>
+
+### How to Contribute to the data engineering:
+
+We encourage contributions to this work of developing additional KPI's by opening an [issue](https://github.com/aicoe-aiops/ocp-ci-analysis/issues) with the prefix `KPI Request:` to request a KPI you would like to have included or by writing a new notebook to fulfill one of the existing open `KPI Request:` issues. We have written a [KPI template notebook](notebooks/data-sources/TestGrid/metrics/metric_template.ipynb) to make contributing new metrics as simple and as uniform as possible.
+
+</br>
+
+## Machine Learning and Analytics Projects
+
+With the data sources made easily accessible and with the necessary metrics and KPIs available to quantify and evaluate the CI workflow we can start to apply some AI and machine learning techniques to help improve the CI workflow. There are many ways in which this could be done given the multimodal, multi-source nature of our data. Instead of defining a single specific problem to solve, our current aim is to use this repository as a hub for multiple machine learning and analytics projects centered around this data for AIOps problems focused on improving CI workflows. Below is a list of the current ML and analytics projects.
+
+</br>
+
+### TestGrid Failure Type Classification
+
+Currently, human subject matter experts are able to identify different types of failures by looking at the testgrids. This is, however, a manual process.  This project aims to automate the manual identification process for individual Testgrids. This can be thought of as a classification problem aimed at classifying errors on the testgrids as either flakey tests, infra flakes, install flakes or new test failures.
+
+* [Detailed project description](notebooks/failure-type-classification/README.md)
+* [Failure Type Classification Notebook](notebooks/failure-type-classification/stage/failure_type_classifier.ipynb)
+
+</br>
+
+### Prow Log Templating For Downstream ML Tasks
+
+Logs represent a rich source of information for automated triaging and root cause analysis. Unfortunately, logs are very noisy data types, i.e, two logs that are of the same type but from two different sources may be different enough at a character level that traditional comparison methods are insufficient to capture this similarity. To overcome this issue, we will use the Prow logs made available to us by this project to identify useful methods for learning log templates that denoise log data and help improve performance on downstream ML tasks.
 
 
-## Active Projects:
+*   Notebook (forthcoming)
 
-**1 ) Data Access and Management**
+</br>
 
-There is a lot of operations data available to us between gcsweb, prow and TestGrid, as data scientists, we need to develop methods for accessing and processing it in data science friendly formats and identify what kind of ML approaches are possible. The outcome of this work will be a set of reproducible notebooks that explain the data and make it easy to start performing analysis or training models.
+### More Projects Coming Soon…
 
-* [TestGrid data access and preprocessing](notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
-* [Indepth TestGrid exploratory data analysis for machine learing](notebooks/data-sources/TestGrid/testgrid_indepth_EDA.ipynb)
-* [TestGrid sample dataset](data/raw/testgrid_810.json.gz)
-* Prow data access and preprocessing (forthcoming)
-* gcsweb data access and preprocessing (forthcoming)
+*   [List of potential ML projects](https://github.com/aicoe-aiops/ocp-ci-analysis/issues?q=is%3Aissue+is%3Aopen+%22ML+Request%22+)
 
-**2 ) TestGrid Failure Type Classification**
+</br>
 
-Automate an existing manual process of identifying different failure types for individual testgrids, identifying flakey tests, infra flakes, install flakes and new test failures. [Detailed project description](notebooks/failure-type-classification/README.md)
+### How to contribute to Machine Learning
 
-* [Flake detection in TestGrid](notebooks/failure-type-classification/background/testgrid_flakiness_detection.ipynb)
-* [Failure Type Classification](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/41)
+We encourage you to contribute to this work developing additional machine learning analyses by opening an [issue](https://github.com/aicoe-aiops/ocp-ci-analysis/issues) with the prefix `ML Request:` to request a machine learning application you would like to have included or by writing a new notebook to fulfill one of the existing open `ML Request:` issues.
 
-**3 ) Improved Reporting and Visualization**
+</br>
 
-Any analysis or predictive tool needs to be accessible and actionable for them to drive value to the end user. To that end, we are also looking at ways to improve upon the existing reporting and visualizations available to developers who rely on CI data.
+### @Contact
 
-* [Review existing CI data reporting tools](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/32)
-
-## Contribute:
-
-Please review our [issues](https://github.com/aicoe-aiops/ocp-ci-analysis/issues) page, we welcome contributions there by creating new issues for additional analysis projects or taking on an existing analysis issue.
+This project is maintained as part of the [Operate First](https://www.operate-first.cloud/) and AIOps teams in Red Hat’s AI CoE as part of the Office of the CTO. More information can be found at https://www.operate-first.cloud/
