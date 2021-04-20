@@ -5,7 +5,7 @@ The notebook organizational structure is described in detail below.
 
 #### Data Sources
 
-The notebooks defined in the [`data-sources`](data-sources) folder, explore and analyze the [Sippy](https://github.com/openshift/sippy) and [TestGrid](https://github.com/GoogleCloudPlatform/testgrid) data sources.
+The notebooks defined in the [`data-sources`](data-sources) folder, explore and analyze the [Sippy](https://github.com/openshift/sippy) and [TestGrid](https://github.com/GoogleCloudPlatform/testgrid) data sources, as well as log output from OpenShift CI.
 
 1. **Sippy** - A Continuous Integration Private Investigator tool to process the job results from https://testgrid.k8s.io/. It reports on which tests fail most frequently along different dimensions such as by job, by platform, by sig etc.
 2. **TestGrid** -  A highly-configurable, interactive dashboard for viewing your test results in a grid.
@@ -25,6 +25,10 @@ This folder contains:
   3. [`testgrid_metadata_EDA.ipynb`](data-sources/TestGrid/testgrid_metadata_EDA.ipynb) - Notebook which explores metadata present at a Test level within the existing TestGrid data at testgrid.k8s.io.
   3. a [`background`](data-sources/TestGrid/background) folder which contains:
       1. [`testgrid_feature_confirmation.ipynb`](data-sources/TestGrid/background/testgrid_feature_confirmation.ipynb) - Notebook determining if the testgrid features analzed in the [testgrid_EDA.ipynb](https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb) notebook are uniform across grids.
+
+* a [`gcsweb-ci`](data-sources/gcsweb-ci) folder which consists of:
+  1. a [`build-logs`](data-sources/gcsweb-ci/build-logs) folder to work with build logs from OpenShift CI jobs:
+     1. [`build_log_EDA.ipynb`](data-sources/gcsweb-ci/build-logs/build_log_EDA.ipynb) - Notebook that can download build log data and provides an overview of it.
 
 #### Failure Type Classification
 
