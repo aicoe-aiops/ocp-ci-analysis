@@ -40,7 +40,7 @@ elyra-metadata install runtime-images --display_name="OCP-CI-Project-Workflow" -
 5. Next we will create a runtime to be used in the Kubeflow pipeline using the CLI using the following command. This can also be done using the UI.
 
 ```
-elyra-metadata install runtimes --display_name="KFP operate first" --api_endpoint="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline" --engine=Tekton --cos_endpoint=CLOUD_OBJECT_STORAGE_ENDPOINT --cos_username=CLOUD_OBJECT_STORAGE_USERNAME --cos_password=CLOUD_OBJECT_STORAGE_PASSWORD --cos_bucket=CLOUD_OBJECT_BUCKET_NAME
+elyra-metadata install runtimes --display_name="KFP operate first" --api_endpoint="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline" --schema_name=kfp --engine=Tekton --cos_endpoint=CLOUD_OBJECT_STORAGE_ENDPOINT --cos_username=CLOUD_OBJECT_STORAGE_USERNAME --cos_password=CLOUD_OBJECT_STORAGE_PASSWORD --cos_bucket=CLOUD_OBJECT_BUCKET_NAME
 ```
 
 6. Once we have created the runtime, we will open a new Elyra Pipeline Editor (by Ctrl + Shift + C ) and drag and drop notebooks which we want to add to the pipeline and connect them in the sequence we want them to run in.
