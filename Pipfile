@@ -26,6 +26,8 @@ black = "==20.8b1"
 pyarrow = "*"
 prometheus-api-client = "*"
 google-cloud-storage = "*"
+python-bugzilla = "*"
+wordcloud = "*"
 
 [requires]
 python_version = "3.8"
