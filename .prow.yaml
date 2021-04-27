@@ -14,4 +14,4 @@ presubmits:
           resources:
             requests:
               memory: "2Gi"
-              cpu: "2"
+              cpu: "200m"

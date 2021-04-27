@@ -46,8 +46,8 @@ repos:
     hooks:
       - id: black
 
-  - repo: https://github.com/tomcatling/black-nb
-    rev: '0.4.0'
+  - repo: https://github.com/harshad16/black-nb
+    rev: '0.4.1'
     hooks:
       - id: black-nb
 
