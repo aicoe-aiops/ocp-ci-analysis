@@ -27,7 +27,7 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 2,
+            "cpu": 1,
             "memory": 8,
             "invalidNodeError": null,
             "ui_data": {
@@ -87,13 +87,13 @@
               "metric_template.ipynb"
             ],
             "invalidNodeError": null,
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "ui_data": {
               "label": "number_of_flakes.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 454,
-              "y_pos": 65,
+              "x_pos": 512,
+              "y_pos": 150,
               "description": "Notebook file"
             }
           },
@@ -153,13 +153,13 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "ui_data": {
               "label": "blocked_timed_out.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 630,
-              "y_pos": 514.9999847412109,
+              "x_pos": 513,
+              "y_pos": 570.9999847412109,
               "description": "Notebook file"
             }
           },
@@ -211,9 +211,7 @@
               "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
               "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
-              null,
-              "IN_AUTOMATION=True",
-              null
+              "IN_AUTOMATION=True"
             ],
             "include_subdirectories": false,
             "invalidNodeError": null,
@@ -221,13 +219,13 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "ui_data": {
               "label": "build_pass_failure.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 700,
-              "y_pos": 399,
+              "x_pos": 514,
+              "y_pos": 501,
               "description": "Notebook file"
             }
           },
@@ -287,13 +285,13 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "ui_data": {
               "label": "correlated_failures.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 574,
-              "y_pos": 141.99998474121094,
+              "x_pos": 509,
+              "y_pos": 287.99998474121094,
               "description": "Notebook file"
             }
           },
@@ -353,13 +351,13 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 65,
             "ui_data": {
               "label": "pct_fixed_each_ts.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 673,
-              "y_pos": 214.99998474121094,
+              "x_pos": 510,
+              "y_pos": 356.99998474121094,
               "description": "Notebook file"
             }
           },
@@ -419,13 +417,13 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "ui_data": {
               "label": "persistent_failures_analysis.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 691.9950561523438,
-              "y_pos": 95.96393585205078,
+              "x_pos": 509.99505615234375,
+              "y_pos": 219.96393585205078,
               "description": "Notebook file"
             }
           },
@@ -485,13 +483,13 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "ui_data": {
               "label": "test_pass_failures.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 704.8891906738281,
-              "y_pos": 297.79388427734375,
+              "x_pos": 512.8891906738281,
+              "y_pos": 428.79388427734375,
               "description": "Notebook file"
             }
           },
@@ -550,14 +548,14 @@
             "dependencies": [
               "metric_template.ipynb"
             ],
-            "cpu": 4,
+            "cpu": 1,
             "memory": 16,
             "invalidNodeError": null,
             "ui_data": {
               "label": "time_to_test.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 165,
-              "y_pos": 67.99998474121094,
+              "x_pos": 511,
+              "y_pos": 73.99998474121094,
               "description": "Notebook file"
             }
           },
