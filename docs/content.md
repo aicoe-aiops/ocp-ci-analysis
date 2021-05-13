@@ -1,11 +1,11 @@
 # Table of Contents
 - [Research on current industry offerings](#research-on-current-industry-offerings)
-- [Data Engineering: Metrics and KPIs for CI](#data-engineering--metrics-and-kpis-for-ci)
-  * [TestGrid](#testgrid-)
-  * [Prow/GCS Artifacts](#prow-gcs-artifacts-)
-  * [Github](#github-)
-  * [Bugzilla](#bugzilla-)
-  * [Telemetry](#telemetry-)
+- [Data Engineering: Metrics and KPIs for CI](#data-engineering-metrics-and-kpis-for-ci)
+  * [TestGrid](#testgrid)
+  * [Prow/GCS Artifacts](#prow-gcs-artifacts)
+  * [Github](#github)
+  * [Bugzilla](#bugzilla)
+  * [Telemetry](#telemetry)
 - [Machine Learning and Analytics Projects](#machine-learning-and-analytics-projects)
   * [TestGrid Failure Type Classification](#testgrid-failure-type-classification)
   * [Prow Log Templating For Downstream ML Tasks](#prow-log-templating-for-downstream-ml-tasks)
@@ -26,9 +26,9 @@ There are currently five open datasets that can be used to help us fully describ
 
 According to the project's [readme](https://github.com/GoogleCloudPlatform/testgrid), TestGrid is a, "highly configurable, interactive dashboard for viewing your test results in a grid!" In other words, it’s an aggregation and visualization platform for CI data. Testgrid primarily reports categorical metrics about which tests passed or failed during specific builds over a configurable time window.
 
-* [List of metrics and KPI's from TestGrid](notebooks/data-sources/TestGrid/metrics/README.md)
-* [TestGrid data access and pre-processing](notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
-* [Collect raw data notebook](notebooks/data-sources/TestGrid/metrics/get_raw_data.ipynb)
+* [List of metrics and KPI's from TestGrid](../notebooks/data-sources/TestGrid/metrics/README.md)
+* [TestGrid data access and pre-processing](../notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
+* [Collect raw data notebook](../notebooks/data-sources/TestGrid/metrics/get_raw_data.ipynb)
 * Visualization notebook
 * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
 * [Explainer video](https://www.youtube.com/watch?v=lY75bDv6kd4)
@@ -49,13 +49,13 @@ The builds and tests run by the CI process are required because of changes that 
 
 [Bugzilla](https://bugzilla.redhat.com/) is Red Hat’s bug-tracking system and is used to submit and review defects that have been found in Red Hat distributions. In addition to TestGrid, analyzing bugs related to OpenShift CI can help us get into automated root cause analysis. This is primarily a dataset of human written text.
 
-* [Bugzilla EDA notebook](notebooks/data-sources/Bugzilla/bugzilla_EDA.ipynb)
+* [Bugzilla EDA notebook](../notebooks/data-sources/Bugzilla/bugzilla_EDA.ipynb)
 
 ## Telemetry:
 
 The builds and tests we are interested in analyzing run in the cloud and produce metrics about the resources they are using and report any alerts they experience while running. These metrics are stored in Thanos for users to query. Here we have primarily numerical time series data that describes the underlying state of the cluster running these builds and tests.
 
-* [Telemerty EDA notebook](notebooks/data-sources/Telemetry/telemetry_EDA.ipynb)
+* [Telemerty EDA notebook](../notebooks/data-sources/Telemetry/telemetry_EDA.ipynb)
 
 #  Machine Learning and Analytics Projects
 
@@ -65,8 +65,8 @@ With the data sources made easily accessible and with the necessary metrics and 
 
 Currently, human subject matter experts are able to identify different types of failures by looking at the testgrids. This is, however, a manual process.  This project aims to automate the manual identification process for individual Testgrids. This can be thought of as a classification problem aimed at classifying errors on the testgrids as either flakey tests, infra flakes, install flakes or new test failures.
 
-* [Detailed project description](notebooks/failure-type-classification/README.md)
-* [Failure Type Classification Notebook](notebooks/failure-type-classification/stage/failure_type_classifier.ipynb)
+* [Detailed project description](../notebooks/failure-type-classification/README.md)
+* [Failure Type Classification Notebook](../notebooks/failure-type-classification/stage/failure_type_classifier.ipynb)
 
 ## Prow Log Templating For Downstream ML Tasks
 
