@@ -13,5 +13,8 @@ presubmits:
             - "--all-files"
           resources:
             requests:
+              memory: "1Gi"
+              cpu: "300m"
+            limits:
               memory: "2Gi"
-              cpu: "200m"
+              cpu: "300m"
