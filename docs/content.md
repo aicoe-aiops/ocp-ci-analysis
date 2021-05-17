@@ -80,4 +80,7 @@ Logs represent a rich source of information for automated triaging and root caus
 
 # Automate Notebook Pipelines using Elyra and Kubeflow
 
-In order to automate the sequential running of the various notebooks in the project responsible for data collection, metric calculation, ML analysis, we are using Kubeflow Pipelines.  For more information on using Elyra and Kubeflow pipelines to automate the notebook workflows follow the [guide](automating-using-elyra.md).
+In order to automate the sequential running of the various notebooks in the project responsible for data collection, metric calculation, ML analysis, we are using Kubeflow Pipelines.  For more information on using Elyra and Kubeflow pipelines to automate the notebook workflows you can go through the following resources.
+
+* [Guide](automating-using-elyra.md)
+* [Tutorial Video](https://youtu.be/bh5WpKq3W7Y)
