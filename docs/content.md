@@ -43,7 +43,8 @@ TestGrid provides the results of tests, but if we want to triage an issue and se
 
 The builds and tests run by the CI process are required because of changes that are happening in the applications code base. The goal of CI is to automatically identify if any of these code changes will cause problems for the deployed application. Therefore, we also include information such as metadata and diff’s about the PR’s associated with the builds run by Prow. This dataset contains a mix of numerical, categorical and textual data types.
 
-* Notebook (forthcoming)
+* [GitHub PR EDA](../notebooks/data-sources/oc-github-repo/github_PR_EDA.ipynb)
+* [Video Walkthrough](https://youtu.be/bUm0jvXaY14)
 
 ## Bugzilla:
 
