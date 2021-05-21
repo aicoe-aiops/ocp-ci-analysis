@@ -60,6 +60,7 @@ The builds and tests run by the CI process are required because of changes that 
 The builds and tests we are interested in analyzing run in the cloud and produce metrics about the resources they are using and report any alerts they experience while running. These metrics are stored in Thanos for users to query. Here we have primarily numerical time series data that describes the underlying state of the cluster running these builds and tests.
 
 * [Telemerty EDA notebook](../notebooks/data-sources/Telemetry/telemetry_EDA.ipynb)
+* [Video Walkthrough](https://youtu.be/D38gR-7c2dc)
 
 #  Machine Learning and Analytics Projects
 
