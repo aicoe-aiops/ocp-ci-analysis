@@ -53,6 +53,7 @@ The builds and tests run by the CI process are required because of changes that 
 [Bugzilla](https://bugzilla.redhat.com/) is Red Hat’s bug-tracking system and is used to submit and review defects that have been found in Red Hat distributions. In addition to TestGrid, analyzing bugs related to OpenShift CI can help us get into automated root cause analysis. This is primarily a dataset of human written text.
 
 * [Bugzilla EDA notebook](../notebooks/data-sources/Bugzilla/bugzilla_EDA.ipynb)
+* [Video Walkthrough](https://youtu.be/FMXv3l4NsPc)
 
 ## Telemetry:
 
