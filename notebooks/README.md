@@ -29,6 +29,7 @@ This folder contains:
 * a [`gcsweb-ci`](data-sources/gcsweb-ci) folder which consists of:
   1. a [`build-logs`](data-sources/gcsweb-ci/build-logs) folder to work with build logs from OpenShift CI jobs:
      1. [`build_log_EDA.ipynb`](data-sources/gcsweb-ci/build-logs/build_log_EDA.ipynb) - Notebook that can download build log data and provides an overview of it.
+     2. [`build_log_term_freq.ipynb`](data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb) - Notebook that applies term frequency analysis to build logs
 
 #### Failure Type Classification
 
