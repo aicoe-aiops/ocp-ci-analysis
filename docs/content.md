@@ -33,6 +33,7 @@ According to the project's [readme](https://github.com/GoogleCloudPlatform/testg
 * Visualization notebook
 * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
 * [Explainer video](https://www.youtube.com/watch?v=lY75bDv6kd4)
+* [In-depth EDA video](https://youtu.be/cx2ewhtohn4)
 
 ## Prow/GCS Artifacts:
 
