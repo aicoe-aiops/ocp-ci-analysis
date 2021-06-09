@@ -1,0 +1,149 @@
+{
+  "doc_type": "pipeline",
+  "version": "3.0",
+  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id": "d99be5d9-d621-48de-8330-8b6687eb62d0",
+  "primary_pipeline": "5c1f75fc-9bab-4da2-bb80-2bfa9abc48de",
+  "pipelines": [
+    {
+      "id": "5c1f75fc-9bab-4da2-bb80-2bfa9abc48de",
+      "nodes": [
+        {
+          "id": "a2d8eb37-bf29-46ee-9531-14d00e50fe65",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "failure_type_classifier.ipynb",
+            "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
+            "env_vars": [
+              "S3_ENDPOINT=http://s3.openshift-storage.svc/",
+              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
+              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
+              "S3_BUCKET=opf-datacatalog",
+              "IN_AUTOMATION=True"
+            ],
+            "include_subdirectories": false,
+            "invalidNodeError": null,
+            "outputs": [],
+            "dependencies": [
+              "metric_template.ipynb",
+              "testgrid_flakiness_detection.ipynb",
+              "failure_type_functions.ipynb"
+            ],
+            "cpu": 4,
+            "memory": 16,
+            "ui_data": {
+              "label": "failure_type_classifier.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 293.67181396484375,
+              "y_pos": 113.6640853881836,
+              "description": "Notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "33e152c2-ab30-4b98-b4db-c615a8ec9e8f",
+                  "node_id_ref": "8a912a87-df6c-4eec-a5d6-8972ce40b57d",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "8a912a87-df6c-4eec-a5d6-8972ce40b57d",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "../data-sources/TestGrid/metrics/get_raw_data.ipynb",
+            "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
+            "env_vars": [
+              "S3_ENDPOINT=http://s3.openshift-storage.svc/",
+              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
+              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
+              "S3_BUCKET=opf-datacatalog",
+              "IN_AUTOMATION=True"
+            ],
+            "include_subdirectories": false,
+            "outputs": [],
+            "dependencies": [
+              "metric_template.ipynb"
+            ],
+            "invalidNodeError": null,
+            "cpu": 2,
+            "memory": 16,
+            "ui_data": {
+              "label": "get_raw_data.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 19.776451110839844,
+              "y_pos": 97.1494140625,
+              "description": "Notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "app_data": {
+        "ui_data": {
+          "comments": []
+        },
+        "version": 3
+      },
+      "runtime_ref": ""
+    }
+  ],
+  "schemas": []
+}
