@@ -36,9 +36,9 @@ Given a TestGrid, we want to classify/detect different failure patterns occurrin
 
 2. Jupyterhub image to reproduce the results.
 
-3. Public blog explaining analysis and results.
+3. Public video explaining analysis and results.
 
-4. Results hosted for SME to review
+4. Results hosted for SME to review.
 
 ### C. Provide a solution in terms of human actions to confirm if the task is within the scope of automation through AI.
 
@@ -46,4 +46,4 @@ Without AI and automation tooling, SME will need to go to TestGrid data of a par
 
 ### D. Outline a path to operationalization.
 
-Once we have notebooks ready, we will build a Notebook-based Pipeline using Elyra. The results will be stored in S3. We can then use Superset as our dashboard and visualization tool, which SME/developers can access and give feedback. If the tool is deemed useful, we could also look into integrating it with the existing TestGrid project.
+We have built a Notebook-based Pipeline using Elyra, as seen [here](./failure.pipeline). The results will be stored in S3. Our next steps are to use Superset as our dashboard and visualization tool, which SME/developers can access and give feedback.
