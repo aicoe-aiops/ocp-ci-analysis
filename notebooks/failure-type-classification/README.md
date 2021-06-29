@@ -12,17 +12,15 @@ In this project, our objective is to automate the failure type classification ta
 
  Figure 1: Different type of failures in TestGrid
 
- In the following section, we discuss the different patterns in more detail.
+ In the following section, we discuss the different patterns, for more detail, see [here](https://github.com/aicoe-aiops/ocp-ci-analysis/issues/1).
 
-* Rows with red interspersed with green: This usually means a flakey test.  Flakey tests pass and fail across multiple runs over a certain period of time. We can trigger this test behavior by using the concept of edge. Edge is the transition of a particular test case from pass to fail on the successive run. We can model edges using a different technique to detect a flakey test.
+* Flakey tests: _Rows with red interspersed with green_ usually means a flakey test.  Flakey tests pass and fail across multiple runs over a certain period of time. We can trigger this test behavior by using the concept of edge. Edge is the transition of a particular test case from pass to fail on the successive run. We can model edges using a different technique to detect a flakey test.
 
-* Rows with solid red chunks: This behavior is almost always a regression either in the test or the product.  We can analyze each row to check continuous red cells for detecting install flakes.
+* Install flakes: _Vertical white columns_ usually means "install failed". That's because we can't run tests if the installer didn't complete, and test grid omits squares. Almost every "infrastructure" flake related to the process of CI will be in this category - if there is any green in the column, odds are the problem is either in the test or in the cluster, not in the CI cluster or the job itself (very rarely will this be something network related).
 
-* Rows with solid red chunks and white to the right: This behavior usually means a new test was added that is failing when running in the release job. For each cell, we will check if there exist all failed test cases to the left and all passing test cases to the right. If there exists this pattern, we will trigger this error.
+* Infra flake: _Meandering failures moving from bottom to top, right to the left_, or failure waterfalls, usually means infra flake. We can generate convolutional filters manually to detect Failure waterfall patterns. If it’s hectic to encode all the patterns manually, we can also develop a method to create convolution filters to detect ‘Failure waterfall’ patterns automatically.
 
-* Repeating vertical red bars: This behavior usually means the subsystem has a bug, and we will find a set of rows that all fail together on the same runs. For this failure type we can also analyze each column to check for continuous red cells to detect subsystem bugs.
-
-* Failure waterfall:  If there are meandering failures moving from bottom to top, right to the left, this almost always means Infrak flake. We can generate convolutional filters manually to detect Failure waterfall patterns. If it’s hectic to encode all the patterns manually, we can also develop a method to create convolution filters to detect ‘Failure waterfall’ patterns automatically.
+* New test failure: _Rows with solid red chunks and white to the right_ usually means a new test was added that is failing when running in the release job. For each cell, we will check if there exist all failed test cases to the left and all passing test cases to the right. If there exists this pattern, we will trigger this error.
 
 If this project is successful, we will develop a tool to automatically analyze the TestGrid data. This tool will perform failure type classification with the Testgrid data to address an existing manual process executed by subject matter experts. Using the tool, the developers can focus on real issues and become more productive. Furthermore, we will provide insights about overall statistics about failures so that test developers can improve on existing test suites.
 
