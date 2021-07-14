@@ -30,7 +30,7 @@ According to the project's [readme](https://github.com/GoogleCloudPlatform/testg
 * [Metric template notebook](../notebooks/data-sources/TestGrid/metrics/metric_template.ipynb) and [explainer video](https://youtu.be/ouxtHH2vOHg)
 * [TestGrid data access and pre-processing](../notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
 * [Collect raw data notebook](../notebooks/data-sources/TestGrid/metrics/get_raw_data.ipynb)
-* Visualization notebook
+* [Visualization notebook](../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.ipynb)
 * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
 * [Explainer video](https://www.youtube.com/watch?v=lY75bDv6kd4)
 * [In-depth EDA video](https://youtu.be/cx2ewhtohn4)
