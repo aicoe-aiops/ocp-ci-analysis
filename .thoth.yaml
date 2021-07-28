@@ -20,6 +20,13 @@ managers:
     configuration:
       maintainers:
         - tumido
+        - MichaelClifford
+        - hemajv
+        - oindrillac
+        - chauhankaranraj
+        - Shreyanand
+        - aakankshaduggal
+        - isabelizimm
       assignees:
         - sesheta
       labels: [bot]
