@@ -76,8 +76,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -142,8 +140,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -208,8 +204,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -274,8 +268,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -290,7 +282,7 @@
             "ui_data": {
               "label": "correlated_failures.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 509,
+              "x_pos": 507.68597412109375,
               "y_pos": 287.99998474121094,
               "description": "Notebook file"
             }
@@ -340,8 +332,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -406,8 +396,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -422,7 +410,7 @@
             "ui_data": {
               "label": "persistent_failures_analysis.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 509.99505615234375,
+              "x_pos": 508.6810302734375,
               "y_pos": 219.96393585205078,
               "description": "Notebook file"
             }
@@ -472,8 +460,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -538,8 +524,6 @@
             "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
             "env_vars": [
               "S3_ENDPOINT=http://s3.openshift-storage.svc/",
-              "S3_ACCESS_KEY=v3FnruQ78kfeULDjejUB",
-              "S3_SECRET_KEY=kJiDiHXncLJOXbaL7Zeb5Ok+gkLt9sWIa1rWAJa0",
               "S3_BUCKET=opf-datacatalog",
               "IN_AUTOMATION=True"
             ],
@@ -574,6 +558,70 @@
               "links": [
                 {
                   "id": "3f2afe8e-1971-4cc0-a752-ec75085715fd",
+                  "node_id_ref": "7228b5b9-2a78-4988-9dbd-4d48982b2931",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "d8855ba0-32f1-4749-a70b-7753177f8370",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "probability_to_fail.ipynb",
+            "runtime_image": "quay.io/aicoe/ocp-ci-analysis:latest",
+            "env_vars": [
+              "IN_AUTOMATION=1",
+              "S3_BUCKET=opf-datacatalog",
+              "S3_ENDPOINT=http://s3.openshift-storage.svc/"
+            ],
+            "include_subdirectories": false,
+            "outputs": [],
+            "dependencies": [
+              "metric_template.ipynb"
+            ],
+            "cpu": 1,
+            "memory": 16,
+            "invalidNodeError": null,
+            "ui_data": {
+              "label": "probability_to_fail.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 517.0199584960938,
+              "y_pos": 641.5392456054688,
+              "description": "Notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "a7c8d1f9-014c-4c64-94d6-4870431ac6fa",
                   "node_id_ref": "7228b5b9-2a78-4988-9dbd-4d48982b2931",
                   "port_id_ref": "outPort"
                 }
