@@ -109,3 +109,7 @@ The following section describes what each of these KPIs represent, and links to 
 25. **Average time to test**: What is the average time taken to run builds and how does it change over time.
 
     [Time-to-test.ipynb](time_to_test.ipynb)
+
+26. **Probability to Fail**: What is the probability that a given test will fail for a given moment in time.
+
+    [Probability-to-fail.ipynb](probability_to_fail.ipynb)
