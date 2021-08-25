@@ -1,0 +1,15 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: ttm-sklearn-pipeline
+spec:
+  name: ttm-model-pipeline
+  predictors:
+  - graph:
+      children: []
+      implementation: SKLEARN_SERVER
+      modelUri: s3://opf-datacatalog/github/ttm-model/pipeline
+      envSecretRefName: seldon-init-container-secret
+      name: classifier
+    name: default
+    replicas: 1
