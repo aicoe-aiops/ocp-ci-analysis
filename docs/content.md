@@ -26,14 +26,21 @@ There are currently five open datasets that can be used to help us fully describ
 
 According to the project's [readme](https://github.com/GoogleCloudPlatform/testgrid), TestGrid is a, "highly configurable, interactive dashboard for viewing your test results in a grid!" In other words, it’s an aggregation and visualization platform for CI data. Testgrid primarily reports categorical metrics about which tests passed or failed during specific builds over a configurable time window.
 
-* [List of metrics and KPI's from TestGrid](../notebooks/data-sources/TestGrid/metrics/README.md)
-* [Metric template notebook](../notebooks/data-sources/TestGrid/metrics/metric_template.ipynb) and [explainer video](https://youtu.be/ouxtHH2vOHg)
-* [TestGrid data access and pre-processing](../notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
-* [Collect raw data notebook](../notebooks/data-sources/TestGrid/metrics/get_raw_data.ipynb)
-* [Visualization notebook](../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.ipynb) and [explainer video](https://youtu.be/SqGfbyEuZLE)
-* [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
-* [Explainer video](https://www.youtube.com/watch?v=lY75bDv6kd4)
-* [In-depth EDA video](https://youtu.be/cx2ewhtohn4)
+* **Data Collection**
+    * [Collect raw data notebook](../notebooks/data-sources/TestGrid/metrics/get_raw_data.ipynb)
+* **Data Exploration**
+    * [TestGrid data access and pre-processing](../notebooks/data-sources/TestGrid/testgrid_EDA.ipynb)
+    * [In-depth EDA video](https://youtu.be/cx2ewhtohn4)
+* **Metrics and KPIs**
+    * [List of metrics and KPI's from TestGrid](../notebooks/data-sources/TestGrid/metrics/README.md)
+    * [Metric template notebook](../notebooks/data-sources/TestGrid/metrics/metric_template.ipynb)
+    * [KPI Metric Contribution Video](https://youtu.be/ouxtHH2vOHg)
+* **Visualization of Metrics**
+    * [Visualization notebook](../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.ipynb)
+    * [Metric Visualization Video](https://youtu.be/SqGfbyEuZLE)
+* **Automate Workflows**
+    * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
+    * [How to  video](https://www.youtube.com/watch?v=lY75bDv6kd4)
 
 ## Prow/GCS Artifacts:
 
@@ -67,18 +74,32 @@ The builds and tests we are interested in analyzing run in the cloud and produce
 
 With the data sources made easily accessible and with the necessary metrics and KPIs available to quantify and evaluate the CI workflow we can start to apply some AI and machine learning techniques to help improve the CI workflow. There are many ways in which this could be done given the multimodal, multi-source nature of our data. Instead of defining a single specific problem to solve, our current aim is to use this repository as a hub for multiple machine learning and analytics projects centered around this data for AIOps problems focused on improving CI workflows. Below is a list of the current ML and analytics projects.
 
+## Github Time to Merge Prediction
+
+To quantify critical metrics within a software development workflow, we can start by calculating metrics related to code contributions. One such metric which can help identify bottlenecks within the development process can be the time taken to merge an open pull request. By predicting the time that it could take to merge a PR, we can better allocate development resources.
+
+We would like to create a GitHub bot that ingests information from a PR, including the written description, author, number of files, etc, in addition to the diff, and returns a prediction for how long it will take to be merged. For that, we train a model which can predict the time taken to merge a PR and classifies it into one of a few predefined time ranges.
+
+* [Detailed project description](../notebooks/time-to-merge-prediction/README.md)
+* Interactive model endpoint: http://ttm-pipeline-opf-seldon.apps.zero.massopen.cloud/predict
+* [Model Inference Notebook](../notebooks/time-to-merge-prediction/model_inference.ipynb)
+* [Time to Merge Model Training Notebook](../notebooks/time-to-merge-prediction/time_to_merge_model.ipynb)
+* [Deployment Configuration for Seldon Service](../notebooks/time-to-merge-prediction/seldon-deployment-config.yaml)
+
 ## TestGrid Failure Type Classification
 
 Currently, human subject matter experts are able to identify different types of failures by looking at the testgrids. This is, however, a manual process.  This project aims to automate the manual identification process for individual Testgrids. This can be thought of as a classification problem aimed at classifying errors on the testgrids as either flakey tests, infra flakes, install flakes or new test failures.
 
 * [Detailed project description](../notebooks/failure-type-classification/README.md)
-* [Failure Type Classification Notebook](../notebooks/failure-type-classification/stage/failure_type_classifier.ipynb)
+* [Failure Type Classification Notebook](../notebooks/failure-type-classification/failure_type_classifier.ipynb)
 
-## Prow Log Templating For Downstream ML Tasks
+## Prow Log Classification
 
 Logs represent a rich source of information for automated triaging and root cause analysis. Unfortunately, logs are very noisy data types, i.e, two logs that are of the same type but from two different sources may be different enough at a character level that traditional comparison methods are insufficient to capture this similarity. To overcome this issue, we will use the Prow logs made available to us by this project to identify useful methods for learning log templates that denoise log data and help improve performance on downstream ML tasks.
 
-*   Notebook (forthcoming)
+We start by applying a clustering algorithm to job runs based on the term frequency within their build logs to group  job runs according to their type of failure.
+
+* [Build Log Classification Notebook](../notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb)
 
 ## More Projects Coming Soon…
 
