@@ -4,10 +4,10 @@ To get started with familiarizing yourself with the AI for Continuous Integratio
 
 ## Contribute to a KPI Metric
 
-In order to quantify and evaluate the current state of the CI workflow, we have started to establish and collect the relevant metrics and key performance indicators (KPIs) needed to measure them. We have a list of [metrics](https://www.operate-first.cloud/data-science/ocp-ci-analysis/notebooks/data-sources/TestGrid/metrics/README.md) that we currently collect. We encourage contributions to this work of developing additional KPIs and metrics.
+In order to quantify and evaluate the current state of the CI workflow, we have started to establish and collect the relevant metrics and key performance indicators (KPIs) needed to measure them. We have a list of [metrics](../notebooks/data-sources/TestGrid/metrics/README.md) that we currently collect. We encourage contributions to this work of developing additional KPIs and metrics.
 
 - In order to include an additional KPI, you can open a KPI Request [issue](https://github.com/aicoe-aiops/ocp-ci-analysis/issues). Specify the KPI you wish to collect with the prefix `KPI Request:`.
-- In order to add a notebook to fulfill one of the existing open `KPI Request:` issues, you can use the [KPI template notebook](notebooks/data-sources/TestGrid/metrics/metric_template.ipynb). The template notebook has helper functions and examples to make contributing new metrics as simple and as uniform as possible.
+- In order to add a notebook to fulfill one of the existing open `KPI Request:` issues, you can use the [KPI template notebook](../notebooks/data-sources/TestGrid/metrics/metric_template.ipynb). The template notebook has helper functions and examples to make contributing new metrics as simple and as uniform as possible.
 - When defining the file prefix for your metrics stored in the shared ceph instance, please be sure to use the following format: `s3://opf-datacatalog/ai4ci/<dat_source>/metrics/<metric_name>/<date_analysis_was_generated>.parquet`
 - Submit a Pull Request to the [project repo](https://github.com/aicoe-aiops/ocp-ci-analysis) with your KPI analysis notebook.
 - In order to add the notebook to the automated Kubeflow workflow, follow intructions in the [guide](automating-using-elyra.md).

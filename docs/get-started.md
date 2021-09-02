@@ -21,7 +21,7 @@ If you need more help navigating the Operate First environment, we have a few [s
 
 ## Interact with Dashboards:
 
-As a part of AI4CI, we collect the relevant metrics and key performance indicators (KPIs) and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.operate-first.cloud/superset/dashboard/2/).
+As a part of AI4CI, we collect the relevant metrics and key performance indicators (KPIs) and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.apps.devconfus2021.aws.operate-first.cloud/superset/dashboard/ocp-ci-kpi-dashboard/).
 
 ## Interact with Model Endpoints:
 
