@@ -2,19 +2,19 @@
 - [Research on current industry offerings](#research-on-current-industry-offerings)
 - [Data Engineering: Metrics and KPIs for CI](#data-engineering-metrics-and-kpis-for-ci)
   * [TestGrid](#testgrid)
-  * [Prow/GCS Artifacts](#prow-gcs-artifacts)
+  * [Prow/GCS Artifacts](#prowgcs-artifacts)
   * [Github](#github)
   * [Bugzilla](#bugzilla)
   * [Telemetry](#telemetry)
 - [Machine Learning and Analytics Projects](#machine-learning-and-analytics-projects)
   * [TestGrid Failure Type Classification](#testgrid-failure-type-classification)
   * [Prow Log Templating For Downstream ML Tasks](#prow-log-templating-for-downstream-ml-tasks)
-  * [More Projects Coming Soon…](#more-projects-coming-soon-)
+  * [More Projects Coming Soon…](#more-projects-coming-soon)
 - [Automate Notebook Pipelines using Elyra and Kubeflow](#automate-notebook-pipelines-using-elyra-and-kubeflow)
 
 # Research on current industry offerings
 
-Find a curated list of companies involved in AI/ML for CI/CD [here](docs/aiml-cicd-market-research.md).
+Find a curated list of companies involved in AI/ML for CI/CD [here](aiml-cicd-market-research.md).
 
 #  Data Engineering: Metrics and KPIs for CI
 
@@ -67,7 +67,7 @@ The builds and tests run by the CI process are required because of changes that 
 
 The builds and tests we are interested in analyzing run in the cloud and produce metrics about the resources they are using and report any alerts they experience while running. These metrics are stored in Thanos for users to query. Here we have primarily numerical time series data that describes the underlying state of the cluster running these builds and tests.
 
-* [Telemerty EDA notebook](../notebooks/data-sources/Telemetry/telemetry_EDA.ipynb)
+* [Telemetry EDA notebook](../notebooks/data-sources/Telemetry/telemetry_EDA.ipynb)
 * [Video Walkthrough](https://youtu.be/D38gR-7c2dc)
 
 #  Machine Learning and Analytics Projects
