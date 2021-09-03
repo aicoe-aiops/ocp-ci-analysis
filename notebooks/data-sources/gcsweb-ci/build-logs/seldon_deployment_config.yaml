@@ -1,0 +1,19 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: build-log-clustering-sklearn
+spec:
+  name: build-log-clustering-model
+  predictors:
+  - graph:
+      children: []
+      implementation: SKLEARN_SERVER
+      modelUri: s3://opf-datacatalog/build-log-clustering/tfidf-kmeans
+      envSecretRefName: seldon-init-container-secret
+      name: classifier
+      parameters:
+        - name: method
+          type: STRING
+          value: predict
+    name: default
+    replicas: 1
