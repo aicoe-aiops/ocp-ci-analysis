@@ -1,0 +1,36 @@
+title: AI Supported Continuous Integration
+author: AIOps
+# logo: logo.png
+execute:
+  execute_notebooks: false
+
+# Only build files specified by the _toc
+only_build_toc_files: false
+
+# Exclude any additional file types being built
+exclude_patterns: [.github/*, manifests/*,  CHANGELOG.md, docs/images/*]
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/aicoe-aiops/ocp-ci-analysis  # Online location of your book
+  path_to_book: ""  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  google_analytics_id: ""  # A GA id that can be used to track book views.
+
+# Launch button settings
+launch_buttons:
+  notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url             : " "
+  jupyterhub_url            : https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud  # The URL of the JupyterHub
+  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+
+sphinx:
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js

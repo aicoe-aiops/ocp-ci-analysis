@@ -1,0 +1,64 @@
+format: jb-book
+root: README
+parts:
+  - caption: Getting started
+    chapters:
+    - file: docs/get-started
+    - file: docs/how-to-contribute
+    - file: docs/content
+  - caption: Failure type classifier
+    chapters:
+    - file: notebooks/failure-type-classification/README
+    - file: notebooks/failure-type-classification/testgrid_flakiness_detection
+    - file: notebooks/failure-type-classification/failure_type_classifier
+    - file: notebooks/failure-type-classification/failure_type_functions
+    - file: notebooks/failure-type-classification/model_seldon
+  - caption: Time to merge prediction
+    chapters:
+    - file: notebooks/time-to-merge-prediction/README
+    - file: notebooks/time-to-merge-prediction/time_to_merge_model
+    - file: notebooks/time-to-merge-prediction/model_inference
+  - caption: Build Log Classifier
+    chapters:
+    - file: notebooks/data-sources/gcsweb-ci/build-logs/build_log_EDA
+    - file: notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq
+    - file: notebooks/data-sources/gcsweb-ci/build-logs/model_seldon
+    - file: notebooks/data-sources/gcsweb-ci/prow_archive_discovery
+  - caption: TestGrid data
+    chapters:
+    - file: notebooks/data-sources/TestGrid/testgrid_EDA
+    - file: notebooks/data-sources/TestGrid/testgrid_indepth_EDA
+    - file: notebooks/data-sources/TestGrid/testgrid_metadata_EDA
+    - file: notebooks/data-sources/TestGrid/background/testgrid_feature_confirmation
+    - file: notebooks/data-sources/TestGrid/metrics/README
+      sections:
+      - file: notebooks/data-sources/TestGrid/metrics/number_of_flakes
+      - file: notebooks/data-sources/TestGrid/metrics/build_pass_failure
+      - file: notebooks/data-sources/TestGrid/metrics/correlated_failures
+      - file: notebooks/data-sources/TestGrid/metrics/blocked_timed_out
+      - file: notebooks/data-sources/TestGrid/metrics/pct_fixed_each_ts
+      - file: notebooks/data-sources/TestGrid/metrics/persistent_failures_analysis
+      - file: notebooks/data-sources/TestGrid/metrics/probability_to_fail
+      - file: notebooks/data-sources/TestGrid/metrics/test_pass_failures
+      - file: notebooks/data-sources/TestGrid/metrics/time_to_test
+      - file: notebooks/data-sources/TestGrid/metrics/time_to_fail
+      - file: notebooks/data-sources/TestGrid/metrics/validate_pipeline
+      - file: notebooks/data-sources/TestGrid/metrics/get_raw_data
+      - file: notebooks/data-sources/TestGrid/metrics/metric_template
+      - file: notebooks/data-sources/TestGrid/metrics/metric_visualization
+      - file: notebooks/data-sources/TestGrid/metrics/metric_visualization_generic
+  - caption: Bugzilla Data
+    chapters:
+    - file: notebooks/data-sources/Bugzilla/bugzilla_EDA
+
+  - caption: Github Repo PR data
+    chapters:
+    - file: notebooks/data-sources/oc-github-repo/github_PR_EDA
+  - caption: Sippy data
+    chapters:
+    - file: notebooks/data-sources/Sippy/stage/sippy_EDA
+    - file: notebooks/data-sources/Sippy/stage/sippy-analysis
+    - file: notebooks/data-sources/Sippy/sippy_failure_correlation
+  - caption: Telemetry data
+    chapters:
+    - file: notebooks/data-sources/Telemetry/telemetry_EDA
