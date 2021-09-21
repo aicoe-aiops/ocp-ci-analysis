@@ -28,6 +28,7 @@ prometheus-api-client = "*"
 google-cloud-storage = "*"
 python-bugzilla = "*"
 wordcloud = "*"
+trino = "*"
 
 [requires]
 python_version = "3.8"
