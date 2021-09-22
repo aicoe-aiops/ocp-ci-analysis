@@ -12,7 +12,7 @@ After collecting the data, we perform some initial exploration such as correlati
 
 We transform the input columns obtained from pull requests such as size of a PR, types of files added in a PR, description of a PR into various features which can be ingested by an ML Model.
 
-   * [Feature Engineering Notebook](../notebooks/data-sources/oc-github-repo/github_PR_EDA.ipynb)
+   * [Feature Engineering Notebook](../data-sources/oc-github-repo/github_PR_EDA.ipynb)
 
 ## Model Training
 
