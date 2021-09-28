@@ -9,7 +9,8 @@ A curated list of companies involved in AI/ML for CI/CD.
 Links:
 
 *   [Website](https://appsurify.com/flaky-tests/)
-*   [White Paper explaining their ML model for detecting flaking tests](https://appsurify.com/wp-content/uploads/2019/12/TestBrain-Risk-Model.pdf)
+*   [White Paper explaining their ML model for detecting flaking tests](https://appsurify.com/wp-content/uploads/2021/06/TestBrainMachineLearningRiskAnalysis.pdf)
+*   [White Paper explaining their ML model to determine the likelihood of the test failing based on a particular change](https://appsurify.com/wp-content/uploads/2021/06/Appsurify-TestSelectionAppsurify-Whitepaper.pdf)
 
 ### BuildPulse.io
 
