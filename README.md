@@ -1,4 +1,4 @@
-# AI Supported Continuous Integration
+# AI4CI : AI for Continuous Integration
 
 _Developing AI tools for developers by leveraging the data made openly available by OpenShift and Kubernetes CI platforms._
 
