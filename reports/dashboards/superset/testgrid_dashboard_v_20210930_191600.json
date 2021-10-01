@@ -1,0 +1,1628 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": "",
+                "dashboard_title": "AI4CI Dashboard",
+                "description": null,
+                "json_metadata": "{\"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"refresh_frequency\": 0, \"default_filters\": \"{}\", \"color_scheme\": null, \"filter_scopes\": {\"55\": {\"tab\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"75\": {\"test\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"78\": {\"grid\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}}, \"remote_id\": 1}",
+                "position_json": "{\"CHART--G-S1ZqZ9R\":{\"children\":[],\"id\":\"CHART--G-S1ZqZ9R\",\"meta\":{\"chartId\":7,\"height\":36,\"sliceName\":\"    \",\"uuid\":\"d43468d8-6088-4ae4-8f80-66e49a8c122b\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-E2uQDXtYR\"],\"type\":\"CHART\"},\"CHART-26Zl1a2YmY\":{\"children\":[],\"id\":\"CHART-26Zl1a2YmY\",\"meta\":{\"chartId\":18,\"height\":48,\"sliceName\":\" \",\"uuid\":\"a7e25e6c-b830-4f76-897c-f9104cf16274\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-Up4p2qy9dJ\",\"ROW-cP4w1iyjI\"],\"type\":\"CHART\"},\"CHART-6fbhTKcI21\":{\"children\":[],\"id\":\"CHART-6fbhTKcI21\",\"meta\":{\"chartId\":74,\"height\":42,\"sliceName\":\"Distribution of Builds Passing and Failing\",\"uuid\":\"0110858f-e9ad-45e1-a4b3-86f693ab9b69\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-2eOwJ9Z4Qx\",\"ROW-cO6e3vLPX\"],\"type\":\"CHART\"},\"CHART-8NJborasJU\":{\"children\":[],\"id\":\"CHART-8NJborasJU\",\"meta\":{\"chartId\":14,\"height\":42,\"sliceName\":\"Percent of Passing Tests\",\"uuid\":\"2fa0ea1d-6273-467d-9704-e40d5cef6d39\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\",\"ROW-ZqkPlLlxr\"],\"type\":\"CHART\"},\"CHART-C5ImyYEozH\":{\"children\":[],\"id\":\"CHART-C5ImyYEozH\",\"meta\":{\"chartId\":1,\"height\":28,\"sliceName\":\"                             \",\"uuid\":\"4b1f170b-8f97-497d-aa0e-2c12f5b98ece\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\",\"ROW-mE0d9vP79\"],\"type\":\"CHART\"},\"CHART-EZ2znRTkWR\":{\"children\":[],\"id\":\"CHART-EZ2znRTkWR\",\"meta\":{\"chartId\":10,\"height\":37,\"sliceName\":\"  \",\"uuid\":\"d3289caf-fe30-4a99-8971-715fe72af3ec\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-RXzX-1Rb7\"],\"type\":\"CHART\"},\"CHART-Fg4LeWwfJL\":{\"children\":[],\"id\":\"CHART-Fg4LeWwfJL\",\"meta\":{\"chartId\":45,\"height\":43,\"sliceName\":\"    \",\"uuid\":\"693a8aa5-fca5-47b6-95fe-dd7b93117e74\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-jlnQanJ7uQ\",\"ROW-qLtk2IJaa\"],\"type\":\"CHART\"},\"CHART-J1hgfGFTRy\":{\"children\":[],\"id\":\"CHART-J1hgfGFTRy\",\"meta\":{\"chartId\":75,\"height\":23,\"sliceName\":\"Tests\",\"uuid\":\"1ca67e8c-916d-41cc-8e11-3dfb6da20996\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-wkfxgKb9Vr\",\"TAB-L3cWcbcvgE\",\"ROW-4FGUrc8PO\"],\"type\":\"CHART\"},\"CHART-JDmVF107M8\":{\"children\":[],\"id\":\"CHART-JDmVF107M8\",\"meta\":{\"chartId\":2,\"height\":73,\"sliceName\":\"                       \",\"uuid\":\"197394d6-25b7-4b49-8110-f309c46b67e5\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\",\"ROW-YF1TS_orzM\"],\"type\":\"CHART\"},\"CHART-KgzK2OxpST\":{\"children\":[],\"id\":\"CHART-KgzK2OxpST\",\"meta\":{\"chartId\":5,\"height\":34,\"sliceName\":\"Total Number of Tests\",\"uuid\":\"bced4617-74db-4cea-a52c-f515c96f682f\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\",\"ROW-nQ3pyIdDl\"],\"type\":\"CHART\"},\"CHART-KnNROG4aIZ\":{\"children\":[],\"id\":\"CHART-KnNROG4aIZ\",\"meta\":{\"chartId\":55,\"height\":24,\"sliceName\":\"Tabs\",\"uuid\":\"5ea7688d-4665-49c1-b439-d2fc43121e1b\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-wkfxgKb9Vr\",\"TAB-L3cWcbcvgE\",\"ROW-4FGUrc8PO\"],\"type\":\"CHART\"},\"CHART-Ll23_plu98\":{\"children\":[],\"id\":\"CHART-Ll23_plu98\",\"meta\":{\"chartId\":71,\"height\":44,\"sliceName\":\"Number of builds passing\",\"uuid\":\"6e60d04a-a1c0-4bfa-bcb2-53703efcf65b\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-2eOwJ9Z4Qx\",\"ROW-trZumpcle\"],\"type\":\"CHART\"},\"CHART-QT_8QbJIYf\":{\"children\":[],\"id\":\"CHART-QT_8QbJIYf\",\"meta\":{\"chartId\":15,\"height\":42,\"sliceName\":\"Percent of Failing Tests\",\"uuid\":\"f5d03917-7c39-49c3-a65c-c2bc8615f413\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\",\"ROW-ZqkPlLlxr\"],\"type\":\"CHART\"},\"CHART-U0XkW_6pKC\":{\"children\":[],\"id\":\"CHART-U0XkW_6pKC\",\"meta\":{\"chartId\":4,\"height\":53,\"sliceName\":\"   \",\"uuid\":\"b76121a7-ea59-4f2c-ae39-b2d5d0871dad\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-niwQ7bZZzm\",\"ROW-mR6uiJSN-C\"],\"type\":\"CHART\"},\"CHART-W_TsS2sAac\":{\"children\":[],\"id\":\"CHART-W_TsS2sAac\",\"meta\":{\"chartId\":16,\"height\":55,\"sliceName\":\"  \",\"uuid\":\"8351cb41-fe09-460d-a327-81e4c8357ba1\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-Up4p2qy9dJ\",\"ROW--m76D0iT0\"],\"type\":\"CHART\"},\"CHART-ecr-i6-zND\":{\"children\":[],\"id\":\"CHART-ecr-i6-zND\",\"meta\":{\"chartId\":13,\"height\":35,\"sliceName\":\"Number of tests failing\",\"uuid\":\"20dc1a09-7079-4d64-b4c4-df9eda6d2e9c\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\",\"ROW-nQ3pyIdDl\"],\"type\":\"CHART\"},\"CHART-fbac0BmZI7\":{\"children\":[],\"id\":\"CHART-fbac0BmZI7\",\"meta\":{\"chartId\":70,\"height\":43,\"sliceName\":\"Number of builds failing\",\"uuid\":\"0db83166-3621-4653-a295-b0f83fa84e88\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-2eOwJ9Z4Qx\",\"ROW-trZumpcle\"],\"type\":\"CHART\"},\"CHART-hMo2OJPoVu\":{\"children\":[],\"id\":\"CHART-hMo2OJPoVu\",\"meta\":{\"chartId\":8,\"height\":37,\"sliceName\":\"      \",\"uuid\":\"8d9b5f20-564e-498c-a939-a6c15c51cf65\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-E2uQDXtYR\"],\"type\":\"CHART\"},\"CHART-kY0MGSy4jr\":{\"children\":[],\"id\":\"CHART-kY0MGSy4jr\",\"meta\":{\"chartId\":3,\"height\":44,\"sliceName\":\"  \",\"uuid\":\"96f5d35d-7f17-4a6a-8332-962170468a60\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\",\"ROW-OymnbdFjl\"],\"type\":\"CHART\"},\"CHART-nnoBJOemFL\":{\"children\":[],\"id\":\"CHART-nnoBJOemFL\",\"meta\":{\"chartId\":78,\"height\":23,\"sliceName\":\"Grids\",\"uuid\":\"06692d84-517f-42e1-a6a5-af88003d4b0f\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-wkfxgKb9Vr\",\"TAB-L3cWcbcvgE\",\"ROW-4FGUrc8PO\"],\"type\":\"CHART\"},\"CHART-qxo8epEuGL\":{\"children\":[],\"id\":\"CHART-qxo8epEuGL\",\"meta\":{\"chartId\":76,\"height\":30,\"sliceName\":\"      \",\"uuid\":\"7c0a5a6f-498e-46cf-a6cb-9cbf4d790f09\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-jlnQanJ7uQ\",\"ROW-OP6bJrqzuI\"],\"type\":\"CHART\"},\"CHART-uOibzBucIQ\":{\"children\":[],\"id\":\"CHART-uOibzBucIQ\",\"meta\":{\"chartId\":9,\"height\":37,\"sliceName\":\"   \",\"uuid\":\"70ccb1d2-d85b-44e7-9836-645e3c5315fa\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-RXzX-1Rb7\"],\"type\":\"CHART\"},\"CHART-v5gwLsI4lw\":{\"children\":[],\"id\":\"CHART-v5gwLsI4lw\",\"meta\":{\"chartId\":11,\"height\":36,\"sliceName\":\"Number of tests passing\",\"uuid\":\"e9c62aaa-3b5b-40f0-a37d-cbf58692ad7a\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\",\"ROW-nQ3pyIdDl\"],\"type\":\"CHART\"},\"CHART-x0AgnF4JUx\":{\"children\":[],\"id\":\"CHART-x0AgnF4JUx\",\"meta\":{\"chartId\":17,\"height\":43,\"sliceName\":\"Total Number of Builds\",\"uuid\":\"b6f16a33-0553-4e0d-9331-ae009de93e0b\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-2eOwJ9Z4Qx\",\"ROW-trZumpcle\"],\"type\":\"CHART\"},\"CHART-y5zmy0ph-2\":{\"children\":[],\"id\":\"CHART-y5zmy0ph-2\",\"meta\":{\"chartId\":12,\"height\":53,\"sliceName\":\"                                              \",\"uuid\":\"ed7e1d3f-e647-4eda-bec2-26c920e6324b\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-W39etkFsvi\",\"ROW-zS0vlGzsBE\"],\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"TABS-wkfxgKb9Vr\",\"TABS-SvEOCd7SQ8\",\"TABS-_WIe5ZMXTe\",\"TABS-mGuM4RgMtW\",\"TABS-5Qz5NWp77Y\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"AI4CI Dashboard\"},\"type\":\"HEADER\"},\"MARKDOWN-8ZlPpRcJPg\":{\"children\":[],\"id\":\"MARKDOWN-8ZlPpRcJPg\",\"meta\":{\"code\":\"\\n### Flake Severity\\n\\n\\nSome tests would be flaky for a lot of builds and thus have a high flake rate or severity. This chart plots the numbber of flakes per test and can be leveraged to help prioritize the work needed to resolve the flake issues.\",\"height\":61,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\",\"ROW-YF1TS_orzM\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-9FArpKt58_\":{\"children\":[],\"id\":\"MARKDOWN-9FArpKt58_\",\"meta\":{\"code\":\"### Correlated Test Failures\\n\\n\\n\\nCorrelated test failures are the failed tests that are highly similar or correlated with a given test i.e. with a correlation coefficient of 0.9 or above.\\n\\nThis table highlights the highly correlated tests for each test.\",\"height\":35,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-jlnQanJ7uQ\",\"ROW-qLtk2IJaa\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-BSZY-uQSW6\":{\"children\":[],\"id\":\"MARKDOWN-BSZY-uQSW6\",\"meta\":{\"code\":\"### Fail To Pass Rate\\n\\nWhat percentage of test runs resulted in a \\u201cfail\\u201d to \\u201cpass\\u201d transition.\",\"height\":37,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-RXzX-1Rb7\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-LHkmQbianr\":{\"children\":[],\"id\":\"MARKDOWN-LHkmQbianr\",\"meta\":{\"code\":\"### Consecutive Failure Rate\\n\\nWhat percentage of failing tests stay failing for more than one build. That is, what percentage of failing tests are not \\u201cone-off\\u201d failures.\",\"height\":45,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-W39etkFsvi\",\"ROW-zS0vlGzsBE\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-Yue5OaDgSS\":{\"children\":[],\"id\":\"MARKDOWN-Yue5OaDgSS\",\"meta\":{\"code\":\"### Average Number Of Correlated Tests\\nFor each timestamp what is the average number of correlated failure groups.\\n\",\"height\":30,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-jlnQanJ7uQ\",\"ROW-OP6bJrqzuI\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-gqmiMeQeLP\":{\"children\":[],\"id\":\"MARKDOWN-gqmiMeQeLP\",\"meta\":{\"code\":\"### Number Of Flakes\\n\\nThis metric shows the number of flakes for the given dashboard, grid and test.\",\"height\":19,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\",\"ROW-mE0d9vP79\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-gs0qSgtqfh\":{\"children\":[],\"id\":\"MARKDOWN-gs0qSgtqfh\",\"meta\":{\"code\":\"### Average Duration of Tests per Grid\\n\\nWhat is the average running time of tests per grid.\\n\",\"height\":54,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-Up4p2qy9dJ\",\"ROW--m76D0iT0\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-hEKsXekchp\":{\"children\":[],\"id\":\"MARKDOWN-hEKsXekchp\",\"meta\":{\"code\":\"### Mean Time To Fix\\n\\nHow much time did it take before a failing test started to pass.\",\"height\":37,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-E2uQDXtYR\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-k77f-t7b2d\":{\"children\":[],\"id\":\"MARKDOWN-k77f-t7b2d\",\"meta\":{\"code\":\"## Percentage of Tests Fixed Over Time\\n\\nSome tests that are failing in the previous test run can get fixed in the next test run. This metric calculates the percentage of tests that were fixed over time.\\n\",\"height\":53,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-niwQ7bZZzm\",\"ROW-mR6uiJSN-C\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-kJrkX5JYEG\":{\"children\":[],\"id\":\"MARKDOWN-kJrkX5JYEG\",\"meta\":{\"code\":\"Average test duration \\nWhat is the average running time of test over multiple runs\\n\",\"height\":50,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-Up4p2qy9dJ\",\"ROW-cP4w1iyjI\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-kthTVTeB8R\":{\"children\":[],\"id\":\"MARKDOWN-kthTVTeB8R\",\"meta\":{\"code\":\"### Mean Length Of Failure\\n\\nHow many times was the build (test suite) run before a failing test started to pass\",\"height\":37,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-E2uQDXtYR\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-lKJd37UA8M\":{\"children\":[],\"id\":\"MARKDOWN-lKJd37UA8M\",\"meta\":{\"code\":\"### Number Of Flakes Over Time\\nNumber Of Flakes Over Time displays how the flakiness of a test has changed over time.\\n\",\"height\":44,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\",\"ROW-OymnbdFjl\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-xFxA0xUVBX\":{\"children\":[],\"id\":\"MARKDOWN-xFxA0xUVBX\",\"meta\":{\"code\":\"### Pass To Fail Rate\\n\\nWhat percentage of test runs resulted in a \\u201cpass\\u201d to \\u201cfail\\u201d transition.\",\"height\":37,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\",\"ROW-RXzX-1Rb7\"],\"type\":\"MARKDOWN\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW--m76D0iT0\":{\"children\":[\"MARKDOWN-gs0qSgtqfh\",\"CHART-W_TsS2sAac\"],\"id\":\"ROW--m76D0iT0\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-Up4p2qy9dJ\"],\"type\":\"ROW\"},\"ROW-4FGUrc8PO\":{\"children\":[\"CHART-KnNROG4aIZ\",\"CHART-nnoBJOemFL\",\"CHART-J1hgfGFTRy\"],\"id\":\"ROW-4FGUrc8PO\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-wkfxgKb9Vr\",\"TAB-L3cWcbcvgE\"],\"type\":\"ROW\"},\"ROW-E2uQDXtYR\":{\"children\":[\"MARKDOWN-kthTVTeB8R\",\"CHART--G-S1ZqZ9R\",\"MARKDOWN-hEKsXekchp\",\"CHART-hMo2OJPoVu\"],\"id\":\"ROW-E2uQDXtYR\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\"],\"type\":\"ROW\"},\"ROW-OP6bJrqzuI\":{\"children\":[\"MARKDOWN-Yue5OaDgSS\",\"CHART-qxo8epEuGL\"],\"id\":\"ROW-OP6bJrqzuI\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-jlnQanJ7uQ\"],\"type\":\"ROW\"},\"ROW-OymnbdFjl\":{\"children\":[\"MARKDOWN-lKJd37UA8M\",\"CHART-kY0MGSy4jr\"],\"id\":\"ROW-OymnbdFjl\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\"],\"type\":\"ROW\"},\"ROW-RXzX-1Rb7\":{\"children\":[\"MARKDOWN-xFxA0xUVBX\",\"CHART-uOibzBucIQ\",\"MARKDOWN-BSZY-uQSW6\",\"CHART-EZ2znRTkWR\"],\"id\":\"ROW-RXzX-1Rb7\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-GbQFEM6uKc\"],\"type\":\"ROW\"},\"ROW-YF1TS_orzM\":{\"children\":[\"MARKDOWN-8ZlPpRcJPg\",\"CHART-JDmVF107M8\"],\"id\":\"ROW-YF1TS_orzM\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\"],\"type\":\"ROW\"},\"ROW-ZqkPlLlxr\":{\"children\":[\"CHART-8NJborasJU\",\"CHART-QT_8QbJIYf\"],\"id\":\"ROW-ZqkPlLlxr\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\"],\"type\":\"ROW\"},\"ROW-cO6e3vLPX\":{\"children\":[\"CHART-6fbhTKcI21\"],\"id\":\"ROW-cO6e3vLPX\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-2eOwJ9Z4Qx\"],\"type\":\"ROW\"},\"ROW-cP4w1iyjI\":{\"children\":[\"MARKDOWN-kJrkX5JYEG\",\"CHART-26Zl1a2YmY\"],\"id\":\"ROW-cP4w1iyjI\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-Up4p2qy9dJ\"],\"type\":\"ROW\"},\"ROW-mE0d9vP79\":{\"children\":[\"MARKDOWN-gqmiMeQeLP\",\"CHART-C5ImyYEozH\"],\"id\":\"ROW-mE0d9vP79\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\",\"TAB-CpKiRuSmo-\"],\"type\":\"ROW\"},\"ROW-mR6uiJSN-C\":{\"children\":[\"MARKDOWN-k77f-t7b2d\",\"CHART-U0XkW_6pKC\"],\"id\":\"ROW-mR6uiJSN-C\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-niwQ7bZZzm\"],\"type\":\"ROW\"},\"ROW-nQ3pyIdDl\":{\"children\":[\"CHART-KgzK2OxpST\",\"CHART-ecr-i6-zND\",\"CHART-v5gwLsI4lw\"],\"id\":\"ROW-nQ3pyIdDl\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-IeXLU_-zbh\"],\"type\":\"ROW\"},\"ROW-qLtk2IJaa\":{\"children\":[\"MARKDOWN-9FArpKt58_\",\"CHART-Fg4LeWwfJL\"],\"id\":\"ROW-qLtk2IJaa\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\",\"TAB-jlnQanJ7uQ\"],\"type\":\"ROW\"},\"ROW-trZumpcle\":{\"children\":[\"CHART-x0AgnF4JUx\",\"CHART-Ll23_plu98\",\"CHART-fbac0BmZI7\"],\"id\":\"ROW-trZumpcle\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\",\"TAB-2eOwJ9Z4Qx\"],\"type\":\"ROW\"},\"ROW-zS0vlGzsBE\":{\"children\":[\"MARKDOWN-LHkmQbianr\",\"CHART-y5zmy0ph-2\"],\"id\":\"ROW-zS0vlGzsBE\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\",\"TAB-W39etkFsvi\"],\"type\":\"ROW\"},\"TAB-2eOwJ9Z4Qx\":{\"children\":[\"ROW-trZumpcle\",\"ROW-cO6e3vLPX\"],\"id\":\"TAB-2eOwJ9Z4Qx\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Build Pass and Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\"],\"type\":\"TAB\"},\"TAB-CpKiRuSmo-\":{\"children\":[\"ROW-mE0d9vP79\",\"ROW-OymnbdFjl\",\"ROW-YF1TS_orzM\"],\"id\":\"TAB-CpKiRuSmo-\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Number Of Flakes\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-_WIe5ZMXTe\"],\"type\":\"TAB\"},\"TAB-GbQFEM6uKc\":{\"children\":[\"ROW-E2uQDXtYR\",\"ROW-RXzX-1Rb7\"],\"id\":\"TAB-GbQFEM6uKc\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Persistent Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\"],\"type\":\"TAB\"},\"TAB-IeXLU_-zbh\":{\"children\":[\"ROW-nQ3pyIdDl\",\"ROW-ZqkPlLlxr\"],\"id\":\"TAB-IeXLU_-zbh\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Test Pass and Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-SvEOCd7SQ8\"],\"type\":\"TAB\"},\"TAB-L3cWcbcvgE\":{\"children\":[\"ROW-4FGUrc8PO\"],\"id\":\"TAB-L3cWcbcvgE\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Filters\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-wkfxgKb9Vr\"],\"type\":\"TAB\"},\"TAB-Up4p2qy9dJ\":{\"children\":[\"ROW--m76D0iT0\",\"ROW-cP4w1iyjI\"],\"id\":\"TAB-Up4p2qy9dJ\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Time To Test\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\"],\"type\":\"TAB\"},\"TAB-W39etkFsvi\":{\"children\":[\"ROW-zS0vlGzsBE\"],\"id\":\"TAB-W39etkFsvi\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Consecutive Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\"],\"type\":\"TAB\"},\"TAB-jlnQanJ7uQ\":{\"children\":[\"ROW-OP6bJrqzuI\",\"ROW-qLtk2IJaa\"],\"id\":\"TAB-jlnQanJ7uQ\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Correlated Test Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-5Qz5NWp77Y\"],\"type\":\"TAB\"},\"TAB-niwQ7bZZzm\":{\"children\":[\"ROW-mR6uiJSN-C\"],\"id\":\"TAB-niwQ7bZZzm\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Percentage of Tests Fixed\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-mGuM4RgMtW\"],\"type\":\"TAB\"},\"TABS-5Qz5NWp77Y\":{\"children\":[\"TAB-Up4p2qy9dJ\",\"TAB-jlnQanJ7uQ\"],\"id\":\"TABS-5Qz5NWp77Y\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"},\"TABS-SvEOCd7SQ8\":{\"children\":[\"TAB-2eOwJ9Z4Qx\",\"TAB-IeXLU_-zbh\"],\"id\":\"TABS-SvEOCd7SQ8\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"},\"TABS-_WIe5ZMXTe\":{\"children\":[\"TAB-CpKiRuSmo-\"],\"id\":\"TABS-_WIe5ZMXTe\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"},\"TABS-mGuM4RgMtW\":{\"children\":[\"TAB-niwQ7bZZzm\",\"TAB-GbQFEM6uKc\",\"TAB-W39etkFsvi\"],\"id\":\"TABS-mGuM4RgMtW\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"},\"TABS-wkfxgKb9Vr\":{\"children\":[\"TAB-L3cWcbcvgE\"],\"id\":\"TABS-wkfxgKb9Vr\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 55,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"8__table\", \"date_filter\": false, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"tab\", \"key\": \"dxgyRFMFh\", \"multiple\": true, \"searchAllOptions\": false}], \"granularity_sqla\": \"timestamp\", \"instant_filtering\": true, \"slice_id\": 55, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 55, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Tabs",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 11,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_6r3pbdi5hmk_ryxdwhi61ch\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"passing = True\", \"subject\": null}], \"datasource\": \"17__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 11, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 11, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Number of tests passing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 9,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"pass_to_fail_rate\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 32, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(pass_to_fail_rate)\", \"optionName\": \"metric_qp7hstzmr3_smc3o7sf7w\", \"sqlExpression\": null}, \"slice_id\": 9, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 9, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "   ",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 7,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"mean_fail_len\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 30, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(mean_fail_len)\", \"optionName\": \"metric_3jlta3rv8ti_la43jpfg7yr\", \"sqlExpression\": null}, \"slice_id\": 7, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 7, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "    ",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 5,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"17__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 37, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_3tce6ofaivb_hbj73hwx82m\", \"sqlExpression\": null}, \"slice_id\": 5, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 5, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Total Number of Tests",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 13,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_4htx0keb1bn_nj5silinsgi\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"failure = True\", \"subject\": null}], \"datasource\": \"17__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 13, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 13, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Number of tests failing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 12,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"bnbColors\", \"columns\": [], \"datasource\": \"18__table\", \"groupby\": [\"test\"], \"label_colors\": {\"AVG(test_duration)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"metrics\": [{\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"consec_fail_rate\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 29, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(consec_fail_rate)\", \"optionName\": \"metric_chijvlc4w4_fbc5cmbinu\", \"sqlExpression\": null}], \"order_bars\": true, \"order_desc\": true, \"reduce_x_ticks\": false, \"row_limit\": 100, \"show_legend\": false, \"slice_id\": 12, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Tests\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [0, 1.2], \"y_axis_format\": \"SMART_NUMBER\", \"y_axis_label\": \"Consecutive Failure Rate\", \"remote_id\": 12, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "                                              ",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 14,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"supersetColors\", \"datasource\": \"17__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"passing\"], \"innerRadius\": 30, \"label_line\": false, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 37, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_ar18n5wj68r_u2wwlg2d2bc\", \"sqlExpression\": null}, \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 70, \"row_limit\": 10000, \"show_labels\": true, \"show_legend\": false, \"slice_id\": 14, \"sort_by_metric\": true, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 14, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Percent of Passing Tests",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 8,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"mean_time_to_fix\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 31, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(mean_time_to_fix)\", \"optionName\": \"metric_if9d79gj05o_fk4g0jovbp\", \"sqlExpression\": null}, \"slice_id\": 8, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 8, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "      ",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 17,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"16__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 11, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_cwmkseccyl9_wvihq7y5zy\", \"sqlExpression\": null}, \"slice_id\": 17, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 17, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Total Number of Builds",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.number_of_flakes",
+                            "datasource_type": "table",
+                            "id": 1,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_lry26tmq0kh_yqw6gq3twz\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"flake = True\", \"subject\": null}], \"datasource\": \"15__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"flake\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 21, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BOOLEAN\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(flake)\", \"optionName\": \"metric_ly6917kodug_c54y3ekekyd\", \"sqlExpression\": null}, \"slice_id\": 1, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 1, \"datasource_name\": \"number_of_flakes\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "                             ",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.time_to_test",
+                            "datasource_type": "table",
+                            "id": 16,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": true, \"bottom_margin\": \"auto\", \"color_scheme\": \"bnbColors\", \"columns\": [], \"datasource\": \"12__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"grid\"], \"label_colors\": {\"AVG(test_duration)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"metrics\": [{\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"test_duration\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 44, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(test_duration)\", \"optionName\": \"metric_84y9tmk4m3p_x05to8fnpaq\", \"sqlExpression\": null}], \"order_bars\": false, \"order_desc\": false, \"reduce_x_ticks\": false, \"row_limit\": 100, \"show_bar_value\": false, \"show_legend\": true, \"slice_id\": 16, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Grid\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"~g\", \"remote_id\": 16, \"datasource_name\": \"time_to_test\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "  ",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.correlation",
+                            "datasource_type": "table",
+                            "id": 45,
+                            "params": "{\"adhoc_filters\": [], \"all_columns\": [\"test_name\"], \"color_pn\": true, \"datasource\": \"4__table\", \"groupby\": [\"test_name\", \"correlated_tests\"], \"metrics\": [], \"order_by_cols\": [\"[\\\"correlated_tests\\\", false]\"], \"order_desc\": true, \"percent_metrics\": [], \"query_mode\": \"aggregate\", \"row_limit\": 100, \"show_cell_bars\": true, \"slice_id\": 45, \"table_timestamp_format\": \"smart_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"table\", \"remote_id\": 45, \"datasource_name\": \"correlation\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "    ",
+                            "viz_type": "table"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.number_of_flakes",
+                            "datasource_type": "table",
+                            "id": 2,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_yhnmxujw0q_d2lrrxh7e5\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"flake = True\", \"subject\": null}], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"bnbColors\", \"columns\": [\"flake\"], \"contribution\": false, \"datasource\": \"15__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"test\"], \"label_colors\": {\"AVG(test_duration)\": \"#FF7F44\", \"SUM(pct_fixed)\": \"#5AC189\", \"false\": \"#454E7C\", \"true\": \"#1FA8C9\"}, \"metrics\": [\"count\"], \"order_bars\": false, \"order_desc\": true, \"reduce_x_ticks\": false, \"row_limit\": 50, \"show_bar_value\": false, \"show_controls\": false, \"show_legend\": false, \"slice_id\": 2, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"timeseries_limit_metric\": [], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Tests\", \"x_ticks_layout\": \"45\\u00b0\", \"y_axis_bounds\": [0, null], \"y_axis_format\": \"~g\", \"y_axis_label\": \"Flake\", \"remote_id\": 2, \"datasource_name\": \"number_of_flakes\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "                       ",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.avg_correlation",
+                            "datasource_type": "table",
+                            "id": 76,
+                            "params": "{\"adhoc_filters\": [], \"color_picker\": {\"a\": 1, \"b\": 135, \"g\": 122, \"r\": 0}, \"datasource\": \"1__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"average_number_of_correlated_failures\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 2, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(average_number_of_correlated_failures)\", \"optionName\": \"metric_pu327zawc6e_s8g9l6s1r3f\", \"sqlExpression\": null}, \"rolling_type\": \"None\", \"show_trend_line\": true, \"slice_id\": 76, \"start_y_axis_at_zero\": true, \"subheader_font_size\": 0.15, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 76, \"datasource_name\": \"avg_correlation\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "      ",
+                            "viz_type": "big_number"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.pct_fixed_each_ts",
+                            "datasource_type": "table",
+                            "id": 4,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"bnbColors\", \"columns\": [], \"datasource\": \"14__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"timestamp\"], \"label_colors\": {\"AVG(test_duration)\": \"#FF7F44\", \"SUM(pct_fixed)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"metrics\": [{\"aggregate\": \"SUM\", \"column\": {\"column_name\": \"pct_fixed\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 25, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"SUM(pct_fixed)\", \"optionName\": \"metric_6841xgkmtaw_vfoirv0sli\", \"sqlExpression\": null}], \"order_bars\": true, \"order_desc\": true, \"reduce_x_ticks\": true, \"row_limit\": 100, \"show_controls\": false, \"show_legend\": false, \"slice_id\": 4, \"time_range\": \"Last week\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Timestamps\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"y_axis_label\": \"Percentage of Tests Fixed\", \"remote_id\": 4, \"datasource_name\": \"pct_fixed_each_ts\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "   ",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 10,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"fail_to_pass_rate\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 33, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(fail_to_pass_rate)\", \"optionName\": \"metric_cc0afi3ien7_spff3aqkmb8\", \"sqlExpression\": null}, \"slice_id\": 10, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 10, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "  ",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.time_to_test",
+                            "datasource_type": "table",
+                            "id": 18,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"columns\": [], \"datasource\": \"12__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"test\"], \"label_colors\": {\"AVG(test_duration)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"metrics\": [{\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"test_duration\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 44, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(test_duration)\", \"optionName\": \"metric_m4sl89c142_t6kg4vxdgng\", \"sqlExpression\": null}], \"order_desc\": false, \"row_limit\": 100, \"slice_id\": 18, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Tests\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"~g\", \"remote_id\": 18, \"datasource_name\": \"time_to_test\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": " ",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.number_of_flakes",
+                            "datasource_type": "table",
+                            "id": 3,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"color_scheme\": \"SUPERSET_DEFAULT\", \"contributionMode\": \"column\", \"datasource\": \"15__table\", \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"timestamp\", \"groupby\": [\"flake\"], \"label_colors\": {\"AVG(test_duration)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"limit\": null, \"markerSize\": 6, \"metrics\": [{\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"flake\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 21, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BOOLEAN\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(flake)\", \"optionName\": \"metric_4b0cgvckljo_5bomare123x\", \"sqlExpression\": null}], \"opacity\": 0.2, \"order_desc\": true, \"rich_tooltip\": true, \"row_limit\": 100, \"seriesType\": \"line\", \"show_legend\": true, \"slice_id\": 3, \"time_grain_sqla\": \"P1D\", \"time_range\": \"Last week\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"truncateYAxis\": true, \"url_params\": {}, \"viz_type\": \"echarts_timeseries\", \"xAxisLabelRotation\": 45, \"xAxisShowMaxLabel\": true, \"xAxisShowMinLabel\": true, \"x_axis_time_format\": \"smart_date\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 3, \"datasource_name\": \"number_of_flakes\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "  ",
+                            "viz_type": "echarts_timeseries"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 70,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_mqxczu7p8df_hcfowzaz5g\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"build_failure = True\", \"subject\": null}], \"datasource\": \"16__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 70, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 70, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Number of builds failing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 75,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"8__table\", \"date_filter\": false, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"test\", \"key\": \"TdMcAiEQh\", \"multiple\": true, \"searchAllOptions\": false}], \"granularity_sqla\": \"timestamp\", \"instant_filtering\": true, \"slice_id\": 75, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 75, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Tests",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 71,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_257huo6oxqv_lnn9h5rj45q\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"build_passing = True\", \"subject\": null}], \"datasource\": \"16__table\", \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 71, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 71, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Number of builds passing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 78,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"8__table\", \"date_filter\": false, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"grid\", \"key\": \"QeH1-FnGV\", \"multiple\": true, \"searchAllOptions\": false}], \"granularity_sqla\": \"timestamp\", \"instant_filtering\": true, \"slice_id\": 78, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 78, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Grids",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 74,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"SUPERSET_DEFAULT\", \"datasource\": \"16__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"build_status\"], \"innerRadius\": 30, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": \"count\", \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 70, \"row_limit\": 100, \"show_labels\": true, \"show_legend\": true, \"slice_id\": 74, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 74, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Distribution of Builds Passing and Failing",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 15,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"supersetColors\", \"datasource\": \"17__table\", \"donut\": false, \"granularity_sqla\": \"timestamp\", \"groupby\": [\"failure\"], \"innerRadius\": 30, \"label_line\": false, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 37, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_59hg7and49_obpojuu2ih\", \"sqlExpression\": null}, \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 67, \"row_limit\": 10000, \"show_labels\": true, \"show_legend\": false, \"slice_id\": 15, \"sort_by_metric\": true, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 15, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "slice_name": "Percent of Failing Tests",
+                            "viz_type": "pie"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 68,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "TIMESTAMP",
+                            "uuid": "c48708dc-7f6d-4905-8fbb-a83ea86c1ce8",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 69,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "VARCHAR",
+                            "uuid": "7f71fe4e-8a43-404e-ac23-b47b0a2b94ea",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 70,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "VARCHAR",
+                            "uuid": "91dce199-51a2-4cd6-9921-bc5ac3112ed1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 71,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "VARCHAR",
+                            "uuid": "2c0a2282-65c4-48a3-92e6-eb355aaeadc2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "build_failure",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 72,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "BOOLEAN",
+                            "uuid": "28a3cc82-54e0-432c-8c89-9314880b319c",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "build_passing",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 73,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "BOOLEAN",
+                            "uuid": "041a7aa5-d1b2-4401-b0da-48b0e8ac8c0e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "column_name": "build_status",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 74,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 16,
+                            "type": "VARCHAR",
+                            "uuid": "8b8f06ac-9136-48f5-beb7-a2a79c28d31f",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:55"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 16,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 16,
+                            "uuid": "0b9ec055-9607-4eda-bcdb-1087cb00a97a",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 16, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "build_pass_failure",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:28"
+                            },
+                            "column_name": "test_name",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 50,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 11,
+                            "type": "VARCHAR",
+                            "uuid": "31b2a9f7-d270-4f3b-91ee-9b95a072a9e3",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:28"
+                            },
+                            "column_name": "correlated_tests",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 51,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 11,
+                            "type": "VARCHAR",
+                            "uuid": "3617cfde-df94-4a11-b032-5758af91eb5f",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:28"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:28"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 11,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 11,
+                            "uuid": "a07c11ab-dc30-48f6-b686-65ec8ecd20e7",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 11, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "correlation",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 75,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 17,
+                            "type": "TIMESTAMP",
+                            "uuid": "1f6f743f-6fa9-4a24-8a53-7a8db2ec3737",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 76,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 17,
+                            "type": "VARCHAR",
+                            "uuid": "b4090d51-1eba-468a-8bb4-40f7ac731e80",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 77,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 17,
+                            "type": "VARCHAR",
+                            "uuid": "15e1404a-870f-42a3-b3a3-353caa756b0b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 78,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 17,
+                            "type": "VARCHAR",
+                            "uuid": "cddc3a09-4d56-4b53-8a43-d0a512cece90",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "column_name": "failure",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 79,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 17,
+                            "type": "BOOLEAN",
+                            "uuid": "33e36ef1-f346-4cce-9063-59deb5ca2f79",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "column_name": "passing",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 80,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 17,
+                            "type": "BOOLEAN",
+                            "uuid": "9f6da5b3-26bb-4440-bbe8-d0c2aaaa14fe",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:13"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 17,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 17,
+                            "uuid": "55fe0345-b76a-4c78-8563-c80c43b98bfd",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 17, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "test_pass_failures",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 52,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 12,
+                            "type": "TIMESTAMP",
+                            "uuid": "e68955f1-e9e1-4345-9286-0f8896547a2d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 53,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 12,
+                            "type": "VARCHAR",
+                            "uuid": "ab3eda64-6031-4100-9847-d23752db3698",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 54,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 12,
+                            "type": "VARCHAR",
+                            "uuid": "014bc173-8996-4e41-b206-3d5a889634e3",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 55,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 12,
+                            "type": "VARCHAR",
+                            "uuid": "470a9a23-fbbd-4b3d-a88f-7bb12adb036d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "column_name": "test_duration",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 56,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 12,
+                            "type": "REAL",
+                            "uuid": "3cfb035c-db11-4e4b-99fa-4ea983d06389",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:34:45"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 12,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 12,
+                            "uuid": "0c7f23e5-cb49-4119-9b30-308c3fc59834",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 12, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "time_to_test",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 63,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "TIMESTAMP",
+                            "uuid": "88bc2e69-f956-4d18-a697-651bd0021ff8",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 64,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR",
+                            "uuid": "e5434ff9-ee3d-415e-89cf-acca37c8114a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 65,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR",
+                            "uuid": "de64f438-ff2e-47b2-b639-38ec798cff5a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 66,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR",
+                            "uuid": "570f1995-ea72-45ee-9f62-d559cfe7c08e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "column_name": "flake",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 67,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "BOOLEAN",
+                            "uuid": "87d847db-700d-47a5-9545-2e7aaebaa488",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:40"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 15,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 15,
+                            "uuid": "d03407bc-d880-48d3-b17e-f3e35ce36256",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 15, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "number_of_flakes",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 81,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "VARCHAR",
+                            "uuid": "7ae0396a-2858-4b8e-872d-0d9669a51590",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 82,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "VARCHAR",
+                            "uuid": "16b2b55a-95af-497a-9635-ebf54ab355bd",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 83,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "VARCHAR",
+                            "uuid": "f3d7bc68-7834-443e-b502-c7ad57f4406e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "consec_fail_rate",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 84,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "REAL",
+                            "uuid": "cc7a90eb-68be-48ac-8f1c-54e378637706",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "mean_fail_len",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 85,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "REAL",
+                            "uuid": "2aecc2fc-8516-4c4e-8c06-2f351746d244",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "mean_time_to_fix",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 86,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "REAL",
+                            "uuid": "4daf4fc2-ba2b-411e-8b25-a95ff60da90e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "pass_to_fail_rate",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 87,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "REAL",
+                            "uuid": "e30b741b-8419-4e4f-a537-4d38a9672fe8",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "column_name": "fail_to_pass_rate",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 88,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 18,
+                            "type": "REAL",
+                            "uuid": "27a61b7c-4849-467c-9c57-948e1834336d",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:36:28"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 18,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 18,
+                            "uuid": "b5d0210d-a368-4553-be90-4f98c6ea26e7",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 18, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "persistent_failures",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:05"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:05"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 57,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 13,
+                            "type": "TIMESTAMP",
+                            "uuid": "4c6f779c-f44e-4819-b64f-7bbb10ea78c8",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:05"
+                            },
+                            "column_name": "average_number_of_correlated_failures",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:05"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 58,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 13,
+                            "type": "REAL",
+                            "uuid": "8dd69702-6da9-43b4-bf1d-ffff75e16904",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:05"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:05"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 13,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 13,
+                            "uuid": "ed30600c-bda3-4701-ae0e-fcc062c8e826",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 13, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "avg_correlation",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 59,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 14,
+                            "type": "TIMESTAMP",
+                            "uuid": "88ea0304-68b3-4a04-a4c6-0ac52c48e45f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 60,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 14,
+                            "type": "VARCHAR",
+                            "uuid": "0b1390c2-57d2-48b8-becf-e44f3cc75e31",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 61,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 14,
+                            "type": "VARCHAR",
+                            "uuid": "6aa9b6cf-7c76-4c9d-af45-7762bda67dbd",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "column_name": "pct_fixed",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 62,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 14,
+                            "type": "REAL",
+                            "uuid": "6ac0d290-ad4b-4a9f-9f0c-b0f2c58a25e8",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 1,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2021-09-27T05:35:24"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 14,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 14,
+                            "uuid": "b88a53c0-f055-4eeb-be4e-8c2944b6681d",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 14, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "pct_fixed_each_ts",
+                "template_params": null
+            }
+        }
+    ]
+}
