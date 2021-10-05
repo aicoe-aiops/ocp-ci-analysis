@@ -1,0 +1,2742 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time to Fail &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Validate the succesful running of the Automated Pipeline" href="validate_pipeline.html" />
+    <link rel="prev" title="Quantify Time to Test" href="time_to_test.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   KPI Metrics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/TestGrid/metrics/time_to_fail.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/TestGrid/metrics/time_to_fail.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/TestGrid/metrics/time_to_fail.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/notebooks/data-sources/TestGrid/metrics/time_to_fail.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceph">
+   Ceph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#helper-functions">
+   Helper Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculation">
+   Calculation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failing-tests">
+     Failing Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-tests">
+     Passing Tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-distribution-of-data">
+   Probability Distribution of Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failure-distribution">
+     Failure Distribution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#test-openshift-tests-sig-arch-feature-clusterupgrade-cluster-should-remain-functional-during-upgrade-disruptive-serial">
+       Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#test-operator-run-multi-stage-test-e2e-aws-upgrade-e2e-aws-upgrade-openshift-e2e-test-container-test">
+       Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-distribution">
+     Passing Distribution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimal-stopping-point">
+   Optimal Stopping Point
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Time to Fail</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceph">
+   Ceph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#helper-functions">
+   Helper Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculation">
+   Calculation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failing-tests">
+     Failing Tests
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-tests">
+     Passing Tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-distribution-of-data">
+   Probability Distribution of Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failure-distribution">
+     Failure Distribution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#test-openshift-tests-sig-arch-feature-clusterupgrade-cluster-should-remain-functional-during-upgrade-disruptive-serial">
+       Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#test-operator-run-multi-stage-test-e2e-aws-upgrade-e2e-aws-upgrade-openshift-e2e-test-container-test">
+       Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-distribution">
+     Passing Distribution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimal-stopping-point">
+   Optimal Stopping Point
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="time-to-fail">
+<h1>Time to Fail<a class="headerlink" href="#time-to-fail" title="Permalink to this headline">#</a></h1>
+<p>One of the machine learning requests that we would like to create greater visibility into and for a given test, to build a model that can predict an optimal stopping point, beyond which a test is more likely to result in a failure.</p>
+<p>In order to achieve the above, we would be looking into the data for all the passing and failed tests and find the distribution type for the <code class="docutils literal notranslate"><span class="pre">test_duration</span></code> metric. The <code class="docutils literal notranslate"><span class="pre">test_duration</span></code> metric tracks the time it took for a test to complete its execution. We can visualize the distribution of the test_duration metric across various testgrid dashboards and jobs. Based on the distribution type identified, we can find a point after which the test has a higher probability of failing.</p>
+<p>Linked issue(s) : <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/333">Issue1</a>, <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/226">Issue2</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">intersect</span> <span class="kn">import</span> <span class="n">intersection</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">invgauss</span><span class="p">,</span> <span class="n">lognorm</span><span class="p">,</span> <span class="n">pearson3</span><span class="p">,</span> <span class="n">weibull_min</span><span class="p">,</span> <span class="n">triang</span><span class="p">,</span> <span class="n">beta</span>
+
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="kn">import</span> <span class="n">testgrid_labelwise_encoding</span>
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="kn">import</span> <span class="n">CephCommunication</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ceph">
+<h2>Ceph<a class="headerlink" href="#ceph" title="Permalink to this headline">#</a></h2>
+<p>Connection to Ceph for importing the TestGrid data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Specify variables</span>
+
+<span class="n">METRIC_NAME</span> <span class="o">=</span> <span class="s2">&quot;time_to_fail&quot;</span>
+
+<span class="c1"># Specify the path for input grid data</span>
+<span class="n">INPUT_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/testgrid_258.json.gz&quot;</span>
+
+<span class="c1"># Specify the path for output metric data</span>
+<span class="n">OUTPUT_DATA_PATH</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../../../data/processed/metrics/</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1">## CEPH Bucket variables</span>
+<span class="c1">## Create a .env file on your local with the correct configs</span>
+<span class="n">s3_endpoint_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ENDPOINT&quot;</span><span class="p">)</span>
+<span class="n">s3_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ACCESS_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_SECRET_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_bucket</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_BUCKET&quot;</span><span class="p">)</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_PROJECT_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;metrics&quot;</span><span class="p">)</span>
+<span class="n">s3_input_data_path</span> <span class="o">=</span> <span class="s2">&quot;raw_data&quot;</span>
+
+<span class="c1"># Specify whether or not we are running this as a notebook or part of an automation pipeline.</span>
+<span class="n">AUTOMATION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;IN_AUTOMATION&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import data</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;testgrid_</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+    <span class="n">s3_object</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s3_input_data_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">file_content</span> <span class="o">=</span> <span class="n">s3_object</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="s2">&quot;Body&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">INPUT_DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="helper-functions">
+<h2>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to filter the df for a specified test</span>
+<span class="k">def</span> <span class="nf">filter_test_type</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test</span><span class="p">):</span>
+    <span class="n">failures_test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test</span><span class="p">]</span>
+    <span class="n">failures_test</span> <span class="o">=</span> <span class="n">failures_test</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">failures_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">pct</span><span class="p">,</span> <span class="n">pct_lower</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to standardize the features by removing the mean</span>
+<span class="sd">    and scaling to unit variance using StandardScaler library.</span>
+
+<span class="sd">    Returns standandardized feature, length of the feature</span>
+<span class="sd">    and the original feature.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">len_y</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">pct_lower</span> <span class="o">*</span> <span class="n">len_y</span><span class="p">)</span> <span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">len_y</span> <span class="o">*</span> <span class="n">pct</span><span class="p">)]</span>
+    <span class="n">len_y</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
+    <span class="n">y_std</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span>
+    <span class="n">y_std</span> <span class="o">=</span> <span class="n">y_std</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">y_std</span><span class="p">,</span> <span class="n">len_y</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fit_distribution</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">pct</span><span class="p">,</span> <span class="n">pct_lower</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function helps to list out the chi-square statistics for each</span>
+<span class="sd">    distribution and further sorts them to find the best distribution.</span>
+
+<span class="sd">    Returns a table that contains sorted chi-square values as well as</span>
+<span class="sd">    the parameters such as mu (shape), loc (location) and scale for each</span>
+<span class="sd">    distribution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Set up list of candidate distributions to use</span>
+    <span class="n">y_std</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">y_org</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">pct</span><span class="p">,</span> <span class="n">pct_lower</span><span class="p">)</span>
+    <span class="n">dist_names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;weibull_min&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;norm&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;weibull_max&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;beta&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;invgauss&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gamma&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;expon&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lognorm&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pearson3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;triang&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="n">chi_square_statistics</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># 50 bins</span>
+    <span class="n">percentile_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">percentile_cutoffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">y_std</span><span class="p">,</span> <span class="n">percentile_bins</span><span class="p">)</span>
+    <span class="n">observed_frequency</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">y_std</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">percentile_cutoffs</span><span class="p">)</span>
+    <span class="n">cum_observed_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">observed_frequency</span><span class="p">)</span>
+    <span class="c1"># Data frame to store results</span>
+    <span class="n">dist_param</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">dist_param</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_names</span>
+    <span class="n">param_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Loop through candidate distributions</span>
+    <span class="k">for</span> <span class="n">distribution</span> <span class="ow">in</span> <span class="n">dist_names</span><span class="p">:</span>
+        <span class="c1"># Set up distribution and get fitted distribution parameters</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span>
+        <span class="n">param</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">y_std</span><span class="p">)</span>
+        <span class="n">param_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+
+        <span class="c1"># Get expected counts in percentile bins</span>
+        <span class="c1"># cdf of fitted distribution across bins</span>
+        <span class="n">cdf_fitted</span> <span class="o">=</span> <span class="n">dist</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">percentile_cutoffs</span><span class="p">,</span> <span class="o">*</span><span class="n">param</span><span class="p">)</span>
+        <span class="n">expected_frequency</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="nb">bin</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">percentile_bins</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">expected_cdf_area</span> <span class="o">=</span> <span class="n">cdf_fitted</span><span class="p">[</span><span class="nb">bin</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">cdf_fitted</span><span class="p">[</span><span class="nb">bin</span><span class="p">]</span>
+            <span class="n">expected_frequency</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">expected_cdf_area</span><span class="p">)</span>
+
+        <span class="c1"># Chi-square Statistics</span>
+        <span class="n">expected_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">expected_frequency</span><span class="p">)</span> <span class="o">*</span> <span class="n">size</span>
+        <span class="n">cum_expected_frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">expected_frequency</span><span class="p">)</span>
+        <span class="n">ss</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span>
+            <span class="n">f_obs</span><span class="o">=</span><span class="n">cum_observed_frequency</span><span class="p">,</span> <span class="n">f_exp</span><span class="o">=</span><span class="n">cum_expected_frequency</span>
+        <span class="p">)</span>
+        <span class="n">chi_square_statistics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+
+    <span class="c1"># Append results to data frame</span>
+    <span class="n">dist_param</span><span class="p">[</span><span class="s2">&quot;Parameters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">param_list</span>
+    <span class="n">dist_param</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">)</span>
+    <span class="c1"># Sort by minimum ch-square statistics</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;Distribution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_names</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;chi_square and p-value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chi_square_statistics</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;chi_square and p-value&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Distributions listed by Betterment of fit:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;............................................&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dist_param</span><span class="p">,</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculation">
+<h2>Calculation<a class="headerlink" href="#calculation" title="Permalink to this headline">#</a></h2>
+<p>Let’s fetch all the tests which are “Passing” and “Failing”.</p>
+<div class="section" id="failing-tests">
+<h3>Failing Tests<a class="headerlink" href="#failing-tests" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will now fetch all the tests which are failing i.e. have a status code of 12.</span>
+<span class="n">failures_list</span> <span class="o">=</span> <span class="n">testgrid_labelwise_encoding</span><span class="p">(</span><span class="n">testgrid_data</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">overall_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to dataframe</span>
+<span class="n">failures_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">failures_list</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;tab&quot;</span><span class="p">,</span> <span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="s2">&quot;failure&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">failures_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 14:51:42</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-23 00:01:04</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>95.300000</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-22 08:53:17</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>101.800000</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-20 23:21:32</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>134.833333</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-20 15:57:36</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>109.833333</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">failures_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36046950
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will drop all the rows having NaN values</span>
+<span class="n">failures_df</span> <span class="o">=</span> <span class="n">failures_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">failures_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19749103
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will now filter the df for extracting only the tests that are failing</span>
+<span class="n">failures_df</span> <span class="o">=</span> <span class="n">failures_df</span><span class="p">[</span><span class="n">failures_df</span><span class="p">[</span><span class="s2">&quot;failure&quot;</span><span class="p">]]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">failures_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>156752
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failures_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>2021-08-16 23:03:14</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>20.016667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2021-08-16 00:01:05</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>108.233333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2021-08-16 23:03:14</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>13.166667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2021-08-16 00:01:05</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>89.983333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>2021-08-16 00:01:05</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>TestInstall_test_install.start_install_and_wai...</td>
+      <td>60.004001</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="passing-tests">
+<h3>Passing Tests<a class="headerlink" href="#passing-tests" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will now fetch all the tests which are passing i.e. have a status code of 1.</span>
+<span class="n">passing_list</span> <span class="o">=</span> <span class="n">testgrid_labelwise_encoding</span><span class="p">(</span><span class="n">testgrid_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">overall_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to dataframe</span>
+<span class="n">passing_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">passing_list</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;tab&quot;</span><span class="p">,</span> <span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="s2">&quot;passing&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">passing_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 14:51:42</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-23 00:01:04</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>95.300000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-22 08:53:17</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>101.800000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-20 23:21:32</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>134.833333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-20 15:57:36</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>109.833333</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">passing_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36046950
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will drop all the rows having NaN values</span>
+<span class="n">passing_df</span> <span class="o">=</span> <span class="n">passing_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">passing_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19749103
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will now filter the df for extracting only the tests that are passing</span>
+<span class="n">passing_df</span> <span class="o">=</span> <span class="n">passing_df</span><span class="p">[</span><span class="n">passing_df</span><span class="p">[</span><span class="s2">&quot;passing&quot;</span><span class="p">]]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">passing_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19454749
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">passing_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2021-08-23 00:01:04</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>95.300000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-22 08:53:17</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>101.800000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-20 23:21:32</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>134.833333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-20 15:57:36</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>109.833333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021-08-20 06:47:40</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>94.800000</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="probability-distribution-of-data">
+<h2>Probability Distribution of Data<a class="headerlink" href="#probability-distribution-of-data" title="Permalink to this headline">#</a></h2>
+<p>Data Distribution is a function that lists out all possible values the data can take. It can be a continuous or discrete data distribution. Several known standard Probability Distribution functions provide probabilities of occurrence of different possible outcomes in an experiment. Some well-known probability distributions are Normal, Log-Normal, Beta, Gamma, etc. which have a standard form.</p>
+<p>We will try to approximate the distributions of the <code class="docutils literal notranslate"><span class="pre">test_duration</span></code> variable and also check its Goodness of fit for different TestGrid tests across all TestGrid dashboards and grids. Based on the type of distribution identified, we can calculate the probability of the test failing.</p>
+<p>Let’s see what are the common failing and passing test types and identify both the passing and failing distribution for the top 2 test types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failures_df</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall                                                                                                                                                                                                                                                                                                                              26525
+openshift-tests.Monitor cluster while tests execute                                                                                                                                                                                                                                                                                   4706
+openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]                                                                                                                                                                                                              3172
+Cluster upgrade.[sig-arch] Check if alerts are firing during or after upgrade success                                                                                                                                                                                                                                                 1973
+operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test                                                                                                                                                                                                                                     1485
+                                                                                                                                                                                                                                                                                                                                     ...  
+[Elasticsearch] Verify Metrics Access.hack/testing-olm/test-200-verify-es-metrics-access.sh:70: executing &#39;oc -n e2e-test-20047 get deployment -l component=elasticsearch -o jsonpath=&#39;{.items[0].metadata.name}&#39;&#39; expecting success; re-trying every 0.2s until completion or 120.000s                                                  1
+[Elasticsearch] Verify Metrics Access.hack/testing-olm/test-200-verify-es-metrics-access.sh:70: executing &#39;oc -n e2e-test-18549 get deployment -l component=elasticsearch -o jsonpath=&#39;{.items[0].metadata.name}&#39;&#39; expecting success; re-trying every 0.2s until completion or 120.000s                                                  1
+[Elasticsearch] Verify Metrics Access.hack/testing-olm/test-200-verify-es-metrics-access.sh:70: executing &#39;oc -n e2e-test-18337 get deployment -l component=elasticsearch -o jsonpath=&#39;{.items[0].metadata.name}&#39;&#39; expecting success; re-trying every 0.2s until completion or 120.000s                                                  1
+[Elasticsearch] Verify Metrics Access.hack/testing-olm/test-200-verify-es-metrics-access.sh:70: executing &#39;oc -n e2e-test-17837 get deployment -l component=elasticsearch -o jsonpath=&#39;{.items[0].metadata.name}&#39;&#39; expecting success; re-trying every 0.2s until completion or 120.000s                                                  1
+[Elasticsearch] Index Management Block Auto-Create For Write Suffix.hack/testing-olm/test-657-im-block-autocreate-for-write-suffix.sh:64: executing &#39;oc -n e2e-test-31552 get deployment -l component=elasticsearch -o jsonpath=&#39;{.items[0].metadata.name}&#39;&#39; expecting success; re-trying every 0.2s until completion or 120.000s        1
+Name: test, Length: 6828, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">passing_df</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>operator.All images are built and tagged into stable                                                                                                                                                                                                                                                                                                                46521
+operator.Import the release payload &quot;latest&quot; from an external source                                                                                                                                                                                                                                                                                                44332
+Overall                                                                                                                                                                                                                                                                                                                                                             32424
+operator.Find the input image origin-centos-8 and tag it into the pipeline                                                                                                                                                                                                                                                                                          30183
+operator.Find the input image ocp-4.5-upi-installer and tag it into the pipeline                                                                                                                                                                                                                                                                                    21493
+                                                                                                                                                                                                                                                                                                                                                                    ...  
+[Elasticsearch] Index Management Block Auto-Create For Write Suffix.hack/testing-olm/test-657-im-block-autocreate-for-write-suffix.sh:82: executing &#39;oc -n e2e-test-21423 exec elasticsearch-cdm-2ly54ypm-1-bfbb6768f-dlt26 -c elasticsearch -- es_util --query=foo-write/_doc/1 -d &#39;{&quot;key&quot;:&quot;value&quot;}&#39; -XPUT -w %{http_code}&#39; expecting success and text &#39;.*404&#39;         1
+[Elasticsearch] Index Management Block Auto-Create For Write Suffix.hack/testing-olm/test-657-im-block-autocreate-for-write-suffix.sh:92: executing &#39;oc -n e2e-test-21423 exec elasticsearch-cdm-2ly54ypm-1-bfbb6768f-dlt26 -c elasticsearch -- es_util --query=foo-write/_doc/1 -d &#39;{&quot;key&quot;:&quot;value&quot;}&#39; -XPUT  -w %{http_code}&#39; expecting success and text &#39;.*201&#39;        1
+[Elasticsearch] Index Management Block Auto-Create For Write Suffix.hack/testing-olm/test-657-im-block-autocreate-for-write-suffix.sh:58: executing &#39;hack/testing-olm/../../hack/deploy-example-secrets.sh  e2e-test-6974&#39; expecting success                                                                                                                            1
+[Elasticsearch] Index Management Block Auto-Create For Write Suffix.hack/testing-olm/test-657-im-block-autocreate-for-write-suffix.sh:58: executing &#39;hack/testing-olm/../../hack/deploy-example-secrets.sh  e2e-test-4451&#39; expecting success                                                                                                                            1
+OSD e2e suite.[install] [Suite: e2e] Storage should be able to be expanded                                                                                                                                                                                                                                                                                              1
+Name: test, Length: 10501, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s find the common test types which are both failing and passing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">failures_df</span><span class="p">,</span>
+    <span class="n">passing_df</span><span class="p">,</span>
+    <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;tab&quot;</span><span class="p">,</span> <span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall                                                                                                                                       1822282
+openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]                       328050
+openshift-tests.[sig-auth][Feature:SCC][Early] should not have pod creation failures during install [Suite:openshift/conformance/parallel]     305356
+operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test                                              161428
+operator.Run multi-stage test e2e-gcp - e2e-gcp-openshift-e2e-test container test                                                              161068
+                                                                                                                                               ...   
+operator.Run multi-stage test ocp-e2e-serial-remote-libvirt-s390x - ocp-e2e-serial-remote-libvirt-s390x-gather-libvirt container test               1
+operator.Run multi-stage test e2e-metal-ipi-compact - e2e-metal-ipi-compact-baremetalds-devscripts-setup container test                             1
+operator.Run multi-stage test e2e-metal-ipi-compact - e2e-metal-ipi-compact-gather-audit-logs container test                                        1
+operator.Run multi-stage test e2e-******* - e2e-*******-gather-audit-logs container test                                                            1
+operator.Run multi-stage test e2e-******* - e2e-*******-gather-must-gather container test                                                           1
+Name: test, Length: 4273, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="failure-distribution">
+<h3>Failure Distribution<a class="headerlink" href="#failure-distribution" title="Permalink to this headline">#</a></h3>
+<p>Let’s identify the distribution type for the following 2 tests:</p>
+<ul class="simple">
+<li><p>openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]</p></li>
+<li><p>operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test</p></li>
+</ul>
+<div class="section" id="test-openshift-tests-sig-arch-feature-clusterupgrade-cluster-should-remain-functional-during-upgrade-disruptive-serial">
+<h4>Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”<a class="headerlink" href="#test-openshift-tests-sig-arch-feature-clusterupgrade-cluster-should-remain-functional-during-upgrade-disruptive-serial" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter df for the &quot;openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional</span>
+<span class="c1"># during upgrade [Disruptive] [Serial]&quot; test</span>
+<span class="n">failures_test1</span> <span class="o">=</span> <span class="n">filter_test_type</span><span class="p">(</span>
+    <span class="n">failures_df</span><span class="p">,</span>
+    <span class="s2">&quot;openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional &quot;</span>
+    <span class="s2">&quot;during upgrade [Disruptive] [Serial]&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">failures_test1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 12:17:53</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>85.600000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-25 04:41:24</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>100.766667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-24 20:03:02</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>98.050000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-24 04:35:23</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>92.950000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-24 01:36:33</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>92.166667</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s plot a histogram to visualize the distribution of the observed `test_duration` data points</span>
+<span class="n">failures_test1</span><span class="p">[</span><span class="s2">&quot;test_duration&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../../../_images/time_to_fail_33_1.png" src="../../../../_images/time_to_fail_33_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the distribution</span>
+<span class="n">d1_failing</span><span class="p">,</span> <span class="n">r1_failing</span> <span class="o">=</span> <span class="n">fit_distribution</span><span class="p">(</span><span class="n">failures_test1</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distributions listed by Betterment of fit:
+............................................
+   Distribution     chi_square and p-value
+8       lognorm   (3414.440248564422, 0.0)
+4      invgauss  (3564.6536127421323, 0.0)
+9      pearson3   (3836.020406427195, 0.0)
+6         gamma  (3836.1215533111454, 0.0)
+3          beta   (3864.133649180025, 0.0)
+0   weibull_min   (5253.086199836209, 0.0)
+1          norm   (6015.403056755193, 0.0)
+10       triang   (8079.894052575527, 0.0)
+7         expon  (13245.469287380836, 0.0)
+5       uniform  (14363.637258136947, 0.0)
+2   weibull_max  (319418.87570963765, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the parameters for the distributions which are the mu (shape), loc (location)</span>
+<span class="c1"># and scale parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1_failing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Distribution Names                                         Parameters
+0         weibull_min  (2.4666409250029213, -2.429851499670257, 2.730...
+1                norm                      (2.1940206700858674e-16, 1.0)
+2         weibull_max  (0.5355423727332492, 3.4269735536094625, 1.586...
+3                beta  (10.126767023068037, 323844.2286736137, -2.968...
+4            invgauss  (0.06184493537752664, -3.7331784362505163, 60....
+5             uniform           (-2.3600801098082758, 5.787053663417738)
+6               gamma  (10.131064867707352, -2.9565063612679223, 0.29...
+7               expon          (-2.3600801098082758, 2.3600801098082758)
+8             lognorm  (0.2596785561409856, -3.5107801112747077, 3.38...
+9            pearson3  (0.6282905320076116, 2.598344433497942e-16, 0....
+10             triang  (0.32166229560869486, -2.400868582013486, 6.10...
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the top 2 distributions based on betterment of fit are <strong>Inverse Gaussian</strong> distribution and <strong>Log Normal</strong> distribution. Let’s plot the graphs for these two distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the parameters required for respective distribution types to visualize the density plots</span>
+<span class="n">invgauss_param_failing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+    <span class="n">d1_failing</span><span class="p">[</span><span class="n">d1_failing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;invgauss&quot;</span><span class="p">][</span><span class="s2">&quot;Parameters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+<span class="c1"># Flatten list</span>
+<span class="n">invgauss_param_failing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">invgauss_param_failing1</span><span class="p">))</span>
+<span class="n">lognorm_param_failing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+    <span class="n">d1_failing</span><span class="p">[</span><span class="n">d1_failing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;lognorm&quot;</span><span class="p">][</span><span class="s2">&quot;Parameters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+<span class="c1"># Flatten list</span>
+<span class="n">lognorm_param_failing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">lognorm_param_failing1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_std_failing1</span><span class="p">,</span> <span class="n">len_y_failing1</span><span class="p">,</span> <span class="n">y_failing1</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span>
+    <span class="n">failures_test1</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distributions</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_failing1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Histogram plot of Oberseved Data&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Inverse Gaussian distribution by passing the mu (shape parameter), loc (location)</span>
+<span class="c1"># and scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_failing1</span><span class="p">,</span>
+    <span class="n">invgauss</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing1</span><span class="p">,</span>
+        <span class="n">invgauss_param_failing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">invgauss_param_failing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">invgauss_param_failing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Inverse Gaussian Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Log Normal distribution by passing the mu (shape), loc (location) and</span>
+<span class="c1"># scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_failing1</span><span class="p">,</span>
+    <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing1</span><span class="p">,</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Log Normal Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/time_to_fail_39_0.png" src="../../../../_images/time_to_fail_39_0.png" />
+</div>
+</div>
+<p>The Histogram plot shows the distribution of test duration values over all the data points. The Inverse Gaussian and Log Normal graphs are density plots which are a smoothed, continuous version of a histogram estimated from the data. It plots the probability density function (along Y-axis) vs the test duration values (along X-axis). Probability density plots are used to understand data distribution for a continuous variable and we want to know the likelihood (or probability) of obtaining a range of values that the continuous variable can assume. The area under the curve contains the probabilities for the test duration values.</p>
+</div>
+<div class="section" id="test-operator-run-multi-stage-test-e2e-aws-upgrade-e2e-aws-upgrade-openshift-e2e-test-container-test">
+<h4>Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”<a class="headerlink" href="#test-operator-run-multi-stage-test-e2e-aws-upgrade-e2e-aws-upgrade-openshift-e2e-test-container-test" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter df for the &quot;operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test</span>
+<span class="c1"># container test&quot; test</span>
+<span class="n">failures_test2</span> <span class="o">=</span> <span class="n">filter_test_type</span><span class="p">(</span>
+    <span class="n">failures_df</span><span class="p">,</span>
+    <span class="s2">&quot;operator.Run multi-stage test e2e-aws-upgrade - &quot;</span>
+    <span class="s2">&quot;e2e-aws-upgrade-openshift-e2e-test container test&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">failures_test2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 12:17:53</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>85.866667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-25 10:30:05</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>91.916667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-25 04:41:24</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>101.133333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-24 20:03:02</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>98.450000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-24 04:35:23</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>93.216667</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s plot a histogram to visualize the distribution of the observed `test_duration` data points</span>
+<span class="n">failures_test2</span><span class="p">[</span><span class="s2">&quot;test_duration&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../../../_images/time_to_fail_43_1.png" src="../../../../_images/time_to_fail_43_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the distribution</span>
+<span class="n">d2_failing</span><span class="p">,</span> <span class="n">r2_failing</span> <span class="o">=</span> <span class="n">fit_distribution</span><span class="p">(</span><span class="n">failures_test2</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distributions listed by Betterment of fit:
+............................................
+   Distribution     chi_square and p-value
+3          beta  (2148.0315961744586, 0.0)
+9      pearson3   (2150.964892187448, 0.0)
+1          norm   (2178.439189095538, 0.0)
+8       lognorm   (2190.171386750302, 0.0)
+6         gamma  (2251.5768352345144, 0.0)
+0   weibull_min  (2335.2881528000057, 0.0)
+2   weibull_max  (2436.7340969950874, 0.0)
+4      invgauss  (2581.7529201615253, 0.0)
+10       triang   (3168.817214371956, 0.0)
+5       uniform  (5205.7686822999685, 0.0)
+7         expon   (7308.400793415922, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the parameters for the distributions which are the mu (shape), loc (location)</span>
+<span class="c1"># and scale parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d2_failing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Distribution Names                                         Parameters
+0         weibull_min  (4.6427392075956835, -4.43451289012974, 4.8146...
+1                norm                      (-1.171224289714451e-16, 1.0)
+2         weibull_max  (3.709430371603564, 3.5732998827356877, 3.9280...
+3                beta  (21455.16309160612, 1395.726210285496, -592.66...
+4            invgauss  (0.012418119424580355, -9.594365078725424, 773...
+5             uniform            (-3.373399521327697, 6.006810353880617)
+6               gamma  (634.0538650591961, -25.325828917067867, 0.039...
+7               expon            (-3.373399521327697, 3.373399521327697)
+8             lognorm  (0.005771872826408885, -173.0123438298847, 173...
+9            pearson3  (-0.04208220131814111, -1.7996272495738179e-16...
+10             triang  (0.5587835400423031, -3.491790660656199, 6.387...
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the top 2 distributions based on betterment of fit are <strong>Pearson</strong> distribution and <strong>Beta</strong> distribution. Let’s plot the graphs for these two distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the parameters required for respective distribution types to visualize the density plots</span>
+<span class="n">pearson_param_failing2</span> <span class="o">=</span> <span class="n">d2_failing</span><span class="p">[</span><span class="n">d2_failing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pearson3&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">pearson_param_failing2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">pearson_param_failing2</span><span class="p">))</span>
+<span class="n">beta_param_failing2</span> <span class="o">=</span> <span class="n">d2_failing</span><span class="p">[</span><span class="n">d2_failing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;beta&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">beta_param_failing2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">beta_param_failing2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_std_failing2</span><span class="p">,</span> <span class="n">len_y_failing2</span><span class="p">,</span> <span class="n">y_failing2</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span>
+    <span class="n">failures_test2</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distributions</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_failing2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Histogram plot of Oberseved Data&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Pearson distribution by passing the mu (shape parameter), loc (location)</span>
+<span class="c1"># and scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_failing2</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing2</span><span class="p">,</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Pearson Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Beta distribution by passing the mu (shape), loc (location) and</span>
+<span class="c1"># scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_failing2</span><span class="p">,</span>
+    <span class="n">beta</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing2</span><span class="p">,</span>
+        <span class="n">beta_param_failing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">beta_param_failing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">beta_param_failing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Beta Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/time_to_fail_49_0.png" src="../../../../_images/time_to_fail_49_0.png" />
+</div>
+</div>
+<p>The Histogram plot shows the distribution of test duration values over all the data points. The Pearson and Beta graphs are density plots which are a smoothed, continuous version of a histogram estimated from the data. It plots the probability density function (along Y-axis) vs the test duration values (along X-axis). Probability density plots are used to understand data distribution for a continuous variable and we want to know the likelihood (or probability) of obtaining a range of values that the continuous variable can assume. The area under the curve contains the probabilities for the test duration values.</p>
+</div>
+</div>
+<div class="section" id="passing-distribution">
+<h3>Passing Distribution<a class="headerlink" href="#passing-distribution" title="Permalink to this headline">#</a></h3>
+<p>Let’s identify the passing distribution type for the following 2 tests:</p>
+<ul class="simple">
+<li><p>openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]</p></li>
+<li><p>operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test</p></li>
+</ul>
+<div class="section" id="id1">
+<h4>Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter df for the &quot;openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain</span>
+<span class="c1"># functional during upgrade [Disruptive] [Serial]&quot; test</span>
+<span class="n">passing_test1</span> <span class="o">=</span> <span class="n">filter_test_type</span><span class="p">(</span>
+    <span class="n">passing_df</span><span class="p">,</span>
+    <span class="s2">&quot;openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain &quot;</span>
+    <span class="s2">&quot;functional during upgrade [Disruptive] [Serial]&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">passing_test1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 13:06:02</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>100.833333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-25 10:30:05</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>91.416667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-25 07:15:39</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>94.033333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-25 06:08:52</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>90.050000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-25 02:54:53</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+      <td>93.450000</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s plot a histogram to visualize the distribution of the observed `test_duration` data points</span>
+<span class="n">passing_test1</span><span class="p">[</span><span class="s2">&quot;test_duration&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../../../_images/time_to_fail_53_1.png" src="../../../../_images/time_to_fail_53_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the distribution</span>
+<span class="n">d1_passing</span><span class="p">,</span> <span class="n">r1_passing</span> <span class="o">=</span> <span class="n">fit_distribution</span><span class="p">(</span><span class="n">passing_test1</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distributions listed by Betterment of fit:
+............................................
+   Distribution     chi_square and p-value
+0   weibull_min   (3099.992757342761, 0.0)
+9      pearson3  (3544.0050668290633, 0.0)
+3          beta  (3545.4138733281484, 0.0)
+2   weibull_max   (4116.375773044669, 0.0)
+10       triang   (5930.653942691529, 0.0)
+1          norm   (6927.207014523444, 0.0)
+8       lognorm   (6935.331882469858, 0.0)
+6         gamma   (7086.238475977115, 0.0)
+4      invgauss   (8398.626283249283, 0.0)
+5       uniform   (11398.67511007455, 0.0)
+7         expon  (16826.245420038034, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the parameters for the distributions which are the mu (shape), loc (location)</span>
+<span class="c1"># and scale parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1_passing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Distribution Names                                         Parameters
+0         weibull_min  (23.65606207323377, -18.709459991681634, 19.13...
+1                norm        (5.721531843060696e-17, 0.9999999999999999)
+2         weibull_max  (2.222323970370051, 2.1309774933239938, 2.4039...
+3                beta  (2306.503139113286, 7.609193001177182, -813.46...
+4            invgauss  (0.010600285727260642, -10.69823396769825, 100...
+5             uniform           (-3.069628193197908, 5.1849198003140575)
+6               gamma  (273.05849309091036, -17.350871362303216, 0.06...
+7               expon            (-3.069628193197908, 3.069628193197908)
+8             lognorm  (0.002206952969157352, -454.25765717799663, 45...
+9            pearson3  (-0.7203794023622432, 1.1214076509902137e-16, ...
+10             triang  (0.6647839138973428, -3.2331077030700532, 5.37...
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the top 2 distributions based on betterment of fit are <strong>Pearson</strong> distribution and <strong>Weibull Min</strong> distribution. Let’s plot the graphs for these two distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the parameters required for respective distribution types to visualize the density plots</span>
+<span class="n">pearson_param_passing1</span> <span class="o">=</span> <span class="n">d1_passing</span><span class="p">[</span><span class="n">d1_passing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pearson3&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">pearson_param_passing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">pearson_param_passing1</span><span class="p">))</span>
+<span class="n">weibull_param_passing1</span> <span class="o">=</span> <span class="n">d1_passing</span><span class="p">[</span><span class="n">d1_passing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;weibull_min&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">weibull_param_passing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">weibull_param_passing1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_std_passing1</span><span class="p">,</span> <span class="n">len_y_passing1</span><span class="p">,</span> <span class="n">y_passing1</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span>
+    <span class="n">passing_test1</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distributions</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_passing1</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Histogram plot of Oberseved Data&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Pearson distribution by passing the mu (shape parameter), loc (location)</span>
+<span class="c1"># and scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_passing1</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing1</span><span class="p">,</span>
+        <span class="n">pearson_param_passing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_passing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_passing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Pearson Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Weibull Min distribution by passing the mu (shape), loc (location) and</span>
+<span class="c1"># scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_passing1</span><span class="p">,</span>
+    <span class="n">weibull_min</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing1</span><span class="p">,</span>
+        <span class="n">weibull_param_passing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">weibull_param_passing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">weibull_param_passing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Weibull Min Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/time_to_fail_59_0.png" src="../../../../_images/time_to_fail_59_0.png" />
+</div>
+</div>
+<p>The Histogram plot shows the distribution of test duration values over all the data points. The Pearson and Weibull Min graphs are density plots which are a smoothed, continuous version of a histogram estimated from the data. It plots the probability density function (along Y-axis) vs the test duration values (along X-axis). Probability density plots are used to understand data distribution for a continuous variable and we want to know the likelihood (or probability) of obtaining a range of values that the continuous variable can assume. The area under the curve contains the probabilities for the test duration values.</p>
+</div>
+<div class="section" id="id2">
+<h4>Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter df for the &quot;operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test</span>
+<span class="c1"># container test&quot; test</span>
+<span class="n">passing_test2</span> <span class="o">=</span> <span class="n">filter_test_type</span><span class="p">(</span>
+    <span class="n">passing_df</span><span class="p">,</span>
+    <span class="s2">&quot;operator.Run multi-stage test e2e-aws-upgrade - &quot;</span>
+    <span class="s2">&quot;e2e-aws-upgrade-openshift-e2e-test container test&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">passing_test2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 13:06:02</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>101.250000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-25 07:15:39</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>94.283333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-25 06:08:52</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>90.316667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-25 02:54:53</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>93.866667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-24 22:40:00</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>92.900000</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s plot a histogram to visualize the distribution of the observed `test_duration` data points</span>
+<span class="n">passing_test2</span><span class="p">[</span><span class="s2">&quot;test_duration&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../../../../_images/time_to_fail_63_1.png" src="../../../../_images/time_to_fail_63_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the distribution</span>
+<span class="n">d2_passing</span><span class="p">,</span> <span class="n">r2_passing</span> <span class="o">=</span> <span class="n">fit_distribution</span><span class="p">(</span><span class="n">passing_test2</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distributions listed by Betterment of fit:
+............................................
+   Distribution                         chi_square and p-value
+10       triang     (461.9624452114939, 4.799796517458444e-69)
+3          beta    (619.2886679176573, 2.716009412709153e-100)
+2   weibull_max   (782.1495727872282, 2.4780499811803997e-133)
+5       uniform   (800.7205543332755, 3.9377128547833523e-137)
+9      pearson3     (902.4903827437414, 4.87937692523532e-158)
+0   weibull_min   (961.9366558978377, 2.6033191498811774e-170)
+6         gamma   (1025.0253918219983, 2.234474698949537e-183)
+8       lognorm  (1063.4355506988115, 2.3726995807065007e-191)
+1          norm    (1066.204889931689, 6.306900543032179e-192)
+4      invgauss     (1076.96978515332, 3.650894820526847e-194)
+7         expon                      (2457.1474484587093, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the parameters for the distributions which are the mu (shape), loc (location)</span>
+<span class="c1"># and scale parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d2_passing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Distribution Names                                         Parameters
+0         weibull_min  (12.20521715428722, -9.947987307617899, 10.381...
+1                norm                      (-2.900174431673878e-16, 1.0)
+2         weibull_max  (2.1554319735307503, 2.0437822972560094, 2.308...
+3                beta  (3.7771834527281305, 2.2909268094664883, -3.38...
+4            invgauss  (0.012936695580847705, -9.3755847909988, 723.7...
+5             uniform          (-2.2137979788672366, 4.1716330057230735)
+6               gamma  (234.71277775898807, -15.756136680990146, 0.06...
+7               expon           (-2.2137979788672366, 2.213797978867236)
+8             lognorm  (0.002403707049861004, -416.90701811718577, 41...
+9            pearson3  (-0.7785824858250469, -3.4824148365068255e-16,...
+10             triang  (0.6841968667427839, -2.6090072152614505, 4.63...
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the top 2 distributions based on betterment of fit are <strong>Pearson</strong> distribution and <strong>Triangular</strong> distribution. Let’s plot the graphs for these two distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the parameters required for respective distribution types to visualize the density plots</span>
+<span class="n">pearson_param_passing2</span> <span class="o">=</span> <span class="n">d2_passing</span><span class="p">[</span><span class="n">d2_passing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pearson3&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">pearson_param_passing2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">pearson_param_passing2</span><span class="p">))</span>
+<span class="n">triang_param_passing2</span> <span class="o">=</span> <span class="n">d2_passing</span><span class="p">[</span><span class="n">d2_passing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;triang&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">triang_param_passing2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">triang_param_passing2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_std_passing2</span><span class="p">,</span> <span class="n">len_y_passing2</span><span class="p">,</span> <span class="n">y_passing2</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span>
+    <span class="n">passing_test2</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the distributions</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_passing2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Histogram plot of Oberseved Data&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Pearson distribution by passing the mu (shape parameter), loc (location)</span>
+<span class="c1"># and scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_passing2</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing2</span><span class="p">,</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Pearson Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the density plot for Triangular distribution by passing the mu (shape), loc (location) and</span>
+<span class="c1"># scale parameters obtained from above</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_passing2</span><span class="p">,</span>
+    <span class="n">triang</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing2</span><span class="p">,</span>
+        <span class="n">triang_param_passing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">triang_param_passing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">triang_param_passing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration</span><span class="se">\n\n</span><span class="s2">Triangular Distribution&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/time_to_fail_69_0.png" src="../../../../_images/time_to_fail_69_0.png" />
+</div>
+</div>
+<p>The Histogram plot shows the distribution of test duration values over all the data points. The Pearson and Triangular graphs are density plots which are a smoothed, continuous version of a histogram estimated from the data. It plots the probability density function (along Y-axis) vs the test duration values (along X-axis). Probability density plots are used to understand data distribution for a continuous variable and we want to know the likelihood (or probability) of obtaining a range of values that the continuous variable can assume. The area under the curve contains the probabilities for the test duration values.</p>
+</div>
+</div>
+</div>
+<div class="section" id="optimal-stopping-point">
+<h2>Optimal Stopping Point<a class="headerlink" href="#optimal-stopping-point" title="Permalink to this headline">#</a></h2>
+<p>Next, we would want to look into these distribution types to determine a point after which the test has a higher probability of failing.</p>
+<div class="section" id="id3">
+<h3>Test: “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p><em>Distribution Type</em>: <strong>Log Normal</strong></p>
+<p>For the test “openshift-tests.[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]”, let’s look at the <code class="docutils literal notranslate"><span class="pre">Log</span> <span class="pre">Normal</span></code> distribution type.</p>
+<p>To find the optimal stopping point, we will find the intersection points for the passing and failing distribution curves using the <code class="docutils literal notranslate"><span class="pre">intersect</span></code> library. We will then consider the largest <code class="docutils literal notranslate"><span class="pre">x</span></code> co-ordinate value (i.e the test duration value) as the corresponding optimal stopping point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch the parameters for the log normal distribution of passing test1</span>
+<span class="n">lognorm_param_passing1</span> <span class="o">=</span> <span class="n">d1_passing</span><span class="p">[</span><span class="n">d1_passing</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;lognorm&quot;</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="c1"># Flatten list</span>
+<span class="n">lognorm_param_passing1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">lognorm_param_passing1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain the intersection points between the distribution curves</span>
+<span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span>
+    <span class="n">y_failing1</span><span class="p">,</span>
+    <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing1</span><span class="p">,</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">y_passing1</span><span class="p">,</span>
+    <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing1</span><span class="p">,</span>
+        <span class="n">lognorm_param_passing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">lognorm_param_passing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">lognorm_param_passing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="c1"># Print the x co-ordinates of the intersection points which corresponds to the test duration values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19.31628303 19.35340261 45.87843304 72.01245346]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_failing1</span><span class="p">,</span>
+    <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing1</span><span class="p">,</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">lognorm_param_failing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Failure Distribution&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_passing1</span><span class="p">,</span>
+    <span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing1</span><span class="p">,</span>
+        <span class="n">lognorm_param_passing1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">lognorm_param_passing1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">lognorm_param_passing1</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Passing Distribution&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Test Duration vs Probability Density Function&quot;</span><span class="p">)</span>
+<span class="c1"># vertical intersection point corresponding to largest x co-ordinate value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimal Stopping Point&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/time_to_fail_75_0.png" src="../../../../_images/time_to_fail_75_0.png" />
+</div>
+</div>
+<p>From the above graph, we see that passing tests (orange line) have a narrower range and smaller std, with an expected run time of between 20 and 110 seconds. Failing tests (blue line) are much less reliable with a run time spanning from 0 to 240 seconds. From this graph, we can claim that a test run longer than ~72 seconds starts to have an increased probability of being a failure and hence can be considered as an optimal stopping point.</p>
+</div>
+<div class="section" id="id4">
+<h3>Test: “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p><em>Distribution Type</em>: <strong>Person</strong></p>
+<p>For the test “operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test”, let’s look at the <code class="docutils literal notranslate"><span class="pre">Pearson</span></code> distribution type.</p>
+<p>To find the optimal stopping point, we will find the intersection points for the passing and failing distribution curves using the <code class="docutils literal notranslate"><span class="pre">intersect</span></code> library. We will then consider the largest <code class="docutils literal notranslate"><span class="pre">x</span></code> co-ordinate value (i.e the test duration value) as the corresponding optimal stopping point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain the intersection points between the distribution curves</span>
+<span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span>
+    <span class="n">y_failing2</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing2</span><span class="p">,</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">y_passing2</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing2</span><span class="p">,</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="c1"># Print the x co-ordinates of the intersection points which corresponds to the test duration values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 86.243292   104.17407072]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_failing2</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_failing2</span><span class="p">,</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_failing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Failure Distribution&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">y_passing2</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span>
+        <span class="n">y_std_passing2</span><span class="p">,</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">pearson_param_passing2</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">),</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Passing Distribution&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Test Duration&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Test Duration vs Probability Density Function&quot;</span><span class="p">)</span>
+<span class="c1"># vertical intersection point corresponding to largest x co-ordinate value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimal Stopping Point&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/time_to_fail_80_0.png" src="../../../../_images/time_to_fail_80_0.png" />
+</div>
+</div>
+<p>From the above graph, we see that passing tests (orange line) have a narrower range and smaller std, with an expected run time of between 40 and 120 seconds. Failing tests (blue line) are much less reliable with a run time spanning from 0 to 160 seconds. From this graph, we can claim that a test run longer than ~104 seconds starts to have an increased probability of being a failure and hence can be considered as an optimal stopping point.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion:<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>In this notebook, we have filtered the TestGrid data for failing and passing tests and identified the distributions for different TestGrid tests for the feature <code class="docutils literal notranslate"><span class="pre">test_duration</span></code>. We have observed that different TestGrid tests have different types of distributions. Based on the distribution type, we performed Chi-Square statistics for each distribution and further sorted them to find the best distribution. We then determine an optimal stopping point by plotting the intersection points between the passing and failing test distributions. For future work, we aim to develop an ML model to predict an optimal stopping point for each test considering the distribution type so as to make appropriate predictions.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/TestGrid/metrics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="time_to_test.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Quantify Time to Test</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="validate_pipeline.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Validate the succesful running of the Automated Pipeline</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

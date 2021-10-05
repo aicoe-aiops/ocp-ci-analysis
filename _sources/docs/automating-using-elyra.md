@@ -19,11 +19,19 @@ In this example, we automate a sample Kubeflow workflow using the Elyra UI for t
 
 2. **Project Image** - We need to tag a new release for the project for the latest set of dependencies. We have the latest image available at `quay.io/aicoe/ocp-ci-analysis:latest`. For more information on using the AICoE tooling to tag a release and for using separate overlays for each notebook, you can go [here](https://github.com/thoth-station/elyra-aidevsecops-tutorial/blob/master/docs/source/build-images.md)
 
+<<<<<<< HEAD
 3. **Operate First KFP endpoint** - For Operate First we can find the Kubeflow Pipeline UI at this [link](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/#/). More information on accessing and using Kubeflow Pipelines can be found [here](https://www.operate-first.cloud/users/apps/docs/kubeflow/kubeflow-pipelines/README.md).
 
 ## Steps to Run Pipeline
 
 1. To access the Elyra UI, you can launch the Elyra 0.0.6 image on the Operate First MOC [JupyterHub](https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/spawn)
+=======
+3. **Operate First KFP endpoint** - For Operate First we can find the Kubeflow Pipeline UI at this [link](https://ml-pipeline-ui-kubeflow.apps.odh-cl2.apps.os-climate.org/pipeline/#/). More information on accessing and using Kubeflow Pipelines can be found [here](https://www.operate-first.cloud/users/apps/docs/kubeflow/kubeflow-pipelines/README.md).
+
+## Steps to Run Pipeline
+
+1. To access the Elyra UI, you can launch the Elyra 0.0.6 image on the Operate First MOC [JupyterHub](https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/spawn)
+>>>>>>> 7e7fb73... Update documentation
 
 ![pipeline](assets/images/elyra-1.png)
 
@@ -40,7 +48,11 @@ elyra-metadata install runtime-images --display_name="OCP-CI-Project-Workflow" -
 5. Next we will create a runtime to be used in the Kubeflow pipeline using the CLI using the following command. This can also be done using the UI.
 
 ```
+<<<<<<< HEAD
 elyra-metadata install runtimes --display_name="KFP operate first" --api_endpoint="http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline" --schema_name=kfp --engine=Tekton --cos_endpoint=CLOUD_OBJECT_STORAGE_ENDPOINT --cos_username=CLOUD_OBJECT_STORAGE_USERNAME --cos_password=CLOUD_OBJECT_STORAGE_PASSWORD --cos_bucket=CLOUD_OBJECT_BUCKET_NAME
+=======
+elyra-metadata install runtimes --display_name="KFP operate first" --api_endpoint="https://ml-pipeline-ui-kubeflow.apps.odh-cl2.apps.os-climate.org/pipeline" --schema_name=kfp --engine=Tekton --cos_endpoint=CLOUD_OBJECT_STORAGE_ENDPOINT --cos_username=CLOUD_OBJECT_STORAGE_USERNAME --cos_password=CLOUD_OBJECT_STORAGE_PASSWORD --cos_bucket=CLOUD_OBJECT_BUCKET_NAME
+>>>>>>> 7e7fb73... Update documentation
 ```
 
 6. Once we have created the runtime, we will open a new Elyra Pipeline Editor (by Ctrl + Shift + C ) and drag and drop notebooks which we want to add to the pipeline and connect them in the sequence we want them to run in.
@@ -63,7 +75,11 @@ We can also check the `.pipeline` file that was created to check that whether it
 
 ![trigger](assets/images/elyra-5.png)
 
+<<<<<<< HEAD
 9. We can now switch over to the deployed [Kubeflow instance](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/#/experiments) to debug the pipeline.
+=======
+9. We can now switch over to the deployed [Kubeflow instance](https://ml-pipeline-ui-kubeflow.apps.odh-cl2.apps.os-climate.org/pipeline/#/experiments) to debug the pipeline.
+>>>>>>> 7e7fb73... Update documentation
 
 10. Under Experiments, clicking on the latest Experiment name will take you to the Run name. Clicking on the Run Name and the individual Step will take you to Logs, which can be helpful in debugging any failing runs.
 

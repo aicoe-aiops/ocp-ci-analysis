@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimal Stopping Point for CI Tests &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data-sources/TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/optimal-stopping-point/osp_model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/optimal-stopping-point/osp_model.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/optimal-stopping-point/osp_model.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/optimal-stopping-point/osp_model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceph">
+   Ceph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fetch-all-tests">
+   Fetch all tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter-tests">
+   Filter tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-distribution">
+   Fit Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimal-stopping-point-calculation">
+   Optimal Stopping Point Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Optimal Stopping Point for CI Tests</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ceph">
+   Ceph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fetch-all-tests">
+   Fetch all tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter-tests">
+   Filter tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fit-distribution">
+   Fit Distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimal-stopping-point-calculation">
+   Optimal Stopping Point Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="optimal-stopping-point-for-ci-tests">
+<h1>Optimal Stopping Point for CI Tests<a class="headerlink" href="#optimal-stopping-point-for-ci-tests" title="Permalink to this headline">#</a></h1>
+<p>One of the machine learning explorations within the OpenShift CI Analysis project is predicting optimal stopping point for CI tests based on their test duration (runtimes) (see this <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/226">issue</a> for more details). In a previous <a class="reference internal" href="../data-sources/TestGrid/metrics/time_to_fail.html"><span class="doc std std-doc">notebook</span></a> we showed how to access the TestGrid data, and then performed initial data analysis as well as feature engineering on it. Furthermore, we also calculated the optimal stopping point by identifying the distribution of the <code class="docutils literal notranslate"><span class="pre">test_duration</span></code> values for different CI tests and comparing the distributions of passing/failing tests.</p>
+<p>In this notebook, we will detect the optimal stopping point for different CI tests taken as inputs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">scipy</span>  <span class="c1"># noqa F401</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="p">(</span>  <span class="c1"># noqa F401</span>
+    <span class="n">invgauss</span><span class="p">,</span>
+    <span class="n">lognorm</span><span class="p">,</span>
+    <span class="n">pearson3</span><span class="p">,</span>
+    <span class="n">weibull_min</span><span class="p">,</span>
+    <span class="n">triang</span><span class="p">,</span>
+    <span class="n">beta</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">,</span>
+    <span class="n">weibull_max</span><span class="p">,</span>
+    <span class="n">uniform</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="p">,</span>
+    <span class="n">expon</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.osp_helper_functions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CephCommunication</span><span class="p">,</span>
+    <span class="n">fit_distribution</span><span class="p">,</span>
+    <span class="n">standardize</span><span class="p">,</span>
+    <span class="n">filter_test_type</span><span class="p">,</span>
+    <span class="n">fetch_all_tests</span><span class="p">,</span>
+    <span class="n">best_distribution</span><span class="p">,</span>
+    <span class="n">optimal_stopping_point</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ceph">
+<h2>Ceph<a class="headerlink" href="#ceph" title="Permalink to this headline">#</a></h2>
+<p>Connection to Ceph for importing the TestGrid data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Specify variables</span>
+<span class="n">METRIC_NAME</span> <span class="o">=</span> <span class="s2">&quot;time_to_fail&quot;</span>
+
+<span class="c1"># Specify the path for input grid data</span>
+<span class="n">INPUT_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;../../data/raw/testgrid_258.json.gz&quot;</span>
+
+<span class="c1"># Specify the path for output metric data</span>
+<span class="n">OUTPUT_DATA_PATH</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../../../data/processed/metrics/</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1">## CEPH Bucket variables</span>
+<span class="c1">## Create a .env file on your local with the correct configs</span>
+<span class="n">s3_endpoint_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ENDPOINT&quot;</span><span class="p">)</span>
+<span class="n">s3_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ACCESS_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_SECRET_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_bucket</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_BUCKET&quot;</span><span class="p">)</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_PROJECT_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;metrics&quot;</span><span class="p">)</span>
+<span class="n">s3_input_data_path</span> <span class="o">=</span> <span class="s2">&quot;raw_data&quot;</span>
+
+<span class="c1"># Specify whether or not we are running this as a notebook or part of an automation pipeline.</span>
+<span class="n">AUTOMATION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;IN_AUTOMATION&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import data</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;testgrid_</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+    <span class="n">s3_object</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s3_input_data_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">file_content</span> <span class="o">=</span> <span class="n">s3_object</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="s2">&quot;Body&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">INPUT_DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fetch-all-tests">
+<h2>Fetch all tests<a class="headerlink" href="#fetch-all-tests" title="Permalink to this headline">#</a></h2>
+<p>Using the function <code class="docutils literal notranslate"><span class="pre">fetch_all_tests</span></code>, we will fetch all passing and failing tests into two dataframes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch all failing tests i.e which have a status code of 12</span>
+<span class="n">failures_df</span> <span class="o">=</span> <span class="n">fetch_all_tests</span><span class="p">(</span><span class="n">testgrid_data</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failures_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure/passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>2021-08-16 23:03:14</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>20.016667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2021-08-16 00:01:05</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>108.233333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2021-08-16 23:03:14</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>13.166667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>2021-08-16 00:01:05</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>89.983333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>2021-08-16 00:01:05</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>TestInstall_test_install.start_install_and_wai...</td>
+      <td>60.004001</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch all passing tests i.e which have a status code of 1</span>
+<span class="n">passing_df</span> <span class="o">=</span> <span class="n">fetch_all_tests</span><span class="p">(</span><span class="n">testgrid_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">passing_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure/passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2021-08-23 00:01:04</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>95.300000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-22 08:53:17</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>101.800000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-20 23:21:32</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>134.833333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-20 15:57:36</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>109.833333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021-08-20 06:47:40</td>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>94.800000</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="filter-tests">
+<h2>Filter tests<a class="headerlink" href="#filter-tests" title="Permalink to this headline">#</a></h2>
+<p>After collecting the data for all passing and failing tests, we will move towards narrowing down to one test for which we would want to calculate the optimal stopping point. We will be using the test - <code class="docutils literal notranslate"><span class="pre">operator.Run</span> <span class="pre">multi-stage</span> <span class="pre">test</span> <span class="pre">e2e-aws-upgrade</span> <span class="pre">-</span> <span class="pre">e2e-aws-upgrade-openshift-e2e-test</span> <span class="pre">container</span> <span class="pre">test</span></code> and extract the data for this test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failures_test</span> <span class="o">=</span> <span class="n">filter_test_type</span><span class="p">(</span>
+    <span class="n">failures_df</span><span class="p">,</span>
+    <span class="s2">&quot;operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">failures_test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure/passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 12:17:53</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>85.866667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-25 10:30:05</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>91.916667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-25 04:41:24</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>101.133333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-24 20:03:02</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>98.450000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-24 04:35:23</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>93.216667</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">passing_test</span> <span class="o">=</span> <span class="n">filter_test_type</span><span class="p">(</span>
+    <span class="n">passing_df</span><span class="p">,</span>
+    <span class="s2">&quot;operator.Run multi-stage test e2e-aws-upgrade - e2e-aws-upgrade-openshift-e2e-test container test&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">passing_test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>test_duration</th>
+      <th>failure/passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-08-25 13:06:02</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>101.250000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-25 07:15:39</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>94.283333</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021-08-25 06:08:52</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>90.316667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021-08-25 02:54:53</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>93.866667</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021-08-24 22:40:00</td>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>operator.Run multi-stage test e2e-aws-upgrade ...</td>
+      <td>92.900000</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="fit-distribution">
+<h2>Fit Distribution<a class="headerlink" href="#fit-distribution" title="Permalink to this headline">#</a></h2>
+<p>After extracting the data for one test, we would want to find the best distribution to perform optimal stopping point calculation. We find chi square and p-values to find the best distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failure_dist</span><span class="p">,</span> <span class="n">failures_r</span> <span class="o">=</span> <span class="n">fit_distribution</span><span class="p">(</span><span class="n">failures_test</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distributions listed by Betterment of fit:
+............................................
+   Distribution     chi_square and p-value
+3          beta  (2148.0315961744586, 0.0)
+9      pearson3   (2150.964892187448, 0.0)
+1          norm   (2178.439189095538, 0.0)
+8       lognorm   (2190.171386750302, 0.0)
+6         gamma  (2251.5768352345144, 0.0)
+0   weibull_min  (2335.2881528000057, 0.0)
+2   weibull_max  (2436.7340969950874, 0.0)
+4      invgauss  (2581.7529201615253, 0.0)
+10       triang   (3168.817214371956, 0.0)
+5       uniform  (5205.7686822999685, 0.0)
+7         expon   (7308.400793415922, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the best fit distribution from the failing test along with its corresponding distribution parameters</span>
+<span class="n">best_dist</span><span class="p">,</span> <span class="n">parameters_failing</span> <span class="o">=</span> <span class="n">best_distribution</span><span class="p">(</span><span class="n">failure_dist</span><span class="p">,</span> <span class="n">failures_r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the distributions for the passing test along with its corresponding distribution parameters</span>
+<span class="n">passing_dist</span><span class="p">,</span> <span class="n">passing_r</span> <span class="o">=</span> <span class="n">fit_distribution</span><span class="p">(</span><span class="n">passing_test</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Distributions listed by Betterment of fit:
+............................................
+   Distribution                         chi_square and p-value
+10       triang     (461.9624452114939, 4.799796517458444e-69)
+3          beta    (619.2886679176573, 2.716009412709153e-100)
+2   weibull_max   (782.1495727872282, 2.4780499811803997e-133)
+5       uniform   (800.7205543332755, 3.9377128547833523e-137)
+9      pearson3     (902.4903827437414, 4.87937692523532e-158)
+0   weibull_min   (961.9366558978377, 2.6033191498811774e-170)
+6         gamma   (1025.0253918219983, 2.234474698949537e-183)
+8       lognorm  (1063.4355506988115, 2.3726995807065007e-191)
+1          norm    (1066.204889931689, 6.306900543032179e-192)
+4      invgauss     (1076.96978515332, 3.650894820526847e-194)
+7         expon                      (2457.1474484587093, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">passing_r</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Distribution</th>
+      <th>chi_square and p-value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>triang</td>
+      <td>(461.9624452114939, 4.799796517458444e-69)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>beta</td>
+      <td>(619.2886679176573, 2.716009412709153e-100)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>weibull_max</td>
+      <td>(782.1495727872282, 2.4780499811803997e-133)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>uniform</td>
+      <td>(800.7205543332755, 3.9377128547833523e-137)</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>pearson3</td>
+      <td>(902.4903827437414, 4.87937692523532e-158)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the best fit distribution from the passing test</span>
+<span class="n">best_distribution</span><span class="p">(</span><span class="n">passing_dist</span><span class="p">,</span> <span class="n">passing_r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;weibull_min&#39;, [12.20521715428722, -9.947987307617899, 10.381897325624372])
+</pre></div>
+</div>
+</div>
+</div>
+<p>After finding the best distribution for failing distribution, we find the corresponding parameters for the same distribution in the passing distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the corresponding passing test distribution parameters for the</span>
+<span class="c1"># best fit distribution identified from the failing test above</span>
+<span class="n">parameters_passing</span> <span class="o">=</span> <span class="n">passing_dist</span><span class="p">[</span><span class="n">passing_dist</span><span class="p">[</span><span class="s2">&quot;Distribution Names&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">best_dist</span><span class="p">][</span>
+    <span class="s2">&quot;Parameters&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">parameters_passing</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">parameters_passing</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standardize the features by removing the mean and scaling to unit variance</span>
+<span class="n">y_std_failing</span><span class="p">,</span> <span class="n">len_y_failing</span><span class="p">,</span> <span class="n">y_failing</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span>
+    <span class="n">failures_test</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standardize the features by removing the mean and scaling to unit variance</span>
+<span class="n">y_std_passing</span><span class="p">,</span> <span class="n">len_y_passing</span><span class="p">,</span> <span class="n">y_passing</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span>
+    <span class="n">passing_test</span><span class="p">,</span> <span class="s2">&quot;test_duration&quot;</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.01</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="optimal-stopping-point-calculation">
+<h2>Optimal Stopping Point Calculation<a class="headerlink" href="#optimal-stopping-point-calculation" title="Permalink to this headline">#</a></h2>
+<p>Let’s move forward to find the optimal stopping point for the test by passing the best distribution name, failing and passing distributions and the corresponding distribution parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">osp</span> <span class="o">=</span> <span class="n">optimal_stopping_point</span><span class="p">(</span>
+    <span class="n">best_dist</span><span class="p">,</span>
+    <span class="n">y_std_failing</span><span class="p">,</span>
+    <span class="n">y_failing</span><span class="p">,</span>
+    <span class="n">parameters_failing</span><span class="p">,</span>
+    <span class="n">y_std_passing</span><span class="p">,</span>
+    <span class="n">y_passing</span><span class="p">,</span>
+    <span class="n">parameters_passing</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Optimat Stopping Point for `operator.Run multi-stage test e2e-aws-upgrade</span>
+<span class="c1"># - e2e-aws-upgrade-openshift-e2e-test container test`</span>
+<span class="n">osp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104.3979969544608
+</pre></div>
+</div>
+</div>
+</div>
+<p>This tells us that the optimal stopping point should be at test duration run length of 104.39 seconds.</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>In this notebook we were able to:</p>
+<ul class="simple">
+<li><p>Fetch the data for all passing and failing tests</p></li>
+<li><p>Filter the data for the test - <code class="docutils literal notranslate"><span class="pre">operator.Run</span> <span class="pre">multi-stage</span> <span class="pre">test</span> <span class="pre">e2e-aws-upgrade</span> <span class="pre">-</span> <span class="pre">e2e-aws-upgrade-openshift-e2e-test</span> <span class="pre">container</span> <span class="pre">test</span></code></p></li>
+<li><p>Find the best distribution for the test</p></li>
+<li><p>Find the optimal stopping point for the test</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/optimal-stopping-point"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

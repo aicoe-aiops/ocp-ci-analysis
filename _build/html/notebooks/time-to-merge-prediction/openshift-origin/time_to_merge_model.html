@@ -1,0 +1,2403 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predicting Time to Merge of a Pull Request &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../data-sources/TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../data-sources/TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../data-sources/Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/time-to-merge-prediction/openshift-origin/time_to_merge_model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/time-to-merge-prediction/openshift-origin/time_to_merge_model.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/time-to-merge-prediction/openshift-origin/time_to_merge_model.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/notebooks/time-to-merge-prediction/openshift-origin/time_to_merge_model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-raw-data">
+   Get Raw Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-labels-from-raw-data">
+   Extract Labels from Raw Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-features-from-raw-data">
+   Extract Features from Raw Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#size">
+     size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-approver-is-reviewer">
+     is_approver / is_reviewer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#created-at">
+     created_at
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-in-dir">
+     change_in_&lt;dir&gt;
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changed-files-number">
+     changed_files_number
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#body-size">
+     body_size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#num-previous-merged-prs">
+     num_previous_merged_prs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filetype-type">
+     filetype_&lt;type&gt;
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#title-wordcount-word">
+     title_wordcount_&lt;word&gt;
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-transforms">
+   Apply Transforms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drop-na-train-test-split">
+   Drop NA + Train/Test Split
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scale-data">
+   Scale data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-training-and-evaluation-pipeline">
+   Define Training and Evaluation Pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-models-and-parameters">
+   Define Models and Parameters
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-naive-bayes">
+     Gaussian Naive Bayes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm">
+     SVM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     Random Forest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#xgboost">
+     XGBoost
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-model-results">
+   Compare Model Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-using-all-features">
+     Train using all features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-using-pruned-features">
+     Train using pruned features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-sklearn-pipeline">
+   Create sklearn Pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-model-to-s3">
+   Write Model to S3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Predicting Time to Merge of a Pull Request</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-raw-data">
+   Get Raw Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-labels-from-raw-data">
+   Extract Labels from Raw Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-features-from-raw-data">
+   Extract Features from Raw Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#size">
+     size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-approver-is-reviewer">
+     is_approver / is_reviewer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#created-at">
+     created_at
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#change-in-dir">
+     change_in_&lt;dir&gt;
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changed-files-number">
+     changed_files_number
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#body-size">
+     body_size
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#num-previous-merged-prs">
+     num_previous_merged_prs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filetype-type">
+     filetype_&lt;type&gt;
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#title-wordcount-word">
+     title_wordcount_&lt;word&gt;
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-transforms">
+   Apply Transforms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drop-na-train-test-split">
+   Drop NA + Train/Test Split
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scale-data">
+   Scale data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-training-and-evaluation-pipeline">
+   Define Training and Evaluation Pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-models-and-parameters">
+   Define Models and Parameters
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-naive-bayes">
+     Gaussian Naive Bayes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#svm">
+     SVM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-forest">
+     Random Forest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#xgboost">
+     XGBoost
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-model-results">
+   Compare Model Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-using-all-features">
+     Train using all features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-using-pruned-features">
+     Train using pruned features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-sklearn-pipeline">
+   Create sklearn Pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-model-to-s3">
+   Write Model to S3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="predicting-time-to-merge-of-a-pull-request">
+<h1>Predicting Time to Merge of a Pull Request<a class="headerlink" href="#predicting-time-to-merge-of-a-pull-request" title="Permalink to this headline">#</a></h1>
+<p>One of the machine learning explorations within the OpenShift CI Analysis project is predicting time to merge of a pull request (see this <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/236">issue</a> for more details). In a previous <span class="xref myst">notebook</span> we showed how to access the PR data for the <a class="reference external" href="https://github.com/openshift/origin">openshift/origin</a> repo, and then performed initial data analysis as well as feature engineering on it. Furthermore, we also split the <code class="docutils literal notranslate"><span class="pre">time_to_merge</span></code> values for the PRs into the following 10 discrete, equally populated bins, so that this task becomes a classification problem:</p>
+<p>Class 0 : &lt; 3 hrs<br />
+Class 1 : &lt; 6 hrs<br />
+Class 2 : &lt; 15 hrs<br />
+Class 3 : &lt; 24 hrs / 1 day<br />
+Class 4 : &lt; 36 hrs / 1.5 days<br />
+Class 5 : &lt; 60 hrs / 2.5 days<br />
+Class 6 : &lt; 112 hrs / ~4.5 days<br />
+Class 7 : &lt; 190 hrs / ~8 days<br />
+Class 8 : &lt; 462 hrs / ~19 days<br />
+Class 9: &gt; 462 hrs</p>
+<p>In this notebook, we will first create transformer objects (based on the explorations in the previous notebook) to extract features from raw PR data. Then, we will train machine learning models to classify a PR’s <code class="docutils literal notranslate"><span class="pre">time_to_merge</span></code> into one of the above 10 bins (or “classes”).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">boto3</span>
+
+<span class="kn">import</span> <span class="nn">joblib</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PowerTransformer</span><span class="p">,</span> <span class="n">OrdinalEncoder</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">RFE</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+
+<span class="kn">from</span> <span class="nn">src.features.build_features</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IsUserPrivTransformer</span><span class="p">,</span>
+    <span class="n">DateTimeDetailsTransformer</span><span class="p">,</span>
+    <span class="n">ChangeInDirTransformer</span><span class="p">,</span>
+    <span class="n">NumChangedFilesTransformer</span><span class="p">,</span>
+    <span class="n">StringLenTransformer</span><span class="p">,</span>
+    <span class="n">NumPrevPRsTransformer</span><span class="p">,</span>
+    <span class="n">FileTypeCountTransformer</span><span class="p">,</span>
+    <span class="n">TitleWordCountTransformer</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CephCommunication</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to establish communication with a ceph s3 bucket.</span>
+<span class="sd">    It connects with the bucket and provides methods to read and write data in the parquet format.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">aws_access_key_id</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="p">,</span> <span class="n">s3_bucket</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s3_endpoint_url</span> <span class="o">=</span> <span class="n">s3_endpoint_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aws_access_key_id</span> <span class="o">=</span> <span class="n">aws_access_key_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aws_secret_access_key</span> <span class="o">=</span> <span class="n">aws_secret_access_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span>
+            <span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+            <span class="n">endpoint_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">s3_endpoint_url</span><span class="p">,</span>
+            <span class="n">aws_access_key_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">aws_access_key_id</span><span class="p">,</span>
+            <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">aws_secret_access_key</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span> <span class="o">=</span> <span class="n">s3_bucket</span>
+        <span class="c1">## Todo: Add try catch</span>
+
+    <span class="k">def</span> <span class="nf">upload_to_ceph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">s3_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This helper function takes as input the data frame to be uploaded, and the output filename.</span>
+<span class="sd">        It then saves the data frame in the defined ceph bucket.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">parquet_buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">parquet_buffer</span><span class="p">)</span>
+        <span class="n">s3_obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s3_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">s3_obj</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Body</span><span class="o">=</span><span class="n">parquet_buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">status</span>
+
+    <span class="k">def</span> <span class="nf">read_from_ceph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s3_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper function to read from ceph and see if the saved data is correct.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+        <span class="n">s3_object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s3_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">s3_object</span><span class="o">.</span><span class="n">download_fileobj</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+        <span class="n">df_temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df_temp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-raw-data">
+<h2>Get Raw Data<a class="headerlink" href="#get-raw-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## CEPH Bucket variables</span>
+<span class="c1">## Create a .env file on your local with the correct configs,</span>
+<span class="n">s3_endpoint_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ENDPOINT&quot;</span><span class="p">)</span>
+<span class="n">s3_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ACCESS_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_SECRET_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_bucket</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_BUCKET&quot;</span><span class="p">)</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="s2">&quot;github&quot;</span>
+<span class="n">REMOTE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;REMOTE&quot;</span><span class="p">)</span>
+<span class="n">AUTOMATION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;AUTOMATION&quot;</span><span class="p">)</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;../../data/raw/GitHub/PullRequest.json.gz&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">REMOTE</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;getting dataset from ceph&quot;</span><span class="p">)</span>
+    <span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span>
+        <span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+        <span class="n">endpoint_url</span><span class="o">=</span><span class="n">s3_endpoint_url</span><span class="p">,</span>
+        <span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">s3_access_key</span><span class="p">,</span>
+        <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">s3_secret_key</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="s2">&quot;thoth/mi/openshift/origin/PullRequest.json&quot;</span><span class="p">)</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="s2">&quot;Body&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">prs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_file</span><span class="p">:</span>
+            <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">prs</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;getting dataset from local&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">prs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+
+<span class="n">pr_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">prs</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>getting dataset from ceph
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extract-labels-from-raw-data">
+<h2>Extract Labels from Raw Data<a class="headerlink" href="#extract-labels-from-raw-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_ttm_class</span><span class="p">(</span><span class="n">ttm</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Assign a ttm &quot;class&quot; / &quot;category&quot; / &quot;bin&quot; to the input numerical ttm value</span>
+<span class="sd">    E.g. if the time to merge was 1.5 hours, this function will return</span>
+<span class="sd">    class &quot;0&quot; which represents &quot;merged in 0-3 hours&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">24</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">3</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">36</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">4</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">5</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">112</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">6</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">190</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">7</span>
+    <span class="k">elif</span> <span class="n">ttm</span> <span class="o">&lt;</span> <span class="mi">462</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">8</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">9</span>
+
+
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">pr_df</span><span class="p">[</span><span class="s2">&quot;merged_at&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">pr_df</span><span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;float&quot;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_ttm_class</span><span class="p">)</span>
+<span class="n">y</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26100    5
+26099    2
+26096    3
+26092    5
+26091    5
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="extract-features-from-raw-data">
+<h2>Extract Features from Raw Data<a class="headerlink" href="#extract-features-from-raw-data" title="Permalink to this headline">#</a></h2>
+<p>In this section, we will create transformer objects to process raw data as per the feature extraction methods that were found to be the most effective in the previous EDA notebook.</p>
+<p>To ensure that joblib serializes the custom transformer objects correctly, we will write their definitions in <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">src/features/build_features.py</span></code></span> instead of this notebook, and import them from the <code class="docutils literal notranslate"><span class="pre">src</span></code> package. This way, the <code class="docutils literal notranslate"><span class="pre">src</span></code> package can be listed as a dependency wherever these objects need to be deserialized (for example, Seldon server).</p>
+<div class="section" id="size">
+<h3>size<a class="headerlink" href="#size" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># map values to 0,1,2,3,4,5</span>
+<span class="n">pr_size_encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s2">&quot;XS&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;XL&quot;</span><span class="p">,</span> <span class="s2">&quot;XXL&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="is-approver-is-reviewer">
+<h3>is_approver / is_reviewer<a class="headerlink" href="#is-approver-is-reviewer" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check if pr is created by approvers / reviewers / other privileged users</span>
+<span class="n">is_reviewer_transf</span> <span class="o">=</span> <span class="n">IsUserPrivTransformer</span><span class="p">(</span><span class="n">priv</span><span class="o">=</span><span class="s2">&quot;reviewers&quot;</span><span class="p">)</span>
+<span class="n">is_approver_transf</span> <span class="o">=</span> <span class="n">IsUserPrivTransformer</span><span class="p">(</span><span class="n">priv</span><span class="o">=</span><span class="s2">&quot;approvers&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="created-at">
+<h3>created_at<a class="headerlink" href="#created-at" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get day, month, date, etc. from a unix timestamp</span>
+<span class="n">dt_details_transf</span> <span class="o">=</span> <span class="n">DateTimeDetailsTransformer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="change-in-dir">
+<h3>change_in_&lt;dir&gt;<a class="headerlink" href="#change-in-dir" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determine if PR made changes in some specific directories in repo</span>
+<span class="n">DIRS_TO_CHECK</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;.github&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;docs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pkg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vendor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;root&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">change_in_dirs_transf</span> <span class="o">=</span> <span class="n">ChangeInDirTransformer</span><span class="p">(</span><span class="n">dirs_to_check</span><span class="o">=</span><span class="n">DIRS_TO_CHECK</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="changed-files-number">
+<h3>changed_files_number<a class="headerlink" href="#changed-files-number" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of files changed in PR</span>
+<span class="n">n_changed_files_transf</span> <span class="o">=</span> <span class="n">NumChangedFilesTransformer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="body-size">
+<h3>body_size<a class="headerlink" href="#body-size" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of characters in PR description</span>
+<span class="n">body_size_transf</span> <span class="o">=</span> <span class="n">StringLenTransformer</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="num-previous-merged-prs">
+<h3>num_previous_merged_prs<a class="headerlink" href="#num-previous-merged-prs" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of PRs that the creator of this PR has previously contributed</span>
+<span class="n">n_prev_prs_transf</span> <span class="o">=</span> <span class="n">NumPrevPRsTransformer</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filetype-type">
+<h3>filetype_&lt;type&gt;<a class="headerlink" href="#filetype-type" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how many files of the given extension were changed in PR</span>
+<span class="n">FILE_EXTENSIONS_TO_COUNT</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.adoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.bash&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.bats&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.centos7&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.cert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.conf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.crt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.empty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.feature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.files_generated_oc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.files_generated_openshift&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.gitattributes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.gitignore&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.go&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.gz&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.html&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.ini&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.key&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.mailmap&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.markdown&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.md&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.mk&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.mod&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.pl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.proto&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.rhel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.s&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.sec&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.service&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.sh&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.signature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.spec&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.sum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.sysconfig&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.template&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.txt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.xml&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.yaml&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.yaml-merge-patch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;.yml&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AUTHORS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BUILD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CONTRIBUTORS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Dockerfile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LICENSE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;MAINTAINERS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Makefile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NOTICE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PATENTS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;README&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Readme&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;VERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vagrantfile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oadm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;openshift&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;run&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">ftype_count_transf</span> <span class="o">=</span> <span class="n">FileTypeCountTransformer</span><span class="p">(</span><span class="n">file_extensions</span><span class="o">=</span><span class="n">FILE_EXTENSIONS_TO_COUNT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="title-wordcount-word">
+<h3>title_wordcount_&lt;word&gt;<a class="headerlink" href="#title-wordcount-word" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how many times these words appeared in PR title</span>
+<span class="n">WORDS_TO_COUNT</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bug&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bump&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;diagnostics&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;disable&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fix&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;haproxy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;publishing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;revert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;router&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sh&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;staging&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;support&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;travis&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">title_wc_transf</span> <span class="o">=</span> <span class="n">TitleWordCountTransformer</span><span class="p">(</span><span class="n">words</span><span class="o">=</span><span class="n">WORDS_TO_COUNT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="apply-transforms">
+<h2>Apply Transforms<a class="headerlink" href="#apply-transforms" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME: breaks if not sorted. can we shave off some runtime by not requiring to sort?</span>
+<span class="n">pr_df</span> <span class="o">=</span> <span class="n">pr_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;created_at&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># transformer objects compiled into one columntransformer</span>
+<span class="n">raw_data_processor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;pr_size&quot;</span><span class="p">,</span> <span class="n">pr_size_encoder</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;is_reviewer&quot;</span><span class="p">,</span> <span class="n">is_reviewer_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;created_by&quot;</span><span class="p">]),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;is_approver&quot;</span><span class="p">,</span> <span class="n">is_approver_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;created_by&quot;</span><span class="p">]),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;created_at_details&quot;</span><span class="p">,</span> <span class="n">dt_details_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;created_at&quot;</span><span class="p">]),</span>  <span class="c1"># 4 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;change_dirs&quot;</span><span class="p">,</span> <span class="n">change_in_dirs_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;changed_files&quot;</span><span class="p">]),</span>  <span class="c1"># 6 cols generated</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;n_changed_files&quot;</span><span class="p">,</span>
+            <span class="n">n_changed_files_transf</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;changed_files_number&quot;</span><span class="p">],</span>
+        <span class="p">),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;body_size&quot;</span><span class="p">,</span> <span class="n">body_size_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;n_prev_prs&quot;</span><span class="p">,</span> <span class="n">n_prev_prs_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;created_by&quot;</span><span class="p">]),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;n_commits&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;commits_number&quot;</span><span class="p">]),</span>  <span class="c1"># 1 cols generated</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;filetype_counter&quot;</span><span class="p">,</span>
+            <span class="n">ftype_count_transf</span><span class="p">,</span>
+            <span class="p">[</span><span class="s2">&quot;changed_files&quot;</span><span class="p">],</span>
+        <span class="p">),</span>  <span class="c1"># 64 cols generated</span>
+        <span class="p">(</span><span class="s2">&quot;title_word_counter&quot;</span><span class="p">,</span> <span class="n">title_wc_transf</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]),</span>  <span class="c1"># 15 cols generated</span>
+    <span class="p">],</span>
+    <span class="n">remainder</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># column names. this is needed because sklearn forcefully converts df to ndarray,</span>
+<span class="c1"># thus losing column information. this is a hack to retain that info. look for alternatives</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_reviewer&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_approver&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;created_at_day&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;created_at_month&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;created_at_weekday&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;created_at_hour&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;change_in_</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">DIRS_TO_CHECK</span><span class="p">]</span>
+    <span class="o">+</span> <span class="p">[</span>
+        <span class="s2">&quot;changed_files_number&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;body_size&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;num_prev_merged_prs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;commits_number&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;filetype_</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">FILE_EXTENSIONS_TO_COUNT</span><span class="p">]</span>
+    <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;title_wordcount_</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">WORDS_TO_COUNT</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">raw_data_processor</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pr_df</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">pr_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>size</th>
+      <th>is_reviewer</th>
+      <th>is_approver</th>
+      <th>created_at_day</th>
+      <th>created_at_month</th>
+      <th>created_at_weekday</th>
+      <th>created_at_hour</th>
+      <th>change_in_.github</th>
+      <th>change_in_docs</th>
+      <th>change_in_pkg</th>
+      <th>...</th>
+      <th>title_wordcount_fix</th>
+      <th>title_wordcount_haproxy</th>
+      <th>title_wordcount_oc</th>
+      <th>title_wordcount_publishing</th>
+      <th>title_wordcount_revert</th>
+      <th>title_wordcount_router</th>
+      <th>title_wordcount_sh</th>
+      <th>title_wordcount_staging</th>
+      <th>title_wordcount_support</th>
+      <th>title_wordcount_travis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>11</td>
+      <td>8</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>12</td>
+      <td>8</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>False</td>
+      <td>True</td>
+      <td>12</td>
+      <td>8</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.0</td>
+      <td>False</td>
+      <td>True</td>
+      <td>12</td>
+      <td>8</td>
+      <td>1</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>12</td>
+      <td>8</td>
+      <td>1</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 96 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="drop-na-train-test-split">
+<h2>Drop NA + Train/Test Split<a class="headerlink" href="#drop-na-train-test-split" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop entries for which labels are unknown</span>
+<span class="c1"># also make sure labels and features are consistent</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split into train and test sets</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># upload X_test and y_test to S3 bucket for testing / running sanity check on the model inference service</span>
+<span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">upload_to_ceph</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">s3_path</span><span class="p">,</span> <span class="s2">&quot;X_test.parquet&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">[</span><span class="s2">&quot;ResponseMetadata&quot;</span><span class="p">][</span><span class="s2">&quot;HTTPStatusCode&quot;</span><span class="p">])</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">upload_to_ceph</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s2">&quot;ttm_class&quot;</span><span class="p">),</span> <span class="n">s3_path</span><span class="p">,</span> <span class="s2">&quot;y_test.parquet&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">[</span><span class="s2">&quot;ResponseMetadata&quot;</span><span class="p">][</span><span class="s2">&quot;HTTPStatusCode&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert from pandas series to lists to avoid warnings during training</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scale-data">
+<h2>Scale data<a class="headerlink" href="#scale-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets apply a yeo johnson transform to try to make the data more gaussian</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">PowerTransformer</span><span class="p">()</span>
+
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-training-and-evaluation-pipeline">
+<h2>Define Training and Evaluation Pipeline<a class="headerlink" href="#define-training-and-evaluation-pipeline" title="Permalink to this headline">#</a></h2>
+<p>Here, we will define a function to train a given classifier on the training set and then evaluate it on the test set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_evaluate_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">xtest</span><span class="p">,</span> <span class="n">ytest</span><span class="p">):</span>
+    <span class="c1"># Train our classifier</span>
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
+
+    <span class="c1"># Make predictions</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xtest</span><span class="p">)</span>
+
+    <span class="c1"># View classification report</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">ytest</span><span class="p">,</span> <span class="n">preds</span><span class="p">))</span>
+
+    <span class="c1"># Plot confusion matrix heatmap</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+    <span class="n">cf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">ytest</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
+    <span class="n">group_counts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">{0:0.0f}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">cf_matrix</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
+    <span class="n">group_percentages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;</span><span class="si">{0:.2%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">cf_matrix</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cf_matrix</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">box_labels</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v1</span><span class="si">}{</span><span class="n">v2</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">group_counts</span><span class="p">,</span> <span class="n">group_percentages</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">box_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">box_labels</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">cf_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cf_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cf_matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;OrRd&quot;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="n">box_labels</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Predicted TTM Label&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;True TTM Label&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix Heatmap&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-models-and-parameters">
+<h2>Define Models and Parameters<a class="headerlink" href="#define-models-and-parameters" title="Permalink to this headline">#</a></h2>
+<p>Next, we will define and initialize the classifiers that we will be exploring for the time-to-merge prediction task.</p>
+<div class="section" id="gaussian-naive-bayes">
+<h3>Gaussian Naive Bayes<a class="headerlink" href="#gaussian-naive-bayes" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize classifier</span>
+<span class="n">gnb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="svm">
+<h3>SVM<a class="headerlink" href="#svm" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize classifier</span>
+<span class="n">svc</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="random-forest">
+<h3>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize classifier</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">max_features</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="xgboost">
+<h3>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize classifier</span>
+<span class="n">xgbc</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-model-results">
+<h2>Compare Model Results<a class="headerlink" href="#compare-model-results" title="Permalink to this headline">#</a></h2>
+<p>Finally, we will run the train all of the classifiers defined above and evaluate their performance.</p>
+<div class="section" id="train-using-all-features">
+<h3>Train using all features<a class="headerlink" href="#train-using-all-features" title="Permalink to this headline">#</a></h3>
+<p>First, lets train the classifiers using all the engineered features as input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span><span class="n">gnb</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.16      0.08      0.10       257
+           1       0.08      0.94      0.15       214
+           2       0.00      0.00      0.00       327
+           3       0.17      0.02      0.03       275
+           4       0.00      0.00      0.00       263
+           5       0.12      0.00      0.01       234
+           6       0.50      0.00      0.01       284
+           7       0.25      0.00      0.01       281
+           8       0.50      0.01      0.03       294
+           9       0.21      0.07      0.11       277
+
+    accuracy                           0.09      2706
+   macro avg       0.20      0.11      0.04      2706
+weighted avg       0.20      0.09      0.04      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_54_1.png" src="../../../_images/time_to_merge_model_54_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span><span class="n">svc</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.29      0.43      0.35       257
+           1       0.14      0.00      0.01       214
+           2       0.19      0.48      0.27       327
+           3       0.15      0.07      0.09       275
+           4       0.16      0.06      0.09       263
+           5       0.10      0.04      0.06       234
+           6       0.17      0.29      0.21       284
+           7       0.21      0.08      0.12       281
+           8       0.22      0.17      0.20       294
+           9       0.22      0.27      0.25       277
+
+    accuracy                           0.20      2706
+   macro avg       0.19      0.19      0.16      2706
+weighted avg       0.19      0.20      0.17      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_55_1.png" src="../../../_images/time_to_merge_model_55_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.31      0.41      0.35       257
+           1       0.14      0.07      0.10       214
+           2       0.18      0.24      0.20       327
+           3       0.20      0.20      0.20       275
+           4       0.19      0.15      0.16       263
+           5       0.13      0.10      0.11       234
+           6       0.23      0.31      0.26       284
+           7       0.18      0.15      0.16       281
+           8       0.19      0.15      0.17       294
+           9       0.25      0.27      0.26       277
+
+    accuracy                           0.21      2706
+   macro avg       0.20      0.20      0.20      2706
+weighted avg       0.20      0.21      0.20      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_56_1.png" src="../../../_images/time_to_merge_model_56_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span><span class="n">xgbc</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15:17:33] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+              precision    recall  f1-score   support
+
+           0       0.34      0.47      0.39       257
+           1       0.13      0.07      0.09       214
+           2       0.19      0.28      0.23       327
+           3       0.17      0.16      0.16       275
+           4       0.13      0.10      0.11       263
+           5       0.12      0.09      0.10       234
+           6       0.24      0.31      0.27       284
+           7       0.15      0.13      0.14       281
+           8       0.25      0.21      0.23       294
+           9       0.27      0.28      0.27       277
+
+    accuracy                           0.21      2706
+   macro avg       0.20      0.21      0.20      2706
+weighted avg       0.20      0.21      0.20      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_57_1.png" src="../../../_images/time_to_merge_model_57_1.png" />
+</div>
+</div>
+<p>Based on the results above, it seems like all the models outperform a random guess. The XGBoost classifier outperforms all others, followed closely by random forest. Furthermore, the Naive bayes and SVM models seem to be heavily biased towards a few classes. On the contrary, the random forest andthe  XGBoost models seem to be less biased and have mis-classifications within the bordering classes amongst the ordinal classes.</p>
+<p>Note that for model deployment (which is the eventual goal), we will also need to include any scaler or preprocessor objects. This is because the input to the inference service will be raw unscaled data. We plan to address this issue by using <code class="docutils literal notranslate"><span class="pre">sklearn.Pipeline</span></code> object to package the preprocessor(s) and model as one “combined” model. Since an XGBoost model baked into an sklearn.Pipeline object might be complicated to serve on a seldon sklearn server, and since random forest performs almost as well as xgboost, we will save the random forest as the “best” model here. In the step below, we create a copy of the model so that we can save it to S3 later on and use it for model deployment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a clone (create a copy of the object with the learned weights)</span>
+<span class="n">selected_model</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sanity check</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">selected_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.31      0.41      0.35       257
+           1       0.14      0.07      0.10       214
+           2       0.18      0.24      0.20       327
+           3       0.20      0.20      0.20       275
+           4       0.19      0.15      0.16       263
+           5       0.13      0.10      0.11       234
+           6       0.23      0.31      0.26       284
+           7       0.18      0.15      0.16       281
+           8       0.19      0.15      0.17       294
+           9       0.25      0.27      0.26       277
+
+    accuracy                           0.21      2706
+   macro avg       0.20      0.20      0.20      2706
+weighted avg       0.20      0.21      0.20      2706
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-using-pruned-features">
+<h3>Train using pruned features<a class="headerlink" href="#train-using-pruned-features" title="Permalink to this headline">#</a></h3>
+<p>In the previous notebook we performed some feature engineering and pruned the number of features down to 96. However, it might be possible that further pruning the features based on the importances given to them by the models yields more generalizable and accurate models. So in this section, we will explore using Recursive Feature Elimination (RFE) to rank the features in terms of their importance, and recursively select the best subsets to train our models with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the xgboost classifier as the base estimator since it had the highest f1</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">RFE</span><span class="p">(</span><span class="n">xgbc</span><span class="p">,</span> <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15:17:50] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:18:09] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:18:28] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:18:49] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:19:07] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:19:22] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:19:37] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:19:50] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:20:02] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:20:13] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:20:37] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:20:52] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:21:04] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:21:13] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:21:22] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:21:30] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+[15:21:38] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No of top features to select</span>
+<span class="n">top</span> <span class="o">=</span> <span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranks</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">ranking_</span>
+<span class="n">ranks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  1,  1,  4,  3,  1,  1, 15,  5,  1,  1,  1,  6,  1,  1,  1,  4,
+        8,  4, 11, 15, 13, 12, 17,  7,  1, 17, 16, 12,  6, 15,  9,  1, 13,
+        1, 16,  5, 13, 10, 14,  6, 14, 10, 16,  7, 11,  8, 15, 10,  7, 16,
+        8, 11, 15,  5, 10, 12,  3, 13,  7, 14,  5, 12,  8,  6, 11,  6,  9,
+       10, 14, 13,  9,  3, 16, 17,  9,  1,  1, 17, 17, 14,  5,  1,  1,  8,
+        4,  3, 11,  1,  7,  1,  2,  4,  9,  3, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">cols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;size&#39;, &#39;is_reviewer&#39;, &#39;is_approver&#39;, &#39;created_at_day&#39;,
+       &#39;created_at_month&#39;, &#39;created_at_weekday&#39;, &#39;created_at_hour&#39;,
+       &#39;change_in_.github&#39;, &#39;change_in_docs&#39;, &#39;change_in_pkg&#39;,
+       &#39;change_in_test&#39;, &#39;change_in_vendor&#39;, &#39;change_in_root&#39;,
+       &#39;changed_files_number&#39;, &#39;body_size&#39;, &#39;num_prev_merged_prs&#39;,
+       &#39;commits_number&#39;, &#39;filetype_.1&#39;, &#39;filetype_.adoc&#39;,
+       &#39;filetype_.bash&#39;, &#39;filetype_.bats&#39;, &#39;filetype_.c&#39;,
+       &#39;filetype_.centos7&#39;, &#39;filetype_.cert&#39;, &#39;filetype_.conf&#39;,
+       &#39;filetype_.crt&#39;, &#39;filetype_.empty&#39;, &#39;filetype_.feature&#39;,
+       &#39;filetype_.files_generated_oc&#39;,
+       &#39;filetype_.files_generated_openshift&#39;, &#39;filetype_.gitattributes&#39;,
+       &#39;filetype_.gitignore&#39;, &#39;filetype_.go&#39;, &#39;filetype_.gz&#39;,
+       &#39;filetype_.html&#39;, &#39;filetype_.ini&#39;, &#39;filetype_.json&#39;,
+       &#39;filetype_.key&#39;, &#39;filetype_.mailmap&#39;, &#39;filetype_.markdown&#39;,
+       &#39;filetype_.md&#39;, &#39;filetype_.mk&#39;, &#39;filetype_.mod&#39;, &#39;filetype_.pl&#39;,
+       &#39;filetype_.proto&#39;, &#39;filetype_.rhel&#39;, &#39;filetype_.s&#39;,
+       &#39;filetype_.sec&#39;, &#39;filetype_.service&#39;, &#39;filetype_.sh&#39;,
+       &#39;filetype_.signature&#39;, &#39;filetype_.spec&#39;, &#39;filetype_.sum&#39;,
+       &#39;filetype_.sysconfig&#39;, &#39;filetype_.template&#39;, &#39;filetype_.txt&#39;,
+       &#39;filetype_.xml&#39;, &#39;filetype_.yaml&#39;, &#39;filetype_.yaml-merge-patch&#39;,
+       &#39;filetype_.yml&#39;, &#39;filetype_AUTHORS&#39;, &#39;filetype_BUILD&#39;,
+       &#39;filetype_CONTRIBUTORS&#39;, &#39;filetype_Dockerfile&#39;, &#39;filetype_LICENSE&#39;,
+       &#39;filetype_MAINTAINERS&#39;, &#39;filetype_Makefile&#39;, &#39;filetype_NOTICE&#39;,
+       &#39;filetype_PATENTS&#39;, &#39;filetype_README&#39;, &#39;filetype_Readme&#39;,
+       &#39;filetype_VERSION&#39;, &#39;filetype_Vagrantfile&#39;, &#39;filetype_cert&#39;,
+       &#39;filetype_key&#39;, &#39;filetype_oadm&#39;, &#39;filetype_oc&#39;,
+       &#39;filetype_openshift&#39;, &#39;filetype_result&#39;, &#39;filetype_run&#39;,
+       &#39;filetype_test&#39;, &#39;title_wordcount_add&#39;, &#39;title_wordcount_bug&#39;,
+       &#39;title_wordcount_bump&#39;, &#39;title_wordcount_diagnostics&#39;,
+       &#39;title_wordcount_disable&#39;, &#39;title_wordcount_fix&#39;,
+       &#39;title_wordcount_haproxy&#39;, &#39;title_wordcount_oc&#39;,
+       &#39;title_wordcount_publishing&#39;, &#39;title_wordcount_revert&#39;,
+       &#39;title_wordcount_router&#39;, &#39;title_wordcount_sh&#39;,
+       &#39;title_wordcount_staging&#39;, &#39;title_wordcount_support&#39;,
+       &#39;title_wordcount_travis&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indices_by_ranks</span> <span class="o">=</span> <span class="n">ranks</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+<span class="n">indices_by_ranks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0, 76, 77, 82, 83, 34, 88, 25, 90, 15, 14, 13, 32, 11,  2,  6,  1,
+        5,  9, 10, 91, 57,  4, 94, 86, 72, 18, 92, 16,  3, 85, 54, 36, 61,
+       81,  8, 64, 29, 66, 12, 40, 49, 24, 44, 59, 89, 46, 17, 63, 84, 51,
+       71, 67, 75, 93, 31, 48, 55, 68, 42, 38, 45, 19, 87, 52, 65, 95, 56,
+       22, 28, 62, 58, 21, 70, 33, 37, 60, 80, 39, 41, 69, 47,  7, 20, 53,
+       30, 27, 35, 50, 43, 73, 78, 26, 23, 74, 79])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_ranks</span> <span class="o">=</span> <span class="n">ranks</span><span class="p">[</span><span class="n">indices_by_ranks</span><span class="p">]</span>
+<span class="n">sorted_ranks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,
+        1,  1,  1,  2,  3,  3,  3,  3,  3,  4,  4,  4,  4,  4,  5,  5,  5,
+        5,  5,  6,  6,  6,  6,  6,  7,  7,  7,  7,  7,  8,  8,  8,  8,  8,
+        9,  9,  9,  9,  9, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 12, 12,
+       12, 12, 12, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 15, 15, 15, 15,
+       15, 16, 16, 16, 16, 16, 17, 17, 17, 17, 17])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols_by_rank</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="n">indices_by_ranks</span><span class="p">]</span>
+<span class="n">cols_by_rank</span><span class="p">[:</span><span class="n">top</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;size&#39;, &#39;filetype_oc&#39;, &#39;filetype_openshift&#39;, &#39;title_wordcount_bug&#39;,
+       &#39;title_wordcount_bump&#39;, &#39;filetype_.html&#39;, &#39;title_wordcount_oc&#39;,
+       &#39;filetype_.crt&#39;, &#39;title_wordcount_revert&#39;, &#39;num_prev_merged_prs&#39;,
+       &#39;body_size&#39;, &#39;changed_files_number&#39;, &#39;filetype_.go&#39;,
+       &#39;change_in_vendor&#39;, &#39;is_approver&#39;, &#39;created_at_hour&#39;,
+       &#39;is_reviewer&#39;, &#39;created_at_weekday&#39;, &#39;change_in_pkg&#39;,
+       &#39;change_in_test&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prune the training set</span>
+<span class="n">X_train_scaled_pruned</span> <span class="o">=</span> <span class="n">X_train_scaled</span><span class="p">[:,</span> <span class="n">selector</span><span class="o">.</span><span class="n">support_</span><span class="p">]</span>
+<span class="n">X_test_scaled_pruned</span> <span class="o">=</span> <span class="n">X_test_scaled</span><span class="p">[:,</span> <span class="n">selector</span><span class="o">.</span><span class="n">support_</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span>
+    <span class="n">gnb</span><span class="p">,</span> <span class="n">X_train_scaled_pruned</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled_pruned</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.10      0.97      0.19       257
+           1       0.00      0.00      0.00       214
+           2       0.14      0.01      0.01       327
+           3       0.00      0.00      0.00       275
+           4       0.00      0.00      0.00       263
+           5       0.05      0.00      0.01       234
+           6       0.12      0.01      0.02       284
+           7       0.00      0.00      0.00       281
+           8       0.00      0.00      0.00       294
+           9       0.19      0.17      0.18       277
+
+    accuracy                           0.11      2706
+   macro avg       0.06      0.12      0.04      2706
+weighted avg       0.06      0.11      0.04      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_70_1.png" src="../../../_images/time_to_merge_model_70_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span>
+    <span class="n">svc</span><span class="p">,</span> <span class="n">X_train_scaled_pruned</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled_pruned</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.29      0.50      0.37       257
+           1       0.09      0.01      0.02       214
+           2       0.19      0.40      0.26       327
+           3       0.18      0.13      0.15       275
+           4       0.17      0.10      0.12       263
+           5       0.12      0.05      0.07       234
+           6       0.21      0.27      0.24       284
+           7       0.15      0.11      0.13       281
+           8       0.19      0.14      0.16       294
+           9       0.24      0.28      0.26       277
+
+    accuracy                           0.21      2706
+   macro avg       0.18      0.20      0.18      2706
+weighted avg       0.19      0.21      0.18      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_71_1.png" src="../../../_images/time_to_merge_model_71_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span>
+    <span class="n">rf</span><span class="p">,</span> <span class="n">X_train_scaled_pruned</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled_pruned</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.27      0.36      0.31       257
+           1       0.13      0.08      0.10       214
+           2       0.20      0.24      0.22       327
+           3       0.20      0.17      0.19       275
+           4       0.16      0.14      0.15       263
+           5       0.10      0.09      0.09       234
+           6       0.23      0.30      0.26       284
+           7       0.15      0.13      0.14       281
+           8       0.21      0.20      0.20       294
+           9       0.24      0.23      0.24       277
+
+    accuracy                           0.20      2706
+   macro avg       0.19      0.19      0.19      2706
+weighted avg       0.19      0.20      0.19      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_72_1.png" src="../../../_images/time_to_merge_model_72_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_evaluate_classifier</span><span class="p">(</span>
+    <span class="n">xgbc</span><span class="p">,</span> <span class="n">X_train_scaled_pruned</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_scaled_pruned</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15:21:58] WARNING: ../src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective &#39;multi:softprob&#39; was changed from &#39;merror&#39; to &#39;mlogloss&#39;. Explicitly set eval_metric if you&#39;d like to restore the old behavior.
+              precision    recall  f1-score   support
+
+           0       0.28      0.39      0.33       257
+           1       0.20      0.10      0.13       214
+           2       0.19      0.28      0.23       327
+           3       0.17      0.15      0.16       275
+           4       0.16      0.10      0.12       263
+           5       0.14      0.12      0.13       234
+           6       0.22      0.30      0.25       284
+           7       0.14      0.11      0.12       281
+           8       0.23      0.20      0.22       294
+           9       0.23      0.24      0.24       277
+
+    accuracy                           0.20      2706
+   macro avg       0.20      0.20      0.19      2706
+weighted avg       0.20      0.20      0.20      2706
+</pre></div>
+</div>
+<img alt="../../../_images/time_to_merge_model_73_1.png" src="../../../_images/time_to_merge_model_73_1.png" />
+</div>
+</div>
+<p>From the confusion matrices above, we can conclude that the models perform slightly better when trained using all the features, instead of using only the RFE-pruned subset.</p>
+</div>
+</div>
+<div class="section" id="create-sklearn-pipeline">
+<h2>Create sklearn Pipeline<a class="headerlink" href="#create-sklearn-pipeline" title="Permalink to this headline">#</a></h2>
+<p>Here, we will create an sklearn pipeline consisting of 2 steps, scaling of the input features and the classifier itself. We will then save this Pipeline as a <code class="docutils literal notranslate"><span class="pre">model.joblib</span></code> file on S3 for serving the model pipeline using the Seldon Sklearn Server.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;extract_features&quot;</span><span class="p">,</span> <span class="n">raw_data_processor</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">,</span> <span class="n">scaler</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="n">selected_model</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="write-model-to-s3">
+<h2>Write Model to S3<a class="headerlink" href="#write-model-to-s3" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;ai4ci/github-pr-ttm/model&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;model.joblib&quot;</span>
+<span class="n">s3_resource</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span>
+    <span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+    <span class="n">endpoint_url</span><span class="o">=</span><span class="n">s3_endpoint_url</span><span class="p">,</span>
+    <span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">s3_access_key</span><span class="p">,</span>
+    <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">s3_secret_key</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryFile</span><span class="p">()</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">s3_obj</span> <span class="o">=</span> <span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">s3_obj</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">Body</span><span class="o">=</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sanity Check</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">()</span>
+<span class="n">s3_object</span> <span class="o">=</span> <span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">s3_object</span><span class="o">.</span><span class="n">download_fileobj</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+<span class="n">model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;extract_features&#39;,
+                 ColumnTransformer(transformers=[(&#39;pr_size&#39;,
+                                                  OrdinalEncoder(categories=[[&#39;XS&#39;,
+                                                                              &#39;S&#39;,
+                                                                              &#39;M&#39;,
+                                                                              &#39;L&#39;,
+                                                                              &#39;XL&#39;,
+                                                                              &#39;XXL&#39;]]),
+                                                  [&#39;size&#39;]),
+                                                 (&#39;is_reviewer&#39;,
+                                                  IsUserPrivTransformer(priv=&#39;reviewers&#39;),
+                                                  [&#39;created_by&#39;]),
+                                                 (&#39;is_approver&#39;,
+                                                  IsUserPrivTransformer(),
+                                                  [&#39;created_by&#39;]),
+                                                 (&#39;created_at_details&#39;,
+                                                  DateTimeDetailsTransformer(),
+                                                  [&#39;created_at&#39;]),
+                                                 (&#39;change_...
+                                                 (&#39;n_prev_prs&#39;,
+                                                  NumPrevPRsTransformer(),
+                                                  [&#39;created_by&#39;]),
+                                                 (&#39;n_commits&#39;, &#39;passthrough&#39;,
+                                                  [&#39;commits_number&#39;]),
+                                                 (&#39;filetype_counter&#39;,
+                                                  FileTypeCountTransformer(),
+                                                  [&#39;changed_files&#39;]),
+                                                 (&#39;title_word_counter&#39;,
+                                                  TitleWordCountTransformer(),
+                                                  [&#39;title&#39;])])),
+                (&#39;scale&#39;, PowerTransformer()),
+                (&#39;rf&#39;,
+                 RandomForestClassifier(max_features=0.75, n_estimators=200,
+                                        n_jobs=-1, random_state=42))])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take raw pr data and predict ttm classes</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pr_df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">preds</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.25      0.42      0.32       257
+           1       0.15      0.07      0.10       214
+           2       0.22      0.23      0.22       327
+           3       0.15      0.12      0.13       275
+           4       0.21      0.11      0.15       263
+           5       0.13      0.10      0.11       234
+           6       0.21      0.24      0.23       284
+           7       0.13      0.11      0.12       281
+           8       0.17      0.22      0.19       294
+           9       0.21      0.28      0.24       277
+
+    accuracy                           0.19      2706
+   macro avg       0.18      0.19      0.18      2706
+weighted avg       0.19      0.19      0.18      2706
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>In this notebook, we explored various vanilla classifiers, namely, Naive Bayes, SVM, Random Forests, and XGBoost. The XGBoost classifier was able to predict the classes with a weighted average f1 score of 0.21 an accuracy of 22% when trained using all the available features. Also, all of the models perform better when trained using all available features than when trained using a top 20 features determined using RFE.</p>
+<p>Even though all models outperform the baseline (random guess), we believe there is still some room for improvement. Since the target variable of the github PR dataset is an ordinal variable, an ordinal classifier could perform better than the models trained in this notebook. We will explore this idea in a future notebook.</p>
+<p>As the immediate next step, we will to deploy the best model from this notebook as an inference service using Seldon.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/time-to-merge-prediction/openshift-origin"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

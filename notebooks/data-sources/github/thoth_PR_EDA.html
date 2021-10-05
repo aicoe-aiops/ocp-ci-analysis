@@ -1,0 +1,2052 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Data from thoth-station organization &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/github/thoth_PR_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/github/thoth_PR_EDA.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/github/thoth_PR_EDA.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/notebooks/data-sources/github/thoth_PR_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   GitHub Data from
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     thoth-station
+    </span>
+   </code>
+   organization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-based-on-stars">
+     Filtering based on Stars
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-based-on-activity">
+     Filtering based on activity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-based-on-contribution-from-non-thoth-account">
+     Filtering based on contribution from non-thoth account
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#union-of-three-filters">
+     Union of three filters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>GitHub Data from thoth-station organization</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   GitHub Data from
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     thoth-station
+    </span>
+   </code>
+   organization
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-based-on-stars">
+     Filtering based on Stars
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-based-on-activity">
+     Filtering based on activity
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filtering-based-on-contribution-from-non-thoth-account">
+     Filtering based on contribution from non-thoth account
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#union-of-three-filters">
+     Union of three filters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="github-data-from-thoth-station-organization">
+<h1>GitHub Data from <code class="docutils literal notranslate"><span class="pre">thoth-station</span></code> organization<a class="headerlink" href="#github-data-from-thoth-station-organization" title="Permalink to this headline">#</a></h1>
+<p>In this notebook, we will be accessing github data from thoth-station organization. We will be accessing data from all the repos so that we can later filter them and use the data for training TTM ML model.</p>
+<p>The motivation is to look out for the list of repos containing non-thoth contribution so that we can use the PRs data from those repos for training our model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">github</span> <span class="kn">import</span> <span class="n">Github</span><span class="p">,</span> <span class="n">RateLimitExceededException</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">find_dotenv</span><span class="p">,</span> <span class="n">load_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">access_token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;ACCESS_TOKEN&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">Github</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Checking the extraction rate is important. In this case, we have a minimum rate limit of 5000 request per hour. Once, your rate limit is over. You need to wait for another hour in order to extract the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">rate_limiting</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(330, 5000)
+</pre></div>
+</div>
+</div>
+</div>
+<p>At first, we are extracting the surface level information like number of repos in thoth-station organization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project_list</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_organization</span><span class="p">(</span><span class="s2">&quot;thoth-station&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_repos</span><span class="p">()</span>
+
+<span class="n">df_github</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">project</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">project_list</span><span class="p">):</span>
+
+    <span class="n">g</span> <span class="o">=</span> <span class="n">Github</span><span class="p">(</span><span class="n">access_token</span><span class="p">)</span>
+    <span class="c1"># print(f&quot;Extracting data from {project}&quot;)</span>
+
+    <span class="n">repo</span> <span class="o">=</span> <span class="n">project</span>
+
+    <span class="n">PRs</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">get_pulls</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">)</span>
+
+    <span class="n">all_issues</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">get_issues</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+    <span class="n">df_github</span> <span class="o">=</span> <span class="n">df_github</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;Full_name&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">full_name</span><span class="p">,</span>
+            <span class="s2">&quot;Forks&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">forks_count</span><span class="p">,</span>
+            <span class="s2">&quot;Stars&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">stargazers_count</span><span class="p">,</span>
+            <span class="s2">&quot;last_updated&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">updated_at</span><span class="p">,</span>
+            <span class="s2">&quot;PR_count&quot;</span><span class="p">:</span> <span class="n">PRs</span><span class="o">.</span><span class="n">totalCount</span><span class="p">,</span>
+            <span class="s2">&quot;Issue_count&quot;</span><span class="p">:</span> <span class="n">all_issues</span><span class="o">.</span><span class="n">totalCount</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_github.to_csv(&quot;df_github.csv&quot;) #saving it for future use</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;df_github.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_github</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Forks</th>
+      <th>Full_name</th>
+      <th>Issue_count</th>
+      <th>PR_count</th>
+      <th>Stars</th>
+      <th>last_updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10.0</td>
+      <td>thoth-station/package-extract</td>
+      <td>484.0</td>
+      <td>402.0</td>
+      <td>1.0</td>
+      <td>2022-01-10 20:24:39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>22.0</td>
+      <td>thoth-station/core</td>
+      <td>404.0</td>
+      <td>276.0</td>
+      <td>26.0</td>
+      <td>2022-04-30 11:18:51</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6.0</td>
+      <td>thoth-station/result-api</td>
+      <td>424.0</td>
+      <td>359.0</td>
+      <td>0.0</td>
+      <td>2020-08-05 13:59:11</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>18.0</td>
+      <td>thoth-station/user-api</td>
+      <td>1761.0</td>
+      <td>1299.0</td>
+      <td>7.0</td>
+      <td>2022-05-16 07:55:53</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6.0</td>
+      <td>thoth-station/cleanup-job</td>
+      <td>306.0</td>
+      <td>226.0</td>
+      <td>1.0</td>
+      <td>2021-07-21 11:33:25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;The number of repos in thoth-station organization is </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of repos in thoth-station organization is 179
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next step, I will be looping over each repo to extract individual issue information.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">repos</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">])</span>
+<span class="c1"># repos = [&#39;thoth-station/package-analyzer&#39;]</span>
+<span class="n">df_github3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">repos</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">Github</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+            <span class="c1"># print(f&quot;Extracting data from {project}&quot;)</span>
+            <span class="n">repo</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">get_repo</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
+
+            <span class="n">all_issues</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">get_issues</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">issue</span> <span class="ow">in</span> <span class="n">all_issues</span><span class="p">:</span>
+                <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+
+                        <span class="k">if</span> <span class="n">issue</span><span class="o">.</span><span class="n">pull_request</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="k">break</span>
+                        <span class="n">df_github3</span> <span class="o">=</span> <span class="n">df_github3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="p">{</span>
+                                <span class="s2">&quot;Project_ID&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                <span class="s2">&quot;Full_name&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">full_name</span><span class="p">,</span>
+                                <span class="s2">&quot;issue_number&quot;</span><span class="p">:</span> <span class="n">issue</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+                                <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">issue</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                <span class="s2">&quot;owner_username&quot;</span><span class="p">:</span> <span class="n">issue</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">login</span><span class="p">,</span>
+                            <span class="p">},</span>
+                            <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="p">)</span>
+                    <span class="k">except</span> <span class="n">RateLimitExceededException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rate limit exceeded&quot;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">rate_limiting</span><span class="p">)</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+                        <span class="k">continue</span>
+                    <span class="k">break</span>
+        <span class="k">except</span> <span class="n">RateLimitExceededException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rate limit exceeded&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">rate_limiting</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">break</span>
+<span class="c1"># df_github3.to_csv(&#39;df_github3.csv&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_repo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;df_github3.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_repo</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Full_name</th>
+      <th>Name</th>
+      <th>Project_ID</th>
+      <th>issue_number</th>
+      <th>owner</th>
+      <th>owner_username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>482.0</td>
+      <td>Maya Costantini</td>
+      <td>mayaCostantini</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>480.0</td>
+      <td>Francesco Murdaca</td>
+      <td>pacospace</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>478.0</td>
+      <td>Thoth Bot</td>
+      <td>sesheta</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>475.0</td>
+      <td>Thoth Bot</td>
+      <td>sesheta</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>473.0</td>
+      <td>Harshad Reddy Nalla</td>
+      <td>harshad16</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>471.0</td>
+      <td>Harshad Reddy Nalla</td>
+      <td>harshad16</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>469.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>461.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>457.0</td>
+      <td>NaN</td>
+      <td>khebhut[bot]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>456.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>455.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>453.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>451.0</td>
+      <td>NaN</td>
+      <td>khebhut[bot]</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>450.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>448.0</td>
+      <td>NaN</td>
+      <td>khebhut[bot]</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>444.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>441.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>439.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>436.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>434.0</td>
+      <td>Fridolín Pokorný</td>
+      <td>fridex</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of repos : </span><span class="si">{</span><span class="n">df_repo</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of repos : 144.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;We see that there is some difference between original repo number(</span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot; and the number of repo, after extracting the issue information(</span><span class="si">{</span><span class="n">df_repo</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">).&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;The difference is because of the fact that the </span><span class="si">{</span><span class="mi">179</span><span class="o">-</span><span class="mi">144</span><span class="si">}</span><span class="s2"> repo does not have any issues opened.&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Hence, in our next case we will be excluding those repo where there is no issue opened.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We see that there is some difference between original repo number(179) and the number of repo, after extracting the issue information(144).The difference is because of the fact that the 35 repo does not have any issues opened.Hence, in our next case we will be excluding those repo where there is no issue opened.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>List of repos with no issues</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_repo_with_no_issue</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_repo</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">])))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df_repo_with_no_issue</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the next case, we will be filtering based on,</p>
+<ul class="simple">
+<li><p>Number of stars for each repo.</p></li>
+<li><p>Repo which are active from last year.</p></li>
+<li><p>Contributions from the non-thoth members.</p></li>
+</ul>
+<div class="section" id="filtering-based-on-stars">
+<h2>Filtering based on Stars<a class="headerlink" href="#filtering-based-on-stars" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Forks</th>
+      <th>Issue_count</th>
+      <th>PR_count</th>
+      <th>Stars</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>179.000000</td>
+      <td>179.000000</td>
+      <td>179.000000</td>
+      <td>179.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.547486</td>
+      <td>339.458101</td>
+      <td>264.212291</td>
+      <td>3.089385</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4.580336</td>
+      <td>1820.874735</td>
+      <td>1765.676513</td>
+      <td>12.837920</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>6.500000</td>
+      <td>3.500000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.000000</td>
+      <td>38.000000</td>
+      <td>23.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>8.000000</td>
+      <td>192.000000</td>
+      <td>128.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>29.000000</td>
+      <td>23487.000000</td>
+      <td>23432.000000</td>
+      <td>164.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We are filtering those repos having <code class="docutils literal notranslate"><span class="pre">stars</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> for all 179 repos from thoth organization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Stars&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;After filtering, we get the number of repos having stars greater than 2 is </span><span class="si">{</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After filtering, we get the number of repos having stars greater than 2 is 38.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-based-on-activity">
+<h2>Filtering based on activity<a class="headerlink" href="#filtering-based-on-activity" title="Permalink to this headline">#</a></h2>
+<p>We filter and keep only those repo which were active from last year. Here also, we apply the filter on all 179 repos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;last_updated&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&quot;2021-5-1&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Forks</th>
+      <th>Full_name</th>
+      <th>Issue_count</th>
+      <th>PR_count</th>
+      <th>Stars</th>
+      <th>last_updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10.0</td>
+      <td>thoth-station/package-extract</td>
+      <td>484.0</td>
+      <td>402.0</td>
+      <td>1.0</td>
+      <td>2022-01-10 20:24:39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>22.0</td>
+      <td>thoth-station/core</td>
+      <td>404.0</td>
+      <td>276.0</td>
+      <td>26.0</td>
+      <td>2022-04-30 11:18:51</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>18.0</td>
+      <td>thoth-station/user-api</td>
+      <td>1761.0</td>
+      <td>1299.0</td>
+      <td>7.0</td>
+      <td>2022-05-16 07:55:53</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6.0</td>
+      <td>thoth-station/cleanup-job</td>
+      <td>306.0</td>
+      <td>226.0</td>
+      <td>1.0</td>
+      <td>2021-07-21 11:33:25</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>11.0</td>
+      <td>thoth-station/solver</td>
+      <td>5176.0</td>
+      <td>700.0</td>
+      <td>14.0</td>
+      <td>2022-05-03 23:15:28</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;The number of repo that were active from last year is </span><span class="si">{</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of repo that were active from last year is 122.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="filtering-based-on-contribution-from-non-thoth-account">
+<h2>Filtering based on contribution from non-thoth account<a class="headerlink" href="#filtering-based-on-contribution-from-non-thoth-account" title="Permalink to this headline">#</a></h2>
+<p>We have the list of thoth members, which includes not only present members but also members from the past,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thoth_members</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;codificat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;erikerlandson&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fridex&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gkrumbach07&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;goern&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gregory-Pereira&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;harshad16&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HumairAK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;KPostOffice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mayaCostantini&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;meile18&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oindrillac&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pacospace&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;schwesig&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sesheta&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tumido&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xtuchyna&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sub-mod&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;GiorgosKarantonis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CermakM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bjoernh2000&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;srushtikotak&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;4n4nd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;EldritchJS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sesheta-srcops&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Shreyanand&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bissenbay&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;saisankargochhayat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pacospace&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">strings_to_exclude</span> <span class="o">=</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">thoth_members</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_repo</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Full_name</th>
+      <th>Name</th>
+      <th>Project_ID</th>
+      <th>issue_number</th>
+      <th>owner</th>
+      <th>owner_username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>482.0</td>
+      <td>Maya Costantini</td>
+      <td>mayaCostantini</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>thoth-station/package-extract</td>
+      <td>package-extract</td>
+      <td>117243068.0</td>
+      <td>480.0</td>
+      <td>Francesco Murdaca</td>
+      <td>pacospace</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df_repo</span><span class="p">[</span><span class="o">~</span><span class="n">df_repo</span><span class="p">[</span><span class="s2">&quot;owner_username&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">strings_to_exclude</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Full_name</th>
+      <th>Name</th>
+      <th>Project_ID</th>
+      <th>issue_number</th>
+      <th>owner</th>
+      <th>owner_username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>819</th>
+      <td>thoth-station/solver</td>
+      <td>solver</td>
+      <td>120300624.0</td>
+      <td>5166.0</td>
+      <td>Sebastian Schuberth</td>
+      <td>sschuberth</td>
+    </tr>
+    <tr>
+      <th>5263</th>
+      <td>thoth-station/solver</td>
+      <td>solver</td>
+      <td>120300624.0</td>
+      <td>69.0</td>
+      <td>Akash Parekh</td>
+      <td>ace2107</td>
+    </tr>
+    <tr>
+      <th>6074</th>
+      <td>thoth-station/dependency-monkey</td>
+      <td>dependency-monkey</td>
+      <td>122620723.0</td>
+      <td>18.0</td>
+      <td>Sarah Masud</td>
+      <td>sara-02</td>
+    </tr>
+    <tr>
+      <th>6587</th>
+      <td>thoth-station/notebooks</td>
+      <td>notebooks</td>
+      <td>123426453.0</td>
+      <td>44.0</td>
+      <td>NaN</td>
+      <td>shruthi-raghuraman</td>
+    </tr>
+    <tr>
+      <th>6714</th>
+      <td>thoth-station/adviser</td>
+      <td>adviser</td>
+      <td>123548968.0</td>
+      <td>1945.0</td>
+      <td>Isabel Zimmerman</td>
+      <td>isabelizimm</td>
+    </tr>
+    <tr>
+      <th>7503</th>
+      <td>thoth-station/kebechet</td>
+      <td>kebechet</td>
+      <td>134576983.0</td>
+      <td>860.0</td>
+      <td>NaN</td>
+      <td>JamesKunstle</td>
+    </tr>
+    <tr>
+      <th>7520</th>
+      <td>thoth-station/kebechet</td>
+      <td>kebechet</td>
+      <td>134576983.0</td>
+      <td>802.0</td>
+      <td>NaN</td>
+      <td>qJJt7oxN</td>
+    </tr>
+    <tr>
+      <th>7565</th>
+      <td>thoth-station/kebechet</td>
+      <td>kebechet</td>
+      <td>134576983.0</td>
+      <td>702.0</td>
+      <td>Landon LaSmith</td>
+      <td>LaVLaS</td>
+    </tr>
+    <tr>
+      <th>7566</th>
+      <td>thoth-station/kebechet</td>
+      <td>kebechet</td>
+      <td>134576983.0</td>
+      <td>701.0</td>
+      <td>Landon LaSmith</td>
+      <td>LaVLaS</td>
+    </tr>
+    <tr>
+      <th>7749</th>
+      <td>thoth-station/kebechet</td>
+      <td>kebechet</td>
+      <td>134576983.0</td>
+      <td>189.0</td>
+      <td>Tomas Tomecek</td>
+      <td>TomasTomecek</td>
+    </tr>
+    <tr>
+      <th>7750</th>
+      <td>thoth-station/kebechet</td>
+      <td>kebechet</td>
+      <td>134576983.0</td>
+      <td>188.0</td>
+      <td>Tomas Tomecek</td>
+      <td>TomasTomecek</td>
+    </tr>
+    <tr>
+      <th>7815</th>
+      <td>thoth-station/tensorflow-build-s2i</td>
+      <td>tensorflow-build-s2i</td>
+      <td>136525139.0</td>
+      <td>40.0</td>
+      <td>Vaclav Pavlin</td>
+      <td>vpavlin</td>
+    </tr>
+    <tr>
+      <th>8047</th>
+      <td>thoth-station/thoth-ops-infra</td>
+      <td>thoth-ops-infra</td>
+      <td>144151594.0</td>
+      <td>17.0</td>
+      <td>Anish Asthana</td>
+      <td>anishasthana</td>
+    </tr>
+    <tr>
+      <th>8059</th>
+      <td>thoth-station/thamos</td>
+      <td>thamos</td>
+      <td>147527172.0</td>
+      <td>1104.0</td>
+      <td>Sorin Sbarnea</td>
+      <td>ssbarnea</td>
+    </tr>
+    <tr>
+      <th>8060</th>
+      <td>thoth-station/thamos</td>
+      <td>thamos</td>
+      <td>147527172.0</td>
+      <td>1103.0</td>
+      <td>Sorin Sbarnea</td>
+      <td>ssbarnea</td>
+    </tr>
+    <tr>
+      <th>8388</th>
+      <td>thoth-station/amun-api</td>
+      <td>amun-api</td>
+      <td>150013302.0</td>
+      <td>611.0</td>
+      <td>Tomas</td>
+      <td>TomasJani</td>
+    </tr>
+    <tr>
+      <th>8866</th>
+      <td>thoth-station/management-api</td>
+      <td>management-api</td>
+      <td>155684361.0</td>
+      <td>736.0</td>
+      <td>Tomas</td>
+      <td>TomasJani</td>
+    </tr>
+    <tr>
+      <th>8872</th>
+      <td>thoth-station/management-api</td>
+      <td>management-api</td>
+      <td>155684361.0</td>
+      <td>725.0</td>
+      <td>Tomas</td>
+      <td>TomasJani</td>
+    </tr>
+    <tr>
+      <th>8997</th>
+      <td>thoth-station/selinon-worker</td>
+      <td>selinon-worker</td>
+      <td>157422402.0</td>
+      <td>26.0</td>
+      <td>John Vandenberg</td>
+      <td>jayvdb</td>
+    </tr>
+    <tr>
+      <th>9621</th>
+      <td>thoth-station/jupyter-nbrequirements</td>
+      <td>jupyter-nbrequirements</td>
+      <td>193650988.0</td>
+      <td>302.0</td>
+      <td>Alan Chin</td>
+      <td>akchinSTC</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The names of non-thoth members are : </span><span class="si">{</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;owner&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The names of non-thoth members are : [&#39;Sebastian Schuberth&#39; &#39;Akash Parekh&#39; &#39;Sarah Masud&#39; nan &#39;Isabel Zimmerman&#39;
+ &#39;Landon LaSmith&#39; &#39;Tomas Tomecek&#39; &#39;Vaclav Pavlin&#39; &#39;Anish Asthana&#39;
+ &#39;Sorin Sbarnea&#39; &#39;Tomas&#39; &#39;John Vandenberg&#39; &#39;Alan Chin&#39; &#39;Ryan Kraus&#39;
+ &#39;Chad Roberts&#39; &#39;Martin D. Jaere&#39; &#39;Hema Veeradhi&#39; &#39;Dowon&#39; &#39;Matt Carr&#39;
+ &quot;Lumír &#39;Frenzy&#39; Balhar&quot; &#39;Aurélien Bompard&#39; &#39;Humberto Anjos&#39;
+ &#39;Deleted user&#39; &#39;Vadim Bauer&#39; &#39;Willy Hardy&#39; &#39;Miro Hrončok&#39;
+ &#39;Michael Clifford&#39; &#39;Rishabh Aggarwal&#39; &#39;Karanraj Chauhan&#39;
+ &#39;Surya Prakash Pathak&#39; &#39;Ariel Shulman&#39; &#39;Anup Kumar&#39; &#39;Sophie Watson&#39;
+ &#39;Guillaume Moutier&#39;].
+</pre></div>
+</div>
+</div>
+</div>
+<p>After excluding those rows which have information about the contribution from thoth members and bots. We are left with the dataset (df3) which list out the contribution from non-thoth account.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;The number of repos which has contribution from non-thoth account is </span><span class="si">{</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;Full_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of repos which has contribution from non-thoth account is 28.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="union-of-three-filters">
+<h2>Union of three filters<a class="headerlink" href="#union-of-three-filters" title="Permalink to this headline">#</a></h2>
+<p>Lastly, once we have the filtered list of all the repo. In order to get a final list of repos which can be significant for further analysis. We will get the union of all three filtered sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_union</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s2">&quot;Full_name&quot;</span><span class="p">]))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The number of repos that we get is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_union</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of repos that we get is 128
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The list of repo which we can consider for further analysis</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_union</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;thoth-station/.github&#39;,
+ &#39;thoth-station/adviser&#39;,
+ &#39;thoth-station/aicoe-ci-pulp-upload-example&#39;,
+ &#39;thoth-station/amun-api&#39;,
+ &#39;thoth-station/amun-client&#39;,
+ &#39;thoth-station/amun-hwinfo&#39;,
+ &#39;thoth-station/analyzer&#39;,
+ &#39;thoth-station/ansible-role-argo-workflows&#39;,
+ &#39;thoth-station/buildlog-parser&#39;,
+ &#39;thoth-station/cleanup-job&#39;,
+ &#39;thoth-station/cli-examples&#39;,
+ &#39;thoth-station/common&#39;,
+ &#39;thoth-station/core&#39;,
+ &#39;thoth-station/cve-update-job&#39;,
+ &#39;thoth-station/datasets&#39;,
+ &#39;thoth-station/dependency-monkey&#39;,
+ &#39;thoth-station/dependency-monkey-zoo&#39;,
+ &#39;thoth-station/document-sync-job&#39;,
+ &#39;thoth-station/elyra-resnet&#39;,
+ &#39;thoth-station/fext&#39;,
+ &#39;thoth-station/glyph&#39;,
+ &#39;thoth-station/graph-backup-job&#39;,
+ &#39;thoth-station/graph-metrics-exporter&#39;,
+ &#39;thoth-station/graph-refresh-job&#39;,
+ &#39;thoth-station/graph-sync-job&#39;,
+ &#39;thoth-station/helm-charts&#39;,
+ &#39;thoth-station/help&#39;,
+ &#39;thoth-station/image-pusher&#39;,
+ &#39;thoth-station/init-job&#39;,
+ &#39;thoth-station/integration-tests&#39;,
+ &#39;thoth-station/invectio&#39;,
+ &#39;thoth-station/investigator&#39;,
+ &#39;thoth-station/isis-api&#39;,
+ &#39;thoth-station/jupyter-nbrequirements&#39;,
+ &#39;thoth-station/jupyter-notebook-s2i&#39;,
+ &#39;thoth-station/jupyterlab-requirements&#39;,
+ &#39;thoth-station/jupyternb-build-pipeline&#39;,
+ &#39;thoth-station/kebechet&#39;,
+ &#39;thoth-station/lab&#39;,
+ &#39;thoth-station/license-solver&#39;,
+ &#39;thoth-station/management-api&#39;,
+ &#39;thoth-station/messaging&#39;,
+ &#39;thoth-station/metrics-exporter&#39;,
+ &#39;thoth-station/mi&#39;,
+ &#39;thoth-station/mi-scheduler&#39;,
+ &#39;thoth-station/micropipenv&#39;,
+ &#39;thoth-station/misc&#39;,
+ &#39;thoth-station/moldavite-api&#39;,
+ &#39;thoth-station/nepthys&#39;,
+ &#39;thoth-station/notebooks&#39;,
+ &#39;thoth-station/package-extract&#39;,
+ &#39;thoth-station/package-releases-job&#39;,
+ &#39;thoth-station/package-update-job&#39;,
+ &#39;thoth-station/performance&#39;,
+ &#39;thoth-station/pipeline-helpers&#39;,
+ &#39;thoth-station/pipelines-catalog&#39;,
+ &#39;thoth-station/pipenv&#39;,
+ &#39;thoth-station/prescription-sync-job&#39;,
+ &#39;thoth-station/prescriptions&#39;,
+ &#39;thoth-station/prescriptions-gh-release-notes-job&#39;,
+ &#39;thoth-station/prescriptions-refresh-job&#39;,
+ &#39;thoth-station/ps-cv&#39;,
+ &#39;thoth-station/ps-ip&#39;,
+ &#39;thoth-station/ps-nlp&#39;,
+ &#39;thoth-station/pulp-metrics-exporter&#39;,
+ &#39;thoth-station/pulp-operate-first-web&#39;,
+ &#39;thoth-station/pulp-pypi-sync-job&#39;,
+ &#39;thoth-station/purge-job&#39;,
+ &#39;thoth-station/python&#39;,
+ &#39;thoth-station/qeb-hwt&#39;,
+ &#39;thoth-station/rapidsai-build&#39;,
+ &#39;thoth-station/ray-ml-notebook&#39;,
+ &#39;thoth-station/ray-ml-worker&#39;,
+ &#39;thoth-station/ray-operator&#39;,
+ &#39;thoth-station/report-processing&#39;,
+ &#39;thoth-station/reporter&#39;,
+ &#39;thoth-station/revsolver&#39;,
+ &#39;thoth-station/s2i&#39;,
+ &#39;thoth-station/s2i-example&#39;,
+ &#39;thoth-station/s2i-generic-data-science-notebook&#39;,
+ &#39;thoth-station/s2i-minimal-notebook&#39;,
+ &#39;thoth-station/s2i-pytorch-notebook&#39;,
+ &#39;thoth-station/s2i-scipy-notebook&#39;,
+ &#39;thoth-station/s2i-tensorflow-gpu-notebook&#39;,
+ &#39;thoth-station/s2i-tensorflow-notebook&#39;,
+ &#39;thoth-station/s2i-thoth&#39;,
+ &#39;thoth-station/search&#39;,
+ &#39;thoth-station/search-stage&#39;,
+ &#39;thoth-station/selinon-api&#39;,
+ &#39;thoth-station/selinon-worker&#39;,
+ &#39;thoth-station/sentry-openshift&#39;,
+ &#39;thoth-station/si-aggregator&#39;,
+ &#39;thoth-station/si-bandit&#39;,
+ &#39;thoth-station/si-cloc&#39;,
+ &#39;thoth-station/sigstore-friends&#39;,
+ &#39;thoth-station/slo-reporter&#39;,
+ &#39;thoth-station/socrates&#39;,
+ &#39;thoth-station/solver&#39;,
+ &#39;thoth-station/solver-error-classfier&#39;,
+ &#39;thoth-station/solver-errors-reporter&#39;,
+ &#39;thoth-station/solver-project-url-job&#39;,
+ &#39;thoth-station/source-management&#39;,
+ &#39;thoth-station/srcops-notify-bot&#39;,
+ &#39;thoth-station/srcops-testing&#39;,
+ &#39;thoth-station/storages&#39;,
+ &#39;thoth-station/stub-api&#39;,
+ &#39;thoth-station/support&#39;,
+ &#39;thoth-station/sync-job&#39;,
+ &#39;thoth-station/talks&#39;,
+ &#39;thoth-station/template-project&#39;,
+ &#39;thoth-station/tensorflow-build-s2i&#39;,
+ &#39;thoth-station/tensorflow-release-api&#39;,
+ &#39;thoth-station/tensorflow-release-job&#39;,
+ &#39;thoth-station/tensorflow-serving-build&#39;,
+ &#39;thoth-station/tensorflow-symbols&#39;,
+ &#39;thoth-station/termial-random&#39;,
+ &#39;thoth-station/thamos&#39;,
+ &#39;thoth-station/thoth&#39;,
+ &#39;thoth-station/thoth-application&#39;,
+ &#39;thoth-station/thoth-github-action&#39;,
+ &#39;thoth-station/thoth-ops-infra&#39;,
+ &#39;thoth-station/thoth-pybench&#39;,
+ &#39;thoth-station/thoth-station.github.io&#39;,
+ &#39;thoth-station/thoth-toolbox&#39;,
+ &#39;thoth-station/user-api&#39;,
+ &#39;thoth-station/website&#39;,
+ &#39;thoth-station/workflow-helpers&#39;,
+ &#39;thoth-station/workflows&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
+<p>We listed the number of repos that can be significant for training the TTM model. In the next case, we will extract all the issues and PRs data for the above listed repos.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/github"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1432 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persistent Failures Analysis &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Probability To Fail" href="probability_to_fail.html" />
+    <link rel="prev" title="Percent of Failing Tests Fixed" href="pct_fixed_each_ts.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   KPI Metrics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/TestGrid/metrics/persistent_failures_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/TestGrid/metrics/persistent_failures_analysis.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/TestGrid/metrics/persistent_failures_analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/notebooks/data-sources/TestGrid/metrics/persistent_failures_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metric-calculation">
+   Metric Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-to-ceph-or-local">
+   Save to Ceph or Local
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Persistent Failures Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metric-calculation">
+   Metric Calculation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-to-ceph-or-local">
+   Save to Ceph or Local
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="persistent-failures-analysis">
+<h1>Persistent Failures Analysis<a class="headerlink" href="#persistent-failures-analysis" title="Permalink to this headline">#</a></h1>
+<p>Speed and quality of builds are some of the key performance indicators for the continuous integration process. That is, reduction in the number of failing builds, or the time taken to fix them, should generally indicate an improvement in the development process. In this notebook, we will analyze the data collected from <a class="reference external" href="https://testgrid.k8s.io/redhat">TestGrid</a> to calculate metrics such as percent of failures that persist for long times, how long do such failures last for (i.e. how long does it take to fix them), etc. Our goal here is to provide engineers and managers with insights such as:</p>
+<ul class="simple">
+<li><p>Which tests (e.g. network or storage) have the most “long lasting” failures</p></li>
+<li><p>Which platforms (e.g. AWS or bare metal) have the most “long lasting” failures</p></li>
+<li><p>How long does it take to get a failing test passing again</p></li>
+<li><p>How long does it take to get a failing build to build again</p></li>
+</ul>
+<p>In this notebook, we will follow the same convention as in <a class="reference internal" href="number_of_flakes.html"><span class="doc std std-doc">number_of_flakes.ipynb</span></a>, i.e., create a long dataframe and let the end user decide what level they want to create aggregate views at.</p>
+<p>Linked issue: <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/116">issue</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="kn">import</span> <span class="n">CephCommunication</span>
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="kn">import</span> <span class="n">save_to_disk</span><span class="p">,</span> <span class="n">read_from_disk</span>
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="kn">import</span> <span class="n">TestStatus</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Specify variables</span>
+
+<span class="n">METRIC_NAME</span> <span class="o">=</span> <span class="s2">&quot;persistent_failures&quot;</span>
+
+<span class="c1"># Specify the path for input grid data,</span>
+<span class="n">INPUT_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/testgrid_183.json.gz&quot;</span>
+
+<span class="c1"># Specify the path for output metric data</span>
+<span class="n">OUTPUT_DATA_PATH</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../../../data/processed/metrics/</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1">## CEPH Bucket variables</span>
+<span class="c1">## Create a .env file on your local with the correct configs,</span>
+<span class="n">s3_endpoint_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ENDPOINT&quot;</span><span class="p">)</span>
+<span class="n">s3_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ACCESS_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_SECRET_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_bucket</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_BUCKET&quot;</span><span class="p">)</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_PROJECT_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;ai4ci/testgrid/metrics&quot;</span><span class="p">)</span>
+<span class="n">s3_input_data_path</span> <span class="o">=</span> <span class="s2">&quot;raw_data&quot;</span>
+<span class="n">AUTOMATION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;IN_AUTOMATION&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import data</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;testgrid_</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">.json&quot;</span>
+
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+    <span class="n">s3_object</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s3_input_data_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">file_content</span> <span class="o">=</span> <span class="n">s3_object</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="s2">&quot;Body&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">INPUT_DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="metric-calculation">
+<h2>Metric Calculation<a class="headerlink" href="#metric-calculation" title="Permalink to this headline">#</a></h2>
+<p>To find persistent failures, we find the number of failing tests. Once all failing-status tests have been found, we determine if they are one-time failures or consecutive failures by looking at the status of the test at the next time stamp. We’ll also measure the length of time it takes for failing tests to pass so we can further investigate time-to-fix metrics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate consecutive failure stats</span>
+<span class="n">consec_fail_stats_tuples</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">tab</span> <span class="ow">in</span> <span class="n">testgrid_data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">testgrid_data</span><span class="p">[</span><span class="n">tab</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">current_grid</span> <span class="o">=</span> <span class="n">testgrid_data</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="n">grid</span><span class="p">]</span>
+
+        <span class="c1">## Extract relevant info for each test</span>
+        <span class="k">for</span> <span class="n">current_test</span> <span class="ow">in</span> <span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;grid&quot;</span><span class="p">]:</span>
+
+            <span class="c1"># number of failing cells</span>
+            <span class="n">n_failing_cells</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># total number of occurences of failures (consecutive or one-time)</span>
+            <span class="n">n_fail_instances</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># number of occurences of consecutive (not &quot;one-time&quot;) failures</span>
+            <span class="n">n_consecutive_fail_instances</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># times spent fixing each occurence of failure</span>
+            <span class="n">times_spent</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="c1"># helper variables for calculating time spent fixing</span>
+            <span class="n">prev_failing</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">prev_passing</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">curr_time_spent</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">prev_oldest_ts_idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># prev_not_passing = False</span>
+
+            <span class="c1"># total number of timestamps</span>
+            <span class="n">n_cells</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># total number of transitions form pass to fail</span>
+            <span class="c1"># and fail to pass</span>
+            <span class="n">pass_to_fail</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">fail_to_pass</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">current_test</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]):</span>
+                <span class="c1"># oldest (least recent) timestamp in current rle encoded dict</span>
+                <span class="n">curr_oldest_ts_idx</span> <span class="o">=</span> <span class="n">prev_oldest_ts_idx</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span>
+
+                <span class="c1"># if the current status is not failing and the previous (i.e.</span>
+                <span class="c1"># the &quot;newer&quot;) status was failing, then this marks the start</span>
+                <span class="c1"># point of failure. since end point would have already been</span>
+                <span class="c1"># calculated in previous loop, we just need to save time spent</span>
+                <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">TestStatus</span><span class="o">.</span><span class="n">FAIL</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">prev_failing</span><span class="p">:</span>
+                        <span class="n">times_spent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_time_spent</span><span class="p">)</span>
+                        <span class="n">curr_time_spent</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TestStatus</span><span class="o">.</span><span class="n">PASS</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                            <span class="n">pass_to_fail</span> <span class="o">+=</span> <span class="p">(</span>
+                                <span class="mi">1</span>  <span class="c1"># Inverted because the dictioary is from most recent</span>
+                            <span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TestStatus</span><span class="o">.</span><span class="n">FAIL</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+                    <span class="n">n_fail_instances</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">n_failing_cells</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">n_consecutive_fail_instances</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">prev_passing</span><span class="p">:</span>
+                        <span class="n">fail_to_pass</span> <span class="o">+=</span> <span class="p">(</span>
+                            <span class="mi">1</span>  <span class="c1"># Inverted because the dictioary is from most recent</span>
+                        <span class="p">)</span>
+
+                    <span class="c1"># if previous (i.e. the &quot;newer&quot;) status was not failing</span>
+                    <span class="c1"># and now its failing, then time delta between the oldest</span>
+                    <span class="c1"># ts from previous status and current one must have been</span>
+                    <span class="c1"># spent fixing the failure</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">prev_failing</span><span class="p">:</span>
+                        <span class="n">curr_time_spent</span> <span class="o">+=</span> <span class="p">(</span>
+                            <span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;timestamps&quot;</span><span class="p">][</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">prev_oldest_ts_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+                            <span class="o">-</span> <span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;timestamps&quot;</span><span class="p">][</span><span class="n">curr_oldest_ts_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                        <span class="p">)</span>
+
+                <span class="c1"># update helper variables</span>
+                <span class="n">prev_failing</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TestStatus</span><span class="o">.</span><span class="n">FAIL</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">prev_passing</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">TestStatus</span><span class="o">.</span><span class="n">PASS</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">prev_oldest_ts_idx</span> <span class="o">=</span> <span class="n">curr_oldest_ts_idx</span>
+                <span class="n">n_cells</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span>
+
+            <span class="c1"># test never got to non-fail status again so time spent so far</span>
+            <span class="c1"># wont have been added to times_spent yet</span>
+            <span class="k">if</span> <span class="n">curr_time_spent</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">times_spent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">curr_time_spent</span><span class="p">)</span>
+
+            <span class="c1">## Calculate stats for this test</span>
+
+            <span class="c1"># consecutive failure rate</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">consec_fail_rate</span> <span class="o">=</span> <span class="n">n_consecutive_fail_instances</span> <span class="o">/</span> <span class="n">n_fail_instances</span>
+            <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+                <span class="n">consec_fail_rate</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># mean length of failures</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">mean_fail_len</span> <span class="o">=</span> <span class="n">n_failing_cells</span> <span class="o">/</span> <span class="n">n_fail_instances</span>
+            <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+                <span class="n">mean_fail_len</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="c1"># mean time to fix</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">mean_time_to_fix</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">times_spent</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">times_spent</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+                <span class="n">mean_time_to_fix</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="n">pass_to_fail_rate</span> <span class="o">=</span> <span class="n">pass_to_fail</span> <span class="o">/</span> <span class="n">n_cells</span>
+            <span class="n">fail_to_pass_rate</span> <span class="o">=</span> <span class="n">fail_to_pass</span> <span class="o">/</span> <span class="n">n_cells</span>
+
+            <span class="c1"># save the results to list</span>
+            <span class="n">consec_fail_stats_tuples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">tab</span><span class="p">,</span>
+                    <span class="n">grid</span><span class="p">,</span>
+                    <span class="n">current_test</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+                    <span class="n">consec_fail_rate</span><span class="p">,</span>
+                    <span class="n">mean_fail_len</span><span class="p">,</span>
+                    <span class="n">mean_time_to_fix</span><span class="p">,</span>
+                    <span class="n">pass_to_fail_rate</span><span class="p">,</span>
+                    <span class="n">fail_to_pass_rate</span><span class="p">,</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">consec_fail_stats_tuples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;redhat-assisted-installer&quot;
+&quot;redhat-openshift-informing&quot;
+&quot;redhat-openshift-ocp-release-3.11-informing&quot;
+&quot;redhat-openshift-ocp-release-4.1-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.1-informing&quot;
+&quot;redhat-openshift-ocp-release-4.10-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.10-broken&quot;
+&quot;redhat-openshift-ocp-release-4.10-informing&quot;
+&quot;redhat-openshift-ocp-release-4.2-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.2-informing&quot;
+&quot;redhat-openshift-ocp-release-4.3-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.3-informing&quot;
+&quot;redhat-openshift-ocp-release-4.4-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.4-broken&quot;
+&quot;redhat-openshift-ocp-release-4.4-informing&quot;
+&quot;redhat-openshift-ocp-release-4.5-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.5-broken&quot;
+&quot;redhat-openshift-ocp-release-4.5-informing&quot;
+&quot;redhat-openshift-ocp-release-4.6-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.6-informing&quot;
+&quot;redhat-openshift-ocp-release-4.7-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.7-informing&quot;
+&quot;redhat-openshift-ocp-release-4.8-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.8-broken&quot;
+&quot;redhat-openshift-ocp-release-4.8-informing&quot;
+&quot;redhat-openshift-ocp-release-4.9-blocking&quot;
+&quot;redhat-openshift-ocp-release-4.9-broken&quot;
+&quot;redhat-openshift-ocp-release-4.9-informing&quot;
+&quot;redhat-openshift-okd-release-4.3-informing&quot;
+&quot;redhat-openshift-okd-release-4.4-informing&quot;
+&quot;redhat-openshift-okd-release-4.5-informing&quot;
+&quot;redhat-openshift-okd-release-4.6-blocking&quot;
+&quot;redhat-openshift-okd-release-4.6-informing&quot;
+&quot;redhat-openshift-okd-release-4.7-blocking&quot;
+&quot;redhat-openshift-okd-release-4.7-informing&quot;
+&quot;redhat-openshift-okd-release-4.8-blocking&quot;
+&quot;redhat-openshift-okd-release-4.8-informing&quot;
+&quot;redhat-openshift-okd-release-4.9-blocking&quot;
+&quot;redhat-openshift-okd-release-4.9-informing&quot;
+&quot;redhat-openshift-presubmit-master-gcp&quot;
+&quot;redhat-openshift-serverless&quot;
+&quot;redhat-openshift-virtualization&quot;
+&quot;redhat-osd&quot;
+&quot;redhat-single-node&quot;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>537593
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put results in a pretty dataframe</span>
+<span class="n">consec_fail_stats_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">consec_fail_stats_tuples</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;tab&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;grid&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;consec_fail_rate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mean_fail_len&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mean_time_to_fix&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pass_to_fail_rate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fail_to_pass_rate&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="n">consec_fail_stats_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>consec_fail_rate</th>
+      <th>mean_fail_len</th>
+      <th>mean_time_to_fix</th>
+      <th>pass_to_fail_rate</th>
+      <th>fail_to_pass_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>TestInstall_test_install.start_install_and_wai...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the output here shows what tabs and grids have overall the longest failures</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">consec_fail_stats_df</span><span class="p">[</span><span class="n">consec_fail_stats_df</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Overall&quot;</span><span class="p">)]</span>
+<span class="n">res</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;mean_time_to_fix&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>consec_fail_rate</th>
+      <th>mean_fail_len</th>
+      <th>mean_time_to_fix</th>
+      <th>pass_to_fail_rate</th>
+      <th>fail_to_pass_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>514845</th>
+      <td>"redhat-openshift-okd-release-4.7-informing"</td>
+      <td>periodic-ci-openshift-release-master-okd-4.7-u...</td>
+      <td>Overall</td>
+      <td>1.0</td>
+      <td>29.0</td>
+      <td>5.012140e+09</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>517506</th>
+      <td>"redhat-openshift-okd-release-4.8-informing"</td>
+      <td>periodic-ci-openshift-release-master-okd-4.8-u...</td>
+      <td>Overall</td>
+      <td>1.0</td>
+      <td>29.0</td>
+      <td>5.012139e+09</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>316052</th>
+      <td>"redhat-openshift-ocp-release-4.8-informing"</td>
+      <td>periodic-ci-openshift-release-master-ci-4.8-e2...</td>
+      <td>Overall</td>
+      <td>1.0</td>
+      <td>29.0</td>
+      <td>5.011840e+09</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>168178</th>
+      <td>"redhat-openshift-ocp-release-4.5-informing"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>1.0</td>
+      <td>57.0</td>
+      <td>4.937673e+09</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>136125</th>
+      <td>"redhat-openshift-ocp-release-4.4-informing"</td>
+      <td>periodic-ci-openshift-release-master-ci-4.4-e2...</td>
+      <td>Overall</td>
+      <td>1.0</td>
+      <td>57.0</td>
+      <td>4.937613e+09</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="save-to-ceph-or-local">
+<h2>Save to Ceph or Local<a class="headerlink" href="#save-to-ceph-or-local" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">upload_to_ceph</span><span class="p">(</span>
+        <span class="n">consec_fail_stats_df</span><span class="p">,</span>
+        <span class="n">s3_path</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">save_to_disk</span><span class="p">(</span>
+        <span class="n">consec_fail_stats_df</span><span class="p">,</span>
+        <span class="n">OUTPUT_DATA_PATH</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sanity check to see if the dataset is the same</span>
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">sanity_check</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">read_from_ceph</span><span class="p">(</span>
+        <span class="n">s3_path</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sanity_check</span> <span class="o">=</span> <span class="n">read_from_disk</span><span class="p">(</span>
+        <span class="n">OUTPUT_DATA_PATH</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">METRIC_NAME</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">timestamp</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">sanity_check</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>test</th>
+      <th>consec_fail_rate</th>
+      <th>mean_fail_len</th>
+      <th>mean_time_to_fix</th>
+      <th>pass_to_fail_rate</th>
+      <th>fail_to_pass_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Overall</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>TestInstall_test_install.start_install_and_wai...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>"redhat-assisted-installer"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.Run multi-stage test e2e-metal-assist...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>537588</th>
+      <td>"redhat-single-node"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>537589</th>
+      <td>"redhat-single-node"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Pod</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>537590</th>
+      <td>"redhat-single-node"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>job.initialize</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>31692000.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>537591</th>
+      <td>"redhat-single-node"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>537592</th>
+      <td>"redhat-single-node"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>537593 rows × 8 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>This notebook computed the mean fail length, the mean time to fix failures, pass-to-fail rate, and fail-to-pass rate for tests. The dataframe saved on ceph can be used to generate aggregated views and visualizations.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/TestGrid/metrics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="pct_fixed_each_ts.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Percent of Failing Tests Fixed</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="probability_to_fail.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probability To Fail</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

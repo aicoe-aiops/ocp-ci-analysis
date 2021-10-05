@@ -1,0 +1,2462 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TestGrid: initial EDA and data collection &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TestGrid In-Depth EDA" href="testgrid_indepth_EDA.html" />
+    <link rel="prev" title="Prow Logs and GCS Data" href="../gcsweb-ci/prow_archive_discovery.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/TestGrid/testgrid_EDA.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TestGrid: initial EDA and data collection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-all-the-available-dashboards">
+     List all the available dashboards
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-a-specific-release-summary-dashboard">
+     Inspect a specific release summary dashboard
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detailed-view">
+     Detailed View
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-data">
+     Download Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TestGrid: initial EDA and data collection</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   TestGrid: initial EDA and data collection
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-all-the-available-dashboards">
+     List all the available dashboards
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-a-specific-release-summary-dashboard">
+     Inspect a specific release summary dashboard
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detailed-view">
+     Detailed View
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-data">
+     Download Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="testgrid-initial-eda-and-data-collection">
+<h1>TestGrid: initial EDA and data collection<a class="headerlink" href="#testgrid-initial-eda-and-data-collection" title="Permalink to this headline">#</a></h1>
+<p><em>Note: This notebook can be run and experimented with directly using the “ocp-ci-analysis” image at our <a class="reference external" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/login">jupyterhub instance</a> hosted on the MOC.</em></p>
+<p>This notebook explores how to access the existing TestGrid data at <span class="xref myst">testgrid.k8s.io</span>, giving specific attention to <a class="reference external" href="https://testgrid.k8s.io/redhat-openshift-informing">Red Hat’s OpenShift CI dashboards</a>. Running the entire notebook will result in downloading and saving an up to date TestGrid dataset in json format.</p>
+<p>To start, we will rely on some of the work already established by the sippy team <a class="reference external" href="https://github.com/openshift/sippy/blob/46ad8d209ed1f4b8d5e5e6fa8033088a593d695c/main.go#L49-L249">here</a> to access the data aggregated by TestGrid and convert it into a format that can be directly analyzed in a notebook.</p>
+<p>For this initial stage, we will assume that the grid format for visualizing CI data, with columns representing days, and rows representing tests with the value of each being passed, failed, or not run, as a meaningful representation for further analysis and possible machine learning application. We may update this assumption as we learn more about the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What is Testgrid?</strong> According to the project’s <a class="reference external" href="https://github.com/GoogleCloudPlatform/testgrid">readme</a> it is a, “highly configurable, interactive dashboard for viewing your test results in a grid!” In other words, its an aggregation and visualization platform for CI data. Our hope is that this aggregation encodes some of the subject matter experts’ knowledge, and will provide better initial features than going straight to the more complex underlying CI data artifacts <a class="reference external" href="https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../../../docs/assets/images/testgrid_0.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_EDA_3_0.png" src="../../../_images/testgrid_EDA_3_0.png" />
+</div>
+</div>
+<div class="section" id="list-all-the-available-dashboards">
+<h2>List all the available dashboards<a class="headerlink" href="#list-all-the-available-dashboards" title="Permalink to this headline">#</a></h2>
+<p>We need a programmatic way to access all the available Red Hat Dashboards on TestGrid. This can be done by scraping the html of any one of the dashboards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://testgrid.k8s.io/redhat-openshift-informing?id=dashboard-group-bar&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">testgrid_script</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">testgrid_script</span> <span class="o">=</span> <span class="n">testgrid_script</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">dashboard_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">testgrid_script</span> <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">dashboard_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&quot;redhat-assisted-installer&quot;&#39;,
+ &#39;&quot;redhat-openshift-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.1-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.1-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.2-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.9-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.9-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.3-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.4-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.5-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.5-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.6-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.6-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.7-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.7-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.8-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.8-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.9-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-presubmit-master-gcp&quot;&#39;,
+ &#39;&quot;redhat-osd&quot;&#39;,
+ &#39;&quot;redhat-single-node&quot;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspect-a-specific-release-summary-dashboard">
+<h2>Inspect a specific release summary dashboard<a class="headerlink" href="#inspect-a-specific-release-summary-dashboard" title="Permalink to this headline">#</a></h2>
+<p>Now that we have a programmatic way of collecting all the dashboard names we can use this later on to collect all the available data provided by TestGrid. For now, let’s take a look at a specific dashboard and see what kind of information it’s summary holds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dashboard</span> <span class="o">=</span> <span class="s2">&quot;redhat-openshift-ocp-release-4.2-informing&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://testgrid.k8s.io/</span><span class="si">{</span><span class="n">dashboard</span><span class="si">}</span><span class="s2">/summary&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ocp42</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">ocp42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>periodic-ci-openshift-release-master-ci-4.2-e2e-aws-sdn-multitenant</th>
+      <th>periodic-ci-openshift-release-master-ci-4.2-e2e-gcp</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-console-aws</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-aws-fips</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-aws-fips-serial</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-azure-fips</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-azure-fips-serial</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-gcp</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-gcp-fips</th>
+      <th>periodic-ci-openshift-release-master-nightly-4.2-e2e-gcp-fips-serial</th>
+      <th>...</th>
+      <th>release-openshift-ocp-installer-e2e-metal-serial-4.2</th>
+      <th>release-openshift-origin-installer-e2e-aws-4.2-cnv</th>
+      <th>release-openshift-origin-installer-e2e-aws-upgrade-4.1-stable-to-4.2-ci</th>
+      <th>release-openshift-origin-installer-e2e-aws-upgrade-4.2-stable-to-4.2-nightly</th>
+      <th>release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.1-to-4.2</th>
+      <th>release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.2</th>
+      <th>release-openshift-origin-installer-e2e-azure-upgrade-4.2</th>
+      <th>release-openshift-origin-installer-e2e-gcp-serial-4.2</th>
+      <th>release-openshift-origin-installer-e2e-gcp-upgrade-4.2</th>
+      <th>release-openshift-origin-installer-old-rhcos-e2e-aws-4.2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>alert</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>last_run_timestamp</th>
+      <td>1616083657000</td>
+      <td>1616110075000</td>
+      <td>1616083657000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1616103846000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1616079999000</td>
+      <td>1616096344000</td>
+      <td>1616095854000</td>
+      <td>1616026306000</td>
+      <td>1616072850000</td>
+      <td>1616072851000</td>
+      <td>1616072851000</td>
+      <td>1616096343000</td>
+      <td>1616072851000</td>
+      <td>1616068837000</td>
+    </tr>
+    <tr>
+      <th>last_update_timestamp</th>
+      <td>1616110355</td>
+      <td>1616110166</td>
+      <td>1616110357</td>
+      <td>1616110053</td>
+      <td>1616110048</td>
+      <td>1616110100</td>
+      <td>1616110104</td>
+      <td>1616110049</td>
+      <td>1616110059</td>
+      <td>1616110098</td>
+      <td>...</td>
+      <td>1616110396</td>
+      <td>1616110376</td>
+      <td>1616110126</td>
+      <td>1616109925</td>
+      <td>1616110551</td>
+      <td>1616110341</td>
+      <td>1616110556</td>
+      <td>1616110371</td>
+      <td>1616110008</td>
+      <td>1616110455</td>
+    </tr>
+    <tr>
+      <th>latest_green</th>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>no recent greens</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>no recent greens</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>overall_status</th>
+      <td>FAILING</td>
+      <td>FAILING</td>
+      <td>FAILING</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>FAILING</td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>FLAKY</td>
+      <td>FLAKY</td>
+      <td>FLAKY</td>
+      <td>FLAKY</td>
+      <td>FAILING</td>
+      <td>PASSING</td>
+      <td>PASSING</td>
+      <td>PASSING</td>
+      <td>FLAKY</td>
+      <td>FLAKY</td>
+    </tr>
+    <tr>
+      <th>overall_status_icon</th>
+      <td>warning</td>
+      <td>warning</td>
+      <td>warning</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>warning</td>
+      <td></td>
+      <td></td>
+      <td>...</td>
+      <td>remove_circle_outline</td>
+      <td>remove_circle_outline</td>
+      <td>remove_circle_outline</td>
+      <td>remove_circle_outline</td>
+      <td>warning</td>
+      <td>done</td>
+      <td>done</td>
+      <td>done</td>
+      <td>remove_circle_outline</td>
+      <td>remove_circle_outline</td>
+    </tr>
+    <tr>
+      <th>status</th>
+      <td>0 of 10 (0.0%) recent columns passed (434 of 4...</td>
+      <td>0 of 9 (0.0%) recent columns passed (414 of 44...</td>
+      <td>0 of 10 (0.0%) recent columns passed (392 of 4...</td>
+      <td>no completed results</td>
+      <td>no completed results</td>
+      <td>no completed results</td>
+      <td>no completed results</td>
+      <td>0 of 10 (0.0%) recent columns passed (445 of 4...</td>
+      <td>no completed results</td>
+      <td>no completed results</td>
+      <td>...</td>
+      <td>7 of 10 (70.0%) recent columns passed (658 of ...</td>
+      <td>9 of 10 (90.0%) recent columns passed (311 of ...</td>
+      <td>9 of 10 (90.0%) recent columns passed (499 of ...</td>
+      <td>8 of 10 (80.0%) recent columns passed (497 of ...</td>
+      <td>0 of 10 (0.0%) recent columns passed (322 of 4...</td>
+      <td>10 of 10 (100.0%) recent columns passed (500 o...</td>
+      <td>10 of 10 (100.0%) recent columns passed (500 o...</td>
+      <td>10 of 10 (100.0%) recent columns passed (880 o...</td>
+      <td>7 of 10 (70.0%) recent columns passed (453 of ...</td>
+      <td>4 of 10 (40.0%) recent columns passed (3735 of...</td>
+    </tr>
+    <tr>
+      <th>tests</th>
+      <td>[{'display_name': 'Operator results.operator c...</td>
+      <td>[{'display_name': 'Operator results.operator c...</td>
+      <td>[{'display_name': 'Operator results.operator c...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[{'display_name': 'Operator results.operator c...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[{'display_name': 'Operator results.operator c...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>dashboard_name</th>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>...</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+      <td>redhat-openshift-ocp-release-4.2-informing</td>
+    </tr>
+    <tr>
+      <th>healthiness</th>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>...</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+      <td>{'tests': [], 'previousFlakiness': -1}</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 31 columns</p>
+</div></div></div>
+</div>
+<p>For each dashboard there are a number of jobs associated with it. A job refers to a collection of tests that execute together. In the table above, the columns are different jobs in the dashboards (We will use these column names later to get access to the detailed data). And for each job we have a number of features, some which contain additional data.</p>
+<ul class="simple">
+<li><p>last run</p></li>
+<li><p>last update</p></li>
+<li><p>latest_green</p></li>
+<li><p>overall_status</p></li>
+<li><p>overall_status_icon</p></li>
+<li><p>status**</p></li>
+<li><p>tests**</p></li>
+<li><p>dashboard_name</p></li>
+<li><p>healthiness**</p></li>
+</ul>
+<p><em>** features that have additional data</em></p>
+<p>Let’s take a look at the additional data stored in status and tests for a job.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ocp42</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ocp42</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="n">ocp42</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>release-openshift-origin-installer-old-rhcos-e2e-aws-4.2
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;4 of 10 (40.0%) recent columns passed (3735 of 3747 or 99.7% cells)&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Status is a string value constructed by some other underlying data not present in the summary. I believe this outputs states, for the last 10 runs, how many were completely successful and in this case is equivalent to +4,000 individual test passing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ocp42</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">ocp42</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;tests&quot;</span><span class="p">,</span> <span class="n">ocp42</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">e</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">temp</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="n">temp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>display_name</th>
+      <th>test_name</th>
+      <th>fail_count</th>
+      <th>fail_timestamp</th>
+      <th>pass_timestamp</th>
+      <th>build_link</th>
+      <th>build_url_text</th>
+      <th>build_link_text</th>
+      <th>failure_message</th>
+      <th>linked_bugs</th>
+      <th>fail_test_link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>39</td>
+      <td>1614223692000</td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Operator unavailable (null): null</td>
+      <td>[]</td>
+      <td>Operator results.operator conditions monitoring</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Overall</td>
+      <td>Overall</td>
+      <td>44</td>
+      <td>1614223692000</td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>[]</td>
+      <td>Overall</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>operator.Run multi-stage test e2e-aws-sdn-mult...</td>
+      <td>operator.Run multi-stage test e2e-aws-sdn-mult...</td>
+      <td>42</td>
+      <td>1614223692000</td>
+      <td>0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Installing from release registry.build02.ci.op...</td>
+      <td>[]</td>
+      <td>operator.Run multi-stage test e2e-aws-sdn-mul...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>These tests are ones that have been selected as “alerts” to display on the summary page by testgrid for a specific job on the dashboard. Its unclear here what logic is used to raise tests to “alert” status but it’s likely the number or percent of failures(?). We also get the number of failures, as well as the time of the first failure and the time of the last time the test passed.</p>
+<p><strong>Possible features</strong></p>
+<p>If we were limited to the data provided by a summary we could use some of the following things as vector feature to encode a dashboard:</p>
+<ul class="simple">
+<li><p>percent PASSING</p></li>
+<li><p>percent FLAKY</p></li>
+<li><p>percent FAILING</p></li>
+<li><p>percent STALE</p></li>
+<li><p>percent of recent columns passed</p></li>
+<li><p>percent cells passed</p></li>
+<li><p>average number of alerts in “tests”</p></li>
+<li><p>average fail_count across all “tests”</p></li>
+<li><p>average seconds between first fail and last pass</p></li>
+</ul>
+<p>However, there is a lot of summarizing going on here and it does not take into account the <em>grids</em> in the TestGrid tool. Let’s move on the more detailed data and see what we have access to there.</p>
+</div>
+<div class="section" id="detailed-view">
+<h2>Detailed View<a class="headerlink" href="#detailed-view" title="Permalink to this headline">#</a></h2>
+<p>Lets dig into the time series data in the detailed test grids.</p>
+<p>To pull the desired json we can follow this syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://testgrid.k8s.io/{dashboard_name}/table?&amp;show-stale-tests=&amp;tab={job_name}</span></code></p>
+<p>To pull the desired json also with the graph-duration-metrics we can follow this syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://testgrid.k8s.io/{dashboard_name}/table?&amp;show-stale-tests=&amp;tab={job_name}&amp;graph-metrics=test-duration-minutes</span></code></p>
+<p>From the work above we know how to get the list of all the dashboards and associated jobs. Here we will get the data for the job “release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.1-to-4.2” as an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://testgrid.k8s.io/redhat-openshift-ocp-release-4.2-informing/table? </span><span class="se">\</span>
+<span class="s2">    &amp;show-stale-tests=&amp;tab=release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.1-to-4.2&amp;graph-metrics=test-duration-minutes&quot;</span>  <span class="c1"># noqa</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first thing we want to do is see what what keys we have in our detailed job data. Below we can see that there are a number of fields in this json, but the one we are going to focus on for now is “tests” as it contains the information we need to recreate the testgrids as dataframes or arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test-group-name
+query
+status
+phase-timer
+cached
+summary
+bugs
+changelists
+column_ids
+custom-columns
+column-header-names
+groups
+metrics
+tests
+row_ids
+timestamps
+clusters
+test_id_map
+test-metadata
+stale-test-threshold
+num-stale-tests
+add-tabular-names-option
+show-tabular-names
+description
+bug-component
+code-search-path
+open-test-template
+file-bug-template
+attach-bug-template
+results-url-template
+code-search-url-template
+about-dashboard-url
+open-bug-template
+context-menu-template
+results-text
+latest-green
+triage-enabled
+notifications
+overall-status
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the complete json output for tests, looks like there are a number of fields that currently aren’t populated or have duplicate data, so lets go ahead and drop them. Specifically, “linked_bugs”, “message”, “short_texts”, user_property”, “target”, and “original-name”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;tests&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;linked_bugs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;short_texts&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user_property&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;original-name&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">details</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>alert</th>
+      <th>statuses</th>
+      <th>graphs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Overall</td>
+      <td>{'fail-cl': '1', 'fail-count': 21, 'fail-time'...</td>
+      <td>[{'count': 21, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>{'fail-cl': '1', 'fail-count': 19, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>operator.Import the release payload "initial" ...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>operator.Import the release payload "latest" f...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>operator.Find all of the input images from ocp...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Operator results.operator conditions authentic...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Operator results.operator conditions cloud-cre...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Operator results.operator conditions cluster-a...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Operator results.operator conditions console</td>
+      <td>None</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Operator results.operator conditions dns</td>
+      <td>{'fail-cl': '1', 'fail-count': 3, 'fail-time':...</td>
+      <td>[{'count': 3, 'value': 12}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Operator results.operator conditions image-reg...</td>
+      <td>None</td>
+      <td>[{'count': 5, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Operator results.operator conditions ingress</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Operator results.operator conditions insights</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Operator results.operator conditions kube-apis...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Operator results.operator conditions kube-cont...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Operator results.operator conditions kube-sche...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Operator results.operator conditions machine-api</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Operator results.operator conditions machine-c...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Operator results.operator conditions marketplace</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Operator results.operator conditions network</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Operator results.operator conditions node-tuning</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Operator results.operator conditions openshift...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Operator results.operator conditions openshift...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Operator results.operator conditions openshift...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Operator results.operator conditions operator-...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Operator results.operator conditions operator-...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Operator results.operator conditions operator-...</td>
+      <td>None</td>
+      <td>[{'count': 1, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Operator results.operator conditions service-ca</td>
+      <td>None</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Operator results.operator conditions service-c...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Operator results.operator conditions service-c...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Operator results.operator conditions storage</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Pod</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Symptom Detection.Bug 1812261: iptables is seg...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Symptom Detection.Infrastructure - AWS simulat...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Symptom Detection.Infrastructure - GCP quota e...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Symptom Detection.Node process segfaulted</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Symptom Detection.Undiagnosed panic detected i...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>openshift-tests.Monitor cluster while tests ex...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>openshift-tests.[Disruptive] Cluster upgrade s...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From the column “statuses” above we can see that the time series data is <a class="reference external" href="https://en.wikipedia.org/wiki/Run-length_encoding">run length encoded</a>. Let’s add a decoded column so we can get the data in an array format we could use for machine learning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode_run_length</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">run_length</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">extension</span> <span class="o">=</span> <span class="p">[</span><span class="n">run_length</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]]</span> <span class="o">*</span> <span class="n">run_length</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span>
+        <span class="n">lst</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">extension</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>alert</th>
+      <th>statuses</th>
+      <th>graphs</th>
+      <th>values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Overall</td>
+      <td>{'fail-cl': '1', 'fail-count': 21, 'fail-time'...</td>
+      <td>[{'count': 21, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>{'fail-cl': '1', 'fail-count': 19, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>operator.Import the release payload "initial" ...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>operator.Import the release payload "latest" f...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>operator.Find all of the input images from ocp...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Operator results.operator conditions authentic...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Operator results.operator conditions cloud-cre...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Operator results.operator conditions cluster-a...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Operator results.operator conditions console</td>
+      <td>None</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+      <td>[1, 1, 12, 1, 12, 1, 12, 1, 1, 1, 1, 1, 0, 1, ...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Operator results.operator conditions dns</td>
+      <td>{'fail-cl': '1', 'fail-count': 3, 'fail-time':...</td>
+      <td>[{'count': 3, 'value': 12}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[12, 12, 12, 1, 12, 12, 1, 12, 12, 1, 1, 12, 0...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Operator results.operator conditions image-reg...</td>
+      <td>None</td>
+      <td>[{'count': 5, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 12, 1, 1, 1, 12, 1, 1, 0, 1, 0...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Operator results.operator conditions ingress</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Operator results.operator conditions insights</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Operator results.operator conditions kube-apis...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Operator results.operator conditions kube-cont...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Operator results.operator conditions kube-sche...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Operator results.operator conditions machine-api</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Operator results.operator conditions machine-c...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Operator results.operator conditions marketplace</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Operator results.operator conditions network</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Operator results.operator conditions node-tuning</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Operator results.operator conditions openshift...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Operator results.operator conditions openshift...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Operator results.operator conditions openshift...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>NaN</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Operator results.operator conditions operator-...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Operator results.operator conditions operator-...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Operator results.operator conditions operator-...</td>
+      <td>None</td>
+      <td>[{'count': 1, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+      <td>[1, 12, 1, 1, 1, 12, 1, 1, 12, 1, 12, 1, 0, 1,...</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Operator results.operator conditions service-ca</td>
+      <td>None</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 1, 'value...</td>
+      <td>NaN</td>
+      <td>[1, 1, 12, 1, 1, 12, 1, 12, 1, 1, 12, 12, 0, 1...</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Operator results.operator conditions service-c...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Operator results.operator conditions service-c...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Operator results.operator conditions storage</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Pod</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 1, 12...</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Symptom Detection.Bug 1812261: iptables is seg...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Symptom Detection.Infrastructure - AWS simulat...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Symptom Detection.Infrastructure - GCP quota e...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Symptom Detection.Node process segfaulted</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Symptom Detection.Undiagnosed panic detected i...</td>
+      <td>None</td>
+      <td>[{'count': 12, 'value': 1}, {'count': 1, 'valu...</td>
+      <td>NaN</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, ...</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>openshift-tests.Monitor cluster while tests ex...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>openshift-tests.[Disruptive] Cluster upgrade s...</td>
+      <td>{'fail-cl': '1', 'fail-count': 27, 'fail-time'...</td>
+      <td>[{'count': 12, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now that we have all our data unrolled, lets plot it and confirm it matches the testgrid images displayed on the website.</p>
+<p><em>note: these did match at 12:23  pm 11/19/2020 if they no longer appear to, the image needs update. Live rendering of the grid can be found here <a class="reference external" href="https://testgrid.k8s.io/redhat-openshift-ocp-release-4.2-informing#release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.1-to-4.2">https://testgrid.k8s.io/redhat-openshift-ocp-release-4.2-informing#release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.1-to-4.2</a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_EDA_28_0.png" src="../../../_images/testgrid_EDA_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../../../docs/assets/images/testgrid_01.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_EDA_29_0.png" src="../../../_images/testgrid_EDA_29_0.png" />
+</div>
+</div>
+<p>Excellent. As we can see from the images above, we now have a means of going from any testgrid dashboard of interest directly to a 2d numpy representation of our grids where we could apply some 2D signal processing, computer vision or even convolutional neural network methods (maybe). Maybe we could even consider collecting a number of these objects over multiple days and treat it as a 3D tensor of 2D frames? These are just some possible ideas, but the main point here is that we now have the  testgrid data represented in a more data science friendly format, opening many more possible avenues for analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">][</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_EDA_31_0.png" src="../../../_images/testgrid_EDA_31_0.png" />
+</div>
+</div>
+<p>We can also break our data down to a single time series, if we want to directly analyze the behavior of a single test within this job.</p>
+<p>Let’s look into the time duration for each test within a Job. There are inbuilt Graphs within TestGrid for each Test in the job, which capture the time taken for running each test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../../../docs/assets/images/time_duration_01.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_EDA_34_0.png" src="../../../_images/testgrid_EDA_34_0.png" />
+</div>
+</div>
+<p>The time elapsed for the test (which is denoted by the metric test-duration-minutes) is plotted over time and it captures values such as <code class="docutils literal notranslate"><span class="pre">24.76</span></code> minutes, which is the time that it took to run the test <code class="docutils literal notranslate"><span class="pre">operator.Run</span> <span class="pre">template</span> <span class="pre">e2e-aws-upgrade</span> <span class="pre">-</span> <span class="pre">e2e-aws-upgrade</span> <span class="pre">container</span> <span class="pre">setup</span></code> under a particular build ID (<code class="docutils literal notranslate"><span class="pre">1369630643398381568</span></code>) at a given timestamp.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../../../docs/assets/images/time_duration_02.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_EDA_36_0.png" src="../../../_images/testgrid_EDA_36_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span> <span class="o">=</span> <span class="n">details</span><span class="p">[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;graphs&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>graphs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Overall</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>operator.Import the release payload "initial" ...</td>
+      <td>[{'metric': ['test-duration-minutes'], 'values...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">graphs</span></code> field is a list for each test within a job which consists of time taken in minutes for running that particular test over multiple timestamps and the “Overall” is an aggregate of time taken for the individual tests for that particular build.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">graphs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;metric&#39;: [&#39;test-duration-minutes&#39;],
+  &#39;values&#39;: [[164.96666666666667,
+    163.25,
+    167.65,
+    162.45,
+    161.01666666666668,
+    164.28333333333333,
+    157.88333333333333,
+    163.56666666666666,
+    169.43333333333334,
+    163.46666666666667,
+    167.86666666666667,
+    160.71666666666667,
+    84.75,
+    168.33333333333334,
+    14.4,
+    166.95,
+    163.96666666666667,
+    167.55,
+    161.83333333333334,
+    172.18333333333334,
+    163.45,
+    153.35,
+    159.58333333333334,
+    159.13333333333333,
+    166.43333333333334,
+    156.26666666666668,
+    170.73333333333332,
+    168.81666666666666,
+    158.1,
+    172.05]]}]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-data">
+<h2>Download Data<a class="headerlink" href="#download-data" title="Permalink to this headline">#</a></h2>
+<p>Now that we have a fairly clear view of the data available to us via TestGrid and how to get it into a data science friendly format, the next thing we want to do is collect a large sample of this data and see how we can organize it in aggregate (across jobs). As this data appears to update at least daily, we also want to pull a large sample, so that we have a fixed data set to work with moving forward (one that is immutable (doesn’t change on us every day), and available independent of the TestGrid service’s availability).</p>
+<p>We will now go ahead and download the grid data similar to what is represented above in the data frame “details” for each job:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">download</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">download</span><span class="p">:</span>
+    <span class="n">data_set</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">dashboard</span> <span class="ow">in</span> <span class="n">dashboard_names</span><span class="p">:</span>
+        <span class="n">response_1</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://testgrid.k8s.io/</span><span class="si">{</span><span class="n">dashboard</span><span class="si">}</span><span class="s2">/summary&quot;</span><span class="p">)</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="n">response_1</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">dashboard_jobs</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
+            <span class="n">response_2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;https://testgrid.k8s.io/</span><span class="si">{</span><span class="n">dashboard</span><span class="si">}</span><span class="s2">/table?&amp;show-stale-tests=&amp;tab=</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">&amp;graph-metrics=test-duration-minutes&quot;</span>  <span class="c1"># noqa</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">response_2</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="s2">&quot;tests&quot;</span> <span class="ow">in</span> <span class="n">response_2</span><span class="o">.</span><span class="n">json</span><span class="p">():</span>
+                <span class="n">grid</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">response_2</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;tests&quot;</span><span class="p">]:</span>
+                    <span class="n">test</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;statuses&quot;</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]}</span>
+                    <span class="k">if</span> <span class="s2">&quot;graphs&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="n">test</span><span class="p">[</span><span class="s2">&quot;graphs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;graphs&quot;</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">test</span><span class="p">[</span><span class="s2">&quot;graphs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="n">grid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+
+                <span class="n">time_stamps</span> <span class="o">=</span> <span class="n">response_2</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;timestamps&quot;</span><span class="p">]</span>
+
+                <span class="n">dashboard_jobs</span><span class="p">[</span><span class="n">job</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grid&quot;</span><span class="p">:</span> <span class="n">grid</span><span class="p">,</span> <span class="s2">&quot;timestamps&quot;</span><span class="p">:</span> <span class="n">time_stamps</span><span class="p">}</span>
+
+        <span class="n">data_set</span><span class="p">[</span><span class="n">dashboard</span><span class="p">]</span> <span class="o">=</span> <span class="n">dashboard_jobs</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dashboard</span><span class="si">}</span><span class="s2"> downloaded &quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not Downloading&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;redhat-assisted-installer&quot; downloaded 
+&quot;redhat-openshift-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.1-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.1-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.2-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.2-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.3-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.3-broken&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.3-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.4-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.4-broken&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.4-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.5-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.5-broken&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.5-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.6-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.6-broken&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.6-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.7-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.7-broken&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.7-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.8-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.8-informing&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.9-blocking&quot; downloaded 
+&quot;redhat-openshift-ocp-release-4.9-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.3-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.4-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.5-blocking&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.5-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.6-blocking&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.6-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.7-blocking&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.7-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.8-blocking&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.8-informing&quot; downloaded 
+&quot;redhat-openshift-okd-release-4.9-informing&quot; downloaded 
+&quot;redhat-openshift-presubmit-master-gcp&quot; downloaded 
+&quot;redhat-osd&quot; downloaded 
+&quot;redhat-single-node&quot; downloaded 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;../../../data/raw/testgrid_</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">day</span><span class="si">}{</span><span class="n">date</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">.json&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data_set</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have our data collected in a dictionary and saved as a json file. And getting the specific test grid is as simple as referencing the dashboard and job of interest:  <code class="docutils literal notranslate"><span class="pre">data[&quot;dashboard_name][&quot;job_name]</span></code></p>
+<p>Also, it appears that all the existing test grids taken together is only about 130 Mb, so we should be able to work with the whole set at once without too much trouble.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="next-steps">
+<h1>Next Steps:<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h1>
+<p>Now that we know what data we have access to, how to access it and how to collect the entire available dataset, we want to see how to work with the downloaded dataset and see how comparable each of the jobs and tests are. And like most initial data exploration, we’re now left with a few more questions then we had at the beginning.</p>
+<p><strong>What  are some of the questions we are still left with?</strong></p>
+<ul class="simple">
+<li><p>How comparable are the testgrids?</p></li>
+<li><p>How do we analyze them in aggregate to learn from their combined behavior?</p></li>
+<li><p>How many/ which tests do they all have in common?</p></li>
+<li><p>Are their time series dates comparable?</p></li>
+<li><p>Are there sub-groups that should only be compared with one another?</p></li>
+<li><p>Is looking at the grid matrices independent of test names a valid approach for issue identification?</p></li>
+<li><p>What is the expected behavior of a test over time across multiple jobs.</p></li>
+<li><p>How does the entire test platform/specific tests perform on a given day?</p></li>
+<li><p>How does the entire test platform behavior evolve over time.</p></li>
+<li><p>Is there sufficient data here for useful ML approaches?</p></li>
+<li><p>Can we develop some meaningful alerting/ problem identification with the results of the above questions?</p></li>
+</ul>
+<p>I think there are enough additional questions here that its growing beyond the scope of this notebook. Let’s go ahead address these more complex data set questions in the next <a class="reference internal" href="testgrid_indepth_EDA.html"><span class="doc std std-doc">EDA notebook</span></a>.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/TestGrid"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../gcsweb-ci/prow_archive_discovery.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Prow Logs and GCS Data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="testgrid_indepth_EDA.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TestGrid In-Depth EDA</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

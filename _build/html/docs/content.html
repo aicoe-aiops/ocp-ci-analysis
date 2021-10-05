@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table of Contents &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Failure type classification with the TestGrid data" href="../notebooks/failure-type-classification/README.html" />
+    <link rel="prev" title="Contribute to the AI for Continuous Integration Project" href="how-to-contribute.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/data-sources/Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fdocs/content.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/docs/content.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-on-current-industry-offerings">
+   Research on current industry offerings
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#architecture-diagram">
+   Architecture Diagram
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-engineering-metrics-and-kpis-for-ci">
+   Data Engineering: Metrics and KPIs for CI
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testgrid">
+     TestGrid:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prow-gcs-artifacts">
+     Prow/GCS Artifacts:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#github">
+     Github:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bugzilla">
+     Bugzilla:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#telemetry">
+     Telemetry:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-and-analytics-projects">
+   Machine Learning and Analytics Projects
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#github-time-to-merge-prediction">
+     Github Time to Merge Prediction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testgrid-failure-type-classification">
+     TestGrid Failure Type Classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prow-log-classification">
+     Prow Log Classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimal-stopping-point-prediction">
+     Optimal Stopping Point Prediction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-projects-coming-soon">
+     More Projects Coming Soon…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automate-notebook-pipelines-using-elyra-and-kubeflow">
+   Automate Notebook Pipelines using Elyra and Kubeflow
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Table of Contents</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#research-on-current-industry-offerings">
+   Research on current industry offerings
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#architecture-diagram">
+   Architecture Diagram
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-engineering-metrics-and-kpis-for-ci">
+   Data Engineering: Metrics and KPIs for CI
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testgrid">
+     TestGrid:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prow-gcs-artifacts">
+     Prow/GCS Artifacts:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#github">
+     Github:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bugzilla">
+     Bugzilla:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#telemetry">
+     Telemetry:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-and-analytics-projects">
+   Machine Learning and Analytics Projects
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#github-time-to-merge-prediction">
+     Github Time to Merge Prediction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testgrid-failure-type-classification">
+     TestGrid Failure Type Classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prow-log-classification">
+     Prow Log Classification
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimal-stopping-point-prediction">
+     Optimal Stopping Point Prediction
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-projects-coming-soon">
+     More Projects Coming Soon…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automate-notebook-pipelines-using-elyra-and-kubeflow">
+   Automate Notebook Pipelines using Elyra and Kubeflow
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#research-on-current-industry-offerings">Research on current industry offerings</a></p></li>
+<li><p><a class="reference external" href="#architecture-diagram">Architecture Diagram</a></p></li>
+<li><p><a class="reference external" href="#data-engineering-metrics-and-kpis-for-ci">Data Engineering: Metrics and KPIs for CI</a></p>
+<ul>
+<li><p><a class="reference external" href="#testgrid">TestGrid</a></p></li>
+<li><p><a class="reference external" href="#prowgcs-artifacts">Prow/GCS Artifacts</a></p></li>
+<li><p><a class="reference external" href="#github">Github</a></p></li>
+<li><p><a class="reference external" href="#bugzilla">Bugzilla</a></p></li>
+<li><p><a class="reference external" href="#telemetry">Telemetry</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#machine-learning-and-analytics-projects">Machine Learning and Analytics Projects</a></p>
+<ul>
+<li><p><a class="reference external" href="#github-time-to-merge-prediction">Github Time to Merge Prediction</a></p></li>
+<li><p><a class="reference external" href="#testgrid-failure-type-classification">TestGrid Failure Type Classification</a></p></li>
+<li><p><a class="reference external" href="#prow-log-classification">Prow Log Classification</a></p></li>
+<li><p><a class="reference external" href="#optimal-stopping-point-prediction">Optimal Stopping Point Prediction</a></p></li>
+<li><p><a class="reference external" href="#more-projects-coming-soon">More Projects Coming Soon…</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#automate-notebook-pipelines-using-elyra-and-kubeflow">Automate Notebook Pipelines using Elyra and Kubeflow</a></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="research-on-current-industry-offerings">
+<h1>Research on current industry offerings<a class="headerlink" href="#research-on-current-industry-offerings" title="Permalink to this headline">#</a></h1>
+<p>Find a curated list of companies involved in AI/ML for CI/CD <a class="reference internal" href="aiml-cicd-market-research.html"><span class="doc std std-doc">here</span></a>.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="architecture-diagram">
+<h1>Architecture Diagram<a class="headerlink" href="#architecture-diagram" title="Permalink to this headline">#</a></h1>
+<p><img alt="Architecture Diagram" src="../_images/architecture_diagram.png" /></p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-engineering-metrics-and-kpis-for-ci">
+<h1>Data Engineering: Metrics and KPIs for CI<a class="headerlink" href="#data-engineering-metrics-and-kpis-for-ci" title="Permalink to this headline">#</a></h1>
+<p>Before we attempt to apply any AI or machine learning techniques to improve the CI workflow, it is important that we know how to both quantify and evaluate the current state of the CI workflow. In order to do this we must establish and collect the relevant metrics and key performance indicators (KPIs) needed to measure it. This is a critical first step as it allows us to quantify the state of CI operations, as well as apply the KPIs we will need to evaluate the impact of our AI tools in the future.</p>
+<p>There are currently five open datasets that can be used to help us fully describe the CI process: Testgrid, Prow, Github, Telemetry and Bugzilla. This data is currently stored in disparate locations and does not exist in a data science friendly format ready for analysis. Below are our current efforts to collect and prepare each of these datasets for further analysis.</p>
+<div class="section" id="testgrid">
+<h2>TestGrid:<a class="headerlink" href="#testgrid" title="Permalink to this headline">#</a></h2>
+<p>According to the project’s <a class="reference external" href="https://github.com/GoogleCloudPlatform/testgrid">readme</a>, TestGrid is a, “highly configurable, interactive dashboard for viewing your test results in a grid!” In other words, it’s an aggregation and visualization platform for CI data. Testgrid primarily reports categorical metrics about which tests passed or failed during specific builds over a configurable time window.</p>
+<ul class="simple">
+<li><p><strong>Data Collection</strong></p>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/get_raw_data.html"><span class="doc std std-doc">Collect raw data notebook</span></a></p></li>
+</ul>
+</li>
+<li><p><strong>Data Exploration</strong></p>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/data-sources/TestGrid/testgrid_EDA.html"><span class="doc std std-doc">TestGrid data access and pre-processing</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/cx2ewhtohn4">In-depth EDA video</a></p></li>
+</ul>
+</li>
+<li><p><strong>Metrics and KPIs</strong></p>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/README.html"><span class="doc std std-doc">List of metrics and KPI’s from TestGrid</span></a></p></li>
+<li><p><a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/metric_template.html"><span class="doc std std-doc">Metric template notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/ouxtHH2vOHg">KPI Metric Contribution Video</a></p></li>
+</ul>
+</li>
+<li><p><strong>Visualization of Metrics</strong></p>
+<ul>
+<li><p><a class="reference internal" href="../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.html"><span class="doc std std-doc">Visualization notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/SqGfbyEuZLE">Metric Visualization Video</a></p></li>
+</ul>
+</li>
+<li><p><strong>Automate Workflows</strong></p>
+<ul>
+<li><p><a class="reference external" href="https://ml-pipeline-ui-kubeflow.apps.odh-cl2.apps.os-climate.org/pipeline/">Automated metric pipeline</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=lY75bDv6kd4">How to video</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="prow-gcs-artifacts">
+<h2>Prow/GCS Artifacts:<a class="headerlink" href="#prow-gcs-artifacts" title="Permalink to this headline">#</a></h2>
+<p>TestGrid provides the results of tests, but if we want to triage an issue and see the actual logs generated during the building and testing process, we will need to access the logs generated by <a class="reference external" href="https://prow.ci.openshift.org/">prow</a> and stored in google cloud storage. This dataset contains all of the log data generated for each build and each job as directories and text files in remote storage.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/data-sources/gcsweb-ci/prow_archive_discovery.html"><span class="doc std std-doc">Prow Archive Discovery</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/JjFWFaMfUJA">Video Walkthrough</a></p></li>
+</ul>
+</div>
+<div class="section" id="github">
+<h2>Github:<a class="headerlink" href="#github" title="Permalink to this headline">#</a></h2>
+<p>The builds and tests run by the CI process are required because of changes that are happening in the applications code base. The goal of CI is to automatically identify if any of these code changes will cause problems for the deployed application. Therefore, we also include information such as metadata and diff’s about the PR’s associated with the builds run by Prow. This dataset contains a mix of numerical, categorical and textual data types.</p>
+<ul class="simple">
+<li><p><span class="xref myst">GitHub PR EDA</span></p></li>
+<li><p><a class="reference external" href="https://superset.operate-first.cloud/superset/dashboard/9/">Dashboard</a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/bUm0jvXaY14">Video Walkthrough</a></p></li>
+</ul>
+</div>
+<div class="section" id="bugzilla">
+<h2>Bugzilla:<a class="headerlink" href="#bugzilla" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://bugzilla.redhat.com/">Bugzilla</a> is Red Hat’s bug-tracking system and is used to submit and review defects that have been found in Red Hat distributions. In addition to TestGrid, analyzing bugs related to OpenShift CI can help us get into automated root cause analysis. This is primarily a dataset of human written text.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/data-sources/Bugzilla/bugzilla_EDA.html"><span class="doc std std-doc">Bugzilla EDA notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/FMXv3l4NsPc">Video Walkthrough</a></p></li>
+</ul>
+</div>
+<div class="section" id="telemetry">
+<h2>Telemetry:<a class="headerlink" href="#telemetry" title="Permalink to this headline">#</a></h2>
+<p>The builds and tests we are interested in analyzing run in the cloud and produce metrics about the resources they are using and report any alerts they experience while running. These metrics are stored in Thanos for users to query. Here we have primarily numerical time series data that describes the underlying state of the cluster running these builds and tests.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/data-sources/Telemetry/telemetry_EDA.html"><span class="doc std std-doc">Telemetry EDA notebook</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/D38gR-7c2dc">Video Walkthrough</a></p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="machine-learning-and-analytics-projects">
+<h1>Machine Learning and Analytics Projects<a class="headerlink" href="#machine-learning-and-analytics-projects" title="Permalink to this headline">#</a></h1>
+<p>With the data sources made easily accessible and with the necessary metrics and KPIs available to quantify and evaluate the CI workflow we can start to apply some AI and machine learning techniques to help improve the CI workflow. There are many ways in which this could be done given the multimodal, multi-source nature of our data. Instead of defining a single specific problem to solve, our current aim is to use this repository as a hub for multiple machine learning and analytics projects centered around this data for AIOps problems focused on improving CI workflows. Below is a list of the current ML and analytics projects.</p>
+<div class="section" id="github-time-to-merge-prediction">
+<h2>Github Time to Merge Prediction<a class="headerlink" href="#github-time-to-merge-prediction" title="Permalink to this headline">#</a></h2>
+<p>To quantify critical metrics within a software development workflow, we can start by calculating metrics related to code contributions. One such metric which can help identify bottlenecks within the development process can be the time taken to merge an open pull request. By predicting the time that it could take to merge a PR, we can better allocate development resources.</p>
+<p>We would like to create a GitHub bot that ingests information from a PR, including the written description, author, number of files, etc, in addition to the diff, and returns a prediction for how long it will take to be merged. For that, we train a model which can predict the time taken to merge a PR and classifies it into one of a few predefined time ranges.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/time-to-merge-prediction/README.html"><span class="doc std std-doc">Detailed project description</span></a></p></li>
+<li><p>Interactive model endpoint: <a class="reference external" href="http://github-pr-ttm-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict">http://github-pr-ttm-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict</a></p></li>
+<li><p><span class="xref myst">Model Inference Notebook</span></p></li>
+<li><p><span class="xref myst">Time to Merge Model Training Notebook</span></p></li>
+<li><p><span class="xref myst">Deployment Configuration for Seldon Service</span></p></li>
+</ul>
+</div>
+<div class="section" id="testgrid-failure-type-classification">
+<h2>TestGrid Failure Type Classification<a class="headerlink" href="#testgrid-failure-type-classification" title="Permalink to this headline">#</a></h2>
+<p>Currently, human subject matter experts are able to identify different types of failures by looking at the testgrids. This is, however, a manual process.  This project aims to automate the manual identification process for individual Testgrids. This can be thought of as a classification problem aimed at classifying errors on the testgrids as either flakey tests, infra flakes, install flakes or new test failures.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/failure-type-classification/README.html"><span class="doc std std-doc">Detailed project description</span></a></p></li>
+<li><p><a class="reference internal" href="../notebooks/failure-type-classification/failure_type_classifier.html"><span class="doc std std-doc">Failure Type Classification Notebook</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="prow-log-classification">
+<h2>Prow Log Classification<a class="headerlink" href="#prow-log-classification" title="Permalink to this headline">#</a></h2>
+<p>Logs represent a rich source of information for automated triaging and root cause analysis. Unfortunately, logs are very noisy data types, i.e, two logs that are of the same type but from two different sources may be different enough at a character level that traditional comparison methods are insufficient to capture this similarity. To overcome this issue, we will use the Prow logs made available to us by this project to identify useful methods for learning log templates that denoise log data and help improve performance on downstream ML tasks.</p>
+<p>We start by applying a clustering algorithm to job runs based on the term frequency within their build logs to group  job runs according to their type of failure.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.html"><span class="doc std std-doc">Build Log Classification Notebook</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="optimal-stopping-point-prediction">
+<h2>Optimal Stopping Point Prediction<a class="headerlink" href="#optimal-stopping-point-prediction" title="Permalink to this headline">#</a></h2>
+<p>Every new Pull Request to a repository with new code changes is subjected to an automated set of builds and tests before being merged. Some tests may run for longer durations for various reasons such as unoptimized algorithms, slow networks, or the simple fact that many different independent services are part of a single test. Longer running tests are often painful as they can block the CI/CD process for longer periods of time. By predicting the optimal stopping point for the test, we can better allocate development resources.</p>
+<p><a class="reference external" href="https://testgrid.k8s.io/">TestGrid</a> is a platform that is used to aggregate and visually represent the results of all these automated tests. Based on test and build time duration data available on testgrid, we can predict and suggest a stopping point, beyond which a given test is likely to result in a failure.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../notebooks/optimal-stopping-point/README.html"><span class="doc std std-doc">Detailed project description</span></a></p></li>
+<li><p>Interactive model endpoint: <a class="reference external" href="http://optimal-stopping-point-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict">http://optimal-stopping-point-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict</a></p></li>
+<li><p><a class="reference internal" href="../notebooks/optimal-stopping-point/model_inference.html"><span class="doc std std-doc">Model Inference Notebook</span></a></p></li>
+<li><p><a class="reference internal" href="../notebooks/optimal-stopping-point/osp_model.html"><span class="doc std std-doc">Optimal Stopping Model Training Notebook</span></a></p></li>
+<li><p><span class="xref myst">Deployment Configuration for Seldon Service</span></p></li>
+</ul>
+</div>
+<div class="section" id="more-projects-coming-soon">
+<h2>More Projects Coming Soon…<a class="headerlink" href="#more-projects-coming-soon" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues?q=is%3Aissue+is%3Aopen+%22ML+Request%22+">List of potential ML projects</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="automate-notebook-pipelines-using-elyra-and-kubeflow">
+<h1>Automate Notebook Pipelines using Elyra and Kubeflow<a class="headerlink" href="#automate-notebook-pipelines-using-elyra-and-kubeflow" title="Permalink to this headline">#</a></h1>
+<p>In order to automate the sequential running of the various notebooks in the project responsible for data collection, metric calculation, ML analysis, we are using Kubeflow Pipelines.  For more information on using Elyra and Kubeflow pipelines to automate the notebook workflows you can go through the following resources.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="automating-using-elyra.html"><span class="doc std std-doc">Guide</span></a></p></li>
+<li><p><a class="reference external" href="https://youtu.be/bh5WpKq3W7Y">Tutorial Video</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="how-to-contribute.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Contribute to the AI for Continuous Integration Project</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../notebooks/failure-type-classification/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Failure type classification with the TestGrid data</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
