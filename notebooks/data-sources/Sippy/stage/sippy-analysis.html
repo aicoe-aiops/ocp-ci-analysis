@@ -1,0 +1,2438 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIPPY &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Initial EDA" href="../sippy_failure_correlation.html" />
+    <link rel="prev" title="Sippy Export of OpenShift Data - EDA" href="sippy_EDA.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/data-sources/Sippy/stage/sippy-analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/Sippy/stage/sippy-analysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/Sippy/stage/sippy-analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https://github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/Sippy/stage/sippy-analysis.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-the-data">
+   Getting the data :
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-all-the-available-dashboards">
+   List all the available dashboards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspect-at-a-specific-release-summary-dashboard">
+   Inspect at a specific release summary dashboard
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-sippy-code-to-reproduce-their-approach">
+   Analyzing Sippy Code to reproduce their approach
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#by-variants">
+     By Variants
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#curated-trt-tests">
+     Curated TRT Tests
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sippy">
+<h1>SIPPY<a class="headerlink" href="#sippy" title="Permalink to this headline">¶</a></h1>
+<p>A tool to process the job results from <a class="reference external" href="https://testgrid.k8s.io/">https://testgrid.k8s.io/</a></p>
+<p>Sippy provides dashboards  for the openshift CI test/job data.
+It contains the health summary for CI’s latest release.
+Reports on which tests fail most frequently along different dimensions:</p>
+<ul class="simple">
+<li><p>overall</p></li>
+<li><p>by job</p></li>
+<li><p>by platform (e.g. aws, gcp, etc)</p></li>
+<li><p>by sig (sig ownership of the test)</p></li>
+<li><p>Job runs that had large groups of test failures in a single run (generally indicative of a fundamental issue rather than a test problem)</p></li>
+<li><p>Job pass rates (which jobs are failing frequently, which are not, in sorted order)</p></li>
+</ul>
+<p>In this notebook we will be looking at the existing testgrid data at <a class="reference external" href="http://testgrid.k8s.io">testgrid.k8s.io</a>, giving specific attention to <a class="reference external" href="https://testgrid.k8s.io/redhat-openshift-informing">Red Hat’s CI dashboards</a>.</p>
+<div class="section" id="getting-the-data">
+<h2>Getting the data :<a class="headerlink" href="#getting-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># adding path to notebook consisting of modules to be imported</span>
+<span class="n">module_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;../../TestGrid&quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">module_path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ipynb.fs.defs.testgrid_EDA</span> <span class="k">import</span> <span class="n">decode_run_length</span>  <span class="c1"># noqa: E402</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="list-all-the-available-dashboards">
+<h2>List all the available dashboards<a class="headerlink" href="#list-all-the-available-dashboards" title="Permalink to this headline">¶</a></h2>
+<p>We need a programmatic way to access all the available Red Hat Dashboards on testgrid. This can be done by scrapping the html of any one of the dashboards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://testgrid.k8s.io/redhat-openshift-informing?id=dashboard-group-bar&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">testgrid_script</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">testgrid_script</span> <span class="o">=</span> <span class="n">testgrid_script</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">dashboard_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">testgrid_script</span> <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">dashboard_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&quot;redhat-openshift-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.1-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.1-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.2-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.3-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.4-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.5-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.6-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.6-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.7-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.7-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-presubmit-master-gcp&quot;&#39;,
+ &#39;&quot;redhat-osd&quot;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspect-at-a-specific-release-summary-dashboard">
+<h2>Inspect at a specific release summary dashboard<a class="headerlink" href="#inspect-at-a-specific-release-summary-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have a programmatic way of collecting all the dashboard names we can use this later on to collect all the available data provided by testgrid. Let’s take a look at a specific dashboard and see what kind of info its summary holds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dashboard</span> <span class="o">=</span> <span class="s2">&quot;redhat-openshift-ocp-release-4.6-informing&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;https://testgrid.k8s.io/</span><span class="si">{dashboard}</span><span class="s2">/summary&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ocp46</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">ocp46</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;canary-release-openshift-origin-installer-e2e-aws-4.6-cnv&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-aws-proxy&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-aws-workers-rhel7&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-assisted&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-assisted-onprem&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-ipi&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-ipi-compact&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-ipi-ipv4&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-ipi-upgrade&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-metal-ipi-virtualmedia&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-vsphere&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-vsphere-serial&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-vsphere-upi&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-e2e-vsphere-upi-serial&#39;,
+       &#39;periodic-ci-openshift-release-master-ocp-4.6-openshift-ipi-azure-arcconformance&#39;,
+       &#39;periodic-ci-openshift-release-master-origin-4.5-stable-to-4.6-ci-e2e-aws-upgrade&#39;,
+       &#39;periodic-ci-openshift-release-master-origin-4.5-stable-to-4.6-ci-e2e-azure-upgrade&#39;,
+       &#39;periodic-ci-openshift-release-master-origin-4.5-stable-to-4.6-ci-e2e-gcp-upgrade&#39;,
+       &#39;periodic-ci-openshift-release-master-origin-4.6-e2e-azure-upgrade&#39;,
+       &#39;periodic-ci-openshift-release-master-origin-4.6-e2e-gcp-upgrade&#39;,
+       &#39;promote-release-openshift-machine-os-content-e2e-aws-4.6&#39;,
+       &#39;promote-release-openshift-machine-os-content-e2e-aws-4.6-ppc64le&#39;,
+       &#39;promote-release-openshift-machine-os-content-e2e-aws-4.6-s390x&#39;,
+       &#39;release-openshift-ocp-installer-console-aws-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-aws-csi-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-aws-fips-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-aws-fips-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-aws-mirrors-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-aws-ovn-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-aws-upi-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-azure-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-azure-fips-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-azure-fips-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-azure-ovn-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-azure-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-gcp-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-gcp-fips-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-gcp-fips-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-gcp-ovn-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-gcp-rt-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-gcp-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-metal-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-metal-compact-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-metal-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-openstack-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-openstack-serial-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-ovirt-4.6&#39;,
+       &#39;release-openshift-ocp-installer-e2e-ovirt-upgrade-4.5-stable-to-4.6-ci&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-calico-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-compact-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-disruptive-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-sdn-multitenant-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-sdn-network-stress-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-shared-vpc-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-upgrade-4.3-to-4.4-to-4.5-to-4.6-ci&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.5-to-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-azure-compact-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-azure-shared-vpc-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-gcp-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-gcp-compact-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-gcp-serial-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-gcp-shared-vpc-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-remote-libvirt-ppc64le-4.6&#39;,
+       &#39;release-openshift-origin-installer-e2e-remote-libvirt-s390x-4.6&#39;,
+       &#39;release-openshift-origin-installer-old-rhcos-e2e-aws-4.6&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each dashboard there are a number of jobs associated with it (We will use these column names later to get the access the detailed data). And for each job we have a number of features, some which contain additional data.</p>
+<ul class="simple">
+<li><p>last run</p></li>
+<li><p>last update</p></li>
+<li><p>latest_green</p></li>
+<li><p>overall_status</p></li>
+<li><p>overall_status_icon</p></li>
+<li><p>status**</p></li>
+<li><p>tests**</p></li>
+<li><p>dashboard_name</p></li>
+<li><p>healthiness**</p></li>
+</ul>
+<p><em>** features that have additional data</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ocp46</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ocp46</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;tests&quot;</span><span class="p">,</span> <span class="n">ocp46</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>periodic-ci-openshift-release-master-ocp-4.6-e2e-aws-proxy
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;display_name&#39;: &#39;Overall&#39;,
+  &#39;test_name&#39;: &#39;Overall&#39;,
+  &#39;fail_count&#39;: 52,
+  &#39;fail_timestamp&#39;: 1610323253,
+  &#39;pass_timestamp&#39;: 0,
+  &#39;build_link&#39;: &#39;&#39;,
+  &#39;build_url_text&#39;: &#39;&#39;,
+  &#39;build_link_text&#39;: &#39;&#39;,
+  &#39;failure_message&#39;: &#39;&#39;,
+  &#39;linked_bugs&#39;: [],
+  &#39;fail_test_link&#39;: &#39;2dbbe062d2460b6ad5f5116b89e31745 Overall&#39;},
+ {&#39;display_name&#39;: &#39;[sig-builds][Feature:Builds] build have source revision metadata  started build should contain source revision information [Suite:openshift/conformance/parallel]&#39;,
+  &#39;test_name&#39;: &#39;[sig-builds][Feature:Builds] build have source revision metadata  started build should contain source revision information [Suite:openshift/conformance/parallel]&#39;,
+  &#39;fail_count&#39;: 18,
+  &#39;fail_timestamp&#39;: 1611014468,
+  &#39;pass_timestamp&#39;: 0,
+  &#39;build_link&#39;: &#39;&#39;,
+  &#39;build_url_text&#39;: &#39;&#39;,
+  &#39;build_link_text&#39;: &#39;&#39;,
+  &#39;failure_message&#39;: &#39;&#39;,
+  &#39;linked_bugs&#39;: [],
+  &#39;fail_test_link&#39;: &#39;8533187410fa701427c7751c7469d090 [sig-builds][Feature:Builds] build have source revision metadata  started build should contain source revision information [Suite:openshift/conformance/parallel]&#39;},
+ {&#39;display_name&#39;: &#39;operator.Run multi-stage test e2e-aws-proxy - e2e-aws-proxy-openshift-e2e-test container test&#39;,
+  &#39;test_name&#39;: &#39;operator&#39;,
+  &#39;fail_count&#39;: 45,
+  &#39;fail_timestamp&#39;: 1610323253,
+  &#39;pass_timestamp&#39;: 0,
+  &#39;build_link&#39;: &#39;&#39;,
+  &#39;build_url_text&#39;: &#39;&#39;,
+  &#39;build_link_text&#39;: &#39;&#39;,
+  &#39;failure_message&#39;: &#39;&#39;,
+  &#39;linked_bugs&#39;: [],
+  &#39;fail_test_link&#39;: &#39;1dbe44c2df9ee1624c8bb346c872b049 operator&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a detailed analysis, we will be looking into the data for a particular job from the</p>
+<ul class="simple">
+<li><p>dashboard : <code class="docutils literal notranslate"><span class="pre">redhat-openshift-ocp-release-4.6-informing</span></code></p></li>
+<li><p>job : <code class="docutils literal notranslate"><span class="pre">https://testgrid.k8s.io/redhat-openshift-ocp-release-4.2-informing/table?&amp;show-stale-tests=&amp;tab=release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.5-to-4.6</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://testgrid.k8s.io/redhat-openshift-ocp-release-4.6-informing/table? </span><span class="se">\</span>
+<span class="s2">&amp;show-stale-tests=&amp;tab=release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.5-to-4.6&quot;</span>
+<span class="p">)</span>  <span class="c1"># noqa</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test-group-name
+query
+status
+phase-timer
+cached
+summary
+bugs
+changelists
+column_ids
+custom-columns
+column-header-names
+groups
+metrics
+tests
+row_ids
+timestamps
+clusters
+test_id_map
+test-metadata
+stale-test-threshold
+num-stale-tests
+add-tabular-names-option
+show-tabular-names
+description
+bug-component
+code-search-path
+open-test-template
+file-bug-template
+attach-bug-template
+results-url-template
+code-search-url-template
+about-dashboard-url
+open-bug-template
+context-menu-template
+results-text
+latest-green
+triage-enabled
+notifications
+overall-status
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;tests&quot;</span><span class="p">])</span>
+<span class="n">details</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;name&#39;, &#39;original-name&#39;, &#39;alert&#39;, &#39;linked_bugs&#39;, &#39;messages&#39;,
+       &#39;short_texts&#39;, &#39;statuses&#39;, &#39;target&#39;, &#39;user_property&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>original-name</th>
+      <th>alert</th>
+      <th>linked_bugs</th>
+      <th>messages</th>
+      <th>short_texts</th>
+      <th>statuses</th>
+      <th>target</th>
+      <th>user_property</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[API "openshift-api-available" was unreachable...</td>
+      <td>[F, F, , , F, , , ]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[Service was unreachable during disruption for...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>{'fail-cl': '1', 'fail-count': 8, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[99 error level events were detected during th...</td>
+      <td>[F, F, F, F, F, F, F, F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[14 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[12 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">messages</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">messages</span>
+<span class="n">messages</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>messages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[API "openshift-api-available" was unreachable...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[Service was unreachable during disruption for...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[99 error level events were detected during th...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[14 failures to create the sandbox\n\nns/opens...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[12 failures to create the sandbox\n\nns/opens...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>[, , , , , , , ]</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>[, , , , , , , ]</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>[, , , , , , , , , ]</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_names</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">test_names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">test_names</span><span class="p">)</span>
+<span class="n">test_names</span> <span class="o">=</span> <span class="n">test_names</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;Test Name&quot;</span><span class="p">})</span>
+<span class="k">with</span> <span class="n">pd</span><span class="o">.</span><span class="n">option_context</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">test_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Test Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>openshift-tests.[sig-node] pods should never t...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Cluster upgrade.[sig-api-machinery] Kubernetes...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Cluster upgrade.[sig-api-machinery] OAuth APIs...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Overall</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>operator.Run cluster install and upgrade e2e-a...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Cluster upgrade.[sig-network-edge] Cluster fro...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>openshift-tests.[sig-node] kubelet terminates ...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>operator.Import the release payload "latest" f...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>operator.Import the release payload "initial" ...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>openshift-tests.[sig-arch][Feature:ClusterUpgr...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Cluster upgrade.Operator upgrade authentication</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Cluster upgrade.Operator upgrade machine-config</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Cluster upgrade.Operator upgrade openshift-api...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Cluster upgrade.[sig-cluster-lifecycle] Cluste...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Cluster upgrade.[sig-cluster-lifecycle] Cluste...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Cluster upgrade.Operator upgrade cloud-credential</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Cluster upgrade.Operator upgrade cluster-autos...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Cluster upgrade.Operator upgrade config-operator</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Cluster upgrade.Operator upgrade console</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Cluster upgrade.Operator upgrade csi-snapshot-...</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Cluster upgrade.Operator upgrade dns</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Cluster upgrade.Operator upgrade etcd</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Cluster upgrade.Operator upgrade image-registry</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Cluster upgrade.Operator upgrade ingress</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Cluster upgrade.Operator upgrade insights</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Cluster upgrade.Operator upgrade kube-apiserver</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Cluster upgrade.Operator upgrade kube-controll...</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Cluster upgrade.Operator upgrade kube-scheduler</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Cluster upgrade.Operator upgrade kube-storage-...</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Cluster upgrade.Operator upgrade machine-api</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Cluster upgrade.Operator upgrade machine-approver</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Cluster upgrade.Operator upgrade marketplace</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Cluster upgrade.Operator upgrade monitoring</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Cluster upgrade.Operator upgrade network</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Cluster upgrade.Operator upgrade node-tuning</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Cluster upgrade.Operator upgrade openshift-con...</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Cluster upgrade.Operator upgrade openshift-sam...</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Cluster upgrade.Operator upgrade operator-life...</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Cluster upgrade.Operator upgrade operator-life...</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Cluster upgrade.Operator upgrade operator-life...</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Cluster upgrade.Operator upgrade service-ca</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Cluster upgrade.Operator upgrade storage</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Cluster upgrade.[sig-api-machinery] Kubernetes...</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Cluster upgrade.[sig-api-machinery] OAuth APIs...</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Cluster upgrade.[sig-apps] daemonset-upgrade</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Cluster upgrade.[sig-apps] deployment-upgrade</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Cluster upgrade.[sig-apps] job-upgrade</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Cluster upgrade.[sig-apps] replicaset-upgrade</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Cluster upgrade.[sig-apps] statefulset-upgrade</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Cluster upgrade.[sig-arch] Check if critical a...</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Cluster upgrade.[sig-cluster-lifecycle] cluste...</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Cluster upgrade.[sig-mco] Machine config pools...</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Cluster upgrade.[sig-network-edge] Cluster fro...</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Cluster upgrade.[sig-storage] [sig-api-machine...</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Cluster upgrade.[sig-storage] [sig-api-machine...</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Cluster upgrade.upgrade</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Symptom Detection.Bug 1812261: iptables is seg...</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Symptom Detection.Infrastructure - AWS simulat...</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Symptom Detection.Infrastructure - GCP quota e...</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Symptom Detection.Node process segfaulted</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Symptom Detection.Undiagnosed panic detected i...</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>openshift-tests.[sig-node] pods should never t...</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>openshift-tests.[sig-node] pods should not fai...</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>operator.All images are built and tagged into ...</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>operator.Find all of the input images from ocp...</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     Cluster upgrade.[sig-api-machinery] OpenShift ...
+1     Cluster upgrade.[sig-network-edge] Application...
+2     openshift-tests.[sig-arch] Monitor cluster whi...
+3     openshift-tests.[sig-network] pods should succ...
+4     openshift-tests.[sig-network] pods should succ...
+                            ...                        
+79    openshift-tests.[sig-node] pods should never t...
+80    openshift-tests.[sig-node] pods should not fai...
+81    operator.All images are built and tagged into ...
+82    operator.Find all of the input images from ocp...
+83    operator.Run template e2e-aws-upgrade - e2e-aw...
+Name: name, Length: 84, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Split up the value at name to get exact test name. And store these values in two separate columns : Type (first bit) and Test Name (second bit)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;Test Name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">details</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">details</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>original-name</th>
+      <th>alert</th>
+      <th>linked_bugs</th>
+      <th>messages</th>
+      <th>short_texts</th>
+      <th>statuses</th>
+      <th>target</th>
+      <th>user_property</th>
+      <th>Type</th>
+      <th>Test Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[API "openshift-api-available" was unreachable...</td>
+      <td>[F, F, , , F, , , ]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>None</td>
+      <td>Cluster upgrade</td>
+      <td>[sig-api-machinery] OpenShift APIs remain avai...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[Service was unreachable during disruption for...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>None</td>
+      <td>Cluster upgrade</td>
+      <td>[sig-network-edge] Application behind service ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>{'fail-cl': '1', 'fail-count': 8, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[99 error level events were detected during th...</td>
+      <td>[F, F, F, F, F, F, F, F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>None</td>
+      <td>openshift-tests</td>
+      <td>[sig-arch] Monitor cluster while tests execute</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[14 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>None</td>
+      <td>openshift-tests</td>
+      <td>[sig-network] pods should successfully create ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[12 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>None</td>
+      <td>openshift-tests</td>
+      <td>[sig-network] pods should successfully create ...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>openshift-tests.[sig-node] pods should never t...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 2, 'value...</td>
+      <td>openshift-tests.[sig-node] pods should never t...</td>
+      <td>None</td>
+      <td>openshift-tests</td>
+      <td>[sig-node] pods should never transition back t...</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>openshift-tests.[sig-node] pods should not fai...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 2, 'value...</td>
+      <td>openshift-tests.[sig-node] pods should not fai...</td>
+      <td>None</td>
+      <td>openshift-tests</td>
+      <td>[sig-node] pods should not fail on systemd tim...</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[{'count': 16, 'value': 1}]</td>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>None</td>
+      <td>operator</td>
+      <td>All images are built and tagged into stable</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>operator.Find all of the input images from ocp...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[{'count': 16, 'value': 1}]</td>
+      <td>operator.Find all of the input images from ocp...</td>
+      <td>None</td>
+      <td>operator</td>
+      <td>Find all of the input images from ocp/4.5:${co...</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>None</td>
+      <td>[]</td>
+      <td>[, , , , , , , , , ]</td>
+      <td>[, , , , , , , , , ]</td>
+      <td>[{'count': 3, 'value': 1}, {'count': 1, 'value...</td>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>None</td>
+      <td>operator</td>
+      <td>Run template e2e-aws-upgrade - e2e-aws-upgrade...</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 10 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;count&#39;: 2, &#39;value&#39;: 12},
+ {&#39;count&#39;: 2, &#39;value&#39;: 0},
+ {&#39;count&#39;: 2, &#39;value&#39;: 1},
+ {&#39;count&#39;: 2, &#39;value&#39;: 0},
+ {&#39;count&#39;: 1, &#39;value&#39;: 12},
+ {&#39;count&#39;: 4, &#39;value&#39;: 0},
+ {&#39;count&#39;: 3, &#39;value&#39;: 1}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">alert</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">Type</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Cluster upgrade&#39;, &#39;openshift-tests&#39;, &#39;Overall&#39;, &#39;operator&#39;,
+       &#39;Symptom Detection&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sippy provides <a class="reference external" href="https://sippy.ci.openshift.org/?release=4.6">dashboards</a> for openshift CI test/job data. This dashboard contains the health summary for CI’s latest release.</p>
+<p>The various categories are as follow :</p>
+<ul class="simple">
+<li><p>Job Pass Rates By Variant</p></li>
+<li><p>Curated TRT Tests</p></li>
+<li><p>Top Failing Tests Without a Bug</p></li>
+<li><p>Top Failing Tests With a Bug</p></li>
+<li><p>Job Pass Rates By Job Name</p></li>
+<li><p>Job Pass Rates By Most Reduced Pass Rate</p></li>
+<li><p>Infrequent Job Pass Rates By Job Name</p></li>
+<li><p>Canary Test Failures</p></li>
+<li><p>Job Runs With Failure Groups</p></li>
+<li><p>Test Impacting Bugs</p></li>
+<li><p>Test Impacting Components</p></li>
+<li><p>Job Impacting BZ Components</p></li>
+</ul>
+</div>
+<div class="section" id="analyzing-sippy-code-to-reproduce-their-approach">
+<h2>Analyzing <a class="reference external" href="https://github.com/openshift/sippy">Sippy</a> Code to reproduce their approach<a class="headerlink" href="#analyzing-sippy-code-to-reproduce-their-approach" title="Permalink to this headline">¶</a></h2>
+<p>Test names can be deciphered using this <a class="reference external" href="https://github.com/openshift/sippy/blob/811be6ff0d094fb1bd172b5d68775d0f14464c90/pkg/testgridanalysis/testgridanalysisapi/types.go#L62">bit</a> performed by sippy team.</p>
+<div class="section" id="by-variants">
+<h3>By Variants<a class="headerlink" href="#by-variants" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_openshift_variants</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;aws&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;azure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fips&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gcp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metal-assisted&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metal-upi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metal-ipi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;never-stable&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;openstack&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;osd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ovirt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ovn&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ppc64le&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;promote&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;proxy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;realtime&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;s390x&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;serial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;upgrade&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vsphere-ipi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vsphere-upi&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">details</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;NA&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;variant_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;original-name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">all_openshift_variants</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;variant_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;variant_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;variant_type&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0            [&#39;upgrade&#39;]
+1            [&#39;upgrade&#39;]
+2                     []
+3                     []
+4                     []
+             ...        
+79                    []
+80                    []
+81                    []
+82                    []
+83    [&#39;aws&#39;, &#39;upgrade&#39;]
+Name: variant_type, Length: 84, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;variant_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/sippy-analysis_36_0.png" src="../../../../_images/sippy-analysis_36_0.png" />
+</div>
+</div>
+<p>In the above cell, we can see that the variant : aws and upgrade have been marked in the column variant_type.
+This is how sippy looks up for some keywords that comprise of these variants and further catergorie the tests accordingly.</p>
+</div>
+<div class="section" id="curated-trt-tests">
+<h3>Curated TRT Tests<a class="headerlink" href="#curated-trt-tests" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## curated test substrings</span>
+<span class="n">curated_test</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;[Feature:SCC][Early] should not have pod creation failures during install&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;infrastructure should work&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;install should work&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Kubernetes APIs remain available&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OAuth APIs remain available&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OpenShift APIs remain available&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Pod Container Status should never report success for a pending container&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pods should never transition back to pending&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pods should successfully create sandboxes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;upgrade should work&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cluster completes upgrade&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Curated TRT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;original-name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">curated_test</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Curated TRT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Curated TRT&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Curated TRT&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0              [&#39;OpenShift APIs remain available&#39;]
+1                                               []
+2                                               []
+3    [&#39;pods should successfully create sandboxes&#39;]
+4    [&#39;pods should successfully create sandboxes&#39;]
+Name: Curated TRT, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Curated TRT&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&quot;[&#39;OpenShift APIs remain available&#39;]&quot;, &#39;[]&#39;,
+       &quot;[&#39;pods should successfully create sandboxes&#39;]&quot;,
+       &quot;[&#39;pods should never transition back to pending&#39;]&quot;,
+       &quot;[&#39;Kubernetes APIs remain available&#39;]&quot;,
+       &quot;[&#39;OAuth APIs remain available&#39;]&quot;, &quot;[&#39;Cluster completes upgrade&#39;]&quot;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Curated TRT&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/sippy-analysis_43_0.png" src="../../../../_images/sippy-analysis_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Custom Job Setup Containers</span>
+<span class="n">custom_job</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;e2e-aws-upgrade-ipi-install-install-stableinitial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-aws-upgrade-rollback-ipi-install-install-stableinitial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-aws-proxy-ipi-install-install&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-aws-workers-rhel7-ipi-install-install&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-azure-upgrade-ipi-conf-azure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-gcp-upgrade-ipi-install-install-stableinitial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-metal-ipi-baremetalds-devscripts-setup&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-metal-ipi-ovn-ipv6-baremetalds-devscripts-setup&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-metal-ipi-ovn-dualstack-baremetalds-devscripts-setup&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-vsphere-ipi-install-vsphere&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-vsphere-upi-upi-install-vsphere&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-vsphere-upi-serial-upi-install-vsphere&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;e2e-vsphere-serial-ipi-install-vsphere&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;customJob&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;original-name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">custom_job</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;customJob&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;customJob&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>original-name</th>
+      <th>alert</th>
+      <th>linked_bugs</th>
+      <th>messages</th>
+      <th>short_texts</th>
+      <th>statuses</th>
+      <th>target</th>
+      <th>user_property</th>
+      <th>Type</th>
+      <th>Test Name</th>
+      <th>values</th>
+      <th>variant_type</th>
+      <th>Curated TRT</th>
+      <th>customJob</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[API "openshift-api-available" was unreachable...</td>
+      <td>[F, F, , , F, , , ]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>NA</td>
+      <td>Cluster upgrade</td>
+      <td>[sig-api-machinery] OpenShift APIs remain avai...</td>
+      <td>[12, 12, 0, 0, 1, 1, 0, 0, 12, 0, 0, 0, 0, 1, ...</td>
+      <td>['upgrade']</td>
+      <td>['OpenShift APIs remain available']</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[Service was unreachable during disruption for...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>NA</td>
+      <td>Cluster upgrade</td>
+      <td>[sig-network-edge] Application behind service ...</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>['upgrade']</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>{'fail-cl': '1', 'fail-count': 8, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[99 error level events were detected during th...</td>
+      <td>[F, F, F, F, F, F, F, F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-arch] Monitor cluster while tests execute</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[14 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-network] pods should successfully create ...</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>[]</td>
+      <td>['pods should successfully create sandboxes']</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[12 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-network] pods should successfully create ...</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>[]</td>
+      <td>['pods should successfully create sandboxes']</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Valid Buzilla Components</span>
+<span class="n">ValidBugzillaComponents</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;apiserver-auth&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;assisted-installer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Bare Metal Hardware Provisioning&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Build&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cloud Compute&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cloud Credential Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cluster Loader&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cluster Version Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CNF Variant Validation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Compliance Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;config-operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Console Kubevirt Plugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Console Metal3 Plugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Console Storage Plugin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Containers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;crc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Dev Console&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DNS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Documentation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Etcd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Federation&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;File Integrity Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Fuse&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hawkular&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ibm-roks-toolkit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Image&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Image Registry&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Insights Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Installer&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ISV Operators&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Jenkins&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kata-containers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kube-apiserver&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kube-controller-manager&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kube-scheduler&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kube-storage-version-migrator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Logging&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Machine Config Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Management Console&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Metering Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Migration Tooling&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Monitoring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Multi-Arch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Multi-cluster-management&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Networking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Node&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Node Feature Discovery Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Node Tuning Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oauth-apiserver&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oauth-proxy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;OLM&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;openshift-apiserver&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;openshift-controller-manager&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Operator SDK&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Performance Addon Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Reference Architecture&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Registry Console&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Release&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RHCOS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RHMI Monitoring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Routing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Samples&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Security&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Service Broker&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Service Catalog&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;service-ca&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Special Resources Operator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Storage&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Templates&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Test Infrastructure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Unknown&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Windows Containers&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valid Bugzilla Components&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;original-name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ValidBugzillaComponents</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valid Bugzilla Components&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valid Bugzilla Components&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>original-name</th>
+      <th>alert</th>
+      <th>linked_bugs</th>
+      <th>messages</th>
+      <th>short_texts</th>
+      <th>statuses</th>
+      <th>target</th>
+      <th>user_property</th>
+      <th>Type</th>
+      <th>Test Name</th>
+      <th>values</th>
+      <th>variant_type</th>
+      <th>Curated TRT</th>
+      <th>customJob</th>
+      <th>Valid Bugzilla Components</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[API "openshift-api-available" was unreachable...</td>
+      <td>[F, F, , , F, , , ]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-api-machinery] OpenShift ...</td>
+      <td>NA</td>
+      <td>Cluster upgrade</td>
+      <td>[sig-api-machinery] OpenShift APIs remain avai...</td>
+      <td>[12, 12, 0, 0, 1, 1, 0, 0, 12, 0, 0, 0, 0, 1, ...</td>
+      <td>['upgrade']</td>
+      <td>['OpenShift APIs remain available']</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[Service was unreachable during disruption for...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>Cluster upgrade.[sig-network-edge] Application...</td>
+      <td>NA</td>
+      <td>Cluster upgrade</td>
+      <td>[sig-network-edge] Application behind service ...</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>['upgrade']</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>{'fail-cl': '1', 'fail-count': 8, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[99 error level events were detected during th...</td>
+      <td>[F, F, F, F, F, F, F, F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-arch] Monitor cluster whi...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-arch] Monitor cluster while tests execute</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[14 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-network] pods should successfully create ...</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>[]</td>
+      <td>['pods should successfully create sandboxes']</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>{'fail-cl': '1', 'fail-count': 6, 'fail-time':...</td>
+      <td>[]</td>
+      <td>[12 failures to create the sandbox\n\nns/opens...</td>
+      <td>[F, F, F, F, F, F, , F]</td>
+      <td>[{'count': 2, 'value': 12}, {'count': 2, 'valu...</td>
+      <td>openshift-tests.[sig-network] pods should succ...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-network] pods should successfully create ...</td>
+      <td>[12, 12, 0, 0, 12, 12, 0, 0, 12, 0, 0, 0, 0, 1...</td>
+      <td>[]</td>
+      <td>['pods should successfully create sandboxes']</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>openshift-tests.[sig-node] pods should never t...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 2, 'value...</td>
+      <td>openshift-tests.[sig-node] pods should never t...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-node] pods should never transition back t...</td>
+      <td>[1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1]</td>
+      <td>[]</td>
+      <td>['pods should never transition back to pending']</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>openshift-tests.[sig-node] pods should not fai...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[, , , , , , , ]</td>
+      <td>[{'count': 2, 'value': 1}, {'count': 2, 'value...</td>
+      <td>openshift-tests.[sig-node] pods should not fai...</td>
+      <td>NA</td>
+      <td>openshift-tests</td>
+      <td>[sig-node] pods should not fail on systemd tim...</td>
+      <td>[1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[{'count': 16, 'value': 1}]</td>
+      <td>operator.All images are built and tagged into ...</td>
+      <td>NA</td>
+      <td>operator</td>
+      <td>All images are built and tagged into stable</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>operator.Find all of the input images from ocp...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[, , , , , , , , , , , , , , , ]</td>
+      <td>[{'count': 16, 'value': 1}]</td>
+      <td>operator.Find all of the input images from ocp...</td>
+      <td>NA</td>
+      <td>operator</td>
+      <td>Find all of the input images from ocp/4.5:${co...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>['oc']</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>NA</td>
+      <td>[]</td>
+      <td>[, , , , , , , , , ]</td>
+      <td>[, , , , , , , , , ]</td>
+      <td>[{'count': 3, 'value': 1}, {'count': 1, 'value...</td>
+      <td>operator.Run template e2e-aws-upgrade - e2e-aw...</td>
+      <td>NA</td>
+      <td>operator</td>
+      <td>Run template e2e-aws-upgrade - e2e-aws-upgrade...</td>
+      <td>[1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1]</td>
+      <td>['aws', 'upgrade']</td>
+      <td>[]</td>
+      <td>[]</td>
+      <td>[]</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 15 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valid Bugzilla Components&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;[]&#39;, &quot;[&#39;kube-apiserver&#39;]&quot;, &quot;[&#39;openshift-apiserver&#39;]&quot;,
+       &quot;[&#39;config-operator&#39;]&quot;, &quot;[&#39;kube-controller-manager&#39;]&quot;,
+       &quot;[&#39;kube-scheduler&#39;]&quot;, &quot;[&#39;kube-storage-version-migrator&#39;]&quot;,
+       &quot;[&#39;openshift-controller-manager&#39;]&quot;, &quot;[&#39;service-ca&#39;]&quot;,
+       &quot;[&#39;Node&#39;, &#39;oc&#39;]&quot;, &quot;[&#39;oc&#39;]&quot;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Valid Bugzilla Components&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/sippy-analysis_50_0.png" src="../../../../_images/sippy-analysis_50_0.png" />
+</div>
+</div>
+<p>In this notebook, we have seen a few categories like Curated Jobs, classifying the jobs based on Variants and Bugzilla Components that can be seen on Sippy Dashboard. We can also try out more dashboards to see better results. This notebook takes in account job: <a class="reference external" href="https://testgrid.k8s.io/redhat-openshift-ocp-release-4.6-informing/table?&amp;show-stale-tests=&amp;tab=release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.5-to-4.6">https://testgrid.k8s.io/redhat-openshift-ocp-release-4.6-informing/table?&amp;show-stale-tests=&amp;tab=release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.5-to-4.6</a> case. But we can change this link in cell[10] and see various different dashboards and perform this analysis sippy uses.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/Sippy/stage"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="sippy_EDA.html" title="previous page">Sippy Export of OpenShift Data - EDA</a>
+    <a class='right-next' id="next-link" href="../sippy_failure_correlation.html" title="next page">Initial EDA</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notebooks &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="data-sources/TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-sources/TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-sources/Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-sources">
+   Data Sources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#failure-type-classification">
+   Failure Type Classification
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="notebooks">
+<h1>Notebooks<a class="headerlink" href="#notebooks" title="Permalink to this headline">¶</a></h1>
+<p>This folder contains various reproducible and interactive Jupyter notebooks created for the project. These notebooks are also available for viewing on our public <a class="reference external" href="https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/login">JupyterHub instance</a>.
+The notebook organizational structure is described in detail below.</p>
+<div class="section" id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
+<p>The notebooks defined in the <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data-sources</span></code></span> folder, explore and analyze the <a class="reference external" href="https://github.com/openshift/sippy">Sippy</a> and <a class="reference external" href="https://github.com/GoogleCloudPlatform/testgrid">TestGrid</a> data sources, as well as log output from OpenShift CI.</p>
+<ol class="simple">
+<li><p><strong>Sippy</strong> - A Continuous Integration Private Investigator tool to process the job results from <a class="reference external" href="https://testgrid.k8s.io/">https://testgrid.k8s.io/</a>. It reports on which tests fail most frequently along different dimensions such as by job, by platform, by sig etc.</p></li>
+<li><p><strong>TestGrid</strong> -  A highly-configurable, interactive dashboard for viewing your test results in a grid.</p></li>
+</ol>
+<p>This folder contains:</p>
+<ul class="simple">
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Sippy</span></code></span> folder, which consists of:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="data-sources/Sippy/sippy_failure_correlation.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">sippy_failure_correlation.ipynb</span></code></span></a> - Notebook which analyzes the available Sippy CI data and determine which test failures appear to be correlated with each other</p></li>
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">stage</span></code></span> folder which contains some new features and exploratory work we are trying out. It consists of:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="data-sources/Sippy/stage/sippy_EDA.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">sippy_EDA.ipynb</span></code></span></a> - Notebook which uncovers and understands the Sippy data set</p></li>
+<li><p><a class="reference internal" href="data-sources/Sippy/stage/sippy-analysis.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">sippy-analysis.ipynb</span></code></span></a> - Notebook analyzing the OpenShift CI test/job data from the <a class="reference external" href="https://testgrid.k8s.io/redhat-openshift-informing">testgrid dashboards</a> that Sippy provides</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">TestGrid</span></code></span> folder which consists of:</p>
+<ol class="simple">
+<li><p><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">Metrics</span></code></span> - This folder contains notebooks that define, calculate, and save several KPIs that we believe are relevant to various personas (developer, manager, etc.) involved in the CI process.</p></li>
+<li><p><a class="reference internal" href="data-sources/TestGrid/testgrid_EDA.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">testgrid_EDA.ipynb</span></code></span></a> - Notebook which explores the existing TestGrid data at <a class="reference external" href="http://testgrid.k8s.io">testgrid.k8s.io</a>, giving specific attention to <a class="reference external" href="https://testgrid.k8s.io/redhat-openshift-informing">Red Hat’s OpenShift CI dashboards</a>.</p></li>
+<li><p><a class="reference internal" href="data-sources/TestGrid/testgrid_indepth_EDA.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">testgrid_indepth_EDA.ipynb</span></code></span></a> - Notebook which follows up on the above notebook and provides additional insights to the testgrid data.</p></li>
+<li><p><a class="reference internal" href="data-sources/TestGrid/testgrid_metadata_EDA.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">testgrid_metadata_EDA.ipynb</span></code></span></a> - Notebook which explores metadata present at a Test level within the existing TestGrid data at <a class="reference external" href="http://testgrid.k8s.io">testgrid.k8s.io</a>.</p></li>
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">background</span></code></span> folder which contains:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="data-sources/TestGrid/background/testgrid_feature_confirmation.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">testgrid_feature_confirmation.ipynb</span></code></span></a> - Notebook determining if the testgrid features analzed in the <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/data-sources/TestGrid/testgrid_EDA.ipynb">testgrid_EDA.ipynb</a> notebook are uniform across grids.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">gcsweb-ci</span></code></span> folder which consists of:</p>
+<ol class="simple">
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">build-logs</span></code></span> folder to work with build logs from OpenShift CI jobs:</p>
+<ol class="simple">
+<li><p><a class="reference internal" href="data-sources/gcsweb-ci/build-logs/build_log_EDA.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">build_log_EDA.ipynb</span></code></span></a> - Notebook that can download build log data and provides an overview of it.</p></li>
+<li><p><a class="reference internal" href="data-sources/gcsweb-ci/build-logs/build_log_term_freq.html"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">build_log_term_freq.ipynb</span></code></span></a> - Notebook that applies term frequency analysis to build logs</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="failure-type-classification">
+<h2>Failure Type Classification<a class="headerlink" href="#failure-type-classification" title="Permalink to this headline">¶</a></h2>
+<p>The notebooks defined in the <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">failure-type-classification</span></code></span> folder focuses on addressing the problem of automating the task of test failure classification with TestGrid data. Failures which occur in a test can be legitimate or due to some other issues like an infrastructure flake, install flake, flaky test, or some other type of failure. Unsupervised machine learning methods and heuristics are explored in these notebooks to classify the test failures. The notebooks are organized into:</p>
+<ul class="simple">
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">background</span></code></span> folder which consists of:</p>
+<ol class="simple">
+<li><p><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">testgrid_flakiness_detection.ipynb</span></code></span> - Notebook which tries to detect one of the test failure types such as a Flaky test</p></li>
+</ol>
+</li>
+<li><p>a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">stage</span></code></span> folder which consists of:</p>
+<ol class="simple">
+<li><p><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">failure_type_classifier.ipynb</span></code></span> - Notebook for analyzing testgrids and generating a report that will identify the tests and dates where 4 different types of failures may have occurred</p></li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

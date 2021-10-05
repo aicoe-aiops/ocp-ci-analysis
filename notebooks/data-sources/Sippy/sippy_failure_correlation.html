@@ -1,0 +1,1643 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initial EDA &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Telemetry Data for CI Clusters" href="../Telemetry/telemetry_EDA.html" />
+    <link rel="prev" title="SIPPY" href="stage/sippy-analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/notebooks/data-sources/Sippy/sippy_failure_correlation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/Sippy/sippy_failure_correlation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/Sippy/sippy_failure_correlation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https://github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/Sippy/sippy_failure_correlation.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Initial EDA
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-and-arrange-dataset">
+     Load and arrange dataset
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-this-data">
+     What is this data?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encoding">
+   Encoding
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-vocab">
+     Build vocab
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-encoding-scheme">
+     Apply encoding scheme
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#confirm-no-duplicates">
+     Confirm no duplicates
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-noise-unique-tests">
+     Remove noise/ unique tests
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#after-filtering">
+     After Filtering
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-correlation-matrix">
+     Build Correlation Matrix
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-highly-correlated-failure-sets">
+     Find highly correlated failure sets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examine-correlation-sets">
+     Examine Correlation Sets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#validate-correlation-set">
+     Validate correlation set
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     Results
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-job-run-urls">
+     Add job run urls
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save-data-to-csv">
+     Save Data To CSV
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-steps">
+     Next steps:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="initial-eda">
+<h1>Initial EDA<a class="headerlink" href="#initial-eda" title="Permalink to this headline">¶</a></h1>
+<p>This is a short notebook to look at the available data provided and to see if we can determine which test failures appear to be correlated with each other.</p>
+<p>In this notebook we will:</p>
+<ol class="simple">
+<li><p>Load and rearrange our dataset</p></li>
+<li><p>Encode our data with a binary encoding scheme</p></li>
+<li><p>Analyze data looking for highly correlated failure sets</p></li>
+<li><p>Example: Given a test failure of interest return other test failures that are highly correlated.</p></li>
+<li><p>Output a csv file that contains a list of highly correlated test sets and their associated job run urls</p></li>
+</ol>
+<div class="section" id="load-and-arrange-dataset">
+<h2>Load and arrange dataset<a class="headerlink" href="#load-and-arrange-dataset" title="Permalink to this headline">¶</a></h2>
+<p>This data is a nested json, where we are mainly interested in the field “failureGroups”, so we will slice to only that row, which is a dictionary, then unroll that into its own dataframe for analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/mcliffor/anaconda3/envs/devenv/lib/python3.7/site-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+  import pandas.util.testing as tm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;../../../data/external/sippydata.json&quot;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+<span class="n">d</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+<span class="n">d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>release</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>all</th>
+      <td>{'all': {'successes': 477806, 'failures': 8619...</td>
+    </tr>
+    <tr>
+      <th>ByPlatform</th>
+      <td>{'aws': {'successes': 196148, 'failures': 3249...</td>
+    </tr>
+    <tr>
+      <th>ByJob</th>
+      <td>{'canary-release-openshift-origin-installer-e2...</td>
+    </tr>
+    <tr>
+      <th>BySig</th>
+      <td>{'sig-api-machinery': {'successes': 45866, 'fa...</td>
+    </tr>
+    <tr>
+      <th>failureGroups</th>
+      <td>[{'job': 'release-openshift-origin-installer-e...</td>
+    </tr>
+    <tr>
+      <th>jobPassRate</th>
+      <td>[{'name': 'release-openshift-ocp-installer-e2e...</td>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <td>2020-08-10T12:10:38.344952931-04:00</td>
+    </tr>
+    <tr>
+      <th>topFailingTestsWithBug</th>
+      <td>[{'name': '[sig-arch][Feature:ClusterUpgrade] ...</td>
+    </tr>
+    <tr>
+      <th>topFailingTestsWithoutBug</th>
+      <td>[{'name': '[sig-network] network isolation whe...</td>
+    </tr>
+    <tr>
+      <th>bugsByFailureCount</th>
+      <td>[{'id': 1856189, 'status': 'ON_QA', 'last_chan...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># unroll the failuregroups data</span>
+
+<span class="n">failure_groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;failureGroups&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">failure_groups</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>job</th>
+      <th>url</th>
+      <th>testGridJobUrl</th>
+      <th>testFailures</th>
+      <th>failedTestNames</th>
+      <th>failed</th>
+      <th>hasUnknownFailures</th>
+      <th>succeeded</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>release-openshift-origin-installer-e2e-azure-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/ori...</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-r...</td>
+      <td>371</td>
+      <td>[Overall, [sig-apps][Feature:DeploymentConfig]...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>release-openshift-ocp-installer-e2e-aws-ovn-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/ori...</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-r...</td>
+      <td>352</td>
+      <td>[Overall, [sig-arch] Managed cluster should ha...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>release-openshift-ocp-installer-e2e-azure-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/ori...</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-r...</td>
+      <td>294</td>
+      <td>[Overall, [k8s.io] Container Runtime blackbox ...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>release-openshift-ocp-installer-e2e-gcp-ovn-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/ori...</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-r...</td>
+      <td>264</td>
+      <td>[Overall, operator.Run template e2e-gcp - e2e-...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>release-openshift-origin-installer-e2e-azure-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/ori...</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-r...</td>
+      <td>224</td>
+      <td>[Overall, [sig-apps][Feature:DeploymentConfig]...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failure_groups</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(102, 8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab only the failed test names columns to see if there are any correlations.</span>
+<span class="n">failed_test_names</span> <span class="o">=</span> <span class="n">failure_groups</span><span class="o">.</span><span class="n">failedTestNames</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failed_test_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      [[sig-apps][Feature:DeploymentConfig] deployme...
+1      [[sig-arch] Managed cluster should have no cra...
+2      [[k8s.io] Container Runtime blackbox test when...
+3      [operator.Run template e2e-gcp - e2e-gcp-ovn c...
+4      [[sig-apps][Feature:DeploymentConfig] deployme...
+                             ...                        
+97     [[sig-arch] Managed cluster should have no cra...
+98     [operator.Run template e2e-azure - e2e-azure-o...
+99     [operator.Run template e2e-aws-serial - e2e-aw...
+100    [operator.Run template e2e-azure - e2e-azure-o...
+101    [operator.Run template e2e-azure - e2e-azure-o...
+Name: failedTestNames, Length: 102, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-this-data">
+<h2>What is this data?<a class="headerlink" href="#what-is-this-data" title="Permalink to this headline">¶</a></h2>
+<p>It looks like we have 102 ci job runs in our dataset. And for each job run we have list of tests that failed. Our goal here is to develop a method to determine which tests are highly correlated with each other, or in other words, are likely to cooccur.</p>
+<p>So we want to evaluate the occurrence of these tests over all 102 jobs available to us in this dataset. In order to do this, we will encode each job as a vector, where each position represents 1 of the possible tests. Positions with 1 represent the test failed, otherwise it will be 0. This binary encoding scheme should simplify our job later on.</p>
+</div>
+</div>
+<div class="section" id="encoding">
+<h1>Encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">¶</a></h1>
+<p>For our initial approach we are going to consider each test for each job as a feature that is either present (1) or absent (0). This should make comparing job results and test cooccurrence rather straightforward.</p>
+<div class="section" id="build-vocab">
+<h2>Build vocab<a class="headerlink" href="#build-vocab" title="Permalink to this headline">¶</a></h2>
+<p>First thing we need to do is determine how long our feature vector is going to be by collecting the unique test names in our dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build a vocabulary of unique test names across the entire data set.</span>
+<span class="n">vocab</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">failed_test_names</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vocab</span><span class="p">:</span>
+            <span class="n">vocab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<span class="c1"># the vocabulary represents about 1/4 of the dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5841
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1455
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># confirm that there are no duplicates in the vocab</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1455
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="apply-encoding-scheme">
+<h2>Apply encoding scheme<a class="headerlink" href="#apply-encoding-scheme" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_tests</span><span class="p">(</span><span class="n">job</span><span class="p">):</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vocab</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">job</span><span class="p">:</span>
+            <span class="n">encoded</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">encoded</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">encoded</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoded</span> <span class="o">=</span> <span class="n">failed_test_names</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">encode_tests</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoded</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+1      [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, ...
+2      [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, ...
+3      [1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, ...
+4      [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, ...
+                             ...                        
+97     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, ...
+98     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, ...
+99     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+100    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, ...
+101    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+Name: failedTestNames, Length: 102, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoded</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">vocab</span><span class="p">)</span>
+<span class="n">df_encoded</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>[sig-apps][Feature:DeploymentConfig] deploymentconfigs adoption will orphan all RCs and adopt them back when recreated</th>
+      <th>[sig-network][Feature:Router] The HAProxy router should expose prometheus metrics for a route</th>
+      <th>[sig-builds][Feature:Builds][webhook] TestWebhookGitHubPing</th>
+      <th>operator.Run template e2e-azure - e2e-azure container test</th>
+      <th>[sig-builds][Feature:Builds] oc new-app  should succeed with an imagestream</th>
+      <th>[sig-instrumentation][Late] Alerts should have a Watchdog alert in firing state the entire cluster run</th>
+      <th>[sig-instrumentation][Late] Alerts shouldn't report any alerts in firing state apart from Watchdog and AlertmanagerReceiversNotConfigured</th>
+      <th>[sig-cli] oc adm must-gather runs successfully</th>
+      <th>[sig-builds][Feature:Builds] prune builds based on settings in the buildconfig  should prune errored builds based on the failedBuildsHistoryLimit setting</th>
+      <th>[sig-instrumentation] Prometheus when installed on the cluster shouldn't report any alerts in firing state apart from Watchdog and AlertmanagerReceiversNotConfigured [Early]</th>
+      <th>...</th>
+      <th>[sig-storage] In-tree Volumes [Driver: emptydir] [Testpattern: Dynamic PV (block volmode)] volume-expand should not allow expansion of pvcs without AllowVolumeExpansion property</th>
+      <th>[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: dir-link-bindmounted] [Testpattern: Pre-provisioned PV (ntfs)][sig-windows] volumes should allow exec of files on the volume</th>
+      <th>[sig-storage] In-tree Volumes [Driver: emptydir] [Testpattern: Pre-provisioned PV (default fs)] subPath should support non-existent path</th>
+      <th>[sig-storage] In-tree Volumes [Driver: gcepd] [Testpattern: Dynamic PV (default fs)] provisioning should provision storage with snapshot data source [Feature:VolumeSnapshotDataSource]</th>
+      <th>operator.Run template e2e-aws-scaleup-rhel7 - e2e-aws-scaleup-rhel7 container test</th>
+      <th>[sig-storage] In-tree Volumes [Driver: aws] [Testpattern: Dynamic PV (ext4)] volumes should allow exec of files on the volume</th>
+      <th>[sig-storage] In-tree Volumes [Driver: cinder] [Testpattern: Dynamic PV (block volmode)] volume-expand should not allow expansion of pvcs without AllowVolumeExpansion property</th>
+      <th>operator.Run template e2e-aws-serial - e2e-aws-serial container test</th>
+      <th>[sig-storage] CSI Volumes [Driver: csi-hostpath] [Testpattern: Dynamic PV (filesystem volmode)] volumeLimits should support volume limits [Serial]</th>
+      <th>[sig-storage] In-tree Volumes [Driver: azure-disk] [Testpattern: Inline-volume (default fs)] subPath should be able to unmount after the subpath directory is deleted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 1455 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="confirm-no-duplicates">
+<h2>Confirm no duplicates<a class="headerlink" href="#confirm-no-duplicates" title="Permalink to this headline">¶</a></h2>
+<p>We can see by the empty output below that each job’s set of failed tests is unique</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lets confirm that each job is unique in its set of test failures</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">encoded</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">encoded</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">g</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">matches</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-noise-unique-tests">
+<h2>Remove noise/ unique tests<a class="headerlink" href="#remove-noise-unique-tests" title="Permalink to this headline">¶</a></h2>
+<p>We want to make sure that our correlations are not just due to unique failed test sets present in our small dataset, and want to make sure our tests impact multiple jobs. For example, if we had a unique failed test set that only occurred in a single example, and shared no other failed tests among the vocabulary, then all of the tests would appear to be 100% correlated with each other, when in fact that is merely a consequence of insufficient data.</p>
+<p>In order to prevent that, lets ignore any tests that occur only in a single job.</p>
+<p>In order to do that we will use <code class="docutils literal notranslate"><span class="pre">occurrence_count</span></code> to create a filter vector for any test that occurs only once. Then filter them out of our working DF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># percent that each test is present in the jobs data</span>
+<span class="n">perc_present</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_encoded</span><span class="p">)</span>
+<span class="n">perc_present</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[sig-apps][Feature:DeploymentConfig] deploymentconfigs adoption will orphan all RCs and adopt them back when recreated                                                                  0.362745
+[sig-arch] Managed cluster should have no crashlooping pods in core namespaces over four minutes                                                                                        0.362745
+[sig-apps][Feature:DeploymentConfig] deploymentconfigs with revision history limits should never persist more old deployments than acceptable after being observed by the controller    0.313725
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">occurrence_count</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">occurrence_count</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[sig-apps][Feature:DeploymentConfig] deploymentconfigs adoption will orphan all RCs and adopt them back when recreated                                                                  37
+[sig-arch] Managed cluster should have no crashlooping pods in core namespaces over four minutes                                                                                        37
+[sig-apps][Feature:DeploymentConfig] deploymentconfigs with revision history limits should never persist more old deployments than acceptable after being observed by the controller    32
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filter_unique</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">occurrence_count</span><span class="p">[</span><span class="n">occurrence_count</span><span class="o">.</span><span class="n">values</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_encoded</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">filter_unique</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_encoded</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(102, 976)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="after-filtering">
+<h2>After Filtering<a class="headerlink" href="#after-filtering" title="Permalink to this headline">¶</a></h2>
+<p>We are left with 102 jobs with 976 possible test names. We can see here that we’ve dropped nearly 500 test names from our dataset, meaning that there were 500 that occurred in only 1 job, and correlation could not be well established.</p>
+</div>
+<div class="section" id="build-correlation-matrix">
+<h2>Build Correlation Matrix<a class="headerlink" href="#build-correlation-matrix" title="Permalink to this headline">¶</a></h2>
+<p>Here we will use pandas built in <code class="docutils literal notranslate"><span class="pre">df.corr()</span></code> function to get a correlation matrix between each of our tests failures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since there are 900 features, its not practical to visualize the entire correlation matrix, but to get a sense of the data lets look at a subset of our our data and see if any test pairs jump out as being highly correlated.</p>
+<p>The best way to interpret the graph below is, white squares represent highly correlated failure pairs and black squares represent independent failure pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sn</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/sippy_failure_correlation_30_0.png" src="../../../_images/sippy_failure_correlation_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="find-highly-correlated-failure-sets">
+<h2>Find highly correlated failure sets<a class="headerlink" href="#find-highly-correlated-failure-sets" title="Permalink to this headline">¶</a></h2>
+<p>Going thorough a 900 X 900 heatmap is probably not the most efficient way to find failure groups. Let’s iterate through the correlation matrix and for each test, collect those tests that have a correlation coefficient of 0.9 or higher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For each feature, find the other features that are correlated by more than 0.9</span>
+<span class="n">top_correlation</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">top_correlation</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mf">0.90</span> <span class="ow">and</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">c</span><span class="p">:</span>
+            <span class="n">top_correlation</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">s</span><span class="p">))</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">top_correlation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>976
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examine-correlation-sets">
+<h2>Examine Correlation Sets<a class="headerlink" href="#examine-correlation-sets" title="Permalink to this headline">¶</a></h2>
+<p>Then to make things easier, lets ignore all the tests for which there are no highly correlated tests.</p>
+<p>Finally lets look at the output of this and examine one of our sets of highly correlated test failures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="c1"># top_correlation has a number of empty rows as not all tests have high correlations with others,</span>
+<span class="c1"># lets grab only the sets that do</span>
+<span class="n">corr_sets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_correlation</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">corr_sets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{len(corr_sets)} sets of correlated tests </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Feature of interest: </span><span class="si">{corr_sets[1][0]}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corr_sets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;correlation coefficient&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>186 sets of correlated tests 
+
+Feature of interest: [sig-builds][Feature:Builds] prune builds based on settings in the buildconfig  should prune errored builds based on the failedBuildsHistoryLimit setting
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_name</th>
+      <th>correlation coefficient</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[sig-instrumentation][sig-builds][Feature:Builds] Prometheus when installed on the cluster should start and expose a secured proxy and verify buil...</td>
+      <td>0.908153</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[sig-auth][Feature:RoleBindingRestrictions] RoleBindingRestrictions should be functional  Rolebinding restrictions tests single project should suc...</td>
+      <td>0.908153</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[sig-apps][Feature:OpenShiftControllerManager] TestTriggers_configChange</td>
+      <td>0.908153</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[sig-auth][Feature:OpenShiftAuthorization] authorization  TestClusterReaderCoverage should succeed</td>
+      <td>0.908153</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[sig-auth][Feature:OpenShiftAuthorization] self-SAR compatibility  TestSelfSubjectAccessReviewsNonExistingNamespace should succeed</td>
+      <td>0.908153</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="validate-correlation-set">
+<h2>Validate correlation set<a class="headerlink" href="#validate-correlation-set" title="Permalink to this headline">¶</a></h2>
+<p>We can see from the output above that the test <code class="docutils literal notranslate"><span class="pre">[sig-builds][Feature:Builds]</span> <span class="pre">prune</span> <span class="pre">builds</span> <span class="pre">based</span> <span class="pre">on</span> <span class="pre">settings</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">buildconfig</span>&#160; <span class="pre">should</span> <span class="pre">prune</span> <span class="pre">errored</span> <span class="pre">builds</span> <span class="pre">based</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">failedBuildsHistoryLimit</span> <span class="pre">setting</span></code> is highly correlated with these 5 other tests. They appear to cooccur almost all of the time (0.9). However, lets just double check and make sure this isn’t a one-off occurrence.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_name</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;[sig-builds][Feature:Builds] prune builds based on settings in the buildconfig  &quot;</span>
+    <span class="s2">&quot;should prune errored builds based on the failedBuildsHistoryLimit setting&quot;</span>
+<span class="p">)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="n">occurrence_count</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_name</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{num}</span><span class="s2"> : the number of times this test failed in our data set&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 : the number of times this test failed in our data set
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">focus</span> <span class="o">=</span> <span class="n">corr_sets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">focus</span><span class="p">:</span>
+    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">occurrence_count</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;num_occurrences&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_name</th>
+      <th>num_occurrences</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[sig-instrumentation][sig-builds][Feature:Builds] Prometheus when installed on the cluster should start and expose a secured proxy and verify buil...</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[sig-auth][Feature:RoleBindingRestrictions] RoleBindingRestrictions should be functional  Rolebinding restrictions tests single project should suc...</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[sig-apps][Feature:OpenShiftControllerManager] TestTriggers_configChange</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[sig-auth][Feature:OpenShiftAuthorization] authorization  TestClusterReaderCoverage should succeed</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[sig-auth][Feature:OpenShiftAuthorization] self-SAR compatibility  TestSelfSubjectAccessReviewsNonExistingNamespace should succeed</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p><strong>Here we see that each test failure occurs in 5 different jobs, of which we know that no 2 that are exactly the same. These 5 test almost always fail in conjunction with “prune builds…”.</strong></p>
+<p>Since we see that all of these failures occur in multiple jobs across the dataset, it provides some validity to the claim that these tests are related by the same underlying cause.</p>
+</div>
+<div class="section" id="add-job-run-urls">
+<h2>Add job run urls<a class="headerlink" href="#add-job-run-urls" title="Permalink to this headline">¶</a></h2>
+<p>In order to help the end-user diagnose the underlying cause driving this set of test failures we would also like to add links to the specific job runs where these failure sets are occurring.</p>
+<p>In order to do this, we need to return to our original dataframe to find the url column associated with our failedTestNames. And then match the urls for cases in which all of our test failure sets fail on the same run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failure_groups</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>job</th>
+      <th>url</th>
+      <th>testGridJobUrl</th>
+      <th>testFailures</th>
+      <th>failedTestNames</th>
+      <th>failed</th>
+      <th>hasUnknownFailures</th>
+      <th>succeeded</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>release-openshift-origin-installer-e2e-azure-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-release-4.6-blocking#release-openshift-origin-installer-e2e-azure-4.6</td>
+      <td>371</td>
+      <td>[Overall, [sig-apps][Feature:DeploymentConfig] deploymentconfigs adoption will orphan all RCs and adopt them back when recreated, [sig-network][Fe...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>release-openshift-ocp-installer-e2e-aws-ovn-4.6</td>
+      <td>https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-ocp-installer-e2e-aws-ovn-4.6/1291592782258900992</td>
+      <td>https://testgrid.k8s.io/redhat-openshift-ocp-release-4.6-informing#release-openshift-ocp-installer-e2e-aws-ovn-4.6</td>
+      <td>352</td>
+      <td>[Overall, [sig-arch] Managed cluster should have no crashlooping pods in core namespaces over four minutes, [sig-arch][Early] Managed cluster shou...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_urls</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">failure_group</span> <span class="ow">in</span> <span class="n">corr_sets</span><span class="p">:</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">failure_group</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">group</span><span class="p">]</span>
+    <span class="n">group</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">failure_group</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">sets</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">failure_groups</span><span class="o">.</span><span class="n">failedTestNames</span><span class="p">):</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sets</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">==</span> <span class="n">sets</span><span class="p">:</span>
+            <span class="n">urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">failure_groups</span><span class="o">.</span><span class="n">url</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+    <span class="n">all_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">corr_sets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">all_urls</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[sig-builds][Feature:Builds] prune builds based on settings in the buildconfig  should prune errored builds based on the failedBuildsHistoryLimit setting
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400
+1       https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-ocp-installer-e2e-azure-4.6/1291835183837745152
+2    https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291480293290545152
+3       https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-ocp-installer-e2e-azure-4.6/1290553685616627712
+4    https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1290697393284583424
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="save-data-to-csv">
+<h2>Save Data To CSV<a class="headerlink" href="#save-data-to-csv" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corr_sets</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;correlated_tests&quot;</span><span class="p">])</span>
+<span class="n">save</span><span class="p">[</span><span class="s2">&quot;urls&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_urls</span>
+<span class="n">save</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../../../data/interim/correlation_sets.csv&quot;</span><span class="p">)</span>
+<span class="n">save</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_name</th>
+      <th>correlated_tests</th>
+      <th>urls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[sig-builds][Feature:Builds] oc new-app  should succeed with an imagestream</td>
+      <td>[([sig-apps][Feature:OpenShiftControllerManager] TestTriggers_MultipleICTs, 0.920985497016262)]</td>
+      <td>[https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400, https://prow...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[sig-builds][Feature:Builds] prune builds based on settings in the buildconfig  should prune errored builds based on the failedBuildsHistoryLimit ...</td>
+      <td>[([sig-instrumentation][sig-builds][Feature:Builds] Prometheus when installed on the cluster should start and expose a secured proxy and verify bu...</td>
+      <td>[https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400, https://prow...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[sig-instrumentation][sig-builds][Feature:Builds] Prometheus when installed on the cluster should start and expose a secured proxy and verify buil...</td>
+      <td>[([sig-builds][Feature:Builds] prune builds based on settings in the buildconfig  should prune errored builds based on the failedBuildsHistoryLimi...</td>
+      <td>[https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400, https://prow...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[sig-auth][Feature:UserAPI] groups should work</td>
+      <td>[([sig-auth][Feature:RoleBindingRestrictions] RoleBindingRestrictions should be functional  Create a rolebinding that also contains system:non-exi...</td>
+      <td>[https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400, https://prow...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[sig-auth][Feature:OpenShiftAuthorization] RBAC proxy for openshift authz  RunLegacyClusterRoleEndpoint should succeed</td>
+      <td>[([sig-auth][Feature:OpenShiftAuthorization] scopes TestUnknownScopes should succeed, 0.9081532183730032)]</td>
+      <td>[https://prow.svc.ci.openshift.org/view/gcs/origin-ci-test/logs/release-openshift-origin-installer-e2e-azure-4.6/1291269757735014400, https://prow...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>The above notebook outlines to take a sippydata.json file for a specific time period and identify correlated failures along with the the urls for the specific instances where the failures all occurred together.</p>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps:<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<p>This is a rather small dataset (~100 jobs) we may be able to get a better signal on test failure correlation if we had many more examples to use.</p>
+<p>We could also start to look at how stable these failure set are, and monitor how they drift overtime.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "devenv"
+        },
+        kernelOptions: {
+            kernelName: "devenv",
+            path: "./notebooks/data-sources/Sippy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'devenv'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="stage/sippy-analysis.html" title="previous page">SIPPY</a>
+    <a class='right-next' id="next-link" href="../Telemetry/telemetry_EDA.html" title="next page">Telemetry Data for CI Clusters</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,1377 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openshift-ci: build logs initial data collection and EDA &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Term frequency analysis of build logs" href="build_log_term_freq.html" />
+    <link rel="prev" title="Time to Merge Prediction Inference Service" href="../../../time-to-merge-prediction/model_inference.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/data-sources/gcsweb-ci/build-logs/build_log_EDA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/gcsweb-ci/build-logs/build_log_EDA.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/gcsweb-ci/build-logs/build_log_EDA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https://github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/gcsweb-ci/build-logs/build_log_EDA.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-build-log-data">
+     Download build log data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-data-for-a-job">
+       Get data for a job
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overview-of-the-metadata">
+     Overview of the metadata
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#log-samples">
+     Log samples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#latest-build-s-head">
+       Latest build’s head
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#full-log-of-a-successful-job">
+       Full log of a successful job
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#failed-job-output">
+       Failed job output
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-steps">
+     Next steps
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="openshift-ci-build-logs-initial-data-collection-and-eda">
+<h1>openshift-ci: build logs initial data collection and EDA<a class="headerlink" href="#openshift-ci-build-logs-initial-data-collection-and-eda" title="Permalink to this headline">¶</a></h1>
+<p>Automated log analysis normally relies on some treats that typical logs exhibit:</p>
+<ul class="simple">
+<li><p>Similar messages are repeated over and over.</p></li>
+<li><p>Messages are short, and contain mixed text and parameters.</p></li>
+<li><p>Log files contain some structure (time stamps, severity levels, system/component identifiers) as well as <em>free form</em> textual data.</p></li>
+</ul>
+<p>Log files from OpenShift CI do not always have these characteristics. A single log file can contain a wide diverstity of log entries, some of which can be long multi-line sequences (e.g. command output) and do not always have the same structure. Moreover, the content type, structure and format varies between jobs, even between executions of the same job over time.</p>
+<p>On the other hand, CI logs offer other characteristics that traditional logs often don’t:</p>
+<ul class="simple">
+<li><p>Diversity of content (as explained above).</p></li>
+<li><p>They have a <em>beginning</em> and and <em>end</em>.</p></li>
+<li><p>We have repetitions at a whole log file level. I.e. the same job runs multiple times, which enables us to compare multiple versions of the same log file (in contrast with traditional log analysis, which can exploit multiple occurrences only at the log entry level).</p></li>
+</ul>
+<p>Different jobs in OpenShif CI provide different log files and outputs, but there is one specific log output that they all have in common: the job’s <em>build log</em> (<code class="docutils literal notranslate"><span class="pre">build-log.txt</span></code>). We start the log exploration with this type of log.</p>
+<div class="section" id="download-build-log-data">
+<h2>Download build log data<a class="headerlink" href="#download-build-log-data" title="Permalink to this headline">¶</a></h2>
+<p>We start by accessing job log data. Initially we will get:</p>
+<ul class="simple">
+<li><p>Build logs (<code class="docutils literal notranslate"><span class="pre">build-log.txt</span></code>) for jobs</p></li>
+<li><p>Basic metadata about each build log:</p>
+<ul>
+<li><p>Size (lenght) of the build log file</p></li>
+<li><p>Duration of the job run</p></li>
+<li><p>The result of the job, i.e. wether the log corresponds to a failed or passed execution</p></li>
+</ul>
+</li>
+</ul>
+<p>All that information is available in a Google Storage bucket called <code class="docutils literal notranslate"><span class="pre">openshift-ci</span></code>. Within that bucket, each CI job definition has matching <em>prefixes</em> for its generated artifacts.</p>
+<p>For example, all the builds for the job <code class="docutils literal notranslate"><span class="pre">release-openshift-ocp-installer-e2e-aws-serial-4.7</span></code> have the form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/logs/release-openshift-ocp-installer-e2e-aws-serial-4.7/BUILD_ID/
+</pre></div>
+</div>
+<p>and right after that prefix we will always find 3 blobs that will provide us the information we need:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build-log.txt</span></code>, the build log itself</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">started.json</span></code> with the start’s timestamp</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finished.json</span></code> (after the job has fininshed) contains the end timestamp and the job result (success, failure, or error)</p></li>
+</ul>
+<p>You can see an example build of that job <a class="reference external" href="https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/release-openshift-ocp-installer-e2e-aws-serial-4.7/1379147319978496000/">here</a>.</p>
+<p>Beyond that common information, each job type will have their own set of job-specific <em>artifacts</em> available under the <code class="docutils literal notranslate"><span class="pre">artifacts/</span></code> infix. This notebook does not explore job-specific logs or artifacts.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">google.cloud</span> <span class="k">import</span> <span class="n">storage</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following class contains the logic for obtaining the logs and metadata that we are interested in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Getting infortation about all builds from the job</span>
+
+<span class="c1"># TODO: add an option to limit the number of builds to work with</span>
+
+
+<span class="k">class</span> <span class="nc">Builds</span><span class="p">:</span>
+
+    <span class="c1"># To fetch build metadata without downloading a copy of the log files</span>
+    <span class="c1"># create an instance with refresh=False and call fetch_build_data</span>
+
+    <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;origin-ci-test&quot;</span>  <span class="c1"># The Google Storage bucket</span>
+    <span class="n">logs_path</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/gcs/build-logs/&quot;</span>  <span class="c1"># Where to save log files</span>
+    <span class="n">metadata_path</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/gcs/build-metadata/&quot;</span>  <span class="c1"># Where to save metadata</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Builds</span><span class="o">.</span><span class="n">logs_path</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{build_id}</span><span class="s2">.txt&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_name</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_name</span> <span class="o">=</span> <span class="n">job_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latest_build_id</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span> <span class="o">=</span> <span class="n">refresh</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metadata_path</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{job_name}</span><span class="s2">_build-logs.csv&quot;</span>
+        <span class="p">)</span>
+        <span class="c1"># Note: it&#39;s important that the job prefix ends in &#39;/&#39; as this is used as a</span>
+        <span class="c1"># prefix for google storage client&#39;s list_blobs with &#39;/&#39; as the delimiter</span>
+        <span class="c1"># FIXME: this prefix only works for periodics. Generalize to include pre/post-submit job types</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">job_prefix</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;logs/</span><span class="si">{job_name}</span><span class="s2">/&quot;</span>
+        <span class="c1"># Google storage client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">storage</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">create_anonymous_client</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">bucket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">prow_url_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">build_id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;https://prow.ci.openshift.org/view/gcs/</span><span class="si">{self.project}</span><span class="s2">/</span><span class="si">{self.job_prefix}{build_id}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span> <span class="nf">build_log_url_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">build_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a public URL to download a build&#39;s build-log.txt&quot;&quot;&quot;</span>
+        <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="o">.</span><span class="n">get_blob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.job_prefix}{build_id}</span><span class="s2">/build-log.txt&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">blob</span><span class="o">.</span><span class="n">public_url</span>
+
+    <span class="c1"># from https://github.com/googleapis/google-cloud-python/issues/920</span>
+    <span class="k">def</span> <span class="nf">_fetch_build_prefixes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">list_blobs</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">job_prefix</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;/&quot;</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">iterator</span><span class="o">.</span><span class="n">pages</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">prefixes</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fetch_build_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Downloads build log information from google storage.</span>
+<span class="sd">        If &quot;refresh&quot; is set, it dowloads and saves a copy of the log file itself.</span>
+<span class="sd">        Otherwise, it just gets the metadata.</span>
+<span class="sd">        This method does not save metadata to a local file&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">])</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching information about builds of&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">job_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_build_prefixes</span><span class="p">()</span>
+
+        <span class="n">num_builds</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefixes</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">build_id</span> <span class="o">=</span> <span class="n">prefix</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;(</span><span class="si">{i}</span><span class="s2">/</span><span class="si">{num_builds}</span><span class="s2">) </span><span class="si">{build_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="o">.</span><span class="n">get_blob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">finished.json&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">blob</span><span class="p">:</span>
+                <span class="c1"># Build has not finished yet</span>
+                <span class="k">continue</span>
+            <span class="n">finished</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">download_as_bytes</span><span class="p">())</span>
+
+            <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="o">.</span><span class="n">get_blob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">started.json&quot;</span><span class="p">)</span>
+            <span class="n">started</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">download_as_bytes</span><span class="p">())</span>
+
+            <span class="n">blob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bucket</span><span class="o">.</span><span class="n">get_blob</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{prefix}</span><span class="s2">build-log.txt&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">blob</span><span class="p">:</span>
+                <span class="n">length</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">size</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">Builds</span><span class="o">.</span><span class="n">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                    <span class="c1"># Save a copy of the log itself, unless we already have it</span>
+                    <span class="n">blob</span><span class="o">.</span><span class="n">download_to_filename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">finished</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">length</span><span class="p">,</span>
+                <span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">started</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">finished</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">build_id</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">build_id</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_build_id</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">latest_build_id</span> <span class="o">=</span> <span class="n">build_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latest build is&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">latest_build_id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">save_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Saves a copy of the metadata to a local CSV file&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_file_name</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.cache_file_name}</span><span class="s2"> already exists&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Use overwrite=True to overwrite&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">have_metadata</span><span class="p">():</span>
+            <span class="c1"># We don&#39;t have anything to save yet, fetch it</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fetch_build_data</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Saving build data to </span><span class="si">{self.cache_file_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_file_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads the metadata DataFrame from a local CSV file&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Loading build data from </span><span class="si">{self.cache_file_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_file_name</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latest_build_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">have_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">empty</span>
+
+    <span class="k">def</span> <span class="nf">get_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a DataFrame with build metadata,</span>
+<span class="sd">        loading it from a previous save or downloading it</span>
+<span class="sd">        from google cloud&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">have_metadata</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">refresh</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fetch_build_data</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">load_metadata</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-data-for-a-job">
+<h3>Get data for a job<a class="headerlink" href="#get-data-for-a-job" title="Permalink to this headline">¶</a></h3>
+<p>Let’s pick a specific job to work with.</p>
+<p><strong>NOTE</strong>: pick only a <em>periodic</em> job for now. pre/post-submit jobs are not much different, but the code so far assumes a <code class="docutils literal notranslate"><span class="pre">/logs</span></code> prefix, and pre/post-submit jobs use e.g. <code class="docutils literal notranslate"><span class="pre">/pr-logs</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job_name</span> <span class="o">=</span> <span class="s2">&quot;periodic-ci-openshift-release-master-ci-4.8-e2e-gcp&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are 3 options to load the information about job builds:</p>
+<ol class="simple">
+<li><p>Download everything (metadata and log files) from google cloud storage.</p></li>
+<li><p>Download the metadata but do not dowload the logs themselves.</p></li>
+<li><p>Load metadata from a local CSV file that has been created on a previous download.</p></li>
+</ol>
+<p>The local copy of the metadata can be saved by calling <code class="docutils literal notranslate"><span class="pre">save_metadata</span></code>. <strong>NOTE</strong>: any existing metadata copy will not be overwritten by defaut; call with <code class="docutils literal notranslate"><span class="pre">overwrite=True</span></code> to replace the existing cache.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Option 1: Refresh (re-download) all data, including log files:</span>
+<span class="c1"># builds = Builds(job_name, refresh=True)</span>
+<span class="c1"># builds.save_metadata(overwrite=True)</span>
+
+<span class="c1"># Option 2: Get fresh build metadata without downloading a copy of the logs</span>
+<span class="c1"># builds = Builds(job_name, refresh=False)</span>
+<span class="c1"># builds.fetch_build_data()</span>
+<span class="c1"># builds.save_metadata(overwrite=True)</span>
+
+<span class="c1"># Option 3: Load [cached] build information</span>
+<span class="n">builds</span> <span class="o">=</span> <span class="n">Builds</span><span class="p">(</span><span class="n">job_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get all the metadata (result, duration, build-log length) of all builds of that job.</p>
+<p>Note that if we set <code class="docutils literal notranslate"><span class="pre">refresh=True</span></code> above this will also download a copy of each build log locally.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">builds</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">()</span>
+
+<span class="c1"># Remove builds that simply erroed</span>
+<span class="n">build_errors</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">build_errors</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># From timestamps to job duration</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span>
+
+<span class="c1"># A boolean version of the result</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;SUCCESS&quot;</span>
+<span class="k">del</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading build data from ../../../../data/raw/gcs/build-metadata/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp_build-logs.csv
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>size</th>
+      <th>duration</th>
+      <th>success</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1368338379971760128</th>
+      <td>5846974</td>
+      <td>4432</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1372646746210963456</th>
+      <td>9785</td>
+      <td>5111</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1375709011390763008</th>
+      <td>9962</td>
+      <td>4435</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1380281977160077312</th>
+      <td>3841</td>
+      <td>9649</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1385025333723402240</th>
+      <td>3868</td>
+      <td>5436</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1381826019446493184</th>
+      <td>3837</td>
+      <td>4778</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1371068681810874368</th>
+      <td>9782</td>
+      <td>4804</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1377999575511470080</th>
+      <td>12329</td>
+      <td>4855</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1369750447904002048</th>
+      <td>6467331</td>
+      <td>4742</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1382368829539094528</th>
+      <td>3840</td>
+      <td>4903</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>837 rows × 3 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="overview-of-the-metadata">
+<h2>Overview of the metadata<a class="headerlink" href="#overview-of-the-metadata" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;success: {df.success.sum()} PASS and {(~df.success).sum()} FAIL&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>success: 479 PASS and 358 FAIL
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>size</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>837.00</td>
+      <td>837.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3223683.72</td>
+      <td>5214.82</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5112869.50</td>
+      <td>1558.29</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>92.00</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3872.00</td>
+      <td>4460.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>9883.00</td>
+      <td>4785.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7329272.00</td>
+      <td>5436.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>37896258.00</td>
+      <td>15294.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And a graphical overview of the distributions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">],</span> <span class="n">log</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;build log length (bytes)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;job duration (seconds)&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">success</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="p">(</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">success</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()]</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%1.1f%%</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Pass&quot;</span><span class="p">,</span> <span class="s2">&quot;Fail&quot;</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;job result&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_EDA_17_0.png" src="../../../../_images/build_log_EDA_17_0.png" />
+</div>
+</div>
+<p>We can see that the build log sizes go from very short (a few bytes log) to quite long (a few megabytes). By looking at the median (50%) we see that most of them stay on the relatively small side, but the ones that get log do get significantly bigger. Note that the axis for log lenght are in a logarithmic scale, to better accomodate this.</p>
+<p>We will find out why by looking at the relationship between the features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;go&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">success</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pass&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="s2">&quot;duration&quot;</span><span class="p">,</span> <span class="s2">&quot;ro&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">success</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fail&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;build-log size (bytes)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;duration (seconds)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_EDA_19_0.png" src="../../../../_images/build_log_EDA_19_0.png" />
+</div>
+</div>
+<p>Here we can notice a few interesting things:</p>
+<ul class="simple">
+<li><p>There is a strong correlation between a build’s <code class="docutils literal notranslate"><span class="pre">build-log</span></code> size and its result.</p></li>
+<li><p>Successful job runs have a very consistent build log length.</p></li>
+<li><p>A build’s duration also has a relationship with the results: a duration under a certain threshold indicates a failure before tests could start, e.g. install or infrastructure issues.</p></li>
+</ul>
+<p>All in all, we can appreciate that it seems to be quite possible to classify build results based on their log size and duration.</p>
+</div>
+<div class="section" id="log-samples">
+<h2>Log samples<a class="headerlink" href="#log-samples" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s take a look at the contents of the build logs.</p>
+<div class="section" id="latest-build-s-head">
+<h3>Latest build’s head<a class="headerlink" href="#latest-build-s-head" title="Permalink to this headline">¶</a></h3>
+<p>This is the beginning of the latest build’s <code class="docutils literal notranslate"><span class="pre">build-log.txt</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Build URL:&quot;</span><span class="p">,</span> <span class="n">builds</span><span class="o">.</span><span class="n">prow_url_for</span><span class="p">(</span><span class="n">builds</span><span class="o">.</span><span class="n">latest_build_id</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Builds</span><span class="o">.</span><span class="n">log_path_for</span><span class="p">(</span><span class="n">builds</span><span class="o">.</span><span class="n">latest_build_id</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Build URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1387498929158885376 
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:36Z] ci-operator version v20210428-04f6984        
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:36Z] Loading configuration from https://config.ci.openshift.org for openshift/release@master [ci-4.8] 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:37Z] Resolved SHA missing for master in https://github.com/openshift/release (will prevent caching) 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:37Z] Resolved release initial to registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-27-075557 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:37Z] Using explicitly provided pull-spec for release latest (registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-28-200224) 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:37Z] Using namespace https://console.build01.ci.openshift.org/k8s/cluster/projects/ci-op-ptfyqcy5 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:37Z] Running [input:origin-centos-8], [input:ocp-4.5-upi-installer], [release:latest], [images], e2e-gcp 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:38Z] Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:38Z] Tagging origin/centos:8 into pipeline:origin-centos-8. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:08:38Z] Importing release image latest.              
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:11:42Z] Imported release 4.8.0-0.ci-2021-04-28-200224 created at 2021-04-28 20:04:24 +0000 UTC with 140 images to tag release:latest 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:11:42Z] Acquiring leases for test e2e-gcp            
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:11:42Z] Running multi-stage test e2e-gcp             
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:11:42Z] Running step e2e-gcp-ipi-conf.               
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:11:52Z] Step e2e-gcp-ipi-conf succeeded after 10s.   
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:11:52Z] Running step e2e-gcp-ipi-conf-gcp.           
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:12:02Z] Step e2e-gcp-ipi-conf-gcp succeeded after 10s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:12:02Z] Running step e2e-gcp-ipi-install-monitoringpvc. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-28T20:12:12Z] Step e2e-gcp-ipi-install-monitoringpvc succeeded after 10s. 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE</strong>: pretty output with colored log level is a recent addition as of this writing (<a class="reference external" href="https://github.com/openshift/ci-tools/pull/1836">PR 1836</a>, merged 2021-04-05). This change altered the formatting of all build logs (from the change onwards, of course; previous builds’ logs have a different format). May this serve as an example of the type of diversity and unexpected output we need to handle.</p>
+</div>
+<div class="section" id="full-log-of-a-successful-job">
+<h3>Full log of a successful job<a class="headerlink" href="#full-log-of-a-successful-job" title="Permalink to this headline">¶</a></h3>
+<p>When we looked at the metadata, we saw that all the successful builds have a similar lenght. Let’s look at one of them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_pass</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">success</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Full log of a successful build: &quot;</span><span class="p">,</span> <span class="n">sample_pass</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Build URL:&quot;</span><span class="p">,</span> <span class="n">builds</span><span class="o">.</span><span class="n">prow_url_for</span><span class="p">(</span><span class="n">sample_pass</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Raw log URL:&quot;</span><span class="p">,</span> <span class="n">builds</span><span class="o">.</span><span class="n">build_log_url_for</span><span class="p">(</span><span class="n">sample_pass</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">Builds</span><span class="o">.</span><span class="n">log_path_for</span><span class="p">(</span><span class="n">sample_pass</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full log of a successful build:  1378441280396201984
+Build URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1378441280396201984
+Raw log URL: https://storage.googleapis.com/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1378441280396201984/build-log.txt 
+
+time=&quot;2021-04-03T20:16:31Z&quot; level=info msg=&quot;ci-operator version v20210402-7d9fcd2&quot;
+time=&quot;2021-04-03T20:16:31Z&quot; level=info msg=&quot;Loading configuration from https://config.ci.openshift.org for openshift/release@master [ci-4.8]&quot;
+time=&quot;2021-04-03T20:16:31Z&quot; level=info msg=&quot;Resolved source https://github.com/openshift/release to master@&quot;
+time=&quot;2021-04-03T20:16:31Z&quot; level=info msg=&quot;Resolved release initial to registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-02-173758&quot;
+time=&quot;2021-04-03T20:16:31Z&quot; level=info msg=&quot;Using explicitly provided pull-spec for release latest (registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-03-201542)&quot;
+time=&quot;2021-04-03T20:16:32Z&quot; level=info msg=&quot;Using namespace https://console.build02.ci.openshift.org/k8s/cluster/projects/ci-op-8ps2vgf0&quot;
+time=&quot;2021-04-03T20:16:32Z&quot; level=info msg=&quot;Running [input:origin-centos-8], [input:ocp-4.5-upi-installer], [release:latest], [images], e2e-gcp&quot;
+time=&quot;2021-04-03T20:16:33Z&quot; level=info msg=&quot;Tagging origin/centos:8 into pipeline:origin-centos-8.&quot;
+time=&quot;2021-04-03T20:16:33Z&quot; level=info msg=&quot;Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer.&quot;
+time=&quot;2021-04-03T20:16:33Z&quot; level=info msg=&quot;Importing release image latest.&quot;
+time=&quot;2021-04-03T20:18:03Z&quot; level=info msg=&quot;Imported release 4.8.0-0.ci-2021-04-03-201542 created at 2021-04-03 20:15:59 +0000 UTC with 137 images to tag release:latest&quot;
+time=&quot;2021-04-03T20:18:03Z&quot; level=info msg=&quot;Acquiring leases for test e2e-gcp&quot;
+time=&quot;2021-04-03T20:18:03Z&quot; level=info msg=&quot;Running multi-stage test e2e-gcp&quot;
+time=&quot;2021-04-03T20:18:03Z&quot; level=info msg=&quot;Running step e2e-***-ipi-conf.&quot;
+time=&quot;2021-04-03T20:18:13Z&quot; level=info msg=&quot;Step e2e-***-ipi-conf succeeded after 10.043593091s.&quot;
+time=&quot;2021-04-03T20:18:13Z&quot; level=info msg=&quot;Running step e2e-***-ipi-conf-***.&quot;
+time=&quot;2021-04-03T20:18:23Z&quot; level=info msg=&quot;Step e2e-***-ipi-conf-*** succeeded after 10.06050712s.&quot;
+time=&quot;2021-04-03T20:18:23Z&quot; level=info msg=&quot;Running step e2e-***-ipi-install-monitoringpvc.&quot;
+time=&quot;2021-04-03T20:18:33Z&quot; level=info msg=&quot;Step e2e-***-ipi-install-monitoringpvc succeeded after 10.092816083s.&quot;
+time=&quot;2021-04-03T20:18:33Z&quot; level=info msg=&quot;Running step e2e-***-ipi-install-rbac.&quot;
+time=&quot;2021-04-03T20:18:43Z&quot; level=info msg=&quot;Step e2e-***-ipi-install-rbac succeeded after 10.064313278s.&quot;
+time=&quot;2021-04-03T20:18:43Z&quot; level=info msg=&quot;Running step e2e-***-ipi-install-install.&quot;
+time=&quot;2021-04-03T20:50:53Z&quot; level=info msg=&quot;Step e2e-***-ipi-install-install succeeded after 32m10.048191864s.&quot;
+time=&quot;2021-04-03T20:50:53Z&quot; level=info msg=&quot;Running step e2e-***-openshift-e2e-test.&quot;
+time=&quot;2021-04-03T21:18:23Z&quot; level=info msg=&quot;Step e2e-***-openshift-e2e-test succeeded after 27m30.068558431s.&quot;
+time=&quot;2021-04-03T21:18:23Z&quot; level=info msg=&quot;Running step e2e-***-gather-core-dump.&quot;
+time=&quot;2021-04-03T21:18:43Z&quot; level=info msg=&quot;Step e2e-***-gather-core-dump succeeded after 20.08649363s.&quot;
+time=&quot;2021-04-03T21:18:43Z&quot; level=info msg=&quot;Running step e2e-***-gather-***-console.&quot;
+time=&quot;2021-04-03T21:19:34Z&quot; level=info msg=&quot;Step e2e-***-gather-***-console succeeded after 50.054776703s.&quot;
+time=&quot;2021-04-03T21:19:34Z&quot; level=info msg=&quot;Running step e2e-***-gather-must-gather.&quot;
+time=&quot;2021-04-03T21:23:04Z&quot; level=info msg=&quot;Step e2e-***-gather-must-gather succeeded after 3m30.054931144s.&quot;
+time=&quot;2021-04-03T21:23:04Z&quot; level=info msg=&quot;Running step e2e-***-gather-extra.&quot;
+time=&quot;2021-04-03T21:25:04Z&quot; level=info msg=&quot;Step e2e-***-gather-extra succeeded after 2m0.055763349s.&quot;
+time=&quot;2021-04-03T21:25:04Z&quot; level=info msg=&quot;Running step e2e-***-gather-audit-logs.&quot;
+time=&quot;2021-04-03T21:26:04Z&quot; level=info msg=&quot;Step e2e-***-gather-audit-logs succeeded after 1m0.054968828s.&quot;
+time=&quot;2021-04-03T21:26:04Z&quot; level=info msg=&quot;Running step e2e-***-ipi-deprovision-deprovision.&quot;
+time=&quot;2021-04-03T21:30:44Z&quot; level=info msg=&quot;Step e2e-***-ipi-deprovision-deprovision succeeded after 4m40.050907857s.&quot;
+time=&quot;2021-04-03T21:30:44Z&quot; level=info msg=&quot;Releasing leases for test e2e-***&quot;
+time=&quot;2021-04-03T21:30:44Z&quot; level=info msg=&quot;Ran for 1h14m12s&quot;
+time=&quot;2021-04-03T21:30:44Z&quot; level=info msg=&quot;Reporting job state &#39;succeeded&#39;&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Successful jobs tend to have quite similar contents, essentially enumerating the steps that are being followed and reporting their success.</p>
+<p>While they are all similar, note the differences in output format, and also format differences within the log file itself.</p>
+</div>
+<div class="section" id="failed-job-output">
+<h3>Failed job output<a class="headerlink" href="#failed-job-output" title="Permalink to this headline">¶</a></h3>
+<p>When there are failures, the log output of the step that failed is added to the build log. This is why we see the significant differences in log lenghts, and why logs from failed jobs tend to be longer. Or, if the problem occurs during the preparatory steps, we get shorter logs as we saw in the metadata overview.</p>
+<p>Let’s look at some failed builds’ logs. Because these can be huge, we only look at a few lines around the middle of the log file, which is enough to notice that they contain different types of logs than a successful build; they also differ between each other.</p>
+<p><strong>NOTE</strong>: a representative sample was handpicked from builds I had downloaded. To reproduce this, just uncomment the line below that sets <code class="docutils literal notranslate"><span class="pre">failed_buids</span></code> to be a random sample of the data you currently have; re-running the cell a few times should show the diversity of these logs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of hand-picked represenative build IDs from failed job runs:</span>
+<span class="n">failed_builds</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># Some custom build IDs representing log diversity</span>
+    <span class="mi">1372555706749685760</span><span class="p">,</span>  <span class="c1"># infra error, short log, long duration, old format</span>
+    <span class="mi">1380185997530107904</span><span class="p">,</span>  <span class="c1"># same type of error, new formatting</span>
+    <span class="mi">1375113030177656832</span><span class="p">,</span>  <span class="c1"># mixed output structure</span>
+    <span class="mi">1383399218122592256</span><span class="p">,</span>  <span class="c1"># new formatting, duplicate and inconsistent timestamps</span>
+    <span class="mi">1375882831099596800</span><span class="p">,</span>  <span class="c1"># output from a must-gather</span>
+<span class="p">]</span>
+
+<span class="c1"># No hand pick version: Get a sample of current failed builds</span>
+<span class="c1"># IMPORTANT NOTE: ------------------------------------------------------------------</span>
+<span class="c1"># IMPORTANT NOTE: uncomment next line to get a sample from currently available data:</span>
+<span class="c1"># IMPORTANT NOTE: ------------------------------------------------------------------</span>
+<span class="c1"># failed_builds = df[~df.success].sample(3).index</span>
+
+<span class="k">for</span> <span class="n">build_id</span> <span class="ow">in</span> <span class="n">failed_builds</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt; BUILD </span><span class="si">{build_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt;&gt; BUILD URL:&quot;</span><span class="p">,</span> <span class="n">builds</span><span class="o">.</span><span class="n">prow_url_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&gt;&gt; RAW LOG URL:&quot;</span><span class="p">,</span> <span class="n">builds</span><span class="o">.</span><span class="n">build_log_url_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Builds</span><span class="o">.</span><span class="n">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># We will look around the middle of the file</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">build_id</span><span class="p">][</span><span class="s2">&quot;size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="mi">2500</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt; BUILD 1372555706749685760
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1372555706749685760
+&gt;&gt; RAW LOG URL: https://storage.googleapis.com/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1372555706749685760/build-log.txt 
+
+2021/03/18 14:29:22 Setting up pipeline imagestream for the test
+2021/03/18 14:29:22 Updated secret ci-pull-credentials
+2021/03/18 14:29:22 Created secret e2e-gcp-cluster-profile
+2021/03/18 14:29:22 Created PDB for pods with openshift.io/build.name label
+2021/03/18 14:29:22 Created PDB for pods with created-by-ci label
+2021/03/18 14:29:22 Tagging origin/centos:8 into pipeline:origin-centos-8
+2021/03/18 14:29:22 Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer
+2021/03/18 14:29:22 Importing release image latest
+2021/03/18 14:29:23 Executing pod &quot;release-images-latest-cli&quot; running image &quot;release:latest&quot;
+2021/03/18 14:29:33 Executing pod &quot;release-images-latest&quot; running image &quot;stable:cli&quot;
+2021/03/18 14:30:50 Imported release 4.8.0-0.ci-2021-03-18-142508 created at 2021-03-18 14:25:55 +0000 UTC with 132 images to tag release:latest
+2021/03/18 14:30:50 Acquiring leases for &quot;e2e-gcp&quot;
+2021/03/18 14:30:50 Acquiring 1 lease(s) for &quot;gcp-quota-slice&quot;
+2021/03/18 16:30:50 error: Failed to acquire resource, current capacity: 0 free, 70 leased
+2021/03/18 16:30:50 No custom metadata found and prow metadata already exists. Not updating the metadata.
+2021/03/18 16:30:50 Ran for 2h1m28s
+error: some steps failed:
+  * could not run steps: step e2e-gcp failed: failed to acquire lease: resources not found
+time=&quot;2021-03-18T16:30:50Z&quot; level=info msg=&quot;Reporting job state &#39;failed&#39; with reason &#39;executing_graph:step_failed:utilizing_lease&#39;&quot;
+
+&gt;&gt; BUILD 1380185997530107904
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1380185997530107904
+&gt;&gt; RAW LOG URL: https://storage.googleapis.com/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1380185997530107904/build-log.txt 
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-08T15:49:27Z] Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-08T15:49:27Z] Importing release image latest.              
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-08T15:52:09Z] Imported release 4.8.0-0.ci-2021-04-08-154429 created at 2021-04-08 15:48:46 +0000 UTC with 138 images to tag release:latest 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-08T15:52:09Z] Acquiring leases for test e2e-gcp            
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-08T17:52:09Z] error: Failed to acquire resource, current capacity: 0 free, 70 leased 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-08T17:52:09Z] Ran for 2h2m43s                              
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-08T17:52:09Z] Some steps failed:                           
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-08T17:52:09Z]   * could not run steps: step e2e-gcp failed: failed to acquire lease: resources not found 
+
+&gt;&gt; BUILD 1375113030177656832
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1375113030177656832
+&gt;&gt; RAW LOG URL: https://storage.googleapis.com/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1375113030177656832/build-log.txt 
+
+level=error msg=https://docs.openshift.com/container-platform/latest/support/troubleshooting/troubleshooting-installations.html
+level=error msg=The &#39;wait-for install-complete&#39; subcommand can then be used to continue the installation
+level=fatal msg=failed to initialize the cluster: Working towards 4.8.0-0.ci-2021-03-25-155021: 687 of 689 done (99% complete), waiting on cloud-controller-manager
+Setup phase finished, prepare env for next steps
+Copying log bundle...
+Removing REDACTED info from log...
+Copying required artifacts to shared dir
+{&quot;component&quot;:&quot;entrypoint&quot;,&quot;error&quot;:&quot;wrapped process failed: exit status 1&quot;,&quot;file&quot;:&quot;prow/entrypoint/run.go:80&quot;,&quot;func&quot;:&quot;k8s.io/test-infra/prow/entrypoint.Options.Run&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;Error executing test process&quot;,&quot;severity&quot;:&quot;error&quot;,&quot;time&quot;:&quot;2021-03-25T18:31:04Z&quot;}
+error: failed to execute wrapped command: exit status 1
+2021/03/25 18:31:09 Container test in pod e2e-gcp-ipi-install-install failed, exit code 1, reason Error
+2021/03/25 18:31:09 Executing pod &quot;e2e-gcp-gather-core-dump&quot; running image &quot;stable:cli&quot;
+2021/03/25 18:31:20 Container place-entrypoint in pod e2e-gcp-gather-core-dump completed successfully
+2021/03/25 18:31:20 Container cp-entrypoint-wrapper in pod e2e-gcp-gather-core-dump completed successfully
+2021/03/25 18:31:50 Container sidecar in pod e2e-gcp-gather-core-dump completed successfully
+2021/03/25 18:31:50 Container test in pod e2e-gcp-gather-core-dump completed successfully
+2021/03/25 18:31:50 Pod e2e-gcp-gather-core-dump succeeded after 31s
+2021/03/25 18:31:50 Executing pod &quot;e2e-gcp-gather-gcp-console&quot; running image &quot;pipeline:ocp-4.5-upi-installer&quot;
+2021/03/25 18:32:00 Container place-entrypoint in pod e2e-gcp-gather-gcp-console completed successfully
+2021/03/25 18:32:00 Container cp-entrypoint-wrapper in pod e2e-gcp-gather-gcp-console completed successfully
+2021/03/25 18:32:40 Container test in pod e2e-gcp-gather-gcp-console completed successfully
+2021/03/25 18:32:50 Container sidecar in pod e2e-gcp-gather-gcp-console completed successfully
+2021/03/25 18:32:50 Pod e2e-gcp-gather-gcp-console succeeded after 49s
+2021/03/25 18:32:50 Executing pod &quot;e2e-gcp-gather-must-gather&quot; running image &quot;stable:cli&quot;
+2021/03/25 18:33:00 Container place-entrypoint in pod e2e-gcp-gather-must-gather completed successfully
+2021/03/25 18:33:00 Container cp-entrypoint-wrapper in pod e2e-gcp-gather-must-gather completed successfully
+2021/03/25 18:36:00 Container test in pod e2e-gcp-gather-must-gather completed successfully
+
+&gt;&gt; BUILD 1383399218122592256
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1383399218122592256
+&gt;&gt; RAW LOG URL: https://storage.googleapis.com/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1383399218122592256/build-log.txt 
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.383 I ns/e2e-nettest-6790 pod/netserver-1 node/ reason/Created 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.410 I ns/e2e-nettest-6790 pod/netserver-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq reason/Scheduled 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.442 E ns/e2e-statefulset-4735 pod/test-pod node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq container/webserver container exited with code 1 (Error):  
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.456 I ns/e2e-nettest-6790 pod/netserver-2 node/ reason/Created 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.473 I ns/e2e-nettest-6790 pod/netserver-1 node/ci-op-tf25ybz0-f23e1-vhknz-worker-c-85q2g reason/Scheduled 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.517 E ns/e2e-statefulset-4735 pod/ss-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq reason/Failed (NodePorts): Pod Predicate NodePorts failed 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.610 I ns/e2e-nettest-6790 pod/netserver-2 node/ci-op-tf25ybz0-f23e1-vhknz-worker-d-ksn4v reason/Scheduled 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.632 W ns/e2e-statefulset-4735 pod/ss-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq reason/GracefulDelete in 0s 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.672 W ns/e2e-statefulset-4735 pod/ss-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq reason/Deleted 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.723 I ns/e2e-statefulset-4735 pod/ss-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq reason/Created 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.737 I ns/e2e-volumemode-5842-6017 pod/csi-hostpath-snapshotter-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq container/csi-snapshotter reason/Ready 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:49.982 E ns/e2e-statefulset-4735 pod/ss-0 node/ci-op-tf25ybz0-f23e1-vhknz-worker-b-sflfq reason/Failed (NodePorts): Pod Predicate NodePorts failed 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:50.000 I ns/e2e-network-policy-8642 pod/client-b-hd6c9 node/ci-op-tf25ybz0-f23e1-vhknz-worker-d-ksn4v container/client reason/Created 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:50.000 I ns/e2e-network-policy-8642 pod/client-b-hd6c9 node/ci-op-tf25ybz0-f23e1-vhknz-worker-d-ksn4v container/client reason/Started 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-17T13:43:59Z] Apr 17 13:19:50.000 I ns/e2e-init-container-8983 pod/pod-init-a9d79f8a-1345-470d-809a-7187e250b285 node/ci-op-tf25ybz0-f23e1-vhknz-worker-c-85q2g container/init1 reason/Created 
+
+&gt;&gt; BUILD 1375882831099596800
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1375882831099596800
+&gt;&gt; RAW LOG URL: https://storage.googleapis.com/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1375882831099596800/build-log.txt 
+
+When opening a support case, bugzilla, or issue please include the following summary data along with any other requested information.
+error getting cluster version: Get &quot;https://api.ci-op-5zgvkrl1-f23e1.origin-ci-int-gce.dev.openshift.com:6443/apis/config.openshift.io/v1/clusterversions/version&quot;: dial tcp 35.231.173.152:6443: i/o timeout
+ClusterID: 
+ClusterVersion: Installing &quot;&quot; for &lt;unknown&gt;: &lt;unknown&gt;
+error getting cluster operators: Get &quot;https://api.ci-op-5zgvkrl1-f23e1.origin-ci-int-gce.dev.openshift.com:6443/apis/config.openshift.io/v1/clusteroperators&quot;: dial tcp 35.231.173.152:6443: i/o timeout
+ClusterOperators:
+	clusteroperators are missing
+
+
+
+
+When opening a support case, bugzilla, or issue please include the following summary data along with any other requested information.
+error getting cluster version: Get &quot;https://api.ci-op-5zgvkrl1-f23e1.origin-ci-int-gce.dev.openshift.com:6443/apis/config.openshift.io/v1/clusterversions/version&quot;: dial tcp 35.231.173.152:6443: i/o timeout
+ClusterID: 
+ClusterVersion: Installing &quot;&quot; for &lt;unknown&gt;: &lt;unknown&gt;
+error getting cluster operators: Get &quot;https://api.ci-op-5zgvkrl1-f23e1.origin-ci-int-gce.dev.openshift.com:6443/apis/config.openshift.io/v1/clusteroperators&quot;: dial tcp 35.231.173.152:6443: i/o timeout
+ClusterOperators:
+	clusteroperators are missing
+
+
+Gathering data for ns/openshift-cloud-credential-operator...
+Gathering data for ns/openshift-config...
+Gathering data for ns/openshift-config-managed...
+Gathering data for ns/openshift-etcd-operator...
+Gathering data for ns/openshift-etcd...
+Gathering data for ns/openshift-kube-apiserver-operator...
+Gathering data for ns/openshift-kube-apiserver...
+Gathering data for ns/openshift-kube-controller-manager...
+Gathering data for ns/openshift-kube-controller-manager-operator...
+Gathering data for ns/openshift-kube-scheduler-operator...
+Gathering data for ns/openshift-kube-scheduler...
+Gathering data for ns/openshift-kube-storage-version-migrator-operator...
+Gathering data for ns/openshift-machine-config-operator...
+Wrote inspect data to /logs/artifacts/audit-logs.
+error running backup collection: errors ocurred while gathering data:
+    [skipping gathering securitycontextconstraints.security.openshift.io due to error: the server doesn&#39;t have a resource type &quot;securitycontextconstraints&quot;, skipping gathering podnetworkconnectivitychecks.controlplane.operator.openshift.io due to error: the server doesn&#39;t have a resource type &quot;podnetworkconnectivitychecks&quot;, skipping gathering namespaces/openshift-kube-storage-version-migrator due to error: namespaces &quot;openshift-kube-storage-version-migrator&quot; not found, skipping gathering controllerconfigs.machineconfiguration.openshift.io due to error: the server doesn&#39;t have a resource type &quot;controllerconfigs&quot;]Unable to connect to the server: dial tcp 35.231.173.152:6443: i/o timeout
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the build logs can contain quite diverse content, including multi-line command output, entries with partial structure (timestamps, log levels, componets) or completely unsturctured, all of that mixed together in the same log file.</p>
+<p>Traditional approaches to automated log parsing would probably not work too well with this type of log data.</p>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h1>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Failed jobs can contain very diverse types of logs. Different failure causes often lead to different type of content in the logs.</p></li>
+<li><p>Successful jobs have significantly more constistent log output.</p></li>
+<li><p>Even for successful jobs, we can’t assume a consistent structure.</p></li>
+<li><p>It should be relatively easy to classify builds from their duration and <code class="docutils literal notranslate"><span class="pre">build-log</span></code> lenght, but can we do the same based on the content of the logs?</p></li>
+</ul>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Look at specific steps instead of the overall job build log. The expectation would be that by looking at the same step we would get more consistency across job runs, both successful and failed.</p></li>
+<li><p>More detailed exploration of the log contents by applying different techniques to log files themselves.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/gcsweb-ci/build-logs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../../../time-to-merge-prediction/model_inference.html" title="previous page">Time to Merge Prediction Inference Service</a>
+    <a class='right-next' id="next-link" href="build_log_term_freq.html" title="next page">Term frequency analysis of build logs</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,1458 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Correlated test failure sets per test and average size of correlation sets &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Tests Blocked and Timed Out Tests" href="blocked_timed_out.html" />
+    <link rel="prev" title="Quantify Build Pass/Failure" href="build_pass_failure.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   KPI Metrics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/notebooks/data-sources/TestGrid/metrics/correlated_failures.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/TestGrid/metrics/correlated_failures.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/TestGrid/metrics/correlated_failures.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https://github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/TestGrid/metrics/correlated_failures.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Correlated test failure sets per test and average size of correlation sets
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculation">
+   Calculation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examine-example-output">
+   Examine example output
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save-to-ceph-or-local">
+     Save to Ceph or local
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lets-also-capture-the-average-size-of-correlated-failure-groups-to-track-over-time">
+       Lets also capture the average size of correlated failure groups to track over time
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="correlated-test-failure-sets-per-test-and-average-size-of-correlation-sets">
+<h1>Correlated test failure sets per test and average size of correlation sets<a class="headerlink" href="#correlated-test-failure-sets-per-test-and-average-size-of-correlation-sets" title="Permalink to this headline">¶</a></h1>
+<p>This notebook outputs 2 artifacts:</p>
+<ol class="simple">
+<li><p>A parquet file that provides, for a given test, all of the other tests that are highly correlated (correlation coefficient of 0.9 or above). This file omits any tests that do not have any highly correlated tests. So, if a test is not present on the list, then it has no highly correlated tests associated with it at this time and has been removed from the record. The calculation for correlation is performed on all available data exposed by the Red Hat test grid instance at the time the notebook is run.</p></li>
+<li><p>A summary metric that can be easily tracked over time that represents the average size of correlated test sets in the above parquet.</p></li>
+</ol>
+<p><strong>Note</strong>: This notebook follows a very similar approach to an earlier <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/data-sources/Sippy/sippy_failure_correlation.ipynb">EDA notebook</a> where we correlated failures with a different dataset. For simplicity, much of the reasoning behind the decisions made in this notebook have been omited here, but can be found in the above linked notebook for interested readers :)</p>
+<p><a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/139">related  issue #139</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="k">import</span> <span class="n">decode_run_length</span>
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="k">import</span> <span class="n">CephCommunication</span>
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="k">import</span> <span class="n">save_to_disk</span><span class="p">,</span> <span class="n">read_from_disk</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="k">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Specify variables</span>
+
+<span class="n">METRIC_NAME</span> <span class="o">=</span> <span class="s2">&quot;correlation&quot;</span>
+
+<span class="c1"># Specify the path for input grid data,</span>
+<span class="n">INPUT_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/testgrid_183.json.gz&quot;</span>
+
+<span class="c1"># Specify the path for output metric data</span>
+<span class="n">OUTPUT_DATA_PATH</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;../../../../data/processed/metrics/</span><span class="si">{METRIC_NAME}</span><span class="s2">&quot;</span>
+
+<span class="c1">## CEPH Bucket variables</span>
+<span class="c1">## Create a .env file on your local with the correct configs,</span>
+<span class="n">s3_endpoint_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ENDPOINT&quot;</span><span class="p">)</span>
+<span class="n">s3_access_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_ACCESS_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_SECRET_KEY&quot;</span><span class="p">)</span>
+<span class="n">s3_bucket</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_BUCKET&quot;</span><span class="p">)</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;S3_PROJECT_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;ai4ci/testgrid/metrics&quot;</span><span class="p">)</span>
+<span class="n">s3_input_data_path</span> <span class="o">=</span> <span class="s2">&quot;raw_data&quot;</span>
+<span class="n">AUTOMATION</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;IN_AUTOMATION&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Import data</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;testgrid_</span><span class="si">{timestamp.day}{timestamp.month}</span><span class="s2">.json&quot;</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+    <span class="n">s3_object</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">s3_resource</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="n">s3_bucket</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{s3_input_data_path}</span><span class="s2">/</span><span class="si">{filename}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">file_content</span> <span class="o">=</span> <span class="n">s3_object</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="s2">&quot;Body&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">INPUT_DATA_PATH</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">testgrid_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculation">
+<h1>Calculation<a class="headerlink" href="#calculation" title="Permalink to this headline">¶</a></h1>
+<p>Here we iterate through each grid in our dataset and collect the the names of all the tests that fail during the same build. We will store this in the <code class="docutils literal notranslate"><span class="pre">failure_groups</span></code> list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failure_groups</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">tab</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">testgrid_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+    <span class="k">for</span> <span class="n">grid</span> <span class="ow">in</span> <span class="n">testgrid_data</span><span class="p">[</span><span class="n">tab</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">current_grid</span> <span class="o">=</span> <span class="n">testgrid_data</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="n">grid</span><span class="p">]</span>
+
+        <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;grid&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;grid&quot;</span><span class="p">]))</span>
+        <span class="p">]</span>
+        <span class="c1"># unroll the run-length encoding and set bool for flake or not (x==13)</span>
+        <span class="n">decoded</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">(</span><span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;grid&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;statuses&quot;</span><span class="p">]))</span> <span class="o">==</span> <span class="mi">12</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">current_grid</span><span class="p">[</span><span class="s2">&quot;grid&quot;</span><span class="p">]))</span>
+        <span class="p">]</span>
+
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">tests</span><span class="p">,</span> <span class="n">decoded</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">])</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">matrix</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">matrix</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="n">items</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">failure_groups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="n">items</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">failure_groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">failure_groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">failure_groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20132
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we want to define a vocabulary for all of the unique tests in our dataset so that we can encode our failure sets using a binary encoding scheme.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">fg</span> <span class="ow">in</span> <span class="n">failure_groups</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+    <span class="n">vocab</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">fg</span><span class="p">)</span>
+
+<span class="n">vocab</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>194477
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8935
+</pre></div>
+</div>
+</div>
+</div>
+<p>Confirm that there are no duplicates in the vocab to ensure we have a unique set</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll use the below function to create our binary encoded vectors for our correlation analysis</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">encode_tests</span><span class="p">(</span><span class="n">job</span><span class="p">):</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vocab</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">job</span><span class="p">:</span>
+            <span class="n">encoded</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">encoded</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">encoded</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoded</span> <span class="o">=</span> <span class="n">failure_groups</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">encode_tests</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoded</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+1    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+2    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+3    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+4    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoded</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">vocab</span><span class="p">)</span>
+<span class="n">df_encoded</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client [Top Level] [sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client should enforce policy based on NamespaceSelector with MatchExpressions[Feature:NetworkPolicy] [Skipped:Network/OpenShiftSDN/Multitenant] [Suite:openshift/conformance/parallel] [Suite:k8s] [5]</th>
+      <th>openshift-tests.[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: dir] [Testpattern: Dynamic PV (ntfs)][sig-windows] subPath should be able to unmount after the subpath directory is deleted [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+      <th>openshift-tests.[sig-cli] Kubectl client Simple pod [Top Level] [sig-cli] Kubectl client Simple pod should support exec [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+      <th>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/parallel] [12]</th>
+      <th>openshift-tests.[sig-network] DNS should provide DNS for services  [Conformance] [Suite:openshift/conformance/parallel/minimal] [Suite:k8s] [5]</th>
+      <th>operator.Run multi-stage test e2e-gcp-ovn-upgrade - e2e-gcp-ovn-upgrade-ipi-deprovision-deprovision container test</th>
+      <th>openshift-tests.[Conformance][Area:Networking][Feature:Router] The HAProxy router should respond with 503 to unrecognized hosts [Suite:openshift/conformance/parallel/minimal]</th>
+      <th>openshift-tests.[sig-auth][Feature:OpenShiftAuthorization] The default cluster RBAC policy should have correct RBAC rules [Suite:openshift/conformance/parallel] [1]</th>
+      <th>openshift-tests.[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: tmpfs] [Testpattern: Dynamic PV (ext3)] volumes [Top Level] [sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: tmpfs] [Testpattern: Dynamic PV (ext3)] volumes should allow exec of files on the volume [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+      <th>openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client [Top Level] [sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client should enforce multiple ingress policies with ingress allow-all policy taking precedence [Feature:NetworkPolicy] [Skipped:Network/OpenShiftSDN/Multitenant] [Suite:openshift/conformance/parallel] [Suite:k8s] [14]</th>
+      <th>...</th>
+      <th>openshift-tests.[sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: blockfs] [Testpattern: Dynamic PV (default fs)] provisioning [Top Level] [sig-storage] In-tree Volumes [Driver: local][LocalVolumeType: blockfs] [Testpattern: Dynamic PV (default fs)] provisioning should provision storage with mount options [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+      <th>operator.Run multi-stage test e2e-gcp-ovn-upgrade - e2e-gcp-ovn-upgrade-gather-network container test</th>
+      <th>openshift-tests.[sig-storage] In-tree Volumes [Driver: hostPath] [Testpattern: Inline-volume (ext3)] volumes [Top Level] [sig-storage] In-tree Volumes [Driver: hostPath] [Testpattern: Inline-volume (ext3)] volumes should store data [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+      <th>openshift-tests.[sig-network] Services should create endpoints for unready pods [Suite:openshift/conformance/parallel] [Suite:k8s] [13]</th>
+      <th>openshift-tests.[sig-devex][Feature:ImageEcosystem][Slow] openshift images should be SCL enabled  using the SCL in s2i images "registry.redhat.io/rhscl/python-36-rhel7" should be SCL enabled</th>
+      <th>openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client should allow ingress access from updated namespace [Feature:NetworkPolicy] [Skipped:Network/OpenShiftSDN/Multitenant] [Suite:openshift/conformance/parallel] [Suite:k8s] [7]</th>
+      <th>openshift-tests.[sig-apps] CronJob should replace jobs when ReplaceConcurrent [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+      <th>openshift-tests.[k8s.io] Variable Expansion should allow substituting values in a container's command [NodeConformance] [Conformance] [Suite:openshift/conformance/parallel/minimal] [Suite:k8s]</th>
+      <th>openshift-tests.[Feature:ProjectAPI]  TestProjectWatchWithSelectionPredicate [Top Level] [Feature:ProjectAPI]  TestProjectWatchWithSelectionPredicate should succeed [Suite:openshift/conformance/parallel]</th>
+      <th>openshift-tests.[sig-storage] CSI Volumes [Driver: csi-hostpath] [Testpattern: Dynamic PV (ntfs)][sig-windows] subPath should be able to unmount after the subpath directory is deleted [LinuxOnly] [Suite:openshift/conformance/parallel] [Suite:k8s]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 8935 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># percent that each test is present in the data; percent failure</span>
+<span class="n">perc_present</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_encoded</span><span class="p">)</span>
+<span class="n">perc_present</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall                                                                                   0.777369
+openshift-tests.Monitor cluster while tests execute                                       0.163272
+openshift-tests.[sig-network] pods should successfully create sandboxes by getting pod    0.159944
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total failure count present in the data; failure per test</span>
+<span class="n">occurrence_count</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">occurrence_count</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall                                                                                   15650
+openshift-tests.Monitor cluster while tests execute                                        3287
+openshift-tests.[sig-network] pods should successfully create sandboxes by getting pod     3220
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also want to make sure that our correlation values are not just due to unique failed test sets present in our dataset. We want to make sure our tests impact multiple jobs. For example, if we had a unique failed test set that only occurred in a single example, and shared no other failed tests among the vocabulary, then all of the tests would appear to be 100% correlated with each other, when in fact that is merely a consequence of insufficient data. In order to prevent that, we will ignore any tests that occur only in a single job. In order to do that we will use occurrence_count to create a filter vector for any test that occurs only once. Then filter them out of our working DF.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filter_unique</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">occurrence_count</span><span class="p">[</span><span class="n">occurrence_count</span><span class="o">.</span><span class="n">values</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_encoded</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">filter_unique</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_encoded</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20132, 7330)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this takes time with full dataset - ~ 2 hours may need to use different approach</span>
+<span class="c1"># todo try with dask</span>
+<span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For each feature, find the other features that are correlated by more than 0.9</span>
+<span class="n">top_correlation</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">top_correlation</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">series</span> <span class="o">=</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mf">0.90</span> <span class="ow">and</span> <span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">c</span><span class="p">:</span>
+            <span class="n">top_correlation</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">s</span><span class="p">))</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">top_correlation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7330
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="examine-example-output">
+<h1>Examine example output<a class="headerlink" href="#examine-example-output" title="Permalink to this headline">¶</a></h1>
+<p>Let’s go ahead and take a look at which tests are highly correlated with the first test in our results list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># top_correlation has a number of empty rows as not all tests have high correlations with others,</span>
+<span class="c1"># lets grab only the sets that have at least 1 highly correlated test</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">corr_sets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_correlation</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">corr_sets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{len(corr_sets)} sets of correlated tests </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Feature of interest: </span><span class="si">{corr_sets[1][0]}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corr_sets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;correlation coefficient&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3239 sets of correlated tests 
+
+Feature of interest: openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/parallel] [12]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_name</th>
+      <th>correlation coefficient</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>0.975876</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">test_name</span> <span class="o">=</span> <span class="s2">&quot;openshift-tests.[k8s.io] Security Context When creating a container with runAsUser should run the container with uid 65534 [LinuxOnly] [NodeConformance] [Conformance] [Suite:openshift/conformance/parallel/minimal] [Suite:k8s]&quot;</span>  <span class="c1"># noqa</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">occurrence_count</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_name</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{num}</span><span class="s2"> : the number of times this test failed in our data set&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 : the number of times this test failed in our data set
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">focus</span> <span class="o">=</span> <span class="n">corr_sets</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">focus</span><span class="p">:</span>
+    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">occurrence_count</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;num_occurrences&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_name</th>
+      <th>num_occurrences</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="save-to-ceph-or-local">
+<h2>Save to Ceph or local<a class="headerlink" href="#save-to-ceph-or-local" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">save</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">corr_sets</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;correlated_tests&quot;</span><span class="p">])</span>
+<span class="n">save</span><span class="p">[</span><span class="s2">&quot;correlated_tests&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s2">&quot;correlated_tests&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">CephCommunication</span><span class="p">(</span><span class="n">s3_endpoint_url</span><span class="p">,</span> <span class="n">s3_access_key</span><span class="p">,</span> <span class="n">s3_secret_key</span><span class="p">,</span> <span class="n">s3_bucket</span><span class="p">)</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">upload_to_ceph</span><span class="p">(</span>
+        <span class="n">save</span><span class="p">,</span>
+        <span class="n">s3_path</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;</span><span class="si">{METRIC_NAME}</span><span class="s2">/</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">save_to_disk</span><span class="p">(</span>
+        <span class="n">save</span><span class="p">,</span>
+        <span class="n">OUTPUT_DATA_PATH</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sanity check to see if the dataset is the same</span>
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">sanity_check</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">read_from_ceph</span><span class="p">(</span>
+        <span class="n">s3_path</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;</span><span class="si">{METRIC_NAME}</span><span class="s2">/</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sanity_check</span> <span class="o">=</span> <span class="n">read_from_disk</span><span class="p">(</span>
+        <span class="n">OUTPUT_DATA_PATH</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">sanity_check</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_name</th>
+      <th>correlated_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client [Top Level] [sig-network] NetworkPolicy [LinuxOnly...</td>
+      <td>[('openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client [Top Level] [sig-network] NetworkPolicy [LinuxO...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformance/p...</td>
+      <td>[('openshift-tests.[sig-network][Feature:Router] The HAProxy router should override the route host with a custom value [Suite:openshift/conformanc...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>openshift-tests.[sig-auth][Feature:OpenShiftAuthorization] The default cluster RBAC policy should have correct RBAC rules [Suite:openshift/conform...</td>
+      <td>[('openshift-tests.[sig-api-machinery][Feature:ClusterResourceQuota] Cluster resource quota should control resource limits across namespaces [Suit...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client [Top Level] [sig-network] NetworkPolicy [LinuxOnly...</td>
+      <td>[('openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client [Top Level] [sig-network] NetworkPolicy [LinuxO...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client should allow ingress access from updated namespace...</td>
+      <td>[('openshift-tests.[sig-network] NetworkPolicy [LinuxOnly] NetworkPolicy between server and client should allow ingress access from updated namesp...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="lets-also-capture-the-average-size-of-correlated-failure-groups-to-track-over-time">
+<h3>Lets also capture the average size of correlated failure groups to track over time<a class="headerlink" href="#lets-also-capture-the-average-size-of-correlated-failure-groups-to-track-over-time" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_corr</span> <span class="o">=</span> <span class="n">save</span><span class="p">[</span><span class="s2">&quot;correlated_tests&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">metric_to_save</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[[</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">average_corr</span><span class="p">]],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;average_number_of_correlated_failures&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">cc</span><span class="o">.</span><span class="n">upload_to_ceph</span><span class="p">(</span>
+        <span class="n">metric_to_save</span><span class="p">,</span>
+        <span class="n">s3_path</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;avg_</span><span class="si">{METRIC_NAME}</span><span class="s2">/avg_</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">save_to_disk</span><span class="p">(</span>
+        <span class="n">metric_to_save</span><span class="p">,</span>
+        <span class="n">OUTPUT_DATA_PATH</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;avg_</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Sanity check to see if the dataset is the same</span>
+
+<span class="k">if</span> <span class="n">AUTOMATION</span><span class="p">:</span>
+    <span class="n">sanity_check</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">read_from_ceph</span><span class="p">(</span>
+        <span class="n">s3_path</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;avg_</span><span class="si">{METRIC_NAME}</span><span class="s2">/avg_</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">sanity_check</span> <span class="o">=</span> <span class="n">read_from_disk</span><span class="p">(</span>
+        <span class="n">OUTPUT_DATA_PATH</span><span class="p">,</span>
+        <span class="n">f</span><span class="s2">&quot;avg_</span><span class="si">{METRIC_NAME}</span><span class="s2">-</span><span class="si">{timestamp.year}</span><span class="s2">-</span><span class="si">{timestamp.month}</span><span class="s2">-</span><span class="si">{timestamp.day}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">sanity_check</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>average_number_of_correlated_failures</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021-04-27 21:58:21.538747</td>
+      <td>9224.075023</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>This notebook collected all sets of highly correlated tests, i.e, sets of tests that most commonly fail together and stored that data in ceph as well as locally. A user can now pull this data and, given a test name of interest, be provided a list of all other highly correlated tests.</p>
+<p>This notebook also computed a numerical value to summarize and quantify these correlations in aggregate: the average size of failure correlation sets. This value is also stored both locally and in ceph.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/TestGrid/metrics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="build_pass_failure.html" title="previous page">Quantify Build Pass/Failure</a>
+    <a class='right-next' id="next-link" href="blocked_timed_out.html" title="next page">Tests Blocked and Timed Out Tests</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,2723 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TestGrid In-Depth EDA &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TestGrid: exploring in-depth metadata" href="testgrid_metadata_EDA.html" />
+    <link rel="prev" title="TestGrid: initial EDA and data collection" href="testgrid_EDA.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/notebooks/data-sources/TestGrid/testgrid_indepth_EDA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/TestGrid/testgrid_indepth_EDA.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/TestGrid/testgrid_indepth_EDA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https://github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/TestGrid/testgrid_indepth_EDA.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-comparable-are-the-testgrids">
+   1. How comparable are the TestGrids?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-are-there-duplicate-grids">
+     1.a) Are there duplicate grids?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-are-there-sub-groups">
+     1.b) Are there  sub-groups?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-which-tests-do-the-groups-all-share">
+     1.c) Which tests do the groups all share?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-comparable-are-individual-tests">
+   2. How comparable are individual tests?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-what-are-the-most-common-tests">
+     2.a) What are the  most common tests?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-single-test-behavior-analysis">
+     2.b) Single Test Behavior Analysis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visualizing-our-tests">
+       Visualizing our tests
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-multiple-test-behavior">
+     2.c) Multiple Test Behavior
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-comparing-tests-in-aggregate">
+     2.d)  Comparing tests in aggregate
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-the-entire-test-platform-or-a-specific-test-perform-on-a-given-day">
+   3. How does the entire test platform (or a specific test) perform on a given day?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-platform-performance-for-a-given-day">
+     3.a) Platform performance for a given day
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-platform-performance-over-time">
+     3.b) Platform performance over time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-aggregate-single-test-performance-over-time">
+     3.c) Aggregate single test performance over time
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grid-matrices-as-2d-signals">
+   4. Grid matrices as 2d signals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-identify-infrastructure-flakes">
+     4.a) Identify Infrastructure Flakes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="testgrid-in-depth-eda">
+<h1>TestGrid In-Depth EDA<a class="headerlink" href="#testgrid-in-depth-eda" title="Permalink to this headline">¶</a></h1>
+<p><em>Note: This notebook can be run and experimented with directly using the “ocp-ci-analysis” image at our <a class="reference external" href="https://jupyterhub-opf-jupyterhub.apps.cnv.massopen.cloud/hub/login">jupyterhub instance</a> hosted on the MOC.</em></p>
+<p>In our previous notebook, <a class="reference internal" href="testgrid_EDA.html"><span class="doc std std-doc">TestGrid_EDA</span></a>, we did some straightforward data access and preprocessing work in order to take a look at what data TestGrid exposes, how to access it and convert the test grids themselves into 2d arrays. While performing that initial data exploration we came up with a few more questions around how to look at this data in aggregate that we want to address here.</p>
+<p>In this notebook we will try and answer the following questions about the TestGrid data:</p>
+<ul class="simple">
+<li><p>How comparable are the TestGrids?</p></li>
+<li><p>How do we analyze the TestGrids in aggregate to learn from their combined behavior?</p></li>
+<li><p>How many/ which tests are the most common?</p></li>
+<li><p>Are their time series dates comparable?</p></li>
+<li><p>Are there sub-groups that should only be compared with one another?</p></li>
+<li><p>Is looking at the grid matrices independent of test names a valid approach for issue identification?</p></li>
+<li><p>What is the expected behavior of a test over time across multiple jobs.</p></li>
+<li><p>How does the entire test platform/specific tests perform on a given day?</p></li>
+<li><p>How does a test/ the entire test platform behavior evolve over time.</p></li>
+<li><p>Is there sufficient data here for useful ML approaches?</p></li>
+<li><p>Can we develop some meaningful alerting/ problem identification based on the results of the above questions?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">groupby</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">kurtosis</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="k">import</span> <span class="n">convolve2d</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="k">import</span> <span class="n">DBSCAN</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">IncrementalPCA</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.testgrid_EDA</span> <span class="k">import</span> <span class="n">decode_run_length</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;../../../data/raw/testgrid_810.json.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-comparable-are-the-testgrids">
+<h2>1. How comparable are the TestGrids?<a class="headerlink" href="#how-comparable-are-the-testgrids" title="Permalink to this headline">¶</a></h2>
+<p>Lets start by answering the first question on our list, “How comparable are the TestGrids?”</p>
+<p>TestGrids are made of a set of tests which either pass or fail over time. They are multidimensional time series where the values can take either 12 (fail), 1 (pass) or 0 (not run). There are a few other status codes used, but we will ignore them for now. We want to know if they are always the same shape, and composed of the same tests. And if not, how do they vary?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;../../../docs/assets/images/testgrid_0.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_4_0.png" src="../../../_images/testgrid_indepth_EDA_4_0.png" />
+</div>
+</div>
+<div class="section" id="a-are-there-duplicate-grids">
+<h3>1.a) Are there duplicate grids?<a class="headerlink" href="#a-are-there-duplicate-grids" title="Permalink to this headline">¶</a></h3>
+<p>The first thing we will do is look at all the summaries and grid names to see if there is any overlap. Are there duplicate grids for different platforms?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count all grids and uniquely nameed grids</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">grid_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">grid_names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid_names</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>403
+403
+</pre></div>
+</div>
+</div>
+</div>
+<p>It appears as though the answer to our question, “are there duplicate grids?” is no. There a 403 individual grids by name and all grids appear to be unique. However, there seems to be a lot of similarity in naming convention between grids where only the only difference is version number. Let’s remove those references and see how many groups there are and how they compare.</p>
+</div>
+<div class="section" id="b-are-there-sub-groups">
+<h3>1.b) Are there  sub-groups?<a class="headerlink" href="#b-are-there-sub-groups" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count all the unique grids with version numbers removed.</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">grid_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">remove_version</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+        <span class="n">grid_names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">remove_version</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grid_names</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>131
+403
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great, we can now see that there are 131 grid types if we remove the version. This means that on average, a grid type is repeated about 3 times. Or stays useful for 3 versions.</p>
+<p>This might represent a challenge since that is a fair amount of uniqueness when it comes to making statistical claims about the behavior of these grids (since there are only 3 members of each sample).</p>
+<p>Now that we have identified these 131 cross-version grid types, lets look at each type and see what percent of tests they share. Can they be compared directly (do they have the same shape and tests)?</p>
+</div>
+<div class="section" id="c-which-tests-do-the-groups-all-share">
+<h3>1.c) Which tests do the groups all share?<a class="headerlink" href="#c-which-tests-do-the-groups-all-share" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shared_test</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">grid_names</span><span class="p">:</span>
+    <span class="n">k_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">remove_version</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">remove_version</span> <span class="o">==</span> <span class="n">k</span><span class="p">:</span>
+                <span class="n">k_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]])</span>
+
+    <span class="n">total_tests</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">k_list</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]))</span>
+
+    <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">g</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">intersect</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">intersect</span> <span class="o">=</span> <span class="n">intersect</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+
+    <span class="n">shared_test</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">intersect</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">k_list</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">intersect</span><span class="p">),</span> <span class="n">total_tests</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="s2">&quot;num_grids&quot;</span><span class="p">,</span> <span class="s2">&quot;num_shared_test&quot;</span><span class="p">,</span> <span class="s2">&quot;total_tests&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>num_grids</th>
+      <th>num_shared_test</th>
+      <th>total_tests</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>release-openshift-ocp-installer-eXe-aws-mirror...</td>
+      <td>6</td>
+      <td>3</td>
+      <td>2796</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>release-openshift-ocp-installer-eXe-aws-fips-s...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>release-openshift-origin-installer-eXe-aws-upg...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2549</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>release-openshift-origin-installer-eXe-aws-sdn...</td>
+      <td>2</td>
+      <td>39</td>
+      <td>209</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>periodic-ci-openshift-release-master-ocp-X.X-e...</td>
+      <td>3</td>
+      <td>54</td>
+      <td>2116</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>release-openshift-okd-installer-eXe-aws-X.X</td>
+      <td>5</td>
+      <td>3</td>
+      <td>2088</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>release-openshift-ocp-installer-eXe-gcp-rt-X.X</td>
+      <td>4</td>
+      <td>3</td>
+      <td>1212</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>release-openshift-origin-installer-eXe-gcp-com...</td>
+      <td>5</td>
+      <td>36</td>
+      <td>2534</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>release-openshift-origin-installer-eXe-azure-u...</td>
+      <td>3</td>
+      <td>19</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>periodic-ci-openshift-release-master-ocp-X.X-e...</td>
+      <td>2</td>
+      <td>953</td>
+      <td>1114</td>
+    </tr>
+  </tbody>
+</table>
+<p>77 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;perc_coverage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;num_shared_test&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;total_tests&quot;</span><span class="p">]</span>
+<span class="n">results</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>num_grids</th>
+      <th>num_shared_test</th>
+      <th>total_tests</th>
+      <th>perc_coverage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>77.000000</td>
+      <td>77.000000</td>
+      <td>77.000000</td>
+      <td>72.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4.532468</td>
+      <td>56.610390</td>
+      <td>1224.428571</td>
+      <td>0.195229</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.658982</td>
+      <td>173.945481</td>
+      <td>1205.698175</td>
+      <td>0.309903</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>92.000000</td>
+      <td>0.002397</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.000000</td>
+      <td>9.000000</td>
+      <td>551.000000</td>
+      <td>0.014575</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.000000</td>
+      <td>36.000000</td>
+      <td>2534.000000</td>
+      <td>0.206321</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.000000</td>
+      <td>953.000000</td>
+      <td>3462.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>For each grid type there is between 1 and 7 individual grids, and for the vast majority of these types, there is very little overlap in the tests used across them all. There appear to be some exceptions, here that we can look into more closely later on. But as far as addressing the question “how comparable are the grids”. I think the answer hear appears to be, not very.</p>
+<p>Therefore, analyzing the behavior of our jobs based on comparing grids (if we assume tests as the fundamental unit of these grids) does not appear to be a reasonable approach. We may still be able to do this looking purely at the grid patterns independent of tests names, but this will be explored further below.</p>
+</div>
+</div>
+<div class="section" id="how-comparable-are-individual-tests">
+<h2>2. How comparable are individual tests?<a class="headerlink" href="#how-comparable-are-individual-tests" title="Permalink to this headline">¶</a></h2>
+<p>Lets ignore the grids as whole units for a minute and examine the occurrence of specific tests. Which are the most common? How many many unique tests are there? How should we expect them to behave?</p>
+<div class="section" id="a-what-are-the-most-common-tests">
+<h3>2.a) What are the  most common tests?<a class="headerlink" href="#a-what-are-the-most-common-tests" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the number of tests present across the entire platform</span>
+<span class="n">all_tests</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">tests</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]]</span>
+        <span class="n">all_tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tests</span><span class="p">)</span>
+
+<span class="n">all_tests</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="n">all_tests</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">all_tests</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>177291
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This tells us what percent a specific test is present across all grids.</span>
+<span class="c1"># Where c is the total number of tests.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">all_tests</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall                                                                                                                                                                                                                          0.915633
+operator.All images are built and tagged into stable                                                                                                                                                                             0.786600
+operator.Import the release payload &quot;latest&quot; from an external source                                                                                                                                                             0.751861
+operator install authentication                                                                                                                                                                                                  0.533499
+operator install machine-config                                                                                                                                                                                                  0.533499
+                                                                                                                                                                                                                                   ...   
+Create a test namespace.creates test namespace test-gpmwe if necessary                                                                                                                                                           0.002481
+Create a test namespace.creates test namespace test-btywt if necessary                                                                                                                                                           0.002481
+[sig-storage] In-tree Volumes [Driver: cinder] [Testpattern: Dynamic PV (ntfs)][sig-windows] subPath should support readOnly file specified in the volumeMount [LinuxOnly] [Suite:openshift/conformance/parallel] [Suite:k8s]    0.002481
+Create a test namespace.creates test namespace test-kzmgo if necessary                                                                                                                                                           0.002481
+[sig-storage] Projected optional updates should be reflected in volume [NodeConformance] [Conformance] [Suite:openshift/conformance/parallel/minimal] [Suite:k8s]                                                                0.002481
+Length: 7798, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This tells us the count of a specific test and filters only for tests that occur at least 10 times</span>
+<span class="n">test_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">all_tests</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">test_counts</span><span class="p">[</span><span class="n">test_counts</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overall                                                                                                                                                            369
+operator.All images are built and tagged into stable                                                                                                               317
+operator.Import the release payload &quot;latest&quot; from an external source                                                                                               303
+operator install authentication                                                                                                                                    215
+operator install machine-config                                                                                                                                    215
+                                                                                                                                                                  ... 
+operator.Run template e2e-gcp-serial - e2e-gcp-serial container test                                                                                                11
+[Disruptive] Cluster upgrade [Top Level] [Disruptive] Cluster upgrade should maintain a functioning cluster [Feature:ClusterUpgrade] [Serial] [Suite:openshift]     11
+operator.Find all of the input images from ocp/4.1:${component} and tag them into the output image stream                                                           11
+[sig-auth][Feature:OpenShiftAuthorization][Serial] authorization  TestAuthorizationResourceAccessReview should succeed [Suite:openshift/conformance/serial]         11
+[sig-network] IngressClass [Feature:Ingress] should not set default value if no default IngressClass [Serial] [Suite:openshift/conformance/serial] [Suite:k8s]      11
+Length: 3137, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see above that there are <strong>177,291 test instances</strong> across all <strong>403 grids</strong>. Of those tests, there are only <strong>7,798 unique tests</strong> which is over a <strong>~20x reduction</strong>.</p>
+<p>Somewhat contrary to the findings in the earlier section, this tells us that there is a fair amount of overlap of tests among grids. Perhaps our criteria for comparison above was too strict, and we should employ some more fuzzy matching methods.</p>
+<p>We can also see that of these ~7k unique tests, 3,137 (about 1/3) occur across at least 10 grids. So it is probably this subset that we could use for comparisons and determining average behavior of a test overtime.</p>
+<p>Let’s look at one of the most common tests and see what we can say about its overall behavior.</p>
+</div>
+<div class="section" id="b-single-test-behavior-analysis">
+<h3>2.b) Single Test Behavior Analysis<a class="headerlink" href="#b-single-test-behavior-analysis" title="Permalink to this headline">¶</a></h3>
+<p>We will use “operator.All images are built and tagged into stable” since it looks like it impacts ~80% of our grids.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_test</span> <span class="o">=</span> <span class="s2">&quot;operator.All images are built and tagged into stable&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collected_target_tests</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">target_test</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">]:</span>
+            <span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">target_test</span><span class="p">]</span>
+            <span class="n">collected_target_tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+            <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_timeseries_by_name</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test_name</span><span class="p">):</span>
+    <span class="n">collected_target_tests</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">grid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">test_name</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">]:</span>
+                <span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_name</span><span class="p">]</span>
+                <span class="n">collected_target_tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+                <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">])</span>
+    <span class="n">ts_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="nb">zip</span><span class="p">(</span><span class="n">collected_target_tests</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+    <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)</span>
+    <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ts_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">collected_target_tests</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">timestamps</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>317
+317
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great, this particular test has 317 examples, which means of the 403 grids its used in 78%. Let see if we have roughly the same number of samples for each instance of this test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">collected_target_tests</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RL&quot;</span><span class="p">])[</span><span class="s2">&quot;RL&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">decode_run_length</span>
+<span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      118
+1      867
+2      181
+3       15
+4       15
+      ... 
+312     32
+313    104
+314     30
+315     23
+316     50
+Name: RL, Length: 317, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we can see from the above output that the we have a very different number of data points for a test depending on which grid it is associated with. This again, creates a problem for making direct comparisons between these tests.</p>
+<p>But that’s alright, there are a number of ways this issue can be addressed. For now, lets go ahead, and generate some statistics about each time series. We can then define “normal behavior” as the average of these statistics as an initial naive approach to comparing tests in aggregate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dataframe for all of the &quot;operator.All images are built and tagged into stable&quot; time series data</span>
+<span class="n">ts_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">(</span><span class="n">collected_target_tests</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+<span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)</span>
+<span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>values</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08 20:48:05, 2020-10-08 19:12:01, 202...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Plot the first ten time series to see what we are working with</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">)})</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts_data</span><span class="p">))[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{sum(ts_data.loc[i,&#39;values&#39;])/len(ts_data.loc[i,&#39;values&#39;])}% pass </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ts_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">ts_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.940677966101695% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_1.png" src="../../../_images/testgrid_indepth_EDA_33_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9319492502883506% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_3.png" src="../../../_images/testgrid_indepth_EDA_33_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9668508287292817% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_5.png" src="../../../_images/testgrid_indepth_EDA_33_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7333333333333333% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_7.png" src="../../../_images/testgrid_indepth_EDA_33_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_9.png" src="../../../_images/testgrid_indepth_EDA_33_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_11.png" src="../../../_images/testgrid_indepth_EDA_33_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9333333333333333% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_13.png" src="../../../_images/testgrid_indepth_EDA_33_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_15.png" src="../../../_images/testgrid_indepth_EDA_33_15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8333333333333334% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_17.png" src="../../../_images/testgrid_indepth_EDA_33_17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8333333333333334% pass 
+</pre></div>
+</div>
+<img alt="../../../_images/testgrid_indepth_EDA_33_19.png" src="../../../_images/testgrid_indepth_EDA_33_19.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since these time series are of unequal length, and we want to encode their general behavior to make comparisons, lets convert each of them into a vector of features based on some statistical properties of the time series.</p>
+<p>Selected Features</p>
+<ul class="simple">
+<li><p>pass rate</p></li>
+<li><p>regression slope</p></li>
+<li><p>regression intercept</p></li>
+<li><p>longest failure streak ratio</p></li>
+<li><p>kurtosis ratio</p></li>
+<li><p>largest frequency ratio</p></li>
+</ul>
+<p>There are obviously many ways to convert time series into a fixed length feature vector. But we’ll use these as I think they are fairly interesting and will allow us to move forward. <strong>But I encourage future contributors to question/update/change these selected features. :)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Functions for calculating each feature from the time seires.</span>
+
+
+<span class="k">def</span> <span class="nf">get_regression_coefs</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">longest_failure_streak</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">prev_streak</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">c</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">prev_streak</span><span class="p">:</span>
+                <span class="n">prev_streak</span> <span class="o">=</span> <span class="n">count</span>
+
+    <span class="k">return</span> <span class="n">prev_streak</span>
+
+
+<span class="k">def</span> <span class="nf">largest_frequncy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">real</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_test_individual_behavior</span><span class="p">(</span><span class="n">test</span><span class="p">):</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test</span><span class="p">):</span>
+        <span class="n">pass_rate</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ts</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">coef</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="n">get_regression_coefs</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">failure_streak</span> <span class="o">=</span> <span class="n">longest_failure_streak</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">kurtosiss</span> <span class="o">=</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">frequency</span> <span class="o">=</span> <span class="n">largest_frequncy</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">description</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">pass_rate</span><span class="p">,</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">coef</span><span class="p">),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">intercept</span><span class="p">),</span>
+                <span class="n">failure_streak</span><span class="p">,</span>
+                <span class="n">kurtosiss</span><span class="p">,</span>
+                <span class="n">frequency</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">description</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivudial_metric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">get_test_individual_behavior</span><span class="p">(</span><span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;pass_rate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;slope&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;intercept&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;failures_streak&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;frequency&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivudial_metric</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pass_rate</th>
+      <th>slope</th>
+      <th>intercept</th>
+      <th>failures_streak</th>
+      <th>kurtosis</th>
+      <th>frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.940678</td>
+      <td>0.001494</td>
+      <td>0.853298</td>
+      <td>0.0</td>
+      <td>0.101019</td>
+      <td>0.161017</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.931949</td>
+      <td>0.000109</td>
+      <td>0.884678</td>
+      <td>0.0</td>
+      <td>0.011266</td>
+      <td>0.085352</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.966851</td>
+      <td>0.000391</td>
+      <td>0.931698</td>
+      <td>0.0</td>
+      <td>0.139232</td>
+      <td>0.016575</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.733333</td>
+      <td>0.046263</td>
+      <td>0.409490</td>
+      <td>0.0</td>
+      <td>-0.059091</td>
+      <td>0.200000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>-0.200000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>0.968750</td>
+      <td>0.002382</td>
+      <td>0.931832</td>
+      <td>0.0</td>
+      <td>0.844758</td>
+      <td>0.250000</td>
+    </tr>
+    <tr>
+      <th>313</th>
+      <td>0.990385</td>
+      <td>0.000549</td>
+      <td>0.962088</td>
+      <td>0.0</td>
+      <td>0.952016</td>
+      <td>0.298077</td>
+    </tr>
+    <tr>
+      <th>314</th>
+      <td>0.966667</td>
+      <td>-0.004225</td>
+      <td>1.027930</td>
+      <td>0.0</td>
+      <td>0.834483</td>
+      <td>0.066667</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>0.782609</td>
+      <td>0.002962</td>
+      <td>0.750032</td>
+      <td>0.0</td>
+      <td>-0.005314</td>
+      <td>0.304348</td>
+    </tr>
+    <tr>
+      <th>316</th>
+      <td>0.880000</td>
+      <td>0.006434</td>
+      <td>0.722368</td>
+      <td>0.0</td>
+      <td>0.069394</td>
+      <td>0.360000</td>
+    </tr>
+  </tbody>
+</table>
+<p>317 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>We’ve now converted our 317 variable length binary time series data into a tabular data set with 6 features that represent the behavior of our tests over time. The benefit of doing this is that we can now apply some classic machine learning approaches, like  dimensionality reduction and clustering to our data.</p>
+<p>Lets visualize the instances of this test and see if any obvious structure jumps out.</p>
+<div class="section" id="visualizing-our-tests">
+<h4>Visualizing our tests<a class="headerlink" href="#visualizing-our-tests" title="Permalink to this headline">¶</a></h4>
+<p>First we will apply PCA to reduce our 6 dimensional data down to 2 for visualization purposes. Then we will apply DBSCAN to identify any clusters or outliers that might be present in our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">indivudial_metric</span>
+<span class="n">ipca</span> <span class="o">=</span> <span class="n">IncrementalPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ipca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">two_d</span> <span class="o">=</span> <span class="n">ipca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">two_d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">two_d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA - operator.All images are built and tagged into stable&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_42_0.png" src="../../../_images/testgrid_indepth_EDA_42_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">indivudial_metric</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">two_d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">two_d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cluster</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">legend1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">*</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">(),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;DBSCAN - operator.All images are built and tagged into stable&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_44_0.png" src="../../../_images/testgrid_indepth_EDA_44_0.png" />
+</div>
+</div>
+<p>It looks like this method works to cluster individual test behavior across multiple instances of the same test. In this case we have divide the space into 4 clusters with a couple of outliers that we could investigate further.</p>
+<p>For the purposes of this notebook,we have established at least one method for encoding and categorizing the behavior of tests that are all of the same type. We will now move on to another topic.</p>
+<p>In the future this could be used to classify different types of observed errors for tests found in TestGrids</p>
+</div>
+</div>
+<div class="section" id="c-multiple-test-behavior">
+<h3>2.c) Multiple Test Behavior<a class="headerlink" href="#c-multiple-test-behavior" title="Permalink to this headline">¶</a></h3>
+<p>Lets just quickly take a look at a larger portion of th entire data set that we have and see if we notice anything from clustering across multiple tests, i.e. are there types of behavior clusters we can identify.</p>
+<p><em>note: Using all 117k tests is rather slow, so I’ll limit it only to ~12k from the first 200 grids for the purposes of this notebook</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_pass</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">all_tests</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">200</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">first_pass</span><span class="p">:</span>
+        <span class="n">tsx</span> <span class="o">=</span> <span class="n">get_timeseries_by_name</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">tsx</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">first_pass</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">next_ts</span> <span class="o">=</span> <span class="n">get_timeseries_by_name</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">next_ts</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="n">tsx</span> <span class="o">=</span> <span class="n">tsx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_ts</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsx</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(11927, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivudial_metric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">get_test_individual_behavior</span><span class="p">(</span><span class="n">tsx</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;pass_rate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;slope&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;intercept&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;failures_streak&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;frequency&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivudial_metric</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pass_rate</th>
+      <th>slope</th>
+      <th>intercept</th>
+      <th>failures_streak</th>
+      <th>kurtosis</th>
+      <th>frequency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.016949</td>
+      <td>-0.036272</td>
+      <td>3.765972</td>
+      <td>0.016949</td>
+      <td>0.021369</td>
+      <td>0.084746</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.237601</td>
+      <td>0.001266</td>
+      <td>1.793203</td>
+      <td>0.008074</td>
+      <td>0.000992</td>
+      <td>0.003460</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>-0.076442</td>
+      <td>10.962582</td>
+      <td>0.372881</td>
+      <td>-0.015939</td>
+      <td>0.237288</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>-0.024003</td>
+      <td>10.001448</td>
+      <td>0.166667</td>
+      <td>-0.008263</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>-0.056302</td>
+      <td>12.105453</td>
+      <td>0.388889</td>
+      <td>0.002778</td>
+      <td>0.022222</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">indivudial_metric</span>
+<span class="n">ipca</span> <span class="o">=</span> <span class="n">IncrementalPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ipca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">two_d</span> <span class="o">=</span> <span class="n">ipca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">two_d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">two_d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA - All Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_51_0.png" src="../../../_images/testgrid_indepth_EDA_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">indivudial_metric</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">two_d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">two_d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cluster</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">legend1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">*</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">(),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;DBSCAN - All Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_53_0.png" src="../../../_images/testgrid_indepth_EDA_53_0.png" />
+</div>
+</div>
+<p>Based on the image above, its looks like we get something close to a 2d uniform distribution of our dataset with a few outliers and smaller clusters when we take a larger portion of our tests at once with this feature set.</p>
+<p>This might be noise or it might show that most time series behave in a similar way, or cluster into one of the other 10 failure types.</p>
+<p>In either case, we can use these methods outlined above to investigate this approach further in a later notebook.</p>
+</div>
+<div class="section" id="d-comparing-tests-in-aggregate">
+<h3>2.d)  Comparing tests in aggregate<a class="headerlink" href="#d-comparing-tests-in-aggregate" title="Permalink to this headline">¶</a></h3>
+<p>Now that we’ve looked at individual tests, lets derive a new object that describes a single test as the aggregation of the features we’ve defined above for every instance of the same test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_test_behavior</span><span class="p">(</span><span class="n">test</span><span class="p">):</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">pass_rate</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">avg_coef</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">avg_intercept</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">avg_failure_streak</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">avg_kurtosis</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">avg_frequency</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ts</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">test</span><span class="p">):</span>
+        <span class="n">pass_rate</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ts</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">coef</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="n">get_regression_coefs</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">avg_coef</span> <span class="o">+=</span> <span class="n">coef</span>
+        <span class="n">avg_intercept</span> <span class="o">+=</span> <span class="n">intercept</span>
+        <span class="n">avg_failure_streak</span> <span class="o">+=</span> <span class="n">longest_failure_streak</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">avg_kurtosis</span> <span class="o">+=</span> <span class="n">kurtosis</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+        <span class="n">avg_frequency</span> <span class="o">+=</span> <span class="n">largest_frequncy</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;pass_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pass_rate</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;avg_coef&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">avg_coef</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;avg_intercept&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">avg_intercept</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;avg_failure_streak&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_failure_streak</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;avg_kurtosis&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_kurtosis</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">description</span><span class="p">[</span><span class="s2">&quot;avg_frequency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">avg_frequency</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">description</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_test</span> <span class="o">=</span> <span class="n">get_timeseries_by_name</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;operator.All images are built and tagged into stable&quot;</span>
+<span class="p">)</span>
+<span class="n">get_test_behavior</span><span class="p">(</span><span class="n">single_test</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;pass_rate&#39;: 0.911815196098699,
+ &#39;avg_coef&#39;: -0.00031722304811730484,
+ &#39;avg_intercept&#39;: 0.9199496749854382,
+ &#39;avg_failure_streak&#39;: 0.0,
+ &#39;avg_kurtosis&#39;: 0.25686846515261513,
+ &#39;avg_frequency&#39;: 0.1669826612570952}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alright, this looks like it might be a reasonable representation for a summary of expected behavior for a test. What can this tell us?</p>
+<p>For the test “operator.All images are built and tagged into stable” we should expect this test to pass about 91% percent of the time regardless of the platform its run on. We have a small negative slope (avg_coef), which means on average we have more “not run” instances as we move forward in time, but this is such a small slope its practically flat, i.e., this is a reliable test. If it does fail, there is 0% average failure streak, meaning if it does fail, it could fail for up to 0% of the total number of tests runs to date in a row (i.e, this test never fails, seems to only pass or not run). This value basically tells us how often we see small flips vs longer outages in our data. Finally, kurtosis and frequency are two additional measures of “steadiness” of our data, but since they are normalized here their interpretation is less direct, but can be understood in relation to other test vectors.</p>
+<p>Now, is it useful to represent tests this way? Maybe. Its not fully clear at this point. My concern here would be that we have over-summarized the different dynamics occurring in these individual test runs. Especially, as we saw about 4 clear clusters for this test above. However, we can validate the usefulness of these baselines by repeating the above for all the tests and seeing if there is stronger inter-test relationship than between different tests. (Basically, will the individual tests land closer to the baseline for their test on average or not if we measure their vector distances?)</p>
+<p>Lets find out and produce these vectors for each test, and compare them similarly to how we did above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_timeseries_for_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">target_test</span><span class="p">):</span>
+    <span class="n">collected_target_tests</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">timestamps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">grid</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">target_test</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">]:</span>
+                <span class="n">test_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">target_test</span><span class="p">]</span>
+                <span class="n">collected_target_tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+                <span class="n">timestamps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">])</span>
+
+    <span class="n">ts_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="nb">zip</span><span class="p">(</span><span class="n">collected_target_tests</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+    <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)</span>
+    <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">//</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ts_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector_set</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">test_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_tests</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">test_names</span><span class="p">:</span>
+    <span class="n">test_set</span> <span class="o">=</span> <span class="n">get_timeseries_for_test</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span>
+    <span class="n">vector</span> <span class="o">=</span> <span class="n">get_test_behavior</span><span class="p">(</span><span class="n">test_set</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">])</span>
+    <span class="n">vector_set</span><span class="p">[</span><span class="n">test</span><span class="p">]</span> <span class="o">=</span> <span class="n">vector</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector_set</span><span class="p">[</span><span class="n">test_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;pass_rate&#39;: 0.4001886802824165,
+ &#39;avg_coef&#39;: 0.005342678117091565,
+ &#39;avg_intercept&#39;: 7.116541139292677,
+ &#39;avg_failure_streak&#39;: 0.33080526429387325,
+ &#39;avg_kurtosis&#39;: 0.05301396234931552,
+ &#39;avg_frequency&#39;: 0.13468357069313408}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transpo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vector_set</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have our data converted from individual time series into one data point for each test with 6 features representing the average behavior of a test across all of its instances. Lets visualize it and get a sense for the distribution. To plot this 6d data in 2d we will again use PCA to reduce the dimensions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">transpo</span>
+<span class="n">ipca</span> <span class="o">=</span> <span class="n">IncrementalPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ipca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">two_d</span> <span class="o">=</span> <span class="n">ipca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">two_d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">two_d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PCA - Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_65_0.png" src="../../../_images/testgrid_indepth_EDA_65_0.png" />
+</div>
+</div>
+<p>Clearly we can see some differentiation in this representation. Let’s use DBSCAN on the 6d data and see if there is still some meaningful grouping.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">transpo</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">two_d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">two_d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cluster</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">legend1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="o">*</span><span class="n">scatter</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">(),</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower left&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Classes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;DBSCAN - Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_68_0.png" src="../../../_images/testgrid_indepth_EDA_68_0.png" />
+</div>
+</div>
+<p>We can see some clustering going on in the plot above, but also a fairly even distribution between tests.</p>
+<p>However, what we want to know is if these “baseline” vectors for each test are actually meaningful. We will make that assessment by determining if individual tests are closer to their “baselines” on average than the datasets overall average.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indivudial_metric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">get_test_individual_behavior</span><span class="p">(</span><span class="n">ts_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;pass_rate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;slope&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;intercept&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;failures_streak&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;frequency&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is the center of our baselines.</span>
+
+<span class="n">tests_baseline</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vector_set</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">tests_baseline</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pass_rate             0.436850
+avg_coef             -0.001499
+avg_intercept         0.730979
+avg_failure_streak    0.006771
+avg_kurtosis          0.351694
+avg_frequency         0.184582
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for each test, get the averge distance of their test instances from their baseline and the global baseline</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">test_names</span><span class="p">:</span>
+    <span class="n">indivudial_metric</span> <span class="o">=</span> <span class="n">get_timeseries_by_name</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">indivudial_metric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">get_test_individual_behavior</span><span class="p">(</span><span class="n">indivudial_metric</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]),</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;pass_rate&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;slope&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;intercept&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;failures_streak&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kurtosis&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">vector_set</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">group_baseline_distance</span> <span class="o">=</span> <span class="n">indivudial_metric</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">baseline</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">absolute_basline_distance</span> <span class="o">=</span> <span class="n">indivudial_metric</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">tests_baseline</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">group_baseline_distance</span><span class="p">,</span> <span class="n">absolute_basline_distance</span><span class="p">))</span>
+
+<span class="n">local_vs_global</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;local average distance&quot;</span><span class="p">,</span> <span class="s2">&quot;global average distance&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_vs_global</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test</th>
+      <th>local average distance</th>
+      <th>global average distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Overall</td>
+      <td>4.136537</td>
+      <td>6.522205</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[sig-api-machinery] ResourceQuota should creat...</td>
+      <td>0.487039</td>
+      <td>0.671237</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[sig-network] NetworkPolicy NetworkPolicy betw...</td>
+      <td>0.457299</td>
+      <td>0.569890</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[sig-storage] In-tree Volumes [Driver: gcepd] ...</td>
+      <td>0.283472</td>
+      <td>0.587822</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[Suite: service-definition] [OSD] NodeLabels M...</td>
+      <td>0.341153</td>
+      <td>0.856538</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span>
+    <span class="n">local_vs_global</span><span class="p">[</span><span class="s2">&quot;local average distance&quot;</span><span class="p">]</span>
+    <span class="o">&lt;=</span> <span class="n">local_vs_global</span><span class="p">[</span><span class="s2">&quot;global average distance&quot;</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">local_vs_global</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9842267248012311
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great, so in 98% of cases the local average distance of individual tests to their baseline is closer than an overall baseline. This tells us that there is some usefulness in describing the expected behavior of a test based on the mean of its individual features.</p>
+<p><strong>What have we accomplished up to now?</strong></p>
+<p>So far we have looked at the girds as a whole based on their shared collection of tests, determined that that the grids themselves are all unique and not directly comparable with regard to their set of tests.</p>
+<p>However, some tests are repeated across many grids and we showed a couple methods to visualize, encode and analyze them both individually and in aggregate.</p>
+</div>
+</div>
+<div class="section" id="how-does-the-entire-test-platform-or-a-specific-test-perform-on-a-given-day">
+<h2>3. How does the entire test platform (or a specific test) perform on a given day?<a class="headerlink" href="#how-does-the-entire-test-platform-or-a-specific-test-perform-on-a-given-day" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve looked at encoding and comparing tests from a “horizontal perspective” with regard to the grids and examined the tests independent of time. Lets switch to a “vertical perspective” and determine how the entire platform, specific grids, or particular tests behave at specific days and across time.</p>
+<div class="section" id="a-platform-performance-for-a-given-day">
+<h3>3.a) Platform performance for a given day<a class="headerlink" href="#a-platform-performance-for-a-given-day" title="Permalink to this headline">¶</a></h3>
+<p>In order to iterate over and search by the epoch time in our dataset, lets quickly collect all the unique times where a test value was logged.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">times</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">])</span>
+<span class="n">times</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<span class="n">times</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">times</span><span class="p">))</span>
+<span class="n">date</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="mi">1000</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">times</span><span class="p">])</span>
+
+<span class="n">date</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">times</span></code> should contain every possible time stamp in our dataset.</p>
+<p>Now let’s iterate through our dataset and collect <strong>all</strong> the data on our platform that occurred on our query date.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tests_on_day</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">query_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="mi">1601671083</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">t</span> <span class="o">//</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="n">query_date</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]:</span>
+                    <span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">decode_run_length</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">])[</span><span class="n">index</span><span class="p">]</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">k</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                    <span class="n">v</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+                <span class="n">tests_on_day</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_day_behaviour</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">tests_on_day</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;tab&quot;</span><span class="p">,</span> <span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;tests_values&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>timestamp</th>
+      <th>tests_values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>1601677764000</td>
+      <td>{'Application behind service load balancer wit...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>1601676485000</td>
+      <td>{'Application behind service load balancer wit...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_day_behaviour</span><span class="p">[</span><span class="s2">&quot;passes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">tests_values</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">sum</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">one_day_behaviour</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">tests_values</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tab</th>
+      <th>grid</th>
+      <th>timestamp</th>
+      <th>tests_values</th>
+      <th>passes</th>
+      <th>length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>1601677764000</td>
+      <td>{'Application behind service load balancer wit...</td>
+      <td>8</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>"redhat-openshift-informing"</td>
+      <td>release-openshift-okd-installer-e2e-aws-upgrade</td>
+      <td>1601676485000</td>
+      <td>{'Application behind service load balancer wit...</td>
+      <td>23</td>
+      <td>77</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platfrom_pass_rate</span> <span class="o">=</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">passes</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">platfrom_pass_rate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6142468337152454
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great, so we can use this method to calculate the pass rate, or any other derived value, for the entire platform for a specific day. As we can see above, there was a 60% pass rate across the entire platform on our query day.</p>
+<p>We could also use this approach on a subset of the data to get behavior metrics for specific tests, grids, or custom subsets.</p>
+<p>Now that we know how to look at behavior for a single day across the entire platform, we could roll this out across each day to see how the platform evolves over time.</p>
+</div>
+<div class="section" id="b-platform-performance-over-time">
+<h3>3.b) Platform performance over time<a class="headerlink" href="#b-platform-performance-over-time" title="Permalink to this headline">¶</a></h3>
+<p>Lets create a list of dates that we are interested in reviewing and plot the platform pass rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">platform_pass_rate</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+    <span class="n">tests_on_day</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">query_date</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">t</span> <span class="o">//</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">==</span> <span class="n">query_date</span><span class="p">:</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]:</span>
+                        <span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">decode_run_length</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">])[</span><span class="n">index</span><span class="p">]</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">k</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+                        <span class="n">v</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+                    <span class="n">tests_on_day</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+
+    <span class="n">one_day_behaviour</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">tests_on_day</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;tab&quot;</span><span class="p">,</span> <span class="s2">&quot;grid&quot;</span><span class="p">,</span> <span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;tests_values&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">one_day_behaviour</span><span class="p">[</span><span class="s2">&quot;passes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">tests_values</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">sum</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="p">)</span>
+    <span class="n">one_day_behaviour</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">tests_values</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="p">)</span>
+    <span class="n">platfrom_pass_rate_one_day</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">passes</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">one_day_behaviour</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">platform_pass_rate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">platfrom_pass_rate_one_day</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">platform_pass_rate</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;platfrom pass rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;pass rate (%)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_91_0.png" src="../../../_images/testgrid_indepth_EDA_91_0.png" />
+</div>
+</div>
+<p>Great, from the above, we can now select any time period of interest (that we have data for) and examine the behavior of the entire platform over time.</p>
+<p>And just to do our due diligence, below we will show that this can be done for individual test as well.</p>
+</div>
+<div class="section" id="c-aggregate-single-test-performance-over-time">
+<h3>3.c) Aggregate single test performance over time<a class="headerlink" href="#c-aggregate-single-test-performance-over-time" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_name</span> <span class="o">=</span> <span class="s2">&quot;operator.All images are built and tagged into stable&quot;</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">get_timeseries_by_name</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test_name</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>values</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08 20:48:05, 2020-10-08 19:12:01, 202...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08 20:52:49, 2020-10-08 20:52:45, 202...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08 20:15:59, 2020-10-08 18:38:28, 202...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1]</td>
+      <td>[2020-10-08 04:21:00, 2020-10-07 04:20:17, 202...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</td>
+      <td>[2020-10-07 22:04:59, 2020-10-06 22:04:21, 202...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># epoch time is too specific, we only care about the day a test was run.</span>
+<span class="n">simple_dates</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">day</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">ts</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_dates</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>values</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08, 2020-10-08, 2020-10-08, 2020-10-0...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08, 2020-10-08, 2020-10-08, 2020-10-0...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...</td>
+      <td>[2020-10-08, 2020-10-08, 2020-10-08, 2020-10-0...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1]</td>
+      <td>[2020-10-08, 2020-10-07, 2020-10-06, 2020-10-0...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]</td>
+      <td>[2020-10-07, 2020-10-06, 2020-10-05, 2020-10-0...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]:</span>
+            <span class="n">RL_spot</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="n">RL_spot</span><span class="p">])</span>
+    <span class="n">results</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pass_rate</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">date</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">count</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">date</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">pass_rate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+    <span class="n">count</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:red&quot;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time (d)&quot;</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;pass rate&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">pass_rate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>  <span class="c1"># instantiate a second axes that shares the same x-axis</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;tab:blue&quot;</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>  <span class="c1"># we already handled the x-label with ax1</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+    <span class="s1">&#39;Pass Rate and Count: &quot;operator.All images are built and tagged into stable&quot;&#39;</span><span class="p">,</span>
+    <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fontsize&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  <span class="c1"># otherwise the right y-label is slightly clipped</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_98_0.png" src="../../../_images/testgrid_indepth_EDA_98_0.png" />
+</div>
+</div>
+<p><strong>What have we accomplished?</strong></p>
+<p>Above we have explored a couple of methods for visualizing and calculating metrics about the TestGrid environment given a specific time or time range. Moving forward this could be used for overall trend analysis or prediction or root cause analysis for a time period with a known issue.</p>
+</div>
+</div>
+<div class="section" id="grid-matrices-as-2d-signals">
+<h2>4. Grid matrices as 2d signals<a class="headerlink" href="#grid-matrices-as-2d-signals" title="Permalink to this headline">¶</a></h2>
+<p>Is looking at the grid matrices independent of test names a valid approach for issue identification?</p>
+<p>I don’t see why not. Let’s take an example: Looking at the image below we can see that it was annotated manually by a human subject matter expert. Most of these errors seem to lie either purely on the vertical or horizontal axes and can be identified by analyzing either a single test or a single day, which we’ve already explored above. Let’s look for an issue that is signaled by behavior across both days and tests.</p>
+<div class="section" id="a-identify-infrastructure-flakes">
+<h3>4.a) Identify Infrastructure Flakes<a class="headerlink" href="#a-identify-infrastructure-flakes" title="Permalink to this headline">¶</a></h3>
+<p>What about the infrastructure flake case? That seems to be characterized by diagonal test failures over multiple days. We currently do not have any way of addressing that type of data. Lets see if we can use a simple hand crafted 2d filter to start identifying these types of errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span>
+    <span class="s2">&quot;https://user-images.githubusercontent.com/161888/89903201-a62b3800-dbe7-11ea-9b1c-2ec62fe8952f.png&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_101_0.png" src="../../../_images/testgrid_indepth_EDA_101_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2d filter that will have its highest value when convolved with a diagonal pattern.</span>
+<span class="n">infra_flake_filter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">infra_flake_filter</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1,  1],
+       [ 1, -1]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get data for example grid</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.3-informing&quot;&#39;</span><span class="p">][</span>
+    <span class="s2">&quot;release-openshift-origin-installer-e2e-gcp-compact-4.3&quot;</span>
+<span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subset of the data where we see this infra flake pattern</span>
+<span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">statuses</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)))</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">21</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we want to re-map the values so that the output of the convolution will be more interpretable.</span>
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">normalize</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bone&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Test Grid: release-openshift-origin-installer-e2e-gcp-compact-4.3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_106_0.png" src="../../../_images/testgrid_indepth_EDA_106_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">convolve2d</span><span class="p">(</span><span class="n">infra_flake_filter</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;bone&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Convolved Grid: release-openshift-origin-installer-e2e-gcp-compact-4.3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/testgrid_indepth_EDA_107_0.png" src="../../../_images/testgrid_indepth_EDA_107_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the spots on the map where the convolution had its maximum value.</span>
+<span class="n">spots</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">infra_flake_filter</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span>
+<span class="n">infra_falkes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">spots</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">infra_falkes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1, 3]), array([5, 6]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.3-informing&quot;&#39;</span><span class="p">][</span>
+    <span class="s2">&quot;release-openshift-origin-installer-e2e-gcp-compact-4.3&quot;</span>
+<span class="p">][</span><span class="s2">&quot;timestamps&quot;</span><span class="p">]</span>
+<span class="n">infra_flake_dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dates</span><span class="p">)[</span><span class="nb">list</span><span class="p">([</span><span class="n">infra_falkes</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">infra_flake_dates</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;possible infra flake occuring on {datetime.date.fromtimestamp(i//1000)}&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>possible infra flake occuring on 2020-10-02
+possible infra flake occuring on 2020-10-01
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>What have we accomplished?</strong></p>
+<p>The above example has shown one way to automatically determined if there was an infrastructure flake in our TestGrid (assuming they can be identified following this diagonal failure pattern rule). This example identified 2 such flakes between October 1st and 2nd for the “release-openshift-origin-installer-e2e-gcp-compact-4.3’” grid. Moving forward we should follow up with an SME to validate these results and refine this approach.</p>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>In this notebook, we have done some additional exploration of the TestGrid data; familiarized ourselves with it further and determined a number of facts about the nature of the grids that will help us move forward developing additional analysis and ML tools for CI. We have looked at the entire TestGrid platform, individual grids and individual tests both from a stationary and time-series perspective. We have also done a couple of small experiments with encoding and clustering to explore the dataset’s viability for applying ML approaches.</p>
+<p>In this notebook we have tried to address the following questions and come up with the following answers:</p>
+<ul class="simple">
+<li><p><strong>How comparable are the TestGrids?</strong></p>
+<ul>
+<li><p>The test grids contain nearly unique sets of tests and therefore are not directly comparable. We will either have to consider the aggregation of shared test or define grids purely by their patterns (independent of specific test)</p></li>
+</ul>
+</li>
+<li><p><strong>How do we analyze the TestGrids in aggregate to learn from their combined behavior?</strong></p>
+<ul>
+<li><p>I don’t think we can analyze the entire grids directly due to the above stated issue of uniqueness, other than addressing purely the patterns independent of the specific test names. It will likely be better to analyze the data one step lower and learn from the tests, then use the tests the grids are composed of to understand the grids better.</p></li>
+</ul>
+</li>
+<li><p><strong>How many/ which tests do they all have in common?</strong></p>
+<ul>
+<li><p>The set of tests in each grid appears to be unique and there is not one test that is included in all grids.</p></li>
+<li><p>However, there are about 3k tests identified above that that occur in 10 grids or more.</p></li>
+</ul>
+</li>
+<li><p><strong>Are their time series dates comparable?</strong></p>
+<ul>
+<li><p>We have included the timestamps for the time series, so we know when a test passed/failed and we can compare tests on specific days or time ranges.</p></li>
+<li><p>Each grid contains different dates and lengths of runs, however, so they aren’t all equally sampled points.</p></li>
+</ul>
+</li>
+<li><p><strong>Are there sub-groups that should only be compared with one another?</strong></p>
+<ul>
+<li><p>We removed version identifiers to compare subgroups, but still saw little overall overlap between sets of tests in grids appeared. But further analysis could still be done in this regard.</p></li>
+</ul>
+</li>
+<li><p><strong>Is looking at the grid matrices independent of test names a valid approach for issue identification?</strong></p>
+<ul>
+<li><p>We were able to create a toy example using a 2d convolution and an handcrafted filter to identify diagonal failures in the TestGrids. If the annotated image we have is accurate, then we have shown at least one method to achieve this goal. So I would consider this to indeed be a useful approach.</p></li>
+</ul>
+</li>
+<li><p><strong>What is the expected behavior of a test over time across multiple jobs.</strong></p>
+<ul>
+<li><p>We developed some basic encoding and clustering examples to compare individual tests, aggregated tests and tests of the same type. We should build this analysis out further in a later notebook.</p></li>
+</ul>
+</li>
+<li><p><strong>How does the entire test platform/specific tests perform on a given day?</strong></p>
+<ul>
+<li><p>We were able to develop a number of methods to perform and display this type of analysis. We should build this analysis out further in a later notebook.</p></li>
+</ul>
+</li>
+<li><p><strong>How does a test or the entire test platform behavior evolve over time.</strong></p>
+<ul>
+<li><p>Given the above step, we were able to roll that analysis out across time and plot trends in platform pass rate over September. We should build this analysis out further in a later notebook.</p></li>
+</ul>
+</li>
+<li><p><strong>Is there sufficient data here for useful ML approaches?</strong></p>
+<ul>
+<li><p>Yes, especially if we focus on the level of individual time-series for tests. However, there are currently not clear labels, so much of the initial work would either be unsupervised learning or pure statistical analysis.</p></li>
+<li><p>If we look only at the Red Hat grids, which are themselves a subset of the entire ecosystem.</p>
+<ul>
+<li><p>There are ~400 grids</p></li>
+<li><p>61 days of data for each grid</p></li>
+<li><p>117,000 time series</p></li>
+</ul>
+</li>
+<li><p>Other platforms have also opened their data on <a class="reference external" href="https://testgrid.k8s.io/">Testgrid.io</a> that we could leverage as well.</p></li>
+</ul>
+</li>
+<li><p><strong>Can we develop some meaningful alerting/ problem identification with the results of the above questions?</strong></p>
+<ul>
+<li><p>Yes. Given all of the above, I think there are a number of avenues available for developing altering and classification tools for CI based on this data.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/TestGrid"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="testgrid_EDA.html" title="previous page">TestGrid: initial EDA and data collection</a>
+    <a class='right-next' id="next-link" href="testgrid_metadata_EDA.html" title="next page">TestGrid: exploring in-depth metadata</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

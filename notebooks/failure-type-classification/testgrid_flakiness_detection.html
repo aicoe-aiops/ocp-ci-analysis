@@ -1,0 +1,1647 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flake Detection for TestGrid &#8212; AI Supported Continuous Integration</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Failure type classification" href="failure_type_classifier.html" />
+    <link rel="prev" title="Failure type classification with the TestGrid data" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   AI4CI : AI for Continuous Integration
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-to-merge-prediction/time_to_merge_model.html">
+   Predicting Time to Merge of a Pull Request
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../time-to-merge-prediction/model_inference.html">
+   Time to Merge Prediction Inference Service
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data-sources/TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data-sources/TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Github Repo PR data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/oc-github-repo/github_PR_EDA.html">
+   GitHub Data for OpenShift Origins
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/failure-type-classification/testgrid_flakiness_detection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/failure-type-classification/testgrid_flakiness_detection.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/failure-type-classification/testgrid_flakiness_detection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https://github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/failure-type-classification/testgrid_flakiness_detection.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-flaky-test">
+   What is a flaky test?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-access">
+   Data Access
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flaky-test-detection">
+   Flaky test detection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#naive-flakiness-method">
+   Naive flakiness method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flip-flakiness-method">
+   Flip flakiness method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flip-flakiness-with-optimal-distance">
+   Flip Flakiness with Optimal Distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-of-different-methods">
+   Comparison of different methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comparison-of-custom-test-cases">
+     Comparison of custom test cases
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-of-testgrids">
+   Comparison of TestGrids
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#original-testgrid">
+     Original TestGrid
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naive-flake-method">
+     Naive flake method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flip-flake-method">
+     Flip flake method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flip-flakiness-with-optimal-distance-method">
+     Flip flakiness with optimal distance method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="flake-detection-for-testgrid">
+<h1>Flake Detection for TestGrid<a class="headerlink" href="#flake-detection-for-testgrid" title="Permalink to this headline">¶</a></h1>
+<p>In the continuous integration (CI) project workflow, developers frequently integrate code into a shared repository. Each integration can then be verified by an automated build and tests. Whenever a failure occurs in a test, developers need to manually analyze failures. Failures in the build can be legitimate or due to some other issues like an infrastructure flake, install flake, flaky test, or some other type of failure. SME’s can analyze the TestGrid data manually and determine if failures appear to be legitimate or not. However, it takes a lot of human effort and reduces the productivity of a team. In this notebook we will try to reliably detect one of these failure types: Flaky test.</p>
+<div class="section" id="what-is-a-flaky-test">
+<h2>What is a flaky test?<a class="headerlink" href="#what-is-a-flaky-test" title="Permalink to this headline">¶</a></h2>
+<p>A flaky test is one that passes or fails in a nondeterministic way. <a class="reference external" href="http://mir.cs.illinois.edu/~eloussi2/publications/fse14.pdf">See this paper for more details</a>.</p>
+<p>In data science terms, if a test passes and fails in an apparently random sequence then it is likely to be a flake. Tests can also be considered flaky if they pass and fail in a non-random but inconsistent pattern. Therefore, our goal here is to develop a technique for finding apparently random or inconsistent pass/fail sequences, which we can then apply to the TestGrid dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">colors</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.failure_type_functions</span> <span class="k">import</span> <span class="p">(</span>
+    <span class="n">naive_flake_calc</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">,</span>
+    <span class="n">calc_optimal_flakiness_score</span><span class="p">,</span>
+    <span class="n">flake_annotation</span><span class="p">,</span>
+    <span class="n">decode_run_length</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-access">
+<h2>Data Access<a class="headerlink" href="#data-access" title="Permalink to this headline">¶</a></h2>
+<p><em>In depth details for data access and preprocessing can be found in the <span class="xref myst">testgrid_EDA notebook</span>.</em></p>
+<p>Here we provide two data access methods: download the latest or use example data. If you would like to download the most recent data for a specific grid, then please set <code class="docutils literal notranslate"><span class="pre">download_data</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> on line #2 below and update <code class="docutils literal notranslate"><span class="pre">dashboard_name</span></code> and <code class="docutils literal notranslate"><span class="pre">job_name</span></code> appropriately. Be warned, the output and results will likely change if the most recent data is used instead of the fixed example data.</p>
+<p>Otherwise, we will use the repo’s example dataset <code class="docutils literal notranslate"><span class="pre">data/raw/testgrid_810.json.gz</span></code></p>
+<p>Regardless of the method used, we will be looking at “redhat-openshift-ocp-release-4.6-informing/periodic-ci-openshift-release-master-ocp-4.6-e2e-aws-proxy” as our example throughout.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Do you want to use download data or stored data?</span>
+<span class="n">download_data</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">dashboard_name</span> <span class="o">=</span> <span class="s2">&quot;redhat-openshift-ocp-release-4.6-informing&quot;</span>
+<span class="n">job_name</span> <span class="o">=</span> <span class="s2">&quot;periodic-ci-openshift-release-master-ocp-4.6-e2e-aws-proxy&quot;</span>
+
+<span class="k">if</span> <span class="n">download_data</span><span class="p">:</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;show-stale-tests&quot;</span><span class="p">:</span> <span class="n">job_name</span><span class="p">,</span> <span class="s2">&quot;tab&quot;</span><span class="p">:</span> <span class="n">job_name</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="s2">&quot;https://testgrid.k8s.io/&quot;</span> <span class="o">+</span> <span class="n">dashboard_name</span> <span class="o">+</span> <span class="s2">&quot;/table&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span>
+    <span class="p">)</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;tests&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;linked_bugs&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;messages&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;user_property&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;original-name&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;../../data/raw/testgrid_810.json.gz&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">dashboard_name</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">][</span><span class="n">job_name</span><span class="p">][</span><span class="s2">&quot;grid&quot;</span><span class="p">]</span>
+    <span class="n">details</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">details</span><span class="p">)</span>
+
+<span class="n">details</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>statuses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Overall</td>
+      <td>[{'count': 21, 'value': 12}, {'count': 1, 'val...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 1}, {'count': 1, 'value...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>[sig-api-machinery][Feature:APIServer][Late] k...</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 1, 'valu...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>[sig-auth][Feature:SCC][Early] should not have...</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 1, 'valu...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>[sig-arch] Monitor cluster while tests execute</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 20, 'val...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>[sig-node] pods should never transition back t...</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 18, 'val...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>From the column “statuses” above we can see that the time series data is run length encoded. Let’s add a decoded column so we can get the data in an easier to use array format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the decode_run_length function imported from TestGrid_EDA notebook</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;statuses&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">decode_run_length</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>statuses</th>
+      <th>values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Overall</td>
+      <td>[{'count': 21, 'value': 12}, {'count': 1, 'val...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 1...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 1, 12, 12...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 1, 12, 12...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 1, 12, 12...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 12}, {'count': 1, 'valu...</td>
+      <td>[12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 12, 12...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>operator.Run multi-stage test e2e-aws-proxy - ...</td>
+      <td>[{'count': 9, 'value': 1}, {'count': 1, 'value...</td>
+      <td>[1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>[sig-api-machinery][Feature:APIServer][Late] k...</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 1, 'valu...</td>
+      <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>[sig-auth][Feature:SCC][Early] should not have...</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 1, 'valu...</td>
+      <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>[sig-arch] Monitor cluster while tests execute</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 20, 'val...</td>
+      <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>[sig-node] pods should never transition back t...</td>
+      <td>[{'count': 20, 'value': 0}, {'count': 18, 'val...</td>
+      <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>TestGrids are made of a set of tests that either pass or fail over time. They are multidimensional time series where the values can take either 0 (not run), 1 (pass), 12 (fail), or 13(flaky).</p>
+<p>Now that we have all our data unrolled, lets plot it. We will use green for pass (1), red for fail (12), white for not run (0) and purple for flaky (13). We will also just plot the first 40 rows to save some space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">])</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">boundaries</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))[:</span><span class="mi">40</span><span class="p">],</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+    <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Days&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+    <span class="s2">&quot;Redhat-openshift-ocp-release-4.6-informing/periodic-ci-</span><span class="se">\</span>
+<span class="s2">openshift-release-master-ocp-4.6-e2e-aws-proxy</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_8_0.png" src="../../_images/testgrid_flakiness_detection_8_0.png" />
+</div>
+</div>
+<p>Cells with Purple color in the above graph are the existing flake labels defined by the build process. Currently, each failed test is retried, and if it passes on a subsequent run it is considered to be flaky.</p>
+<p>We can see from the grid above that there is a large chunk of flakes between test 7 and 15, but there is also a fair amount of irregular pass/failure patterns on the grid that are not being flagged. Let’s see if we can create a method to better capture these flakes.</p>
+</div>
+<div class="section" id="flaky-test-detection">
+<h2>Flaky test detection<a class="headerlink" href="#flaky-test-detection" title="Permalink to this headline">¶</a></h2>
+<p>In the following section, we will explore different methods to detect flaky tests.</p>
+</div>
+<div class="section" id="naive-flakiness-method">
+<h2>Naive flakiness method<a class="headerlink" href="#naive-flakiness-method" title="Permalink to this headline">¶</a></h2>
+<p>This method calculates flakiness as a ratio of failed or flaky tests to total tests. The idea being that a score of 50 would mean a 50/50 (random) chance of a pass or fail occurring, indicating a flaky test. The major drawback of this method is that it evaluates the time series as a whole and can’t account for specific pass/fail patterns or sub-sequences. If the first half of a series are all pass and the second half are all fail, we would not consider that to be a flake, despite this method flagging it as such.</p>
+<p>This is all to say, this is our naive baseline we can use to ensure our later methods are performing well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">+</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">11</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Consecutive Failures&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Naive Flake Score {naive_flake_calc(test_array)}&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_12_0.png" src="../../_images/testgrid_flakiness_detection_12_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Naive Flake Score 45.833333333333336
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above cell, we have shown a drawback of the naive flakiness method. As we can see, we have a test array that consist of consecutive test failures, which is not an attribute of a flaky test. However, we got a very high flakiness score.</p>
+</div>
+<div class="section" id="flip-flakiness-method">
+<h2>Flip flakiness method<a class="headerlink" href="#flip-flakiness-method" title="Permalink to this headline">¶</a></h2>
+<p>As we discussed earlier, flaky tests pass and fail across multiple runs over a certain period of time. We can characterize this behavior by using the concept of an <em>edge</em>. Here we will define an edge as the transition of a particular test case from pass to fail (or fail to pass). Let’s look at a couple examples below to illustrate the idea further.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># instantiating figure to be 5&quot;x5&quot;, 100 dpi resolution</span>
+
+
+<span class="n">test_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">+</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">11</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Single edge and multiple fails&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">test_array_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;multiple edges and multiple fails&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_15_0.png" src="../../_images/testgrid_flakiness_detection_15_0.png" />
+</div>
+</div>
+<p>In the images above, we have shown example results for 25  test runs. In the first image we can see there are multiple fails but only a single edge. In the second image, we have fewer fails but many more edges. Therefore, the second test exhibits a more erratic behavior pattern, and one we would associate more with a flaky test.</p>
+<p>We calculated the flakiness score as the number of edges divided by total runs. The most common approach to detect flaky test is to run flaky test multiple times and if it passes in any run then it is not considered to be a flaky test (<a class="reference external" href="http://mir.cs.illinois.edu/~eloussi2/publications/fse14.pdf">please see paper for details</a>). At Google, for example, if a test fails three times in a row, only then is it reported as a real failure; otherwise, it’s considered a flake <a class="reference external" href="https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html">please see blog for details</a>. We will follow suite and also ignore three or more consecutive failures when calculating a flakiness score.</p>
+<p>For the flip flakiness method below the possible scores will lie between 0 and 50; where 0 is no flakiness and 50 is maximum flakiness.</p>
+<p>Below, we have tested our function using some basic test cases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Single edge and multiple fails&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_18_0.png" src="../../_images/testgrid_flakiness_detection_18_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above figure, we can see there is only one edge with more than three consecutive failures. Hence we did not consider the above test as a flaky test. Hence, the total flakiness score using the <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flakiness</span></code> method is 0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;multiple edges and multiple fails&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_1</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_20_0.png" src="../../_images/testgrid_flakiness_detection_20_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  33.33333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above figure, we can see there are multiples edges. Hence, this test exhibits a more flake-like behavior pattern. Therefore, our flakiness score is greater.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">test_array_7</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">11</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;more multiple edges and multiple fails&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_7</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_22_0.png" src="../../_images/testgrid_flakiness_detection_22_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  50.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above figure, we have simulated an extremely flaky test with an inconsistent pass behavior pattern. And as you can see we get a maximum flakiness score of 50.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">test_array_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">24</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;all tests pass&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_2</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_24_0.png" src="../../_images/testgrid_flakiness_detection_24_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above figure, we can see all the test runs passed. And as we would expect, our flakiness score is 0</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">test_array_3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">24</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;all tests fail&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_26_0.png" src="../../_images/testgrid_flakiness_detection_26_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, we can see that there are no edges and consistent failures occurring for each run. We do not consider this pattern to represent a flake, so the flakiness score using the <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flakiness</span></code> method is 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">test_array_4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">7</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;fail or not run tests&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_4</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_28_0.png" src="../../_images/testgrid_flakiness_detection_28_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example we have simulated consistent failures with irregular non-run instances. As we can see, this method has ignored the not run instances in our calculation of flakiness score.</p>
+<p>In addition to the examples above, we have also included the <a class="reference external" href="https://github.com/GoogleCloudPlatform/testgrid/blob/2a016ff75a27fff1550f5e9f5319cf0114182547/pkg/summarizer/analyzers/flipanalyzer_test.go">test cases</a> used by the TestGrid developers below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_array_google_1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Empty list:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Passed&quot;</span> <span class="k">if</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_google_1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Failed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">test_array_google_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;All passing:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Passed&quot;</span> <span class="k">if</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_google_2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Failed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">test_array_google_3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Multiple flakes:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Passed&quot;</span> <span class="k">if</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_google_3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">30</span> <span class="k">else</span> <span class="s2">&quot;Failed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">test_array_google_4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Short run:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Passed&quot;</span> <span class="k">if</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_google_4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">20</span> <span class="k">else</span> <span class="s2">&quot;Failed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">test_array_google_5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Long run:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Passed&quot;</span> <span class="k">if</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_google_5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">40</span> <span class="k">else</span> <span class="s2">&quot;Failed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">test_array_google_6</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Long run interupted by flakes:&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Passed&quot;</span> <span class="k">if</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_google_6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span> <span class="k">else</span> <span class="s2">&quot;Failed&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Empty list: Passed
+All passing: Passed
+Multiple flakes: Passed
+Short run: Passed
+Long run: Passed
+Long run interupted by flakes: Passed
+</pre></div>
+</div>
+</div>
+</div>
+<p>Excellent! All tests passed. From our hand-crafted examples and the tests cases above we can conclude that the flip flakiness method we have used here performs at least on par with the methods implemented by TestGrid.</p>
+<p>One drawback of this method you may have noticed is that it evaluates the entire pass/fail time series for each test, and does not account for possible flaky subset within an otherwise stable test. Let’s extend this method to find flaky regions (subsets) in our test data.</p>
+</div>
+<div class="section" id="flip-flakiness-with-optimal-distance">
+<h2>Flip Flakiness with Optimal Distance<a class="headerlink" href="#flip-flakiness-with-optimal-distance" title="Permalink to this headline">¶</a></h2>
+<p>One of the downsides of finding a single value for each test case is that there might be two different consecutive time periods for which the test case is behaving flaky, or the number of edges is relatively low compared to total runs. This could lead to a low flakiness score, despite the test is still being flaky. Let’s illustrate this statement with an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">test_array_5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">23</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">16</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;two flaky regions&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;flip-flakiness score: &quot;</span><span class="p">,</span>
+    <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_33_0.png" src="../../_images/testgrid_flakiness_detection_33_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>flip-flakiness score:  8.620689655172415
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the above graph, we have two separate time periods for which behavior is flaky, between runs [8,11] and [35,41]. However, our flakiness score is rather low since the total number of runs is high in comparison.</p>
+<p>To overcome this limitation, instead of calculating the flakiness score on the entire run we will calculate the flakiness score between edges to maximize our flakiness score for flaky subsets of the test.</p>
+<p>Specifically, we calculate the flakiness score between the two farthest edges, which have a flakiness score greater than a user defined threshold. Currently, we use a threshold of flakiness score of 30, but this can tuned according to needs of an application.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;two flaky regions&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">modified_test_array</span><span class="p">,</span> <span class="n">flake_dict</span> <span class="o">=</span> <span class="n">calc_optimal_flakiness_score</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip Flakiness with Optimal Distance results: &quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">flake_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot; flake between </span><span class="si">{i}</span><span class="s2"> with score of </span><span class="si">{flake_dict[i]}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_36_0.png" src="../../_images/testgrid_flakiness_detection_36_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Flip Flakiness with Optimal Distance results: 
+ flake between (8, 11) with score of 50.0
+ flake between (35, 41) with score of 42.857142857142854
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the graph above, we have two separate time periods for which behavior is flaky, between runs [8,11] and [35,41]. Using <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> we have a successfully identified these two flaky regions.</p>
+</div>
+<div class="section" id="comparison-of-different-methods">
+<h2>Comparison of different methods<a class="headerlink" href="#comparison-of-different-methods" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have explored 3 different methods for identifying flakes in TestGrid data, lets compare them directly and make sure we move forward with the best method.</p>
+<div class="section" id="comparison-of-custom-test-cases">
+<h3>Comparison of custom test cases<a class="headerlink" href="#comparison-of-custom-test-cases" title="Permalink to this headline">¶</a></h3>
+<p>Below we use our custom test cases to compare performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Single edge and multiple fails&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">naive_score</span> <span class="o">=</span> <span class="n">naive_flake_calc</span><span class="p">(</span><span class="n">test_array</span><span class="p">)</span>
+<span class="n">total_error_naive</span> <span class="o">=</span> <span class="n">flake_annotation</span><span class="p">(</span><span class="n">test_array</span><span class="p">,</span> <span class="n">naive_score</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">flip_score</span> <span class="o">=</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array</span><span class="p">)</span>
+<span class="n">total_error_flip</span> <span class="o">=</span> <span class="n">flake_annotation</span><span class="p">(</span><span class="n">test_array</span><span class="p">,</span> <span class="n">flip_score</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">modified_test_array</span><span class="p">,</span> <span class="n">flake_dict</span> <span class="o">=</span> <span class="n">calc_optimal_flakiness_score</span><span class="p">(</span><span class="n">test_array</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">total_error_optimal_flip</span> <span class="o">=</span> <span class="n">modified_test_array</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Naive Score: &quot;</span><span class="p">,</span>
+    <span class="n">naive_score</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_naive</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip-Flakiness Score: &quot;</span><span class="p">,</span>
+    <span class="n">flip_score</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_flip</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip Flakiness with Optimal Distance score: &quot;</span><span class="p">,</span>
+    <span class="n">flake_dict</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_optimal_flip</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_39_0.png" src="../../_images/testgrid_flakiness_detection_39_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Naive Score:  45.833333333333336  Number of Flaky Tests Detected:  11
+Flip-Flakiness Score:  0.0  Number of Flaky Tests Detected:  0
+Flip Flakiness with Optimal Distance score:  {}  Number of Flaky Tests Detected:  0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given the above example, which we do not consider to be a flake, we can see that both <code class="docutils literal notranslate"><span class="pre">Flip-Flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> and <code class="docutils literal notranslate"><span class="pre">Flip-Flakiness</span></code> performed equally well, whereas the <code class="docutils literal notranslate"><span class="pre">Naive</span></code> method incorrectly flagged this example as flaky.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;all tests fail&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">naive_score</span> <span class="o">=</span> <span class="n">naive_flake_calc</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">)</span>
+<span class="n">total_error_naive</span> <span class="o">=</span> <span class="n">flake_annotation</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">,</span> <span class="n">naive_score</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">flip_score</span> <span class="o">=</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">)</span>
+<span class="n">total_error_flip</span> <span class="o">=</span> <span class="n">flake_annotation</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">,</span> <span class="n">flip_score</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">modified_test_array</span><span class="p">,</span> <span class="n">flake_dict</span> <span class="o">=</span> <span class="n">calc_optimal_flakiness_score</span><span class="p">(</span><span class="n">test_array_3</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">total_error_optimal_flip</span> <span class="o">=</span> <span class="n">modified_test_array</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Naive Score: &quot;</span><span class="p">,</span>
+    <span class="n">naive_score</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_naive</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip-Flakiness Score: &quot;</span><span class="p">,</span>
+    <span class="n">flip_score</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_flip</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip Flakiness with Optimal Distance score: &quot;</span><span class="p">,</span>
+    <span class="n">flake_dict</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_optimal_flip</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_41_0.png" src="../../_images/testgrid_flakiness_detection_41_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Naive Score:  100.0  Number of Flaky Tests Detected:  24
+Flip-Flakiness Score:  0.0  Number of Flaky Tests Detected:  0
+Flip Flakiness with Optimal Distance score:  {}  Number of Flaky Tests Detected:  0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, we do not consider the above  example to be a flake as it shows consistent failing behavior. And as expected, both <code class="docutils literal notranslate"><span class="pre">Flip-Flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> and <code class="docutils literal notranslate"><span class="pre">Flip-Flakiness</span></code> performed equally well again, whereas the <code class="docutils literal notranslate"><span class="pre">Naive</span></code> method incorrectly flagged this example as flaky.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">test_array_5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;two flaky regions&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">naive_score</span> <span class="o">=</span> <span class="n">naive_flake_calc</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">)</span>
+<span class="n">total_error_naive</span> <span class="o">=</span> <span class="n">flake_annotation</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">,</span> <span class="n">naive_score</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">flip_score</span> <span class="o">=</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">)</span>
+<span class="n">total_error_flip</span> <span class="o">=</span> <span class="n">flake_annotation</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">,</span> <span class="n">flip_score</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">modified_test_array</span><span class="p">,</span> <span class="n">flake_dict</span> <span class="o">=</span> <span class="n">calc_optimal_flakiness_score</span><span class="p">(</span><span class="n">test_array_5</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">total_error_optimal_flip</span> <span class="o">=</span> <span class="n">modified_test_array</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Naive Score: &quot;</span><span class="p">,</span>
+    <span class="n">naive_score</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_naive</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip-Flakiness Score: &quot;</span><span class="p">,</span>
+    <span class="n">flip_score</span><span class="p">,</span>
+    <span class="s2">&quot; Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_flip</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Flip Flakiness with Optimal Distance score: &quot;</span><span class="p">,</span>
+    <span class="n">flake_dict</span><span class="p">,</span>
+    <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">Number of Flaky Tests Detected: &quot;</span><span class="p">,</span>
+    <span class="n">total_error_optimal_flip</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_43_0.png" src="../../_images/testgrid_flakiness_detection_43_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Naive Score:  8.620689655172415  Number of Flaky Tests Detected:  0
+Flip-Flakiness Score:  8.620689655172415  Number of Flaky Tests Detected:  0
+Flip Flakiness with Optimal Distance score:  {(8, 11): 50.0, (35, 41): 42.857142857142854} 
+	Number of Flaky Tests Detected:  5
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the above example, we have two separate time periods for which behavior is flaky, between runs [8,7] and [31,37]. However, our flakiness score using <code class="docutils literal notranslate"><span class="pre">flip-flakiness</span></code> and <code class="docutils literal notranslate"><span class="pre">naive</span> <span class="pre">flakiness</span></code> method is rather low since the total number of runs is high compared to the number of edges and both methods performed poorly at detecting flaky tests.</p>
+<p>However, <code class="docutils literal notranslate"><span class="pre">Flip</span> <span class="pre">Flakiness</span> <span class="pre">with</span> <span class="pre">Optimal</span> <span class="pre">Distance</span></code> method is able to  correctly detect the flaky test regions.</p>
+<p>Given the results of the above tests, it is safe to conclude that <code class="docutils literal notranslate"><span class="pre">Flip</span> <span class="pre">Flakiness</span> <span class="pre">with</span> <span class="pre">Optimal</span> <span class="pre">Distance</span></code> is the best method to identify flakes moving forward. However, that is only based on these handcrafted test examples. Now lets look at some read testgrid data and see how each method performs.</p>
+</div>
+</div>
+<div class="section" id="comparison-of-testgrids">
+<h2>Comparison of TestGrids<a class="headerlink" href="#comparison-of-testgrids" title="Permalink to this headline">¶</a></h2>
+<p>We will now apply each method to real testgrid data and see how well each performs.</p>
+<div class="section" id="original-testgrid">
+<h3>Original TestGrid<a class="headerlink" href="#original-testgrid" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">])</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">boundaries</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)),</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+    <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Days&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;raw data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_47_0.png" src="../../_images/testgrid_flakiness_detection_47_0.png" />
+</div>
+</div>
+<p>Cells with Purple color in the above graph are the existing flake labels for individual test runs provided by the underlying CI system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_existing_flake_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="mi">13</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;total number of flakes labeled by the ci system&#39;s algorithm:&quot;</span><span class="p">,</span>
+    <span class="n">total_existing_flake_label</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total number of flakes labeled by the ci system&#39;s algorithm: 207
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="naive-flake-method">
+<h3>Naive flake method<a class="headerlink" href="#naive-flake-method" title="Permalink to this headline">¶</a></h3>
+<p>Below we are annotating a testgrid using the naive flake detection method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flake_score_threshold</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="c1"># calculate the flakiness score by naive method for each test in our dataset.</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;naive_flakiness_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">naive_flake_calc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;naive_flakiness&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">flake_annotation</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;naive_flakiness_score&quot;</span><span class="p">],</span> <span class="n">flake_score_threshold</span>
+    <span class="p">),</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">])</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">boundaries</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;naive_flakiness&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)),</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+    <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Days&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Naive Method</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_52_0.png" src="../../_images/testgrid_flakiness_detection_52_0.png" />
+</div>
+</div>
+<p>Cells with Purple color in the above graph are the labels given by the naive flake algorithm. We can see the <code class="docutils literal notranslate"><span class="pre">naive</span> <span class="pre">flake</span> <span class="pre">algorithm</span></code> is unable to detect many flaky tests such as test number 19, 22, 23, 24, 25, 34, 35, 37. Also, for tests 1, 3 from the time-stamp 0 to 18 consistent failures are occurring, which is not a flake behavior but this method still incorrectly identifies them as flaky.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_naive_flake_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;naive_flakiness&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="mi">13</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Number of flake labels given by the naive flakiness method: &quot;</span><span class="p">,</span>
+    <span class="n">total_naive_flake_label</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Total flaky tests detected by the `naive flakiness method` is&quot;</span><span class="p">,</span>
+    <span class="nb">round</span><span class="p">(</span><span class="n">total_naive_flake_label</span> <span class="o">/</span> <span class="n">total_existing_flake_label</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;times </span><span class="se">\n</span><span class="s2">the total flaky test detected by the existing testgrid method &quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of flake labels given by the naive flakiness method:  332
+Total flaky tests detected by the `naive flakiness method` is 1.6 times 
+the total flaky test detected by the existing testgrid method 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="flip-flake-method">
+<h3>Flip flake method<a class="headerlink" href="#flip-flake-method" title="Permalink to this headline">¶</a></h3>
+<p>Below we are annotating testgrid using the flip flake detection method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flake_score_threshold</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="c1">## calculate the flakiness score by flip method for each test in our dataset.</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">calc_flakiness_score</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">flake_annotation</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;flip_flakiness_score&quot;</span><span class="p">],</span> <span class="n">flake_score_threshold</span>
+    <span class="p">),</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">])</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">boundaries</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)),</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+    <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Days&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Flip Flakiness</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_57_0.png" src="../../_images/testgrid_flakiness_detection_57_0.png" />
+</div>
+</div>
+<p>Cells with Purple color in the above graph are the labels given by the <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flake</span> <span class="pre">algorithm</span></code>. Though it performed better than <code class="docutils literal notranslate"><span class="pre">naive</span> <span class="pre">flake</span> <span class="pre">algorithm</span></code>, but it was still unable to detect flaky behaviors for test number 23 and 24 due to a low occurrence of failures in those tests. Also, for tests 1,2,3,4 from the time-stamp 0 to 18 and for test 17 for time-stamp 74 to 96 consistent failures are occurring, which not a behavior of flaky test but still incorrectly detected as flaky.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_flip_flake_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="mi">13</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Number of flake labels given by the `flip flakiness` method:&quot;</span><span class="p">,</span>
+    <span class="n">total_flip_flake_label</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Total flaky test detected by the `flip flake` method is&quot;</span><span class="p">,</span>
+    <span class="nb">round</span><span class="p">(</span><span class="n">total_flip_flake_label</span> <span class="o">/</span> <span class="n">total_existing_flake_label</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;times </span><span class="se">\n</span><span class="s2">the total flaky tests detected by the existing testgrid method &quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of flake labels given by the `flip flakiness` method: 333
+Total flaky test detected by the `flip flake` method is 1.61 times 
+the total flaky tests detected by the existing testgrid method 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="flip-flakiness-with-optimal-distance-method">
+<h3>Flip flakiness with optimal distance method<a class="headerlink" href="#flip-flakiness-with-optimal-distance-method" title="Permalink to this headline">¶</a></h3>
+<p>Below we are annotating testgrid using the <code class="docutils literal notranslate"><span class="pre">Flip</span> <span class="pre">flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> method</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness_optimal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">calc_optimal_flakiness_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">])</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">boundaries</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness_optimal&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)),</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+    <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">linecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tests&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Days&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Flip Flakiness with Optimal Distance</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/testgrid_flakiness_detection_62_0.png" src="../../_images/testgrid_flakiness_detection_62_0.png" />
+</div>
+</div>
+<p>Cells with purple color in the above graph are the labels given by the <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flake</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span> <span class="pre">algorithm</span></code>.</p>
+<p>In the above figure, we can see that <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> method is able to detect the flaky behavior in test number 4, 19, 22, 23, 24, 25, 34, 35, 37, which <code class="docutils literal notranslate"><span class="pre">naive</span> <span class="pre">flake</span> <span class="pre">algorithm</span></code> were failed to detect and test 4 and 23  which <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flake</span> <span class="pre">algorithm</span></code> was failed to detect. Also, it correctly classified flaky tests for test cases 1, 3, 17.</p>
+<p>Given the above, its safe to conclude that <code class="docutils literal notranslate"><span class="pre">Flip</span> <span class="pre">flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> works better than <code class="docutils literal notranslate"><span class="pre">naive</span> <span class="pre">flakiness</span></code> and <code class="docutils literal notranslate"><span class="pre">flip</span> <span class="pre">flakiness</span></code> methods on both are example and real world data sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_flip_flake__optimal_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;flip_flakiness_optimal&quot;</span><span class="p">][:</span><span class="mi">40</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">==</span> <span class="mi">13</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Number of flake labels given by the `flip flake optimal distance` method:&quot;</span><span class="p">,</span>
+    <span class="n">total_flip_flake__optimal_label</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Total flaky test detected by the `flip flake optimal distance method` is&quot;</span><span class="p">,</span>
+    <span class="nb">round</span><span class="p">(</span><span class="n">total_flip_flake__optimal_label</span> <span class="o">/</span> <span class="n">total_existing_flake_label</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;times </span><span class="se">\n</span><span class="s2">the total flaky tests detected by the existing testgrid method &quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of flake labels given by the `flip flake optimal distance` method: 424
+Total flaky test detected by the `flip flake optimal distance method` is 2.05 times 
+the total flaky tests detected by the existing testgrid method 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p><strong>TLDR: Flip Flakiness with Optimal Distance is best!</strong></p>
+<p>In this notebook, we explored 3 different methods for automatically identifying flaky tests.</p>
+<ol class="simple">
+<li><p><strong>Naive Flakiness</strong>: This was our baseline method to compare the performance of the other two methods. This method simply calculates flakiness as a ratio of failed tests over total tests. As we expected, this method performed the worst and should not be used in the future for flake identification.</p></li>
+<li><p><strong>Flip Flakiness</strong>: This method relied on counting the number of edges (flips from pass to fail) for a test. Although it performed much better than the naive method, it fell short for longer test examples with flaky regions in an otherwise stable time-series. Moving forward, this method should not be used either.</p></li>
+<li><p><strong>Flip Flakiness with Optimal Distance</strong>: This method extended the flip flakiness method by identifying irregular subsets within a test. This was the best performing method explored in this notebook and should be carried forward into the <a class="reference external" href="https://github.com/aicoe-aiops/ocp-ci-analysis/blob/master/notebooks/failure-type-classification/README.md">failure type classification</a> tool and serve as the new baseline.</p></li>
+</ol>
+</div>
+<div class="section" id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The current upstream <a class="reference external" href="https://github.com/GoogleCloudPlatform/testgrid">testgrid repo</a> uses both <code class="docutils literal notranslate"><span class="pre">Naive</span> <span class="pre">flakiness</span></code> and <code class="docutils literal notranslate"><span class="pre">Flip</span> <span class="pre">flakiness</span></code>  methods for detecting flakes. We should open an issue and suggest including <code class="docutils literal notranslate"><span class="pre">Flip</span> <span class="pre">flakiness</span> <span class="pre">with</span> <span class="pre">optimal</span> <span class="pre">distance</span></code> into their workflow to further improve flake identification.</p></li>
+<li><p>One limitation of the work in this notebook is that we only used the results of previous runs as our data to detect flaky tests. This is not the only data available to us. Next, we can try incorporating additional metadata (like git revisions or linked bugzillas) to improve upon our existing flake identification methods. See <a class="reference external" href="https://medium.com/fitbit-tech-blog/a-machine-learning-solution-for-detecting-and-mitigating-flaky-tests-c5626ca7e853">this article</a> for possible avenues of future development.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/failure-type-classification"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">Failure type classification with the TestGrid data</a>
+    <a class='right-next' id="next-link" href="failure_type_classifier.html" title="next page">Failure type classification</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By AIOps<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
