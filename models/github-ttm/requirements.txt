@@ -1,0 +1,10 @@
+git+git://github.com/aicoe-aiops/ocp-ci-analysis.git@master#egg=src
+boto3
+pyyaml
+requests
+beautifulsoup4
+numpy
+pandas
+joblib
+scikit-learn
+seldon-core
