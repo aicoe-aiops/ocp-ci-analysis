@@ -15,7 +15,7 @@ The applications and CI/CD tools we currently collect data from are as follows:
 
 ## Interact with Dashboards
 
-As a part of AI4CI, we collect the relevant metrics and key performance indicators (KPIs) from various CI/CD data sources and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.apps.devconfus2021.aws.operate-first.cloud/superset/dashboard/ocp-ci-kpi-dashboard/).
+As a part of AI4CI, we collect the relevant metrics and key performance indicators (KPIs) from various CI/CD data sources and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.operate-first.cloud/superset/dashboard/ai4ci/).
 
 ## Interact with Model Endpoints
 
