@@ -22,4 +22,4 @@ You can find links to various notebooks and videos describing analyses done on P
 
 ## Interact with Dashboards
 
-As a part of AI4CI, we collect and store data from TestGrid and calculate relevant metrics and key performance indicators (KPIs) and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.apps.devconfus2021.aws.operate-first.cloud/superset/dashboard/ocp-ci-kpi-dashboard/).
+As a part of AI4CI, we collect and store data from TestGrid and calculate relevant metrics and key performance indicators (KPIs) and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.operate-first.cloud/superset/dashboard/ai4ci//).
