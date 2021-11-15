@@ -33,8 +33,8 @@
             "ui_data": {
               "label": "get_raw_data.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 56.99999237060547,
-              "y_pos": 304.00001525878906,
+              "x_pos": 51.99999237060547,
+              "y_pos": 331.00001525878906,
               "description": "Notebook file"
             }
           },
@@ -218,7 +218,7 @@
             "ui_data": {
               "label": "build_pass_failure.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
-              "x_pos": 514,
+              "x_pos": 513,
               "y_pos": 501,
               "description": "Notebook file"
             }
@@ -539,7 +539,7 @@
               "label": "time_to_test.ipynb",
               "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
               "x_pos": 511,
-              "y_pos": 73.99998474121094,
+              "y_pos": 74.99998474121094,
               "description": "Notebook file"
             }
           },
@@ -623,6 +623,124 @@
                 {
                   "id": "a7c8d1f9-014c-4c64-94d6-4870431ac6fa",
                   "node_id_ref": "7228b5b9-2a78-4988-9dbd-4d48982b2931",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "973d202b-9ac0-4600-a2c8-785f01617d99",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "filename": "../create_trino_tables.ipynb",
+            "runtime_image": null,
+            "env_vars": [
+              "S3_ENDPOINT=http://ocs-storagecluster-cephobjectstore-openshift-storage.apps.rick.emea.operate-first.cloud/",
+              "S3_ACCESS_KEY=",
+              "S3_SECRET_KEY=",
+              "S3_BUCKET=opf-datacatalog-zero-backup",
+              "IN_AUTOMATION=True",
+              "TRINO_USER=",
+              "TRINO_HOST=trino.operate-first.cloud",
+              "TRINO_PORT=443",
+              "TRINO_PASSWD="
+            ],
+            "include_subdirectories": false,
+            "outputs": [],
+            "dependencies": [],
+            "cpu": 1,
+            "memory": 16,
+            "invalidNodeError": "no runtime image",
+            "ui_data": {
+              "label": "create_trino_tables.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 953,
+              "y_pos": 318,
+              "description": "Notebook file",
+              "decorations": [
+                {
+                  "id": "error",
+                  "image": "data:image/svg+xml;utf8,%3Csvg%20focusable%3D%22false%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23d32f2f%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%20aria-hidden%3D%22true%22%3E%0A%20%20%3Ccircle%20cx%3D%2216%22%20cy%3D%2216%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%20%20%3Ctitle%3EError%3C%2Ftitle%3E%0A%3C%2Fsvg%3E%0A",
+                  "outline": false,
+                  "position": "topLeft",
+                  "x_pos": 20,
+                  "y_pos": 3
+                }
+              ]
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "c2fa49e5-5e33-4e4e-9cf9-aae072b71de3",
+                  "node_id_ref": "77d4815e-03a3-44f3-83d9-be53917de928",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "53a683a2-88ee-4310-b5fb-19baf5089d06",
+                  "node_id_ref": "28ddfcb7-cbfd-4756-b222-92223a7208be",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "a5ab18a2-55c3-46b2-b7ba-ed40093f9a2d",
+                  "node_id_ref": "00ef6c31-35bf-4906-8371-c63495aa15b6",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "d3b43968-a318-42a7-b078-eed0db97ce84",
+                  "node_id_ref": "bc90e9be-a169-49eb-88c4-74ae2f89148a",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "1a6ce06d-12c5-4ac1-be14-2fdd4a9afb90",
+                  "node_id_ref": "966277bf-d8cc-44b8-ba88-b792f3601fe0",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "f8225ceb-616b-44b6-ba7f-1cdbb08dc658",
+                  "node_id_ref": "d8855ba0-32f1-4749-a70b-7753177f8370",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "a03c1366-1163-48be-88bf-a1936ced5980",
+                  "node_id_ref": "179489fb-bee4-464b-a314-40a4625faf53",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "704a4b8a-53ec-413b-a4fb-0885e108a14d",
+                  "node_id_ref": "84dbc213-d3fa-4a1b-9a68-9da88e01c4a3",
+                  "port_id_ref": "outPort"
+                },
+                {
+                  "id": "5d75b5e2-52aa-4dd4-aa2c-8cc985afcddd",
+                  "node_id_ref": "0d218ff8-d4bc-44b9-91a7-751e21aeef54",
                   "port_id_ref": "outPort"
                 }
               ]
