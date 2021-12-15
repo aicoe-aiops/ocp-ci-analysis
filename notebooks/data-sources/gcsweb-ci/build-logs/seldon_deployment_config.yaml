@@ -8,7 +8,7 @@ spec:
   - graph:
       children: []
       implementation: SKLEARN_SERVER
-      modelUri: s3://opf-datacatalog/build-log-clustering/tfidf-kmeans
+      modelUri: s3://opf-datacatalog-zero-backup/ai4ci/build-log-clustering/tfidf-kmeans
       envSecretRefName: seldon-init-container-secret
       name: classifier
       parameters:
