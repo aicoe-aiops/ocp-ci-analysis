@@ -1,15 +1,51 @@
 apiVersion: machinelearning.seldon.io/v1alpha2
 kind: SeldonDeployment
 metadata:
-  name: ttm-sklearn-pipeline
+  name: github-pr-ttm-seldon-deployment
 spec:
-  name: ttm-model-pipeline
+  name: github-pr-ttm-deployment
   predictors:
-  - graph:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: quay.io/kachau/github-pr-ttm-seldon:latest
+          name: github-pr-ttm-custom-classifier
+          imagePullPolicy: Always
+          env:
+          - name: GUNICORN_WORKERS
+            value: '1'
+          - name: GUNICORN_THREADS
+            value: '2'
+          - name: S3_ENDPOINT
+            valueFrom:
+              secretKeyRef:
+                key: S3_ENDPOINT
+                name: github-pr-ttm-secret
+          - name: S3_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_ACCESS_KEY
+                name: github-pr-ttm-secret
+          - name: S3_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_SECRET_KEY
+                name: github-pr-ttm-secret
+          - name: S3_BUCKET
+            valueFrom:
+              secretKeyRef:
+                key: S3_BUCKET
+                name: github-pr-ttm-secret
+          - name: S3_MODEL_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_MODEL_KEY
+                name: github-pr-ttm-secret
+    graph:
       children: []
-      implementation: SKLEARN_SERVER
-      modelUri: s3://opf-datacatalog/github/ttm-model/pipeline
-      envSecretRefName: seldon-init-container-secret
-      name: classifier
-    name: default
+      endpoint:
+        type: REST
+      name: github-pr-ttm-custom-classifier
+      type: MODEL
+    name: github-pr-ttm-custom-predictor
     replicas: 1
