@@ -1,15 +1,15 @@
 apiVersion: machinelearning.seldon.io/v1alpha2
 kind: SeldonDeployment
 metadata:
-  name: github-pr-ttm-seldon-deployment
+  name: github-pr-ttm-seldon
 spec:
-  name: github-pr-ttm-deployment
+  name: github-pr-ttm
   predictors:
   - componentSpecs:
     - spec:
         containers:
-        - image: quay.io/kachau/github-pr-ttm-seldon:latest
-          name: github-pr-ttm-custom-classifier
+        - image: quay.io/aicoe/github-pr-ttm:latest
+          name: github-pr-ttm-clf
           imagePullPolicy: Always
           env:
           - name: GUNICORN_WORKERS
@@ -45,7 +45,7 @@ spec:
       children: []
       endpoint:
         type: REST
-      name: github-pr-ttm-custom-classifier
+      name: github-pr-ttm-clf
       type: MODEL
-    name: github-pr-ttm-custom-predictor
+    name: github-pr-ttm-predictor
     replicas: 1

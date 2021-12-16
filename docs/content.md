@@ -81,7 +81,7 @@ To quantify critical metrics within a software development workflow, we can star
 We would like to create a GitHub bot that ingests information from a PR, including the written description, author, number of files, etc, in addition to the diff, and returns a prediction for how long it will take to be merged. For that, we train a model which can predict the time taken to merge a PR and classifies it into one of a few predefined time ranges.
 
 * [Detailed project description](../notebooks/time-to-merge-prediction/README.md)
-* Interactive model endpoint: http://ttm-pipeline-opf-seldon.apps.zero.massopen.cloud/predict
+* Interactive model endpoint: http://github-pr-ttm-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict
 * [Model Inference Notebook](../notebooks/time-to-merge-prediction/model_inference.ipynb)
 * [Time to Merge Model Training Notebook](../notebooks/time-to-merge-prediction/time_to_merge_model.ipynb)
 * [Deployment Configuration for Seldon Service](../notebooks/time-to-merge-prediction/seldon-deployment-config.yaml)
