@@ -1,0 +1,12 @@
+git+https://github.com/aakankshaduggal/ocp-ci-analysis.git@osp-model#egg=src
+boto3
+pyyaml
+requests
+beautifulsoup4
+numpy
+scipy<1.6.1
+pandas
+joblib
+scikit-learn
+intersect
+seldon-core

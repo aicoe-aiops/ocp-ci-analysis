@@ -9,6 +9,7 @@ from collections import Counter
 import pandas as pd
 
 from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.preprocessing import StandardScaler
 
 
 # determine if PR made changes in some specific directories in repo
@@ -355,3 +356,26 @@ class TitleWordCountTransformer(BaseEstimator, TransformerMixin):
                 lambda x: x.split().count(word)
             )
         return wordcount_df
+
+
+def standardize(df, column, pct, pct_lower):
+    """
+    Standardize input for Optimal Stopping Point Prediction.
+
+    Function to standardize the features by removing the mean
+    and scaling to unit variance using StandardScaler library.
+
+    Returns standandardized feature, length of the feature
+    and the original feature.
+    """
+    sc = StandardScaler()
+    y = df[column][df[column].notnull()].to_list()
+    y.sort()
+    len_y = len(y)
+    y = y[int(pct_lower * len_y) : int(len_y * pct)]
+    len_y = len(y)
+    yy = [[x] for x in y]
+    sc.fit(yy)
+    y_std = sc.transform(yy)
+    y_std = y_std.flatten()
+    return y_std, len_y, y

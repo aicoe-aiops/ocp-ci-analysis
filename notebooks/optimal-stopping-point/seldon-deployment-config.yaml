@@ -1,0 +1,64 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: osp-seldon
+spec:
+  name: osp
+  annotations:
+    seldon.io/rest-timeout: "1000000"
+    seldon.io/grpc-timeout: "1000000"
+  predictors:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: quay.io/aicoe/optimal-stopping-point:latest
+          name: osp-clf
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 250Mi
+            limits:
+              cpu: 500m
+              memory: 4Gi
+          env:
+          - name: GUNICORN_WORKERS
+            value: '1'
+          - name: GUNICORN_THREADS
+            value: '2'
+          - name: S3_ENDPOINT
+            valueFrom:
+              secretKeyRef:
+                key: S3_ENDPOINT
+                name: github-pr-ttm-secret
+          - name: S3_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_ACCESS_KEY
+                name: github-pr-ttm-secret
+          - name: S3_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_SECRET_KEY
+                name: github-pr-ttm-secret
+          - name: S3_BUCKET
+            valueFrom:
+              secretKeyRef:
+                key: S3_BUCKET
+                name: github-pr-ttm-secret
+    svcOrchSpec:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 250Mi
+        limits:
+          cpu: 500m
+          memory: 500Mi
+    graph:
+      children: []
+      endpoint:
+        type: REST
+      name: osp-clf
+      type: MODEL
+    name: osp-pred
+    replicas: 1
