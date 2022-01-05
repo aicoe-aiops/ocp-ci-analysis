@@ -11,6 +11,13 @@ spec:
         - image: quay.io/aicoe/github-pr-ttm:latest
           name: github-pr-ttm-clf
           imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 250Mi
+            limits:
+              cpu: 500m
+              memory: 1000Mi
           env:
           - name: GUNICORN_WORKERS
             value: '1'
@@ -41,6 +48,14 @@ spec:
               secretKeyRef:
                 key: S3_MODEL_KEY
                 name: github-pr-ttm-secret
+    svcOrchSpec:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 250Mi
+        limits:
+          cpu: 500m
+          memory: 500Mi
     graph:
       children: []
       endpoint:
