@@ -7,8 +7,9 @@
   * [Bugzilla](#bugzilla)
   * [Telemetry](#telemetry)
 - [Machine Learning and Analytics Projects](#machine-learning-and-analytics-projects)
+  * [Github Time to Merge Prediction](#github-time-to-merge-prediction)
   * [TestGrid Failure Type Classification](#testgrid-failure-type-classification)
-  * [Prow Log Templating For Downstream ML Tasks](#prow-log-templating-for-downstream-ml-tasks)
+  * [Prow Log Classification](#prow-log-classification)
   * [More Projects Coming Soon…](#more-projects-coming-soon)
 - [Automate Notebook Pipelines using Elyra and Kubeflow](#automate-notebook-pipelines-using-elyra-and-kubeflow)
 
