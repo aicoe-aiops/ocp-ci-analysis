@@ -5,7 +5,26 @@ metadata:
 spec:
   name: build-log-clustering-model
   predictors:
-  - graph:
+  - componentSpecs:
+    - spec:
+        containers:
+          - name: classifier
+            resources:
+              requests:
+                cpu: 100m
+                memory: 250Mi
+              limits:
+                cpu: 500m
+                memory: 1000Mi
+    svcOrchSpec:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 250Mi
+        limits:
+          cpu: 500m
+          memory: 500Mi
+    graph:
       children: []
       implementation: SKLEARN_SERVER
       modelUri: s3://opf-datacatalog-zero-backup/ai4ci/build-log-clustering/tfidf-kmeans
