@@ -20,7 +20,10 @@ You can find more information on the various notebooks and their purpose [here](
 If you need more help navigating the Operate First environment, we have a few [short videos](https://www.youtube.com/playlist?list=PL8VBRDTElCWpneB4dBu4u1kHElZVWfAwW) to help you get started.
 
 ## Interact with Dashboards
-As a part of AI4CI, we collect the relevant metrics and key performance indicators (KPIs) and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.operate-first.cloud/superset/dashboard/ai4ci/).
+
+* As a part of AI4CI, we collect the relevant metrics and key performance indicators (KPIs) and visualize them using dashboards. You can view and interact with the publicly available dashboard [here](https://superset.operate-first.cloud/superset/dashboard/ai4ci/).
+* To gain greater visibility into software development process, we visualize statistics, KPIs, metrics such as contributors over time, merge statistics over time, etc. obtained from Github repos on a [dashboard](https://superset.operate-first.cloud/superset/dashboard/9/)
+
 
 ## Interact with Model Endpoints
 

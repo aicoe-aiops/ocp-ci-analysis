@@ -41,7 +41,7 @@ According to the project's [readme](https://github.com/GoogleCloudPlatform/testg
     * [Metric Visualization Video](https://youtu.be/SqGfbyEuZLE)
 * **Automate Workflows**
     * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
-    * [How to  video](https://www.youtube.com/watch?v=lY75bDv6kd4)
+    * [How to video](https://www.youtube.com/watch?v=lY75bDv6kd4)
 
 ## Prow/GCS Artifacts:
 
@@ -55,6 +55,7 @@ TestGrid provides the results of tests, but if we want to triage an issue and se
 The builds and tests run by the CI process are required because of changes that are happening in the applications code base. The goal of CI is to automatically identify if any of these code changes will cause problems for the deployed application. Therefore, we also include information such as metadata and diff’s about the PR’s associated with the builds run by Prow. This dataset contains a mix of numerical, categorical and textual data types.
 
 * [GitHub PR EDA](../notebooks/data-sources/oc-github-repo/github_PR_EDA.ipynb)
+* [Dashboard](https://superset.operate-first.cloud/superset/dashboard/9/)
 * [Video Walkthrough](https://youtu.be/bUm0jvXaY14)
 
 ## Bugzilla:
@@ -104,7 +105,7 @@ We start by applying a clustering algorithm to job runs based on the term freque
 
 ## More Projects Coming Soon…
 
-*   [List of potential ML projects](https://github.com/aicoe-aiops/ocp-ci-analysis/issues?q=is%3Aissue+is%3Aopen+%22ML+Request%22+).
+*  [List of potential ML projects](https://github.com/aicoe-aiops/ocp-ci-analysis/issues?q=is%3Aissue+is%3Aopen+%22ML+Request%22+).
 
 # Automate Notebook Pipelines using Elyra and Kubeflow
 
