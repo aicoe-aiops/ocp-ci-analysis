@@ -3,7 +3,7 @@ tls_verify: false
 requirements_format: pipenv
 
 runtime_environments:
-  - name: rhel:8
+  - name: rhel-8
     operating_system:
       name: rhel
       version: "8"
