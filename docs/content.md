@@ -10,6 +10,7 @@
   * [Github Time to Merge Prediction](#github-time-to-merge-prediction)
   * [TestGrid Failure Type Classification](#testgrid-failure-type-classification)
   * [Prow Log Classification](#prow-log-classification)
+  * [Optimal Stopping Point Prediction](#optimal-stopping-point-prediction)
   * [More Projects Coming Soon…](#more-projects-coming-soon)
 - [Automate Notebook Pipelines using Elyra and Kubeflow](#automate-notebook-pipelines-using-elyra-and-kubeflow)
 
@@ -102,6 +103,19 @@ Logs represent a rich source of information for automated triaging and root caus
 We start by applying a clustering algorithm to job runs based on the term frequency within their build logs to group  job runs according to their type of failure.
 
 * [Build Log Classification Notebook](../notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb)
+
+## Optimal Stopping Point Prediction
+
+Every new Pull Request to a repository with new code changes is subjected to an automated set of builds and tests before being merged. Some tests may run for longer durations for various reasons such as unoptimized algorithms, slow networks, or the simple fact that many different independent services are part of a single test. Longer running tests are often painful as they can block the CI/CD process for longer periods of time. By predicting the optimal stopping point for the test, we can better allocate development resources.
+
+[TestGrid](https://testgrid.k8s.io/) is a platform that is used to aggregate and visually represent the results of all these automated tests. Based on test and build time duration data available on testgrid, we can predict and suggest a stopping point, beyond which a given test is likely to result in a failure.
+
+* [Detailed project description](../notebooks/optimal-stopping-point/README.md)
+* Interactive model endpoint: http://optimal-stopping-point-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict
+* [Model Inference Notebook](../notebooks/optimal-stopping-point/model_inference.ipynb)
+* [Optimal Stopping Model Training Notebook](../notebooks/optimal-stopping-point/osp_model.ipynb)
+* [Deployment Configuration for Seldon Service](../notebooks/optimal-stopping-point/seldon-deployment-config.yaml)
+
 
 ## More Projects Coming Soon…
 
