@@ -1,12 +1,12 @@
 ---
 repos:
   - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.1.11
+    rev: v1.1.13
     hooks:
       - id: remove-tabs
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: trailing-whitespace
       - id: check-merge-conflict
@@ -27,7 +27,7 @@ repos:
       - id: pydocstyle
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: check-toml
       - id: check-yaml
@@ -42,7 +42,7 @@ repos:
         args: [--ignore-missing-imports]
 
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 22.3.0
     hooks:
       - id: black
 
@@ -58,9 +58,9 @@ repos:
   #     - id: check-manifest
 
   - repo: https://github.com/s-weigand/flake8-nb
-    rev: v0.3.1
+    rev: v0.4.0
     hooks:
       - id: flake8-nb
-        additional_dependencies: ['pep8-naming']
+        additional_dependencies: ['pep8-naming', 'packaging']
         # Ignore all format-related checks as Black takes care of those.
         args: ['--ignore', 'E2,W5', '--select', 'E,W,F,N', '--max-line-length=120', '--builtins=display']
