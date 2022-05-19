@@ -1,5 +1,6 @@
 # Table of Contents
 - [Research on current industry offerings](#research-on-current-industry-offerings)
+- [Architecture Diagram](#architecture-diagram)
 - [Data Engineering: Metrics and KPIs for CI](#data-engineering-metrics-and-kpis-for-ci)
   * [TestGrid](#testgrid)
   * [Prow/GCS Artifacts](#prowgcs-artifacts)
@@ -17,6 +18,10 @@
 # Research on current industry offerings
 
 Find a curated list of companies involved in AI/ML for CI/CD [here](aiml-cicd-market-research.md).
+
+# Architecture Diagram
+
+![Architecture Diagram](./assets/images/architecture_diagram.png)
 
 #  Data Engineering: Metrics and KPIs for CI
 
