@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1f476d49bcdbe2810f07a70bef0cd2e632f52dd283cc49467b9f3f735a4f3528"
+            "sha256": "e2fad60ddfc1a1638c202a8b8094e0292d4d334d612cf850674a8030481044f9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1560,10 +1560,6 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2.3.2"
-        },
-        "src": {
-            "path": ".",
-            "version": "==0.1.0"
         },
         "tangled-up-in-unicode": {
             "hashes": [

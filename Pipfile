@@ -32,7 +32,6 @@ trino = "*"
 scipy = "<1.6.1"
 intersect = "*"
 xgboost = "*"
-src = {path="."}
 
 [requires]
 python_version = "3.8"
