@@ -1,4 +1,39 @@
 
+## Release 0.3.0 (2022-05-25T20:04:18)
+* b572b7b Add architecture diagram
+* f65ce8b Adding github data extraction notebook
+* d23d2fb update pre-commit
+* f5ff84b :ship: Bump up base image initialized in CI.
+* 9da9871 Bump notebook from 6.4.7 to 6.4.10
+* 713d1fd :ship: Bump up base image initialized in CI.
+* 231473d Add readme for optimal stopping point
+* 8dbfe16 Thoth's runtime environment must not use colon in name
+* 34c68ea Add Optimal Stopping Point Model as a Service
+* caae1fb Added pass/fail status of two builds from same job.
+* c74374f :fire: Fix the black_nb voilating pre-commit issues
+* b30596f :turtle: fix the pre-commit git url issue
+* 3eca82b added github insights dashboard and jupyterbook
+* 33debe1 Bump ipython from 7.29.0 to 7.31.1
+* a420921 create trino table from ttm df
+* 7355006 :arrow_up: Bump pillow from 8.4.0 to 9.0.0
+* df9c55f Reduce log classification service resource req.
+* baabefb Add github TTM section link, fix prow section link in README TOC.
+* 42599d4 Add cpu,mem requests and limits to override Seldon defaults.
+* c21bdde Update SeldonDeployment to use image created from upstream repo.
+* 7106fac Update seldon service config and demo notebook
+* 4ca7915 Add TTM seldon custom server. Add s2i build env, reqs for image.
+* f5ce576 Updated some markdown statements
+* 5c9ad6f Updated the notebook
+* 0019caf Optimal Stopping Point
+* a7cf9e6 adding MOC Openstack demo notebook
+* 5f5c822 Add transformers to get features from raw data. Update pipeline.
+* da4d89e :arrow_up: Automatic update of dependencies by Kebechet for the rhel:8 environment
+* 14b8a2f [WIP] Updated the notebook by keeping the date static
+* 93d62c3 Update nb with optimal stopping point
+* dc54330 Do not attempt to process logs from jobs that have not started
+* 0888235 explained conclusion in detail
+* 20b8c14 added quick log regression analysis, changed dataset slightly, and variable name
+
 ## Release 0.2.0 (2021-10-20T14:49:11)
 * Replaced the build id 1364869749170769920 with 1380606326060617728 in cell 27
 * Changed the job link in cell [12]
