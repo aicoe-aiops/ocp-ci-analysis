@@ -1,4 +1,4 @@
-git+git://github.com/aicoe-aiops/ocp-ci-analysis.git@master#egg=src
+git+https://github.com/aicoe-aiops/ocp-ci-analysis.git@master#egg=src
 boto3
 pyyaml
 requests
