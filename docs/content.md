@@ -46,7 +46,7 @@ According to the project's [readme](https://github.com/GoogleCloudPlatform/testg
     * [Visualization notebook](../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.ipynb)
     * [Metric Visualization Video](https://youtu.be/SqGfbyEuZLE)
 * **Automate Workflows**
-    * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
+    * [Automated metric pipeline](https://ml-pipeline-ui-kubeflow.apps.odh-cl2.apps.os-climate.org/pipeline/)
     * [How to video](https://www.youtube.com/watch?v=lY75bDv6kd4)
 
 ## Prow/GCS Artifacts:
