@@ -1,6 +1,6 @@
 ### Notebooks
 
-This folder contains various reproducible and interactive Jupyter notebooks created for the project. These notebooks are also available for viewing on our public [JupyterHub instance](https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/login).
+This folder contains various reproducible and interactive Jupyter notebooks created for the project. These notebooks are also available for viewing on our public [JupyterHub instance](https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/login).
 The notebook organizational structure is described in detail below.
 
 #### Data Sources

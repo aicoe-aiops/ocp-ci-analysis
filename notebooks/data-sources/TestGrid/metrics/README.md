@@ -2,7 +2,7 @@
 
 In order to measure the effectiveness and quality of our CI testing process, we need to establish the relevant key performance indicators, or KPIs. These KPIs can not only help us evaluate any AI-based enhancements we make to the CI processes, but also pinpoint what specific areas need the most improvement and therefore should be devoted resources to. The notebooks contained in this directory define, calculate, and save several KPIs that we believe are relevant to various personas (developer, manager, etc.) involved in the CI process.
 
-These notebooks are also available for viewing and running on the public [JupyterHub instance](https://jupyterhub-opf-jupyterhub.apps.zero.massopen.cloud/hub/login) provided via the Operate First initiative.
+These notebooks are also available for viewing and running on the public [JupyterHub instance](https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/login) provided via the Operate First initiative.
 
 When addressing a KPI request, please make sure to follow the [Metric-template.ipynb](metric_template.ipynb) that defines a template for calculating metrics using [number-of-flakes.ipynb](number_of_flakes.ipynb) as an example.
 
