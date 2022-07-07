@@ -50,7 +50,18 @@ class GitHubTTMModel(object):
 
     def class_names(self) -> Iterable[str]:
         """Return names of output classes."""
-        return [f"Class_{i}" for i in range(10)]
+        return [
+            "0 - 3 hrs",
+            "3 - 6 hrs",
+            "6 - 15 hrs",
+            "15 - 24 hrs",
+            "1 - 1.5 days",
+            "1.5 - 2.5 days",
+            "2.5 - 4.67 days",
+            "4.67 - 7.92 days",
+            "7.92 - 19.25 days",
+            ">19.25 days",
+        ]
 
     def transform_input(
         self, X: np.ndarray, names: Iterable[str], meta: Dict = None  # noqa: N803
