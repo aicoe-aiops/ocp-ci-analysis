@@ -1,0 +1,1007 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": "",
+                "dashboard_title": "Insights from OpenShift Origin PR",
+                "description": null,
+                "json_metadata": "{\"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"refresh_frequency\": 0, \"default_filters\": \"{\\\"54\\\": {\\\"__time_range\\\": \\\"No filter\\\"}, \\\"64\\\": {\\\"size\\\": null}}\", \"color_scheme\": null, \"filter_scopes\": {\"54\": {\"__time_range\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"64\": {\"size\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}}, \"remote_id\": 12}",
+                "position_json": "{\"CHART-2v_xtDXczv\":{\"children\":[],\"id\":\"CHART-2v_xtDXczv\",\"meta\":{\"chartId\":60,\"height\":50,\"sliceName\":\"Number of Commits on PR\",\"uuid\":\"eb052e5d-827a-4113-bca7-787a8d75a632\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-7jud31cH8j\"],\"type\":\"CHART\"},\"CHART-AJaKFW_X0r\":{\"children\":[],\"id\":\"CHART-AJaKFW_X0r\",\"meta\":{\"chartId\":62,\"height\":50,\"sliceName\":\"Number of Files Changed in a PR Over Time\",\"uuid\":\"ef925141-72c6-464a-b295-4b9d81703811\",\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-eCMyrWXjiy\"],\"type\":\"CHART\"},\"CHART-GiRCEl1fke\":{\"children\":[],\"id\":\"CHART-GiRCEl1fke\",\"meta\":{\"chartId\":59,\"height\":50,\"sliceName\":\"Contributors Stream Over Time\",\"uuid\":\"e1e780fb-c71e-49c6-a5bd-7398a030a800\",\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-pBClhFwQ0w\"],\"type\":\"CHART\"},\"CHART-J7uH27I1ub\":{\"children\":[],\"id\":\"CHART-J7uH27I1ub\",\"meta\":{\"chartId\":58,\"height\":50,\"sliceName\":\"Top PR Creators\",\"uuid\":\"801b52be-5d92-4ede-b58f-e26778170412\",\"width\":7},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-l56W0ibvyk\"],\"type\":\"CHART\"},\"CHART-QyagYxH7ja\":{\"children\":[],\"id\":\"CHART-QyagYxH7ja\",\"meta\":{\"chartId\":64,\"height\":21,\"sliceName\":\"PR Size Filter\",\"uuid\":\"c97ec4c3-e821-4fdf-9db4-f2efd919f64f\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-WWWTZOOM3\"],\"type\":\"CHART\"},\"CHART-TZcuONKxOt\":{\"children\":[],\"id\":\"CHART-TZcuONKxOt\",\"meta\":{\"chartId\":63,\"height\":50,\"sliceName\":\"Weekly Mean Time Taken to Merge a PR (hours)\",\"uuid\":\"c2d0e943-3750-4bb9-be4c-d27e2f9a3ebf\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-0b8kg4Wjrv\"],\"type\":\"CHART\"},\"CHART-VXU_6Zhb6s\":{\"children\":[],\"id\":\"CHART-VXU_6Zhb6s\",\"meta\":{\"chartId\":55,\"height\":50,\"sliceName\":\"PR Size Distribution Over Time\",\"uuid\":\"4d645f56-9c4b-475f-9835-74b9e76969d3\",\"width\":7},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-qpYDxepWwu\"],\"type\":\"CHART\"},\"CHART-VlZaf8mKyX\":{\"children\":[],\"id\":\"CHART-VlZaf8mKyX\",\"meta\":{\"chartId\":61,\"height\":50,\"sliceName\":\"Number of Commits on PR Over Time\",\"uuid\":\"acba882d-716d-4896-a54e-607564226b07\",\"width\":7},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-7jud31cH8j\"],\"type\":\"CHART\"},\"CHART-Xm2xksjaW8\":{\"children\":[],\"id\":\"CHART-Xm2xksjaW8\",\"meta\":{\"chartId\":56,\"height\":50,\"sliceName\":\"Number of PRs Per Week Over Time\",\"uuid\":\"277aac8a-0790-4602-afa6-caaa31aa74df\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-0b8kg4Wjrv\"],\"type\":\"CHART\"},\"CHART-_R36r5P3xe\":{\"children\":[],\"id\":\"CHART-_R36r5P3xe\",\"meta\":{\"chartId\":54,\"height\":21,\"sliceName\":\"Date Filter - Github Insights\",\"uuid\":\"6b201ed7-5c24-452d-b86c-2cbe8af98491\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-WWWTZOOM3\"],\"type\":\"CHART\"},\"CHART-j0zIfOsIMl\":{\"children\":[],\"id\":\"CHART-j0zIfOsIMl\",\"meta\":{\"chartId\":57,\"height\":50,\"sliceName\":\"Unique PR Creators Per Month Over Time\",\"uuid\":\"8000a113-afc2-489a-9faa-9d2ab9d3537e\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-l56W0ibvyk\"],\"type\":\"CHART\"},\"CHART-zv7UgisMSW\":{\"children\":[],\"id\":\"CHART-zv7UgisMSW\",\"meta\":{\"chartId\":53,\"height\":50,\"sliceName\":\"PR Size Distribution\",\"uuid\":\"a21b5826-ef03-4d8d-9b38-3e82c613a676\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-qpYDxepWwu\"],\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-WWWTZOOM3\",\"ROW-0b8kg4Wjrv\",\"HEADER-FGw9jKm36X\",\"ROW-qpYDxepWwu\",\"HEADER-Gb74BXEeKv\",\"ROW-l56W0ibvyk\",\"ROW-pBClhFwQ0w\",\"HEADER-HZF6FxgEOx\",\"ROW-7jud31cH8j\",\"HEADER-ZLrPWcwy8U\",\"ROW-eCMyrWXjiy\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER-FGw9jKm36X\":{\"children\":[],\"id\":\"HEADER-FGw9jKm36X\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Size Related KPIs\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER-Gb74BXEeKv\":{\"children\":[],\"id\":\"HEADER-Gb74BXEeKv\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Contributor Related KPIs\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER-HZF6FxgEOx\":{\"children\":[],\"id\":\"HEADER-HZF6FxgEOx\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Commits Related KPIs\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER-ZLrPWcwy8U\":{\"children\":[],\"id\":\"HEADER-ZLrPWcwy8U\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Changed Files Related KPIs\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Insights from OpenShift Origin PR\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-0b8kg4Wjrv\":{\"children\":[\"CHART-Xm2xksjaW8\",\"CHART-TZcuONKxOt\"],\"id\":\"ROW-0b8kg4Wjrv\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-7jud31cH8j\":{\"children\":[\"CHART-2v_xtDXczv\",\"CHART-VlZaf8mKyX\"],\"id\":\"ROW-7jud31cH8j\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-WWWTZOOM3\":{\"children\":[\"CHART-_R36r5P3xe\",\"CHART-QyagYxH7ja\"],\"id\":\"ROW-WWWTZOOM3\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-eCMyrWXjiy\":{\"children\":[\"CHART-AJaKFW_X0r\"],\"id\":\"ROW-eCMyrWXjiy\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-l56W0ibvyk\":{\"children\":[\"CHART-j0zIfOsIMl\",\"CHART-J7uH27I1ub\"],\"id\":\"ROW-l56W0ibvyk\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-pBClhFwQ0w\":{\"children\":[\"CHART-GiRCEl1fke\"],\"id\":\"ROW-pBClhFwQ0w\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-qpYDxepWwu\":{\"children\":[\"CHART-zv7UgisMSW\",\"CHART-VXU_6Zhb6s\"],\"id\":\"ROW-qpYDxepWwu\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 60,
+                            "params": "{\"adhoc_filters\": [], \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"columns\": [], \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"commits_number\"], \"label_colors\": {}, \"metrics\": [\"count\"], \"order_desc\": true, \"row_limit\": null, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 60, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"commits_number\"],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Commits on PR",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 53,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"supersetColors\", \"datasource\": \"75__table\", \"date_format\": \"smart_date\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"size\"], \"innerRadius\": 30, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": \"count\", \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 70, \"row_limit\": 100, \"show_labels\": true, \"show_labels_threshold\": 5, \"show_legend\": true, \"sort_by_metric\": true, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 53, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"size\"],\"metrics\":[\"count\"],\"orderby\":[[\"count\",false]],\"annotation_layers\":[],\"row_limit\":100,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "PR Size Distribution",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 54,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"75__table\", \"date_filter\": true, \"extra_form_data\": {}, \"filter_configs\": [], \"granularity_sqla\": \"created_at\", \"show_sqla_time_column\": false, \"time_grain_sqla\": null, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 54, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":null,\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Date Filter - Github Insights",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 56,
+                            "params": "{\"adhoc_filters\": [], \"color_picker\": {\"a\": 1, \"b\": 135, \"g\": 122, \"r\": 0}, \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": \"count\", \"rolling_type\": \"None\", \"show_trend_line\": true, \"start_y_axis_at_zero\": true, \"subheader_font_size\": 0.15, \"time_format\": \"%d-%m-%Y %H:%M:%S\", \"time_grain_sqla\": \"P1W\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 56, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1W\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of PRs Per Week Over Time",
+                            "viz_type": "big_number"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 55,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"comparison_type\": \"values\", \"contribution\": true, \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"size\"], \"label_colors\": {}, \"limit\": null, \"line_interpolation\": \"linear\", \"metrics\": [\"count\"], \"order_desc\": true, \"rich_tooltip\": true, \"rolling_type\": \"None\", \"row_limit\": null, \"show_brush\": \"auto\", \"stacked_style\": \"expand\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"area\", \"x_axis_format\": \"smart_date\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 55, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"size\"],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "PR Size Distribution Over Time",
+                            "viz_type": "area"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 59,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"comparison_type\": \"values\", \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"created_by\"], \"label_colors\": {}, \"limit\": null, \"line_interpolation\": \"linear\", \"metrics\": [\"count\"], \"order_desc\": true, \"rich_tooltip\": true, \"rolling_type\": \"None\", \"row_limit\": 1000, \"show_brush\": \"auto\", \"show_legend\": false, \"stacked_style\": \"stack\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"area\", \"x_axis_format\": \"smart_date\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 59, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"created_by\"],\"metrics\":[\"count\"],\"annotation_layers\":[],\"row_limit\":1000,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Contributors Stream Over Time",
+                            "viz_type": "area"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 57,
+                            "params": "{\"adhoc_filters\": [], \"color_picker\": {\"a\": 1, \"b\": 135, \"g\": 122, \"r\": 0}, \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT_DISTINCT\", \"column\": {\"column_name\": \"created_by\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 410, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"type_generic\": 1, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT_DISTINCT(created_by)\", \"optionName\": \"metric_wp88c2haid9_uzpzyhuaubf\", \"sqlExpression\": null}, \"rolling_type\": \"None\", \"show_trend_line\": true, \"start_y_axis_at_zero\": true, \"subheader_font_size\": 0.15, \"time_format\": \"%d-%m-%Y %H:%M:%S\", \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 57, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":410,\"column_name\":\"created_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT_DISTINCT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT_DISTINCT(created_by)\",\"optionName\":\"metric_wp88c2haid9_uzpzyhuaubf\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Unique PR Creators Per Month Over Time",
+                            "viz_type": "big_number"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 58,
+                            "params": "{\"adhoc_filters\": [], \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"columns\": [], \"contribution\": false, \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"created_by\"], \"label_colors\": {}, \"metrics\": [\"count\"], \"order_desc\": true, \"row_limit\": null, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 58, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"created_by\"],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Top PR Creators",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 61,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"color_scheme\": \"supersetColors\", \"comparison_type\": \"values\", \"datasource\": \"75__table\", \"extra_form_data\": {}, \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"created_at\", \"groupby\": [\"commits_number\"], \"label_colors\": {}, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"limit\": null, \"markerSize\": 6, \"metrics\": [\"count\"], \"opacity\": 0.2, \"order_desc\": true, \"rich_tooltip\": true, \"row_limit\": null, \"seriesType\": \"line\", \"show_legend\": true, \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"tooltipTimeFormat\": \"smart_date\", \"truncateYAxis\": true, \"url_params\": {}, \"viz_type\": \"echarts_area\", \"x_axis_time_format\": \"smart_date\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 61, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"commits_number\"],\"metrics\":[\"count\"],\"orderby\":[[\"count\",false]],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"is_timeseries\":true,\"time_offsets\":[],\"post_processing\":[null,null,null,{\"operation\":\"pivot\",\"options\":{\"index\":[\"__timestamp\"],\"columns\":[\"commits_number\"],\"aggregates\":{\"count\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false}},null,null]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Commits on PR Over Time",
+                            "viz_type": "echarts_area"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 62,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"color_scheme\": \"supersetColors\", \"comparison_type\": \"values\", \"datasource\": \"75__table\", \"extra_form_data\": {}, \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"created_at\", \"groupby\": [\"changed_files_number\"], \"label_colors\": {}, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"limit\": null, \"markerSize\": 6, \"metrics\": [\"count\"], \"opacity\": 0.2, \"order_desc\": true, \"rich_tooltip\": true, \"row_limit\": null, \"seriesType\": \"line\", \"show_legend\": true, \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"tooltipTimeFormat\": \"smart_date\", \"truncateYAxis\": true, \"url_params\": {}, \"viz_type\": \"echarts_area\", \"x_axis_time_format\": \"smart_date\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 62, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"changed_files_number\"],\"metrics\":[\"count\"],\"orderby\":[[\"count\",false]],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"is_timeseries\":true,\"time_offsets\":[],\"post_processing\":[null,null,null,{\"operation\":\"pivot\",\"options\":{\"index\":[\"__timestamp\"],\"columns\":[\"changed_files_number\"],\"aggregates\":{\"count\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false}},null,null]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Files Changed in a PR Over Time",
+                            "viz_type": "echarts_area"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 63,
+                            "params": "{\"adhoc_filters\": [], \"color_picker\": {\"a\": 1, \"b\": 135, \"g\": 122, \"r\": 0}, \"compare_suffix\": \"\", \"datasource\": \"75__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(time_to_merge) / 3600\", \"optionName\": \"metric_hanwadky9hk_ne64ug97x6o\", \"sqlExpression\": \"AVG(time_to_merge) / 3600\"}, \"rolling_type\": \"None\", \"show_timestamp\": false, \"show_trend_line\": true, \"start_y_axis_at_zero\": true, \"subheader_font_size\": 0.15, \"time_format\": \"%d-%m-%Y %H:%M:%S\", \"time_grain_sqla\": \"P1W\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 63, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1W\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"AVG(time_to_merge) / 3600\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"AVG(time_to_merge) / 3600\",\"optionName\":\"metric_hanwadky9hk_ne64ug97x6o\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Weekly Mean Time Taken to Merge a PR (hours)",
+                            "viz_type": "big_number"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.openshift_origin_prs",
+                            "datasource_type": "table",
+                            "id": 64,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"75__table\", \"date_filter\": false, \"extra_form_data\": {}, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"size\", \"key\": \"GS-PDMM-g\", \"multiple\": true, \"searchAllOptions\": true}], \"granularity_sqla\": \"created_at\", \"time_grain_sqla\": null, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 64, \"datasource_name\": \"openshift_origin_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":75,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":null,\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "PR Size Filter",
+                            "viz_type": "filter_box"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "title",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 407,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "VARCHAR",
+                            "uuid": "08cd3853-19b3-4d89-a062-8c3d37a29107",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "body",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 408,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "VARCHAR",
+                            "uuid": "c70fc483-588d-4d56-a5d9-20603f1e580e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "size",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 409,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "ebaf70a3-3e0a-4802-80a4-d77b12d84bef",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_by",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 410,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "VARCHAR",
+                            "uuid": "1479486e-f703-4e98-89de-ad55e4c050e2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_at",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 411,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "TIMESTAMP",
+                            "uuid": "15caaf58-0fed-4008-9772-4ab35d0e401f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "closed_at",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 412,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "TIMESTAMP",
+                            "uuid": "e96c1e98-fa02-4c40-8ecc-a9f24ca2be7e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "closed_by",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 413,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "VARCHAR",
+                            "uuid": "8f19bc9b-f4ce-46f7-bd16-98dee8ddb465",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "merged_at",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 414,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "TIMESTAMP",
+                            "uuid": "f4d31f54-23df-4e25-bdf4-805a8c90cd9d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "commits_number",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 415,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "4d866f4b-1239-4f6d-b28c-67a20303cd7b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "changed_files_number",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 416,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "46b099e9-f46b-4a26-99c7-27fef2406e68",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "time_to_merge",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 417,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "REAL",
+                            "uuid": "0297058f-90dc-42fe-8f70-1e0a45b1e80f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "body_size",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 418,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "4904db5d-735e-40e1-b867-6dec178f09ae",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "is_reviewer",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 419,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BOOLEAN",
+                            "uuid": "120bf781-11f5-45aa-a744-6b10abbc83db",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "is_approver",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 420,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BOOLEAN",
+                            "uuid": "6f32e0f2-0ff8-4caa-9167-659d86e717dc",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "num_prev_merged_prs",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 421,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "REAL",
+                            "uuid": "3d7a6cf9-7013-4e37-b209-85db5d91929e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_at_datetime",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 422,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "TIMESTAMP",
+                            "uuid": "2ff71ff6-8e40-4150-9e55-fefc39b034b1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_at_day",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 423,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "731009f3-c7de-47e6-ac2a-f0ea8efab064",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_at_month",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 424,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "cd022abd-34d4-4b78-a93d-1d737fc6e7c9",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_at_weekday",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 425,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "13e6cd79-b2b5-4a3e-8c2e-c21ab1e0cb9b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "created_at_hour",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 426,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "2aeb1197-eac4-495e-98e4-d4ab45f6019b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_github",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 427,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "40f59516-9caa-40d7-b7b9-907df2d34893",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_cmd",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 428,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "21b081e1-2f12-4bfa-ac43-f2aff52028b6",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_docs",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 429,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "8e630b2a-284c-4881-aada-eed26d5db283",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_e2echart",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 430,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "cc985f30-e278-41dd-a5e1-5df68c5317b3",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_examples",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 431,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "6ea78f32-1b5f-46ee-b9d4-3db4323e162d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_hack",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 432,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "ac9bd2c2-2475-4fff-975b-640ac00bd4b0",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_images",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 433,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "cdd3c407-e502-4be3-8535-858fda48eec0",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_pkg",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 434,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "eb39f3fe-81f5-4f82-9fed-02fe68cdb688",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_test",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 435,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "f1d0010b-4946-4c3f-a2e6-65d9ef91d3c3",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_tools",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 436,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "ab7666b2-ff7e-42a9-b58c-fad2505f7d27",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_vendor",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 437,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "9c6cb9d4-e802-48a2-8c5e-b338fbe044a1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "column_name": "change_in_root",
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 438,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 75,
+                            "type": "BIGINT",
+                            "uuid": "40c0a12d-7985-488d-b0ec-3e19f4314ba2",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "created_at",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 2,
+                            "changed_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "created_by_fk": 2,
+                            "created_on": {
+                                "__datetime__": "2022-06-03T14:17:06"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 75,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 75,
+                            "uuid": "8313bc93-ff2a-4590-b01c-66f8ac074000",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 75, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "openshift_origin_prs",
+                "template_params": null
+            }
+        }
+    ]
+}
