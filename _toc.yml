@@ -62,3 +62,13 @@ parts:
   - caption: Telemetry data
     chapters:
     - file: notebooks/data-sources/Telemetry/telemetry_EDA
+  - caption: Workshop
+    chapters:
+    - file: docs/workshop/prerequisites
+    - file: docs/workshop/intro_to_project
+    - file: docs/workshop/onboarding
+    - file: docs/workshop/model_development
+    - file: docs/workshop/ml_pipeline
+    - file: docs/workshop/model_deployment
+    - file: docs/workshop/sql_query_engine
+    - file: docs/workshop/visualization_dashboard
