@@ -1,0 +1,1156 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": "",
+                "dashboard_title": "Thoth-Station Support Metrics",
+                "description": null,
+                "json_metadata": "{\"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"refresh_frequency\": 0, \"default_filters\": \"{\\\"87\\\": {\\\"__time_range\\\": \\\"No filter\\\"}}\", \"color_scheme\": null, \"filter_scopes\": {\"87\": {\"__time_range\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}}, \"remote_id\": 14}",
+                "position_json": "{\"CHART--AfMXcYlkv\":{\"children\":[],\"id\":\"CHART--AfMXcYlkv\",\"meta\":{\"chartId\":73,\"height\":25,\"sliceName\":\"Maximum Time to Close an Issue\",\"uuid\":\"d3881d4b-fb52-4f09-a2a9-7b6759398ee1\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-knMtXjYSqz\"],\"type\":\"CHART\"},\"CHART--EkG4LJbkD\":{\"children\":[],\"id\":\"CHART--EkG4LJbkD\",\"meta\":{\"chartId\":86,\"height\":25,\"sliceName\":\"Maximum Time for First Approval of PR\",\"uuid\":\"f8c60182-58ce-436f-9ce5-d16110069c1e\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-aqzMEDWv0Y\"],\"type\":\"CHART\"},\"CHART-4k3wLVs9IV\":{\"children\":[],\"id\":\"CHART-4k3wLVs9IV\",\"meta\":{\"chartId\":91,\"height\":50,\"sliceName\":\"First Comment Contributors\",\"uuid\":\"481bf839-2797-4102-a147-3b55b8b44d3e\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-gwczLCm5vB\"],\"type\":\"CHART\"},\"CHART-547NJ3uHOG\":{\"children\":[],\"id\":\"CHART-547NJ3uHOG\",\"meta\":{\"chartId\":72,\"height\":25,\"sliceName\":\"Minimum Time to Close an Issue\",\"uuid\":\"d3de3106-ba46-4138-b289-d285be59e726\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-knMtXjYSqz\"],\"type\":\"CHART\"},\"CHART-5Q4gLV66jg\":{\"children\":[],\"id\":\"CHART-5Q4gLV66jg\",\"meta\":{\"chartId\":65,\"height\":26,\"sliceName\":\"Number of Open Issues\",\"uuid\":\"0dcde1d6-5e89-4208-94c3-377679b5e659\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-OEcAEPmXBW\"],\"type\":\"CHART\"},\"CHART-5c2v8ejqHA\":{\"children\":[],\"id\":\"CHART-5c2v8ejqHA\",\"meta\":{\"chartId\":82,\"height\":27,\"sliceName\":\"Maximum Time for the First Review\",\"uuid\":\"081e46d9-1287-4762-ae5d-4e3efacf6eda\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-MjBF5CL-Gy\"],\"type\":\"CHART\"},\"CHART-6XQZfO85n6\":{\"children\":[],\"id\":\"CHART-6XQZfO85n6\",\"meta\":{\"chartId\":97,\"height\":25,\"sliceName\":\"Number of Triaged Closed Issues\",\"uuid\":\"b1c2ac7d-ff71-41ed-bddb-cbc098bb0c5c\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-lEfASxveeC\"],\"type\":\"CHART\"},\"CHART-981T23aXLk\":{\"children\":[],\"id\":\"CHART-981T23aXLk\",\"meta\":{\"chartId\":89,\"height\":49,\"sliceName\":\"Mean Time to Close an Issue (Days)\",\"uuid\":\"b941334a-1c19-448d-b877-f4812f2f7a40\",\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-AlaiQz22_N\"],\"type\":\"CHART\"},\"CHART-DmN74Dueoq\":{\"children\":[],\"id\":\"CHART-DmN74Dueoq\",\"meta\":{\"chartId\":67,\"height\":50,\"sliceName\":\"Top 10 Issue Contributors\",\"uuid\":\"c475264d-321b-442d-9544-1eb5cb96309b\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-gwczLCm5vB\"],\"type\":\"CHART\"},\"CHART-H1hWo9tHzZ\":{\"children\":[],\"id\":\"CHART-H1hWo9tHzZ\",\"meta\":{\"chartId\":68,\"height\":50,\"sliceName\":\"Number of Issues and Contributors (Weekly trend)\",\"uuid\":\"4dd01a10-56b4-40da-b4f9-fe7d36dec5aa\",\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-sAhE1uM2vh\"],\"type\":\"CHART\"},\"CHART-IskrJy_gtS\":{\"children\":[],\"id\":\"CHART-IskrJy_gtS\",\"meta\":{\"chartId\":96,\"height\":24,\"sliceName\":\"Number of Triaged Open Issues\",\"uuid\":\"b085e1f3-22b1-4a6c-8263-310beae092a5\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-lEfASxveeC\"],\"type\":\"CHART\"},\"CHART-J8eFeNomKQ\":{\"children\":[],\"id\":\"CHART-J8eFeNomKQ\",\"meta\":{\"chartId\":93,\"height\":25,\"sliceName\":\"Minimum Time for First Comment\",\"uuid\":\"7eb834b0-e119-4939-9448-2563bb88f685\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-P-SLkh6W5B\"],\"type\":\"CHART\"},\"CHART-K358rDQf96\":{\"children\":[],\"id\":\"CHART-K358rDQf96\",\"meta\":{\"chartId\":76,\"height\":23,\"sliceName\":\"Number of Closed PRs\",\"uuid\":\"1c6a320b-6d62-4f6d-a0a8-662357aa5c6d\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-lkrjR5TRA\"],\"type\":\"CHART\"},\"CHART-L6CQRhjYde\":{\"children\":[],\"id\":\"CHART-L6CQRhjYde\",\"meta\":{\"chartId\":81,\"height\":26,\"sliceName\":\"Minimum Time for the first Review\",\"uuid\":\"0fbec4b8-9a2c-491a-b1c9-88c15fda9884\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-MjBF5CL-Gy\"],\"type\":\"CHART\"},\"CHART-LNicYMGNtG\":{\"children\":[],\"id\":\"CHART-LNicYMGNtG\",\"meta\":{\"chartId\":98,\"height\":26,\"sliceName\":\"Number of Issues Being Worked On\",\"uuid\":\"59c19f7e-b805-4445-8bec-e3ff2cac8f81\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-OEcAEPmXBW\"],\"type\":\"CHART\"},\"CHART-N_crzXimwk\":{\"children\":[],\"id\":\"CHART-N_crzXimwk\",\"meta\":{\"chartId\":78,\"height\":28,\"sliceName\":\"Minimum Time to close PRs\",\"uuid\":\"96f0e230-0a2f-4030-8ddd-d3336d087084\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-JyRhfPkqc\"],\"type\":\"CHART\"},\"CHART-SAFosMzKc8\":{\"children\":[],\"id\":\"CHART-SAFosMzKc8\",\"meta\":{\"chartId\":71,\"height\":26,\"sliceName\":\"Mean Time to Close an Issue\",\"uuid\":\"52242a50-94d1-4622-b8e9-ce2bd463814d\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-knMtXjYSqz\"],\"type\":\"CHART\"},\"CHART-SC6XTm5mqB\":{\"children\":[],\"id\":\"CHART-SC6XTm5mqB\",\"meta\":{\"chartId\":95,\"height\":23,\"sliceName\":\"Number of Good Quality Issues\",\"uuid\":\"002e2fb2-316c-458e-8e71-5ff518b87943\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-lEfASxveeC\"],\"type\":\"CHART\"},\"CHART-dbdAsVik3L\":{\"children\":[],\"id\":\"CHART-dbdAsVik3L\",\"meta\":{\"chartId\":79,\"height\":26,\"sliceName\":\"Maximum Time to close PRs\",\"uuid\":\"2513fd09-e6a6-47e1-afce-d8c4a4748e7a\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-JyRhfPkqc\"],\"type\":\"CHART\"},\"CHART-dmXs6HkFmz\":{\"children\":[],\"id\":\"CHART-dmXs6HkFmz\",\"meta\":{\"chartId\":85,\"height\":27,\"sliceName\":\"Minimum Time for First Approval of PR\",\"uuid\":\"8d2c1a0c-1fd0-477f-9f7b-09667b4678ec\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-aqzMEDWv0Y\"],\"type\":\"CHART\"},\"CHART-kvm-X9eih-\":{\"children\":[],\"id\":\"CHART-kvm-X9eih-\",\"meta\":{\"chartId\":75,\"height\":27,\"sliceName\":\"Number of Open PRs\",\"uuid\":\"e1f8de4c-6652-40f1-856c-08c0d9234581\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-lkrjR5TRA\"],\"type\":\"CHART\"},\"CHART-lJpjMPYCu2\":{\"children\":[],\"id\":\"CHART-lJpjMPYCu2\",\"meta\":{\"chartId\":83,\"height\":50,\"sliceName\":\"PRs Contributors (Weekly Trend)\",\"uuid\":\"0c0819c7-1b94-4e10-ab16-a09fb7fab52b\",\"width\":5},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-CRHYCJCAOb\"],\"type\":\"CHART\"},\"CHART-q_lvVZeS5a\":{\"children\":[],\"id\":\"CHART-q_lvVZeS5a\",\"meta\":{\"chartId\":94,\"height\":24,\"sliceName\":\"Maximum Time for First Comment\",\"uuid\":\"e4b45405-9627-4b73-9b92-77d5339e19e0\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-P-SLkh6W5B\"],\"type\":\"CHART\"},\"CHART-r-ERxTBIrf\":{\"children\":[],\"id\":\"CHART-r-ERxTBIrf\",\"meta\":{\"chartId\":69,\"height\":25,\"sliceName\":\"Number of closed Issues\",\"uuid\":\"172886cc-c00d-4a9a-a8eb-99930093d13c\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-OEcAEPmXBW\"],\"type\":\"CHART\"},\"CHART-w1fK2JP8va\":{\"children\":[],\"id\":\"CHART-w1fK2JP8va\",\"meta\":{\"chartId\":87,\"height\":25,\"sliceName\":\"Time Range Filter\",\"uuid\":\"d6f4cbe8-48c5-4195-98b4-187dee0dfc73\",\"width\":8},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-xpmE_HSXOd\"],\"type\":\"CHART\"},\"CHART-wgyunfMYkk\":{\"children\":[],\"id\":\"CHART-wgyunfMYkk\",\"meta\":{\"chartId\":92,\"height\":26,\"sliceName\":\"Mean time for First Comment\",\"uuid\":\"505d1576-b486-4302-b5c2-98d036d1b27c\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\",\"ROW-P-SLkh6W5B\"],\"type\":\"CHART\"},\"CHART-yN8zc1EIDA\":{\"children\":[],\"id\":\"CHART-yN8zc1EIDA\",\"meta\":{\"chartId\":84,\"height\":27,\"sliceName\":\"Mean Time for First Approval of PR\",\"uuid\":\"0fa0270b-13f8-490e-8e77-b9b8d2c06295\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-aqzMEDWv0Y\"],\"type\":\"CHART\"},\"CHART-zXvLwiK549\":{\"children\":[],\"id\":\"CHART-zXvLwiK549\",\"meta\":{\"chartId\":80,\"height\":28,\"sliceName\":\"Mean Time for the First Review\",\"uuid\":\"df5eba8c-b062-4c33-b62b-a27ca2cf7466\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-MjBF5CL-Gy\"],\"type\":\"CHART\"},\"CHART-znkwt_hnoW\":{\"children\":[],\"id\":\"CHART-znkwt_hnoW\",\"meta\":{\"chartId\":77,\"height\":27,\"sliceName\":\"Mean Time to close PRs\",\"uuid\":\"232cd068-c9d9-44f1-88c1-7e5fc806e918\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\",\"ROW-JyRhfPkqc\"],\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-4cEK6LftQN\",\"ROW-xpmE_HSXOd\",\"TABS-zvNsgYBQ7m\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Thoth-Station Support Metrics\"},\"type\":\"HEADER\"},\"MARKDOWN-4eMaqwv94o\":{\"children\":[],\"id\":\"MARKDOWN-4eMaqwv94o\",\"meta\":{\"code\":\"### Issue Types\\n\\n#### Triaged Issues: \\n \\n * Issue includes a `triage/accepted` label.\\n\\n#### Issue being Worked on\\n\\n * Issue includes `lifecycle/active` label.\\n\\n#### Good quality Issues:\\n \\n * Issue includes a `kind` label.\\n * Issue includes a `priority` label\\n * Issue includes a `sig` label\\n * (The issue title includes story points in the format of [[3pt]]) OR (The issue's title includes an issue descriptor in the format of [EPIC] or [SPIKE]).\\n \\n \\n \\n \\n\\n\",\"height\":54,\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4cEK6LftQN\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-d0I-sunYVP\":{\"children\":[],\"id\":\"MARKDOWN-d0I-sunYVP\",\"meta\":{\"code\":\"## Time Range Filter\\n\\nPlease select the time range in the filter provided. \",\"height\":25,\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-xpmE_HSXOd\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-meIlRtNfdl\":{\"children\":[],\"id\":\"MARKDOWN-meIlRtNfdl\",\"meta\":{\"code\":\"# Overview\\n\\nThis dashboard is aimed to provide insights into all the contributions being made towards the [thoth-station support](https://github.com/thoth-station/support) repo. \\n\\nWe have created two tabs in this dashboard\\n* **Issues** - This tab contains all the visualizations pertaining to the GitHub issue activity for thoth-station support repository.\\n* **PRs** -  This tab contains all the visualizations pertaining to the GitHub PR activity for thoth-station support repository.\\n\\nWithin each tab, you can see various metrics visualized such as number of issues created over time, number of PRs opened, time to close issues, time to close PRs, Contributors etc. Click on each tab to see the respective charts and use the Time Range filter above to view the charts for a specific date range.\",\"height\":54,\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-4cEK6LftQN\"],\"type\":\"MARKDOWN\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-4cEK6LftQN\":{\"children\":[\"MARKDOWN-meIlRtNfdl\",\"MARKDOWN-4eMaqwv94o\"],\"id\":\"ROW-4cEK6LftQN\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-AlaiQz22_N\":{\"children\":[\"CHART-981T23aXLk\"],\"id\":\"ROW-AlaiQz22_N\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-CRHYCJCAOb\":{\"children\":[\"CHART-lJpjMPYCu2\"],\"id\":\"ROW-CRHYCJCAOb\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\"],\"type\":\"ROW\"},\"ROW-JyRhfPkqc\":{\"children\":[\"CHART-znkwt_hnoW\",\"CHART-N_crzXimwk\",\"CHART-dbdAsVik3L\"],\"id\":\"ROW-JyRhfPkqc\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\"],\"type\":\"ROW\"},\"ROW-MjBF5CL-Gy\":{\"children\":[\"CHART-zXvLwiK549\",\"CHART-L6CQRhjYde\",\"CHART-5c2v8ejqHA\"],\"id\":\"ROW-MjBF5CL-Gy\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\"],\"type\":\"ROW\"},\"ROW-OEcAEPmXBW\":{\"children\":[\"CHART-5Q4gLV66jg\",\"CHART-r-ERxTBIrf\",\"CHART-LNicYMGNtG\"],\"id\":\"ROW-OEcAEPmXBW\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-P-SLkh6W5B\":{\"children\":[\"CHART-wgyunfMYkk\",\"CHART-J8eFeNomKQ\",\"CHART-q_lvVZeS5a\"],\"id\":\"ROW-P-SLkh6W5B\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-aqzMEDWv0Y\":{\"children\":[\"CHART-yN8zc1EIDA\",\"CHART-dmXs6HkFmz\",\"CHART--EkG4LJbkD\"],\"id\":\"ROW-aqzMEDWv0Y\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\"],\"type\":\"ROW\"},\"ROW-gwczLCm5vB\":{\"children\":[\"CHART-DmN74Dueoq\",\"CHART-4k3wLVs9IV\"],\"id\":\"ROW-gwczLCm5vB\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-knMtXjYSqz\":{\"children\":[\"CHART-SAFosMzKc8\",\"CHART-547NJ3uHOG\",\"CHART--AfMXcYlkv\"],\"id\":\"ROW-knMtXjYSqz\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-lEfASxveeC\":{\"children\":[\"CHART-6XQZfO85n6\",\"CHART-IskrJy_gtS\",\"CHART-SC6XTm5mqB\"],\"id\":\"ROW-lEfASxveeC\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-lkrjR5TRA\":{\"children\":[\"CHART-kvm-X9eih-\",\"CHART-K358rDQf96\"],\"id\":\"ROW-lkrjR5TRA\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-Z1T_hx_bB\"],\"type\":\"ROW\"},\"ROW-sAhE1uM2vh\":{\"children\":[\"CHART-H1hWo9tHzZ\"],\"id\":\"ROW-sAhE1uM2vh\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\",\"TAB-EJ6IgmE9_w\"],\"type\":\"ROW\"},\"ROW-xpmE_HSXOd\":{\"children\":[\"MARKDOWN-d0I-sunYVP\",\"CHART-w1fK2JP8va\"],\"id\":\"ROW-xpmE_HSXOd\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"TAB-EJ6IgmE9_w\":{\"children\":[\"ROW-OEcAEPmXBW\",\"ROW-lEfASxveeC\",\"ROW-knMtXjYSqz\",\"ROW-P-SLkh6W5B\",\"ROW-gwczLCm5vB\",\"ROW-AlaiQz22_N\",\"ROW-sAhE1uM2vh\"],\"id\":\"TAB-EJ6IgmE9_w\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Issue\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\"],\"type\":\"TAB\"},\"TAB-Z1T_hx_bB\":{\"children\":[\"ROW-lkrjR5TRA\",\"ROW-JyRhfPkqc\",\"ROW-MjBF5CL-Gy\",\"ROW-aqzMEDWv0Y\",\"ROW-CRHYCJCAOb\"],\"id\":\"TAB-Z1T_hx_bB\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"PRs\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-zvNsgYBQ7m\"],\"type\":\"TAB\"},\"TABS-zvNsgYBQ7m\":{\"children\":[\"TAB-EJ6IgmE9_w\",\"TAB-Z1T_hx_bB\"],\"id\":\"TABS-zvNsgYBQ7m\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 93,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_h4l9qdpos1g_wj9zq65mg8\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_comment_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MIN(date_diff('second', created_at, firs...\", \"optionName\": \"metric_wjk099n4pea_rgdgm7opomi\", \"sqlExpression\": \"MIN(date_diff('second', created_at, first_comment_at))\"}, \"slice_id\": 93, \"subheader\": \"seconds\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 93, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_comment_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MIN(date_diff('second', created_at, first_comment_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MIN(date_diff('second', created_at, firs...\",\"optionName\":\"metric_wjk099n4pea_rgdgm7opomi\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Minimum Time for First Comment",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 91,
+                            "params": "{\"adhoc_filters\": [], \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"columns\": [], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"first_comment_by\"], \"label_colors\": {}, \"metrics\": [{\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"first_comment_by\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 554, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"type_generic\": 1, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(first_comment_by)\", \"optionName\": \"metric_dk3fmyl2f25_7iwmyybh0s6\", \"sqlExpression\": null}], \"order_desc\": true, \"row_limit\": 10000, \"slice_id\": 91, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 91, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"first_comment_by\"],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":554,\"column_name\":\"first_comment_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(first_comment_by)\",\"optionName\":\"metric_dk3fmyl2f25_7iwmyybh0s6\"}],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "First Comment Contributors",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 67,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"d3Category20b\", \"columns\": [], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"groupby\": [\"created_by\"], \"label_colors\": {}, \"metrics\": [{\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"created_by\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 547, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"type_generic\": 1, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(created_by)\", \"optionName\": \"metric_r73hf3gwfwp_31qrqez5n0n\", \"sqlExpression\": null}], \"order_bars\": false, \"order_desc\": true, \"row_limit\": 10, \"show_bar_value\": false, \"show_legend\": false, \"slice_id\": 67, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 67, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"created_by\"],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":547,\"column_name\":\"created_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(created_by)\",\"optionName\":\"metric_r73hf3gwfwp_31qrqez5n0n\"}],\"annotation_layers\":[],\"row_limit\":10,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Top 10 Issue Contributors",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 81,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_658iqp1jtq_92kte1f4sd\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_review_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MIN(date_diff('minute', created_at, firs...\", \"optionName\": \"metric_usgxg2xveb8_gdf73gq9wau\", \"sqlExpression\": \"MIN(date_diff('minute', created_at, first_review_at))\"}, \"slice_id\": 81, \"subheader\": \"minutes\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 81, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_review_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MIN(date_diff('minute', created_at, first_review_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MIN(date_diff('minute', created_at, firs...\",\"optionName\":\"metric_usgxg2xveb8_gdf73gq9wau\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Minimum Time for the first Review",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 79,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_mddjuok4tds_0t5976qe0r6h\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MAX(date_diff('day', created_at, closed_...\", \"optionName\": \"metric_vu1ikjxhwfo_i0tiz6go9jp\", \"sqlExpression\": \"MAX(date_diff('day', created_at, closed_at))\"}, \"slice_id\": 79, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 79, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"aggregate\":null,\"column\":null,\"expressionType\":\"SQL\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"MAX(date_diff('day', created_at, closed_...\",\"optionName\":\"metric_vu1ikjxhwfo_i0tiz6go9jp\",\"sqlExpression\":\"MAX(date_diff('day', created_at, closed_at))\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Maximum Time to close PRs",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 95,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"1\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_0onkka1qs3tc_4my0li89i9x\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"operatorId\": \"EQUALS\", \"sqlExpression\": null, \"subject\": \"good_quality_issue\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 546, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_g1oj4y3q0nq_94cu2cbqju9\", \"sqlExpression\": null}, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 95, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"good_quality_issue\",\"op\":\"==\",\"val\":\"1\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":546,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_g1oj4y3q0nq_94cu2cbqju9\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Good Quality Issues",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 96,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"1\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_hol803sia3e_1oadc7yhrw3\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"operatorId\": \"EQUALS\", \"sqlExpression\": null, \"subject\": \"triaged_issue\"}, {\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_chzmuaf1yxu_0ha4crazxftc\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NULL\", \"operatorId\": \"IS_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 546, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_iqv03pv0aad_2exjngmj2vn\", \"sqlExpression\": null}, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 96, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"triaged_issue\",\"op\":\"==\",\"val\":\"1\"},{\"col\":\"closed_at\",\"op\":\"IS NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":546,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_iqv03pv0aad_2exjngmj2vn\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Triaged Open Issues",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 87,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"85__table\", \"date_filter\": true, \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"slice_id\": 87, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 87, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Time Range Filter",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 97,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"1\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_agsbs7wp8bd_7x3nfwq2ts6\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"operatorId\": \"EQUALS\", \"sqlExpression\": null, \"subject\": \"triaged_issue\"}, {\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_vcnqn32rb7_j1saiq2ycc9\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 546, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_68rccavzotd_jmo4oe6wxfs\", \"sqlExpression\": null}, \"slice_id\": 97, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 97, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"triaged_issue\",\"op\":\"==\",\"val\":\"1\"},{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"id\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":546,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"BIGINT\",\"type_generic\":0,\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_68rccavzotd_jmo4oe6wxfs\",\"sqlExpression\":null}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Triaged Closed Issues",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 98,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": \"1\", \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_91ctc5r9uvv_pb3tt522un\", \"isExtra\": false, \"isNew\": false, \"operator\": \"==\", \"operatorId\": \"EQUALS\", \"sqlExpression\": null, \"subject\": \"issue_being_worked_on\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 546, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_36f7pth9dn4_81oztlp6b98\", \"sqlExpression\": null}, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 98, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"issue_being_worked_on\",\"op\":\"==\",\"val\":\"1\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":546,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_36f7pth9dn4_81oztlp6b98\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Issues Being Worked On",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 76,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_istxo04kw1a_fwnvdgbxn38\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 558, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_2g6tbuupdj2_ho5otgqw8we\", \"sqlExpression\": null}, \"slice_id\": 76, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 76, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":558,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_2g6tbuupdj2_ho5otgqw8we\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Closed PRs",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 72,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_2srmy8yti13_yrtlt1kme0o\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MIN(date_diff('second', created_at, clos...\", \"optionName\": \"metric_qoju85qzyj_hmc4v9db6vg\", \"sqlExpression\": \"MIN(date_diff('second', created_at, closed_at))\"}, \"slice_id\": 72, \"subheader\": \"seconds\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 72, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MIN(date_diff('second', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MIN(date_diff('second', created_at, clos...\",\"optionName\":\"metric_qoju85qzyj_hmc4v9db6vg\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Minimum Time to Close an Issue",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 85,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_2v5aartd624_ccjiod0f0wg\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_approve_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MIN(date_diff('minute', created_at, firs...\", \"optionName\": \"metric_qidyz7j1v79_jp6og59zdz7\", \"sqlExpression\": \"MIN(date_diff('minute', created_at, first_approve_at))\"}, \"slice_id\": 85, \"subheader\": \"minutes\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 85, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_approve_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MIN(date_diff('minute', created_at, first_approve_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MIN(date_diff('minute', created_at, firs...\",\"optionName\":\"metric_qidyz7j1v79_jp6og59zdz7\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Minimum Time for First Approval of PR",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 75,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_jezwjukmq0n_2iw3vp4n31s\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NULL\", \"operatorId\": \"IS_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 558, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_rral9eh44fq_bnjcxd03uqb\", \"sqlExpression\": null}, \"slice_id\": 75, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 75, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":558,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_rral9eh44fq_bnjcxd03uqb\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Open PRs",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 82,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_2etfncfwoz9_cch9m31iye9\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_review_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MAX(date_diff('day', created_at, first_r...\", \"optionName\": \"metric_0sg40c5i6bj_lakafezgqjb\", \"sqlExpression\": \"MAX(date_diff('day', created_at, first_review_at))\"}, \"slice_id\": 82, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 82, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_review_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MAX(date_diff('day', created_at, first_review_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MAX(date_diff('day', created_at, first_r...\",\"optionName\":\"metric_0sg40c5i6bj_lakafezgqjb\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Maximum Time for the First Review",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 86,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_9as2zc9quhh_aornyicqv5g\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_approve_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"first_approve_at\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 571, \"is_dttm\": true, \"python_date_format\": null, \"type\": \"TIMESTAMP\", \"type_generic\": 2, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(first_approve_at)\", \"optionName\": \"metric_em7czox9qnp_40t9q9ojtsu\", \"sqlExpression\": null}, \"slice_id\": 86, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 86, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_approve_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":571,\"column_name\":\"first_approve_at\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":true,\"type\":\"TIMESTAMP\",\"type_generic\":2,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(first_approve_at)\",\"optionName\":\"metric_em7czox9qnp_40t9q9ojtsu\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Maximum Time for First Approval of PR",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 77,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_66qikxsp2tm_6ck2p0n2eud\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"avg(date_diff('day', created_at, closed_...\", \"optionName\": \"metric_71nfn22yz0n_4b107vk1rky\", \"sqlExpression\": \"avg(date_diff('day', created_at, closed_at))\"}, \"slice_id\": 77, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 77, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, closed_...\",\"optionName\":\"metric_71nfn22yz0n_4b107vk1rky\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Mean Time to close PRs",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 83,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"color_scheme\": \"SUPERSET_DEFAULT\", \"comparison_type\": \"values\", \"datasource\": \"86__table\", \"extra_form_data\": {}, \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"created_at\", \"groupby\": [\"created_by\"], \"label_colors\": {}, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"limit\": 100, \"markerSize\": 6, \"metrics\": [{\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"created_by\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 562, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"type_generic\": 1, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(created_by)\", \"optionName\": \"metric_3jdex96fr7w_li99wqagnb\", \"sqlExpression\": null}], \"order_desc\": true, \"rich_tooltip\": true, \"row_limit\": 10000, \"show_legend\": true, \"show_value\": true, \"slice_id\": 83, \"stack\": true, \"time_grain_sqla\": \"P1W\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"tooltipTimeFormat\": \"smart_date\", \"truncateYAxis\": true, \"url_params\": {}, \"viz_type\": \"echarts_timeseries_bar\", \"x_axis_time_format\": \"smart_date\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 83, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1W\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"created_by\"],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":562,\"column_name\":\"created_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(created_by)\",\"optionName\":\"metric_3jdex96fr7w_li99wqagnb\"}],\"orderby\":[[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":562,\"column_name\":\"created_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(created_by)\",\"optionName\":\"metric_3jdex96fr7w_li99wqagnb\"},false]],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":100,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"is_timeseries\":true,\"time_offsets\":[],\"post_processing\":[null,null,null,{\"operation\":\"pivot\",\"options\":{\"index\":[\"__timestamp\"],\"columns\":[\"created_by\"],\"aggregates\":{\"COUNT(created_by)\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false}},null,null]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "PRs Contributors (Weekly Trend)",
+                            "viz_type": "echarts_timeseries_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 71,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_vuocii2mveo_hnyoe93ba2t\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"avg(date_diff('day', created_at, closed_...\", \"optionName\": \"metric_0u6prpcgphgr_0xqn98wemxq\", \"sqlExpression\": \"avg(date_diff('day', created_at, closed_at))\"}, \"slice_id\": 71, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 71, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, closed_...\",\"optionName\":\"metric_0u6prpcgphgr_0xqn98wemxq\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Mean Time to Close an Issue",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 68,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"color_scheme\": \"d3Category20\", \"comparison_type\": \"values\", \"datasource\": \"85__table\", \"extra_form_data\": {}, \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"created_at\", \"groupby\": [\"created_by\"], \"label_colors\": {}, \"legendOrientation\": \"top\", \"legendType\": \"plain\", \"limit\": 100, \"logAxis\": false, \"markerEnabled\": true, \"markerSize\": 14, \"metrics\": [{\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"created_by\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 547, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"type_generic\": 1, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(created_by)\", \"optionName\": \"metric_7o2z4qkesf5_jsi4lnz46jb\", \"sqlExpression\": null}], \"order_desc\": true, \"rich_tooltip\": true, \"row_limit\": 10000, \"show_legend\": true, \"slice_id\": 68, \"stack\": true, \"time_grain_sqla\": \"P1W\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"tooltipTimeFormat\": \"smart_date\", \"truncateYAxis\": true, \"url_params\": {}, \"viz_type\": \"echarts_timeseries_bar\", \"xAxisLabelRotation\": 45, \"x_axis_time_format\": \"%Y-%m-%d\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"zoomable\": false, \"remote_id\": 68, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1W\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"created_by\"],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":547,\"column_name\":\"created_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(created_by)\",\"optionName\":\"metric_7o2z4qkesf5_jsi4lnz46jb\"}],\"orderby\":[[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":547,\"column_name\":\"created_by\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"VARCHAR\",\"type_generic\":1,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(created_by)\",\"optionName\":\"metric_7o2z4qkesf5_jsi4lnz46jb\"},false]],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":100,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"is_timeseries\":true,\"time_offsets\":[],\"post_processing\":[null,null,null,{\"operation\":\"pivot\",\"options\":{\"index\":[\"__timestamp\"],\"columns\":[\"created_by\"],\"aggregates\":{\"COUNT(created_by)\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false}},null,null]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Issues and Contributors (Weekly trend)",
+                            "viz_type": "echarts_timeseries_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 89,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_nte81m66wu_abzkt3gsevh\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"annotation_layers\": [], \"color_scheme\": \"d3Category20\", \"comparison_type\": \"values\", \"datasource\": \"85__table\", \"extra_form_data\": {}, \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"created_at\", \"groupby\": [], \"label_colors\": {}, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"limit\": 100, \"markerSize\": 6, \"metrics\": [{\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"avg(date_diff('day', created_at, closed_...\", \"optionName\": \"metric_ffq6fjstm8e_77q1vitz42l\", \"sqlExpression\": \"avg(date_diff('day', created_at, closed_at))\"}], \"order_desc\": true, \"rich_tooltip\": true, \"rolling_type\": null, \"row_limit\": 10000, \"show_legend\": false, \"show_value\": false, \"slice_id\": 89, \"stack\": false, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"tooltipTimeFormat\": \"smart_date\", \"truncateYAxis\": true, \"url_params\": {}, \"viz_type\": \"echarts_timeseries_line\", \"x_axis_time_format\": \"smart_date\", \"yAxisTitle\": \"Days\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"zoomable\": false, \"remote_id\": 89, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, closed_...\",\"optionName\":\"metric_ffq6fjstm8e_77q1vitz42l\"}],\"orderby\":[[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, closed_...\",\"optionName\":\"metric_ffq6fjstm8e_77q1vitz42l\"},false]],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":100,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"is_timeseries\":true,\"time_offsets\":[],\"post_processing\":[null,null,null,{\"operation\":\"pivot\",\"options\":{\"index\":[\"__timestamp\"],\"columns\":[],\"aggregates\":{\"avg(date_diff('day', created_at, closed_...\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false}},null,null]}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Mean Time to Close an Issue (Days)",
+                            "viz_type": "echarts_timeseries_line"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 73,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_9x36q8ra2yt_zcqson0e2eo\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MAX(date_diff('day', created_at, closed_...\", \"optionName\": \"metric_6mic1p5vg4u_06wm9rclpso\", \"sqlExpression\": \"MAX(date_diff('day', created_at, closed_at))\"}, \"slice_id\": 73, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 73, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MAX(date_diff('day', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MAX(date_diff('day', created_at, closed_...\",\"optionName\":\"metric_6mic1p5vg4u_06wm9rclpso\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Maximum Time to Close an Issue",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 65,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_8yvno986y7h_1poey4726um\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NULL\", \"operatorId\": \"IS_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 546, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_xwfx4x20yvp_0240n7g6b8nf\", \"sqlExpression\": null}, \"slice_id\": 65, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 65, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":546,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_xwfx4x20yvp_0240n7g6b8nf\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of Open Issues",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 80,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_ctp5yldy1_kyhjc7foag\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_review_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"avg(date_diff('day', created_at, first_r...\", \"optionName\": \"metric_urd3p6jcpq_clxatpms11\", \"sqlExpression\": \"avg(date_diff('day', created_at, first_review_at))\"}, \"slice_id\": 80, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 80, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_review_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, first_review_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, first_r...\",\"optionName\":\"metric_urd3p6jcpq_clxatpms11\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Mean Time for the First Review",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 78,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_o2guviu0des_rh717c1b3m9\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MIN(date_diff('minute', created_at, clos...\", \"optionName\": \"metric_27zi8xln5yn_sidz59s0j9d\", \"sqlExpression\": \"MIN(date_diff('minute', created_at, closed_at))\"}, \"slice_id\": 78, \"subheader\": \"minutes\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 78, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MIN(date_diff('minute', created_at, closed_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MIN(date_diff('minute', created_at, clos...\",\"optionName\":\"metric_27zi8xln5yn_sidz59s0j9d\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Minimum Time to close PRs",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 69,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_98yj7id5kkh_p1bq8tw8tj\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"closed_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 546, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"BIGINT\", \"type_generic\": 0, \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(id)\", \"optionName\": \"metric_wlwmrq8mc6p_4vw5qhefwx5\", \"sqlExpression\": null}, \"slice_id\": 69, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 69, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"closed_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":546,\"column_name\":\"id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"BIGINT\",\"type_generic\":0,\"python_date_format\":null},\"aggregate\":\"COUNT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT(id)\",\"optionName\":\"metric_wlwmrq8mc6p_4vw5qhefwx5\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of closed Issues",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_prs",
+                            "datasource_type": "table",
+                            "id": 84,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_qp1hst8ohx_39sgaxoag62\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_approve_at\"}], \"datasource\": \"86__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"avg(date_diff('day', created_at, first_a...\", \"optionName\": \"metric_u7dzzjvu49i_0ovnkqfs62x\", \"sqlExpression\": \"avg(date_diff('day', created_at, first_approve_at))\"}, \"slice_id\": 84, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 84, \"datasource_name\": \"thoth_support_prs\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":86,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_approve_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, first_approve_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, first_a...\",\"optionName\":\"metric_u7dzzjvu49i_0ovnkqfs62x\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Mean Time for First Approval of PR",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 94,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_qhh8u0xfcf_3fpp6njm75o\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_comment_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"MAX(date_diff('day', created_at, first_c...\", \"optionName\": \"metric_0h0ht37gq9o_kv8agbmt1hh\", \"sqlExpression\": \"MAX(date_diff('day', created_at, first_comment_at))\"}, \"slice_id\": 94, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 94, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_comment_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"MAX(date_diff('day', created_at, first_comment_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"MAX(date_diff('day', created_at, first_c...\",\"optionName\":\"metric_0h0ht37gq9o_kv8agbmt1hh\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Maximum Time for First Comment",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.thoth_support_issues",
+                            "datasource_type": "table",
+                            "id": 92,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SIMPLE\", \"filterOptionName\": \"filter_gj1u4ref21t_lssshnszv4s\", \"isExtra\": false, \"isNew\": false, \"operator\": \"IS NOT NULL\", \"operatorId\": \"IS_NOT_NULL\", \"sqlExpression\": null, \"subject\": \"first_comment_at\"}], \"datasource\": \"85__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"created_at\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": null, \"column\": null, \"expressionType\": \"SQL\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"avg(date_diff('day', created_at, first_c...\", \"optionName\": \"metric_1u0nkh5mjq1_yflh2wcl5pi\", \"sqlExpression\": \"avg(date_diff('day', created_at, first_comment_at))\"}, \"slice_id\": 92, \"subheader\": \"days\", \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 92, \"datasource_name\": \"thoth_support_issues\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":85,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"created_at\",\"filters\":[{\"col\":\"first_comment_at\",\"op\":\"IS NOT NULL\"}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SQL\",\"sqlExpression\":\"avg(date_diff('day', created_at, first_comment_at))\",\"column\":null,\"aggregate\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"avg(date_diff('day', created_at, first_c...\",\"optionName\":\"metric_1u0nkh5mjq1_yflh2wcl5pi\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Mean time for First Comment",
+                            "viz_type": "big_number_total"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "id",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 546,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "BIGINT",
+                            "uuid": "2e1c7863-fdf0-46c6-9990-a8487ffdf3d2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "created_by",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 547,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "VARCHAR",
+                            "uuid": "8cdcc26f-dff1-463c-aab6-eeda74725a05",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "created_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 548,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "TIMESTAMP",
+                            "uuid": "1793a035-47dd-4fea-8d5d-15f9021bb902",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "closed_by",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 549,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "VARCHAR",
+                            "uuid": "6fd49dec-c08a-433a-9399-48a5cf04b8e1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "closed_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 550,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "TIMESTAMP",
+                            "uuid": "505c9bd9-8120-4c17-aaca-e28079e3a33e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "org",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 551,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "VARCHAR",
+                            "uuid": "92f8d835-a5e6-41dc-bc8a-ffbaa1ea7ad2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "repo",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 552,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "VARCHAR",
+                            "uuid": "9784e45c-9825-48fd-a94c-73be9c1f879d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "first_comment_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 553,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "TIMESTAMP",
+                            "uuid": "4870559f-8a46-467a-b7df-a80de840ba7b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "first_comment_by",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 554,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "VARCHAR",
+                            "uuid": "96f5af03-f428-4dc0-93a9-4129e4717aec",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "good_quality_issue",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 555,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "BIGINT",
+                            "uuid": "b6b511ca-3f6b-4e98-b114-15b65e040800",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "triaged_issue",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 556,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "BIGINT",
+                            "uuid": "23ed7b9b-ba91-4ecf-98f6-4683c1f2aad2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "column_name": "issue_being_worked_on",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 557,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 85,
+                            "type": "BIGINT",
+                            "uuid": "0f89bd6b-2aa0-4919-9795-59e4e7282998",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "created_at",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:15"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 85,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 85,
+                            "uuid": "4e6737b4-4263-42bb-b55b-1f23eca438d6",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 85, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "thoth_support_issues",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "id",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 558,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "BIGINT",
+                            "uuid": "e08105eb-a1f9-4445-87c7-745f18c5d5fe",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "title",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 559,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "9bcdec29-0fb3-4d5f-86a2-d43c06e18971",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "body",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 560,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "da1aad40-fc38-48b5-b711-45aae88deea4",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "size",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 561,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "ae9b717f-1429-48fa-a78b-308cbec8e023",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "created_by",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 562,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "ca234992-63c1-40aa-9b40-992e0a2beb1d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "created_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 563,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "TIMESTAMP",
+                            "uuid": "5beb0e8e-fc4b-4fb4-9c3a-acdd564cec91",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "closed_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 564,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "TIMESTAMP",
+                            "uuid": "2acea2dd-f6f8-4c47-a507-3a8e9580ea47",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "closed_by",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 565,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "7f72ff9b-665c-4875-8096-1b14478e7b3c",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "merged_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 566,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "TIMESTAMP",
+                            "uuid": "6642e7ed-1053-4ff8-b153-4ea6fe7c92d7",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "merged_by",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 567,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "402ed40b-83f0-4ec0-b667-fa1c1f82d992",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "commits_number",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 568,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "BIGINT",
+                            "uuid": "613e22b2-7343-4a08-b342-3de5cd04034a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "changed_files_number",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 569,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "BIGINT",
+                            "uuid": "c9236e35-8085-4c70-8880-77f3f7b7bf81",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "first_review_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 570,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "TIMESTAMP",
+                            "uuid": "e5fde947-abe8-43b0-a5dc-58c802786e05",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "first_approve_at",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 571,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "TIMESTAMP",
+                            "uuid": "84822c65-e011-4083-a85b-5ef071f5c961",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "org",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 572,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "9a40746c-13ce-431a-ad11-934f29b6807b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "column_name": "repo",
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 573,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 86,
+                            "type": "VARCHAR",
+                            "uuid": "83572ded-ccda-40d6-8616-c3330efdc3b3",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "created_at",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 5,
+                            "changed_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "created_by_fk": 5,
+                            "created_on": {
+                                "__datetime__": "2022-06-23T01:06:26"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 86,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 86,
+                            "uuid": "8c3c201e-4655-4653-af59-8b782f64acd2",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 86, \"database_name\": \"Trino\"}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "thoth_support_prs",
+                "template_params": null
+            }
+        }
+    ]
+}
