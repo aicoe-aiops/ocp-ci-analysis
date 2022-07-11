@@ -1,0 +1,275 @@
+{
+  "doc_type": "pipeline",
+  "version": "3.0",
+  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id": "elyra-auto-generated-pipeline",
+  "primary_pipeline": "primary",
+  "pipelines": [
+    {
+      "id": "primary",
+      "nodes": [
+        {
+          "id": "968b89af-0a17-445d-bdc5-fa9dcf927227",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "filename": "../../data-sources/github/openshift_origin_PR_EDA.ipynb",
+              "outputs": [],
+              "env_vars": [
+                "S3_ENDPOINT=https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud",
+                "S3_ACCESS_KEY=",
+                "S3_SECRET_KEY=",
+                "S3_BUCKET=opf-datacatalog-morty",
+                "REMOTE=1",
+                "TRINO_USER=",
+                "TRINO_PASSWD=",
+                "TRINO_HOST=trino.operate-first.cloud",
+                "TRINO_PORT=443",
+                "S3_PROJECT_KEY=github",
+                "AUTOMATION=1"
+              ],
+              "dependencies": [],
+              "include_subdirectories": false,
+              "runtime_image": "quay.io/aicoe/ocp-ci-analysis:v0.3.0",
+              "cpu": 2,
+              "memory": 4
+            },
+            "label": "",
+            "ui_data": {
+              "label": "openshift_origin_PR_EDA.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 336,
+              "y_pos": 207,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "8e951028-bcb1-433b-9277-42c40bf616a8",
+                  "node_id_ref": "fb4580ff-0b4e-4f24-9762-6170f9ef1d68",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "64877c5b-d9e3-4ccf-8306-031a8573e94c",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "filename": "time_to_merge_model.ipynb",
+              "outputs": [],
+              "env_vars": [
+                "S3_ENDPOINT=https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud",
+                "S3_ACCESS_KEY=",
+                "S3_SECRET_KEY=",
+                "S3_BUCKET=opf-datacatalog-morty",
+                "REMOTE=1",
+                "AUTOMATION=1"
+              ],
+              "dependencies": [],
+              "include_subdirectories": false,
+              "runtime_image": "quay.io/aicoe/ocp-ci-analysis:v0.3.0",
+              "cpu": 2,
+              "memory": 4
+            },
+            "label": "",
+            "ui_data": {
+              "label": "time_to_merge_model.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 529,
+              "y_pos": 268,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "0c8396e6-419d-42d2-9b99-462f833864b2",
+                  "node_id_ref": "968b89af-0a17-445d-bdc5-fa9dcf927227",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "fb4580ff-0b4e-4f24-9762-6170f9ef1d68",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "filename": "../../data-sources/github/openshift_origin_data_extraction.ipynb",
+              "outputs": [],
+              "env_vars": [
+                "S3_ENDPOINT_URL=https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud",
+                "THOTH_S3_ENDPOINT_URL=https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud",
+                "S3_ACCESS_KEY=",
+                "CEPH_KEY_ID=",
+                "S3_SECRET_KEY=",
+                "CEPH_SECRET_KEY=",
+                "S3_BUCKET=opf-datacatalog-morty",
+                "CEPH_BUCKET=opf-datacatalog-morty",
+                "CEPH_BUCKET_PREFIX=kachau/ossna22",
+                "GITHUB_ACCESS_TOKEN=",
+                "GITHUB_ORG=openshift",
+                "GITHUB_REPO=origin"
+              ],
+              "dependencies": [],
+              "include_subdirectories": false,
+              "runtime_image": "quay.io/open-services-group/metrics:v0.0.2",
+              "memory": 2,
+              "cpu": 3
+            },
+            "label": "",
+            "ui_data": {
+              "label": "openshift_origin_data_extraction.ipynb",
+              "image": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20viewBox%3D%220%200%2022%2022%22%3E%0A%20%20%3Cg%20class%3D%22jp-icon-warn0%20jp-icon-selectable%22%20fill%3D%22%23EF6C00%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M18.7%203.3v15.4H3.3V3.3h15.4m1.5-1.5H1.8v18.3h18.3l.1-18.3z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M16.5%2016.5l-5.4-4.3-5.6%204.3v-11h11z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A",
+              "x_pos": 128,
+              "y_pos": 140,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "app_data": {
+        "ui_data": {
+          "comments": [
+            {
+              "id": "3d958935-59d6-41c3-ba9c-0769586e8d4e",
+              "x_pos": 58,
+              "y_pos": 67,
+              "width": 175,
+              "height": 42,
+              "class_name": "d3-comment-rect",
+              "content": "Data collection step",
+              "associated_id_refs": [
+                {
+                  "node_ref": "fb4580ff-0b4e-4f24-9762-6170f9ef1d68"
+                }
+              ]
+            },
+            {
+              "id": "179afa1c-4144-4937-919c-5341ee418a7f",
+              "x_pos": 223,
+              "y_pos": 294,
+              "width": 175,
+              "height": 60,
+              "class_name": "d3-comment-rect",
+              "content": "Data Cleaning, Feature Engineering, DB pushing",
+              "associated_id_refs": [
+                {
+                  "node_ref": "968b89af-0a17-445d-bdc5-fa9dcf927227"
+                }
+              ]
+            },
+            {
+              "id": "8770213c-aae8-4b14-acf8-2f533d554cc8",
+              "x_pos": 577.0000305175781,
+              "y_pos": 137,
+              "width": 175,
+              "height": 45,
+              "class_name": "d3-comment-rect",
+              "content": "Model Training and push to s3",
+              "associated_id_refs": [
+                {
+                  "node_ref": "64877c5b-d9e3-4ccf-8306-031a8573e94c"
+                }
+              ]
+            }
+          ]
+        },
+        "version": 7,
+        "runtime_type": "KUBEFLOW_PIPELINES",
+        "properties": {
+          "name": "github-pr-ttm-e2e-withcreds-tmp",
+          "runtime": "Kubeflow Pipelines"
+        }
+      },
+      "runtime_ref": ""
+    }
+  ],
+  "schemas": []
+}
