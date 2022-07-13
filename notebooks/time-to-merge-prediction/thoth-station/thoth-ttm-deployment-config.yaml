@@ -1,0 +1,66 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: ttm-model-thoth
+spec:
+  name: ttm-model-thoth
+  predictors:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: quay.io/supathak/github-ttm-test:v2
+          name: ttm-model-thoth-clf
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 100m
+              memory: 1Gi
+            limits:
+              cpu: 500m
+              memory: 2Gi
+          env:
+          - name: GUNICORN_WORKERS
+            value: '1'
+          - name: GUNICORN_THREADS
+            value: '2'
+          - name: S3_ENDPOINT
+            valueFrom:
+              secretKeyRef:
+                key: S3_ENDPOINT
+                name: thoth-github-pr-ttm
+          - name: S3_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_ACCESS_KEY
+                name: thoth-github-pr-ttm
+          - name: S3_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_SECRET_KEY
+                name: thoth-github-pr-ttm
+          - name: S3_BUCKET
+            valueFrom:
+              secretKeyRef:
+                key: S3_BUCKET
+                name: thoth-github-pr-ttm
+          - name: S3_MODEL_KEY
+            valueFrom:
+              secretKeyRef:
+                key: S3_MODEL_KEY
+                name: thoth-github-pr-ttm
+    svcOrchSpec:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 1Gi
+        limits:
+          cpu: 500m
+          memory: 2Gi
+    graph:
+      children: []
+      endpoint:
+        type: REST
+      name: ttm-model-thoth-clf
+      type: MODEL
+    name: ttm-model-thoth-predictor
+    replicas: 1
