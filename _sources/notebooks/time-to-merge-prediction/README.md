@@ -28,11 +28,7 @@ To train this model, we use the features engineered from the raw PR data. We exp
 To make the machine learning model available at an interactive endpoint,  we serve the model yielding the best results into a Seldon service. We create an sklearn pipeline consisting of 2 steps, scaling of the input features and the classifier itself.
 
    * Saved sklearn model pipeline on `opf-datacatalog` bucket: `github/ttm-model/pipeline/model.joblib`
-<<<<<<< HEAD
-   * Interactive model endpoint: http://ttm-pipeline-opf-seldon.apps.zero.massopen.cloud/predict
-=======
    * Interactive model endpoint: http://github-pr-ttm-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict
->>>>>>> 7e7fb73... Update documentation
    * [Model Inference Notebook](model_inference.ipynb)
 
 This service once integrated with a Github repo, can provide newly submitted PRs with a time to merge estimate.

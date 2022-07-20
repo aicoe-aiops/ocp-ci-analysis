@@ -4,11 +4,7 @@
  *
  * Sphinx JavaScript utilities for the full-text search.
  *
-<<<<<<< HEAD
- * :copyright: Copyright 2007-2021 by the Sphinx team, see AUTHORS.
-=======
  * :copyright: Copyright 2007-2022 by the Sphinx team, see AUTHORS.
->>>>>>> 7e7fb73... Update documentation
  * :license: BSD, see LICENSE for details.
  *
  */
@@ -176,13 +172,6 @@ var Search = {
       }
       // stem the word
       var word = stemmer.stemWord(tmp[i].toLowerCase());
-<<<<<<< HEAD
-      // prevent stemmer from cutting word smaller than two chars
-      if(word.length < 3 && tmp[i].length >= 3) {
-        word = tmp[i];
-      }
-=======
->>>>>>> 7e7fb73... Update documentation
       var toAppend;
       // select the correct list
       if (word[0] == '-') {
@@ -283,24 +272,16 @@ var Search = {
           setTimeout(function() {
             displayNextItem();
           }, 5);
-<<<<<<< HEAD
-        } else if (DOCUMENTATION_OPTIONS.HAS_SOURCE) {
-=======
         } else if (DOCUMENTATION_OPTIONS.SHOW_SEARCH_SUMMARY) {
->>>>>>> 7e7fb73... Update documentation
           $.ajax({url: requestUrl,
                   dataType: "text",
                   complete: function(jqxhr, textstatus) {
                     var data = jqxhr.responseText;
                     if (data !== '' && data !== undefined) {
-<<<<<<< HEAD
-                      listItem.append(Search.makeSearchSummary(data, searchterms, hlterms));
-=======
                       var summary = Search.makeSearchSummary(data, searchterms, hlterms);
                       if (summary) {
                         listItem.append(summary);
                       }
->>>>>>> 7e7fb73... Update documentation
                     }
                     Search.output.append(listItem);
                     setTimeout(function() {
@@ -308,11 +289,7 @@ var Search = {
                     }, 5);
                   }});
         } else {
-<<<<<<< HEAD
-          // no source available, just display title
-=======
           // just display title
->>>>>>> 7e7fb73... Update documentation
           Search.output.append(listItem);
           setTimeout(function() {
             displayNextItem();
@@ -347,13 +324,9 @@ var Search = {
     var results = [];
 
     for (var prefix in objects) {
-<<<<<<< HEAD
-      for (var name in objects[prefix]) {
-=======
       for (var iMatch = 0; iMatch != objects[prefix].length; ++iMatch) {
         var match = objects[prefix][iMatch];
         var name = match[4];
->>>>>>> 7e7fb73... Update documentation
         var fullname = (prefix ? prefix + '.' : '') + name;
         var fullnameLower = fullname.toLowerCase()
         if (fullnameLower.indexOf(object) > -1) {
@@ -367,10 +340,6 @@ var Search = {
           } else if (parts[parts.length - 1].indexOf(object) > -1) {
             score += Scorer.objPartialMatch;
           }
-<<<<<<< HEAD
-          var match = objects[prefix][name];
-=======
->>>>>>> 7e7fb73... Update documentation
           var objname = objnames[match[1]][2];
           var title = titles[match[0]];
           // If more than one term searched for, we require other words to be
@@ -529,12 +498,9 @@ var Search = {
    */
   makeSearchSummary : function(htmlText, keywords, hlwords) {
     var text = Search.htmlToText(htmlText);
-<<<<<<< HEAD
-=======
     if (text == "") {
       return null;
     }
->>>>>>> 7e7fb73... Update documentation
     var textLower = text.toLowerCase();
     var start = 0;
     $.each(keywords, function() {
@@ -546,11 +512,7 @@ var Search = {
     var excerpt = ((start > 0) ? '...' : '') +
       $.trim(text.substr(start, 240)) +
       ((start + 240 - text.length) ? '...' : '');
-<<<<<<< HEAD
-    var rv = $('<div class="context"></div>').text(excerpt);
-=======
     var rv = $('<p class="context"></p>').text(excerpt);
->>>>>>> 7e7fb73... Update documentation
     $.each(hlwords, function() {
       rv = rv.highlightText(this, 'highlighted');
     });

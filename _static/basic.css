@@ -4,11 +4,7 @@
  *
  * Sphinx stylesheet -- basic theme.
  *
-<<<<<<< HEAD
- * :copyright: Copyright 2007-2021 by the Sphinx team, see AUTHORS.
-=======
  * :copyright: Copyright 2007-2022 by the Sphinx team, see AUTHORS.
->>>>>>> 7e7fb73... Update documentation
  * :license: BSD, see LICENSE for details.
  *
  */
@@ -134,11 +130,7 @@ ul.search li a {
     font-weight: bold;
 }
 
-<<<<<<< HEAD
-ul.search li div.context {
-=======
 ul.search li p.context {
->>>>>>> 7e7fb73... Update documentation
     color: #888;
     margin: 2px 0 0 30px;
     text-align: left;
@@ -516,8 +508,6 @@ table.hlist td {
     vertical-align: top;
 }
 
-<<<<<<< HEAD
-=======
 /* -- object description styles --------------------------------------------- */
 
 .sig {
@@ -575,7 +565,6 @@ code.descname {
 	color: #067D17;
 }
 
->>>>>>> 7e7fb73... Update documentation
 
 /* -- other body styles ----------------------------------------------------- */
 
@@ -702,17 +691,6 @@ dl.glossary dt {
     font-size: 1.1em;
 }
 
-<<<<<<< HEAD
-.optional {
-    font-size: 1.3em;
-}
-
-.sig-paren {
-    font-size: larger;
-}
-
-=======
->>>>>>> 7e7fb73... Update documentation
 .versionmodified {
     font-style: italic;
 }
@@ -753,14 +731,9 @@ dl.glossary dt {
 
 .classifier:before {
     font-style: normal;
-<<<<<<< HEAD
-    margin: 0.5em;
-    content: ":";
-=======
     margin: 0 0.5em;
     content: ":";
     display: inline-block;
->>>>>>> 7e7fb73... Update documentation
 }
 
 abbr, acronym {
@@ -784,10 +757,7 @@ span.pre {
     -ms-hyphens: none;
     -webkit-hyphens: none;
     hyphens: none;
-<<<<<<< HEAD
-=======
     white-space: nowrap;
->>>>>>> 7e7fb73... Update documentation
 }
 
 div[class*="highlight-"] {
@@ -851,17 +821,12 @@ div.code-block-caption code {
 
 table.highlighttable td.linenos,
 span.linenos,
-<<<<<<< HEAD
-div.doctest > div.highlight span.gp {  /* gp: Generic.Prompt */
-    user-select: none;
-=======
 div.highlight span.gp {  /* gp: Generic.Prompt */
   user-select: none;
   -webkit-user-select: text; /* Safari fallback only */
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
->>>>>>> 7e7fb73... Update documentation
 }
 
 div.code-block-caption span.caption-number {
@@ -876,19 +841,6 @@ div.literal-block-wrapper {
     margin: 1em 0;
 }
 
-<<<<<<< HEAD
-code.descname {
-    background-color: transparent;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-code.descclassname {
-    background-color: transparent;
-}
-
-=======
->>>>>>> 7e7fb73... Update documentation
 code.xref, a code {
     background-color: transparent;
     font-weight: bold;

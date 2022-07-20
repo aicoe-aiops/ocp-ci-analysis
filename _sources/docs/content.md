@@ -1,9 +1,6 @@
 # Table of Contents
 - [Research on current industry offerings](#research-on-current-industry-offerings)
-<<<<<<< HEAD
-=======
 - [Architecture Diagram](#architecture-diagram)
->>>>>>> 7e7fb73... Update documentation
 - [Data Engineering: Metrics and KPIs for CI](#data-engineering-metrics-and-kpis-for-ci)
   * [TestGrid](#testgrid)
   * [Prow/GCS Artifacts](#prowgcs-artifacts)
@@ -11,15 +8,10 @@
   * [Bugzilla](#bugzilla)
   * [Telemetry](#telemetry)
 - [Machine Learning and Analytics Projects](#machine-learning-and-analytics-projects)
-<<<<<<< HEAD
-  * [TestGrid Failure Type Classification](#testgrid-failure-type-classification)
-  * [Prow Log Templating For Downstream ML Tasks](#prow-log-templating-for-downstream-ml-tasks)
-=======
   * [Github Time to Merge Prediction](#github-time-to-merge-prediction)
   * [TestGrid Failure Type Classification](#testgrid-failure-type-classification)
   * [Prow Log Classification](#prow-log-classification)
   * [Optimal Stopping Point Prediction](#optimal-stopping-point-prediction)
->>>>>>> 7e7fb73... Update documentation
   * [More Projects Coming Soon…](#more-projects-coming-soon)
 - [Automate Notebook Pipelines using Elyra and Kubeflow](#automate-notebook-pipelines-using-elyra-and-kubeflow)
 
@@ -27,13 +19,10 @@
 
 Find a curated list of companies involved in AI/ML for CI/CD [here](aiml-cicd-market-research.md).
 
-<<<<<<< HEAD
-=======
 # Architecture Diagram
 
 ![Architecture Diagram](./assets/images/architecture_diagram.png)
 
->>>>>>> 7e7fb73... Update documentation
 #  Data Engineering: Metrics and KPIs for CI
 
 Before we attempt to apply any AI or machine learning techniques to improve the CI workflow, it is important that we know how to both quantify and evaluate the current state of the CI workflow. In order to do this we must establish and collect the relevant metrics and key performance indicators (KPIs) needed to measure it. This is a critical first step as it allows us to quantify the state of CI operations, as well as apply the KPIs we will need to evaluate the impact of our AI tools in the future.
@@ -57,13 +46,8 @@ According to the project's [readme](https://github.com/GoogleCloudPlatform/testg
     * [Visualization notebook](../notebooks/data-sources/TestGrid/metrics/metric_visualization_generic.ipynb)
     * [Metric Visualization Video](https://youtu.be/SqGfbyEuZLE)
 * **Automate Workflows**
-<<<<<<< HEAD
-    * [Automated metric pipeline](http://istio-ingressgateway-istio-system.apps.zero.massopen.cloud/pipeline/)
-    * [How to  video](https://www.youtube.com/watch?v=lY75bDv6kd4)
-=======
     * [Automated metric pipeline](https://ml-pipeline-ui-kubeflow.apps.odh-cl2.apps.os-climate.org/pipeline/)
     * [How to video](https://www.youtube.com/watch?v=lY75bDv6kd4)
->>>>>>> 7e7fb73... Update documentation
 
 ## Prow/GCS Artifacts:
 
@@ -77,10 +61,7 @@ TestGrid provides the results of tests, but if we want to triage an issue and se
 The builds and tests run by the CI process are required because of changes that are happening in the applications code base. The goal of CI is to automatically identify if any of these code changes will cause problems for the deployed application. Therefore, we also include information such as metadata and diff’s about the PR’s associated with the builds run by Prow. This dataset contains a mix of numerical, categorical and textual data types.
 
 * [GitHub PR EDA](../notebooks/data-sources/oc-github-repo/github_PR_EDA.ipynb)
-<<<<<<< HEAD
-=======
 * [Dashboard](https://superset.operate-first.cloud/superset/dashboard/9/)
->>>>>>> 7e7fb73... Update documentation
 * [Video Walkthrough](https://youtu.be/bUm0jvXaY14)
 
 ## Bugzilla:
@@ -108,11 +89,7 @@ To quantify critical metrics within a software development workflow, we can star
 We would like to create a GitHub bot that ingests information from a PR, including the written description, author, number of files, etc, in addition to the diff, and returns a prediction for how long it will take to be merged. For that, we train a model which can predict the time taken to merge a PR and classifies it into one of a few predefined time ranges.
 
 * [Detailed project description](../notebooks/time-to-merge-prediction/README.md)
-<<<<<<< HEAD
-* Interactive model endpoint: http://ttm-pipeline-opf-seldon.apps.zero.massopen.cloud/predict
-=======
 * Interactive model endpoint: http://github-pr-ttm-ds-ml-workflows-ws.apps.smaug.na.operate-first.cloud/predict
->>>>>>> 7e7fb73... Update documentation
 * [Model Inference Notebook](../notebooks/time-to-merge-prediction/model_inference.ipynb)
 * [Time to Merge Model Training Notebook](../notebooks/time-to-merge-prediction/time_to_merge_model.ipynb)
 * [Deployment Configuration for Seldon Service](../notebooks/time-to-merge-prediction/seldon-deployment-config.yaml)
@@ -132,11 +109,6 @@ We start by applying a clustering algorithm to job runs based on the term freque
 
 * [Build Log Classification Notebook](../notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb)
 
-<<<<<<< HEAD
-## More Projects Coming Soon…
-
-*   [List of potential ML projects](https://github.com/aicoe-aiops/ocp-ci-analysis/issues?q=is%3Aissue+is%3Aopen+%22ML+Request%22+).
-=======
 ## Optimal Stopping Point Prediction
 
 Every new Pull Request to a repository with new code changes is subjected to an automated set of builds and tests before being merged. Some tests may run for longer durations for various reasons such as unoptimized algorithms, slow networks, or the simple fact that many different independent services are part of a single test. Longer running tests are often painful as they can block the CI/CD process for longer periods of time. By predicting the optimal stopping point for the test, we can better allocate development resources.
@@ -153,7 +125,6 @@ Every new Pull Request to a repository with new code changes is subjected to an 
 ## More Projects Coming Soon…
 
 *  [List of potential ML projects](https://github.com/aicoe-aiops/ocp-ci-analysis/issues?q=is%3Aissue+is%3Aopen+%22ML+Request%22+).
->>>>>>> 7e7fb73... Update documentation
 
 # Automate Notebook Pipelines using Elyra and Kubeflow
 
