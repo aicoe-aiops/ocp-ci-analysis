@@ -35,15 +35,12 @@ const messages = {
     'copy_to_clipboard': '复制到剪贴板',
     'copy_success': '复制成功!',
     'copy_failure': '复制失败',
-<<<<<<< HEAD
-=======
   },
   'it' : {
     'copy': 'Copiare',
     'copy_to_clipboard': 'Copiato negli appunti',
     'copy_success': 'Copiato!',
     'copy_failure': 'Errore durante la copia',
->>>>>>> 7e7fb73... Update documentation
   }
 }
 
@@ -58,9 +55,6 @@ if (doc_url_root == '#') {
     doc_url_root = '';
 }
 
-<<<<<<< HEAD
-const path_static = `${doc_url_root}_static/`;
-=======
 /**
  * SVG files for our copy buttons
  */
@@ -80,7 +74,6 @@ if (!iconCopy) {
   <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
 </svg>`
 }
->>>>>>> 7e7fb73... Update documentation
 
 /**
  * Set up copy/paste for code blocks
@@ -119,14 +112,8 @@ const temporarilyChangeTooltip = (el, oldText, newText) => {
 
 // Changes the copy button icon for two seconds, then changes it back
 const temporarilyChangeIcon = (el) => {
-<<<<<<< HEAD
-  img = el.querySelector("img");
-  img.setAttribute('src', `${path_static}check-solid.svg`)
-  setTimeout(() => img.setAttribute('src', `${path_static}copy-button.svg`), 2000)
-=======
   el.innerHTML = iconCheck;
   setTimeout(() => {el.innerHTML = iconCopy}, 2000)
->>>>>>> 7e7fb73... Update documentation
 }
 
 const addCopyButtonToCodeCells = () => {
@@ -145,11 +132,7 @@ const addCopyButtonToCodeCells = () => {
 
     const clipboardButton = id =>
     `<button class="copybtn o-tooltip--left" data-tooltip="${messages[locale]['copy']}" data-clipboard-target="#${id}">
-<<<<<<< HEAD
-      <img src="${path_static}copy-button.svg" alt="${messages[locale]['copy_to_clipboard']}">
-=======
       ${iconCopy}
->>>>>>> 7e7fb73... Update documentation
     </button>`
     codeCell.insertAdjacentHTML('afterend', clipboardButton(id))
   })

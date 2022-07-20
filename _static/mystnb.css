@@ -5,11 +5,7 @@ div.container.cell {
 }
 
 /* Removing all background formatting so we can control at the div level */
-<<<<<<< HEAD
-.cell_input div.highlight, .cell_input pre, .cell_output .output * {
-=======
 .cell_input div.highlight, .cell_output pre, .cell_input pre, .cell_output .output {
->>>>>>> 7e7fb73... Update documentation
   border: none;
   box-shadow: none;
 }
@@ -185,8 +181,6 @@ div.highlight .-Color[class*=-BGCyan] {
 div.highlight .-Color[class*=-BGWhite] {
   background-color: #C5C1B4
 }
-<<<<<<< HEAD
-=======
 
 /* Font colors for 8-bit ANSI */
 
@@ -1726,4 +1720,3 @@ div.highlight .-Color[class*=-C255] {
 div.highlight .-Color[class*=-BGC255] {
   background-color: #EEEEEE
 }
->>>>>>> 7e7fb73... Update documentation

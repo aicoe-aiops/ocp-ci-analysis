@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-var initToggleItems = () => {
-  var itemsToToggle = document.querySelectorAll(togglebuttonSelector);
-  console.log(itemsToToggle, togglebuttonSelector)
-  // Add the button to each admonition and hook up a callback to toggle visibility
-  itemsToToggle.forEach((item, index) => {
-    var toggleID = `toggle-${index}`;
-    var buttonID = `button-${toggleID}`;
-    var collapseButton = `
-      <button id="${buttonID}" class="toggle-button" data-target="${toggleID}" data-button="${buttonID}">
-          <div class="bar horizontal" data-button="${buttonID}"></div>
-          <div class="bar vertical" data-button="${buttonID}"></div>
-      </button>`;
-
-    item.setAttribute('id', toggleID);
-
-    if (!item.classList.contains("toggle")){
-      item.classList.add("toggle");
-    }
-
-    // If it's an admonition block, then we'll add the button inside
-    if (item.classList.contains("admonition")) {
-      item.insertAdjacentHTML("afterbegin", collapseButton);
-    } else {
-      item.insertAdjacentHTML('beforebegin', collapseButton);
-    }
-
-    thisButton = $(`#${buttonID}`);
-    thisButton.on('click', toggleClickHandler);
-    if (!item.classList.contains("toggle-shown")) {
-      toggleHidden(thisButton[0]);
-=======
 /**
  * Add Toggle Buttons to elements
  */
@@ -121,7 +89,6 @@ var initToggleItems = () => {
       if (item.classList.contains("toggle-shown")) {
         details.click();
       }
->>>>>>> 7e7fb73... Update documentation
     }
   })
 };
@@ -140,10 +107,6 @@ var toggleHidden = (button) => {
 }
 
 var toggleClickHandler = (click) => {
-<<<<<<< HEAD
-  button = document.getElementById(click.target.dataset['button']);
-  toggleHidden(button);
-=======
   // Be cause the admonition title is clickable and extends to the whole admonition
   // We only look for a click event on this title to trigger the toggle.
 
@@ -163,7 +126,6 @@ var toggleClickHandler = (click) => {
   }
   target = document.getElementById(button.dataset['button']);
   toggleHidden(target);
->>>>>>> 7e7fb73... Update documentation
 }
 
 // If we want to blanket-add toggle classes to certain cells
@@ -190,8 +152,6 @@ const sphinxToggleRunWhenDOMLoaded = cb => {
 }
 sphinxToggleRunWhenDOMLoaded(addToggleToSelector)
 sphinxToggleRunWhenDOMLoaded(initToggleItems)
-<<<<<<< HEAD
-=======
 
 /** Toggle details blocks to be open when printing */
 if (toggleOpenOnPrint == "true") {
@@ -225,4 +185,3 @@ if (toggleOpenOnPrint == "true") {
     });
   });
 }
->>>>>>> 7e7fb73... Update documentation
