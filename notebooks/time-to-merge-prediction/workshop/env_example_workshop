@@ -1,0 +1,17 @@
+GITHUB_ORG=my-org
+GITHUB_REPO=my-repo
+PROJECT_S3_FOLDER=my-name
+S3_ACCESS_KEY=access-key
+S3_ENDPOINT_URL=endpoint
+S3_BUCKET=bucket-name
+S3_SECRET_KEY=secret-key
+CEPH_BUCKET=bucket
+CEPH_BUCKET_PREFIX=raw-data
+CEPH_KEY_ID=access-key
+CEPH_SECRET_KEY=secret-key
+GITHUB_ACCESS_TOKEN_TODAY=generate-your-personal-access-token
+TRINO_USER=trino-admin
+TRINO_PASSWD=trino-password
+TRINO_HOST=trino-host
+TRINO_PORT=trino-port
+CHOSEN_MODEL=rf
