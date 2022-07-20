@@ -1,0 +1,1791 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prow Logs and GCS Data &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="TestGrid: initial EDA and data collection" href="../TestGrid/testgrid_EDA.html" />
+    <link rel="prev" title="Seldon deployment for build log clustering" href="build-logs/model_seldon.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/gcsweb-ci/prow_archive_discovery.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/gcsweb-ci/prow_archive_discovery.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/gcsweb-ci/prow_archive_discovery.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/notebooks/data-sources/gcsweb-ci/prow_archive_discovery.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Prow Logs and GCS Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-we-have-access-to-as-data-scientists-when-digging-into-the-build-artifacts">
+     What do we have access to as data scientists when digging into the build artifacts?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-availability-of-log-files-across-a-build">
+     Compare availability of log files across a build
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-to-access-a-single-set-of-prow-artifacts">
+       Example to access a single set of Prow artifacts
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-data">
+     Collect Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#build-logs">
+       Build logs
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#see-the-stats-for-chars-words-lines">
+         See the stats for chars, words, lines
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#events">
+       Events
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-sample-data">
+   Save sample data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Prow Logs and GCS Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Prow Logs and GCS Data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-we-have-access-to-as-data-scientists-when-digging-into-the-build-artifacts">
+     What do we have access to as data scientists when digging into the build artifacts?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compare-availability-of-log-files-across-a-build">
+     Compare availability of log files across a build
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-to-access-a-single-set-of-prow-artifacts">
+       Example to access a single set of Prow artifacts
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect-data">
+     Collect Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#build-logs">
+       Build logs
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#see-the-stats-for-chars-words-lines">
+         See the stats for chars, words, lines
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#events">
+       Events
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#save-sample-data">
+   Save sample data
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="prow-logs-and-gcs-data">
+<h1>Prow Logs and GCS Data<a class="headerlink" href="#prow-logs-and-gcs-data" title="Permalink to this headline">#</a></h1>
+<div class="section" id="what-do-we-have-access-to-as-data-scientists-when-digging-into-the-build-artifacts">
+<h2>What do we have access to as data scientists when digging into the build artifacts?<a class="headerlink" href="#what-do-we-have-access-to-as-data-scientists-when-digging-into-the-build-artifacts" title="Permalink to this headline">#</a></h2>
+<p>In this notebook we will demonstrate how to discover and interact with the data (logs) made availble on <a class="reference external" href="https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/">GCS/origin-ci-test</a> as well as provide some simple EDA to help folks get started analyzing this data.</p>
+<p>This notebook is divided into 2 sections:</p>
+<ol class="simple">
+<li><p>Compare the different log files present throughout the archives and quantify how complete and comparable our log dataset is from build to build.</p></li>
+<li><p>Download a sample dataset of the events and build logs to perform some lite EDA.</p></li>
+</ol>
+<p><em>Note: We will be collecting data from the “origin-ci-test” Bucket on Google Cloud Storage. But, after some out-of-notebook exploration it has become aparent that this is a massive amount of data that contains more than just the OpenShift CI logs we are intrested in here and programatically investigating that Bucket is not advised. Therefore, we recommend using the <a class="reference external" href="https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/">web ui</a> to inspect what jobs are exposed and identify what is of interest to your analysis before collecting data via the google cloud stporage api. Here we will rely on web-scraping the UI to explore what’s available to us based on what jobs are displayed on <a class="reference external" href="https://testgrid.k8s.io/redhat-assisted-installer">TestGrid</a>.</em></p>
+</div>
+<div class="section" id="compare-availability-of-log-files-across-a-build">
+<h2>Compare availability of log files across a build<a class="headerlink" href="#compare-availability-of-log-files-across-a-build" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">storage</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-to-access-a-single-set-of-prow-artifacts">
+<h3>Example to access a single set of Prow artifacts<a class="headerlink" href="#example-to-access-a-single-set-of-prow-artifacts" title="Permalink to this headline">#</a></h3>
+<p>Let’s make sure we understand how this works, and focus on a single job first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.6-informing&quot;&#39;</span>
+<span class="n">job</span> <span class="o">=</span> <span class="s2">&quot;periodic-ci-openshift-release-master-ci-4.6-upgrade-from-stable-4.5-e2e-gcp-upgrade&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<span class="n">list_of_builds</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get_text</span><span class="p">()[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)][</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">list_of_builds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.6-upgrade-from-stable-4.5-e2e-gcp-upgrade/1383601003814719488&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; ..&#39;,
+ &#39; artifacts/&#39;,
+ &#39; build-log.txt&#39;,
+ &#39; finished.json&#39;,
+ &#39; podinfo.json&#39;,
+ &#39; prowjob.json&#39;,
+ &#39; started.json&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great, we can now programmatically access the archives. Now, lets walk through all of the build archives for a single job and create a list of what they have on the first level of their directories.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_data</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">build</span> <span class="ow">in</span> <span class="n">list_of_builds</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">build</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)]</span>
+    <span class="n">build_data</span><span class="p">[</span><span class="n">build</span><span class="p">]</span> <span class="o">=</span> <span class="n">artifacts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">builds_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">build_data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">builds_info</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7    536
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">build_data</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ..  artifacts/  build-log.txt  finished.json  podinfo.json  prowjob.json  started.json    536
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cent1</span> <span class="o">=</span> <span class="n">builds_info</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">builds_info</span><span class="p">)</span>
+<span class="n">cent1</span> <span class="o">=</span> <span class="n">cent1</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cent1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Markdown</span><span class="p">(</span>
+    <span class="s2">&quot;</span><span class="si">{}% o</span><span class="s2">f our records for this job appear to be complete and include the &#39;artifacts/&#39; subdirectory,</span><span class="se">\</span>
+<span class="s2"> lets dig in and see what they contain.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">cent1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>100.0% of our records for this job appear to be complete and include the 'artifacts/' subdirectory, lets dig in and see what they contain.</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_data</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">build</span> <span class="ow">in</span> <span class="n">list_of_builds</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">build</span><span class="si">}</span><span class="s2">/artifacts&quot;</span>
+    <span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+    <span class="n">artifacts</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)]</span>
+    <span class="n">build_data</span><span class="p">[</span><span class="n">build</span><span class="p">]</span> <span class="o">=</span> <span class="n">artifacts</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artifact_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="n">build_data</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+<span class="n">artifact_info</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8    528
+7      4
+3      2
+6      1
+5      1
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cent2</span> <span class="o">=</span> <span class="n">artifact_info</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">artifact_info</span><span class="p">)</span>
+<span class="n">cent2</span> <span class="o">=</span> <span class="n">cent2</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">cent2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8</td>
+      <td>0.985075</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7</td>
+      <td>0.007463</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>0.003731</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>0.001866</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0.001866</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Markdown</span><span class="p">(</span>
+    <span class="s2">&quot;The above shows us that there are about </span><span class="si">{}% o</span><span class="s2">f the artifacts dirs &quot;</span>
+    <span class="s2">&quot;that have </span><span class="si">{}</span><span class="s2"> items and </span><span class="si">{}</span><span class="s2">% that have </span><span class="si">{}</span><span class="s2"> items and so on &quot;</span>
+    <span class="s2">&quot;(but it does not account for different combinations).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">cent2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">cent2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">cent2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">cent2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>The above shows us that there are about 98.51% of the artifacts dirs that have 8 items and 0.75% that have 7 items and so on (but it does not account for different combinations).</p>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">build_data</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> ..  build-resources/  e2e-gcp-upgrade/  release/  ci-operator-step-graph.json  ci-operator.log  junit_operator.xml  metadata.json    0.985075
+ ..  build-resources/  release/  ci-operator-step-graph.json  ci-operator.log  junit_operator.xml  metadata.json                      0.007463
+ ..  ci-operator.log  junit_job.xml                                                                                                   0.003731
+ ..  build-resources/  ci-operator-step-graph.json  ci-operator.log  junit_operator.xml  metadata.json                                0.001866
+ ..  e2e-gcp-upgrade/  release/  ci-operator.log  metadata.json                                                                       0.001866
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see from the results above that once we get down into the artifacts there is a far less uniformity to the data available to us for analysis. And this is all within a single job! Moving forward we will assume that this issue gets worse when comparing available artifacts across jobs and can dedicate a later notebook to proving out that assumption.</p>
+<p>This heterogeneity of objects available for each build will make it somewhat difficult to use these sets of documents as a whole to compare different CI behaviour. At this point, it makes sense to consider looking only at the same document (log) across job where available.</p>
+</div>
+</div>
+<div class="section" id="collect-data">
+<h2>Collect Data<a class="headerlink" href="#collect-data" title="Permalink to this headline">#</a></h2>
+<div class="section" id="build-logs">
+<h3>Build logs<a class="headerlink" href="#build-logs" title="Permalink to this headline">#</a></h3>
+<p>In the next section we are going to walkthrough accessing the <code class="docutils literal notranslate"><span class="pre">build-logs.txt</span></code> and the <code class="docutils literal notranslate"><span class="pre">events.json</span></code> as they appear to be nearly universally available. We will both download a small testing dataset as well show how to work directly with the data in memory.</p>
+<p>Now that we know what logs we want to collect its simpler to use the google cloud storage api to access or data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">connect_storage</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">):</span>
+    <span class="n">storage_client</span> <span class="o">=</span> <span class="n">storage</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">create_anonymous_client</span><span class="p">()</span>
+    <span class="n">bucket</span> <span class="o">=</span> <span class="n">storage_client</span><span class="o">.</span><span class="n">bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;bucket&quot;</span><span class="p">:</span> <span class="n">bucket</span><span class="p">,</span> <span class="s2">&quot;storage_client&quot;</span><span class="p">:</span> <span class="n">storage_client</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">download_public_file</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">source_blob_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Downloads a public blob from the bucket.&quot;&quot;&quot;</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s2">&quot;bucket&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">blob</span><span class="p">(</span><span class="n">source_blob_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">blob</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">client</span><span class="p">[</span><span class="s2">&quot;storage_client&quot;</span><span class="p">]):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">blob</span><span class="o">.</span><span class="n">download_as_text</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bucket_connection</span> <span class="o">=</span> <span class="n">connect_storage</span><span class="p">(</span><span class="s2">&quot;origin-ci-test&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read data into memory</span>
+<span class="n">build_log_data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">build</span> <span class="ow">in</span> <span class="n">list_of_builds</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">download_public_file</span><span class="p">(</span><span class="n">bucket_connection</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">build</span><span class="si">}</span><span class="s2">/build-log.txt&quot;</span><span class="p">)</span>
+    <span class="n">build_log_data</span><span class="p">[</span><span class="n">build</span><span class="p">]</span> <span class="o">=</span> <span class="n">file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_log_data</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">build_log_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\x1b[36mINFO\x1b[0m[2021-04-17T19:58:56Z] ci-operator version v20210416-d902916        \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:56Z] Loading configuration from https://config.ci.openshift.org for openshift/release@master [ci-4.6-upgrade-from-stable-4.5] \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:57Z] Resolved SHA missing for master in https://github.com/openshift/release (will prevent caching) \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:57Z] Using explicitly provided pull-spec for release initial (registry.ci.openshift.org/ocp/release:4.5.37) \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:57Z] Using explicitly provided pull-spec for release latest (registry.ci.openshift.org/ocp/release:4.6.0-0.ci-2021-04-17-163254) \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:57Z] Using namespace https://console.build02.ci.openshift.org/k8s/cluster/projects/ci-op-y3cf82zn \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:57Z] Running [input:origin-centos-8], [input:ocp-4.5-upi-installer], [release:initial], [release:latest], [images], e2e-gcp-upgrade \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:58Z] Tagging origin/centos:8 into pipeline:origin-centos-8. \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:58Z] Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer. \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:59Z] Importing release image initial.             \n\x1b[36mINFO\x1b[0m[2021-04-17T19:58:59Z] Importing release image latest.              \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:08Z] Imported release 4.5.37 created at 2021-03-31 06:05:56 +0000 UTC with 108 images to tag release:initial \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:16Z] Imported release 4.6.0-0.ci-2021-04-17-163254 created at 2021-04-17 16:33:19 +0000 UTC with 121 images to tag release:latest \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:16Z] Acquiring leases for test e2e-gcp-upgrade    \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:16Z] Running multi-stage test e2e-gcp-upgrade     \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:17Z] Running step e2e-gcp-upgrade-ipi-install-hosted-loki. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:27Z] Step e2e-gcp-upgrade-ipi-install-hosted-loki succeeded after 10.064135461s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:27Z] Running step e2e-gcp-upgrade-ipi-conf.       \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:47Z] Step e2e-gcp-upgrade-ipi-conf succeeded after 20.05838057s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:47Z] Running step e2e-gcp-upgrade-ipi-conf-gcp.   \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:57Z] Step e2e-gcp-upgrade-ipi-conf-gcp succeeded after 10.065333292s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:01:57Z] Running step e2e-gcp-upgrade-ipi-install-monitoringpvc. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:02:07Z] Step e2e-gcp-upgrade-ipi-install-monitoringpvc succeeded after 10.071902479s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:02:07Z] Running step e2e-gcp-upgrade-ipi-install-rbac. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:02:17Z] Step e2e-gcp-upgrade-ipi-install-rbac succeeded after 10.051469409s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:02:17Z] Running step e2e-gcp-upgrade-ipi-install-install-stableinitial. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Logs for container test in pod e2e-gcp-upgrade-ipi-install-install-stableinitial: \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Installing from release registry.build02.ci.openshift.org/ci-op-y3cf82zn/release@sha256:037ed15c79bbd6bee6f0d524d91790d2b368cba945e7ae6d64c984dc0f162b82 \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Credentials loaded from environment variable \\&quot;GOOGLE_CLOUD_KEYFILE_JSON\\&quot;, file \\&quot;/var/run/secrets/ci.openshift.io/cluster-profile/gce.json\\&quot;&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Consuming Install Config from target directory&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Will include manifests:                      \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_metrics_rb.yml          \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_creds.yml               \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_ds.yml                  \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_cm.yml                  \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_clusterrole.yml         \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_oauth_role.yml          \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_metrics_role.yml        \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_promtail_service.yml    \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_grafanacom_creds.yml    \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_sa.yml                  \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_promtail_cookie_secret.yml \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_role.yml                \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_cluster-monitoring-pvc.yml \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_psp.yml                 \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_01_ns.yml               \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_oauth_clusterrolebinding.yml \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_metrics.yml             \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_rolebinding.yml         \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] /tmp/secret/manifest_clusterrolebinding.yml  \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=warning msg=&quot;Found override for release image. Please be warned, this is not advised&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Credentials loaded from environment variable \\&quot;GOOGLE_CLOUD_KEYFILE_JSON\\&quot;, file \\&quot;/var/run/secrets/ci.openshift.io/cluster-profile/gce.json\\&quot;&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Consuming Openshift Manifests from target directory&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Consuming Master Machines from target directory&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Consuming OpenShift Install (Manifests) from target directory&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Consuming Worker Machines from target directory&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Consuming Common Manifests from target directory&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Creating infrastructure resources...&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Waiting up to 20m0s for the Kubernetes API at https://api.ci-op-y3cf82zn-5a3d5.origin-ci-int-gce.dev.openshift.com:6443...&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;API v1.18.3+cdb0358 up&quot;      \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Waiting up to 40m0s for bootstrapping to complete...&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=error msg=&quot;Cluster operator authentication Degraded is True with ConfigObservation_Error::IngressStateEndpoints_MissingEndpoints::RouteStatus_FailedHost::RouterCerts_NoRouterCertSecret: RouterCertsDegraded: secret/v4-0-config-system-router-certs -n openshift-authentication: could not be retrieved: secret \\&quot;v4-0-config-system-router-certs\\&quot; not found\\nConfigObservationDegraded: secret \\&quot;v4-0-config-system-router-certs\\&quot; not found\\nIngressStateEndpointsDegraded: No endpoints found for oauth-server\\nRouteStatusDegraded: route is not available at canonical host oauth-openshift.apps.ci-op-y3cf82zn-5a3d5.origin-ci-int-gce.dev.openshift.com: []&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator authentication Progressing is Unknown with NoData: &quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator authentication Available is Unknown with NoData: &quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator csi-snapshot-controller Progressing is True with _AsExpected: Progressing: Waiting for Deployment to deploy csi-snapshot-controller pods&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator csi-snapshot-controller Available is False with _AsExpected: Available: Waiting for Deployment to deploy csi-snapshot-controller pods&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator kube-storage-version-migrator Available is False with _NoMigratorPod: Available: deployment/migrator.openshift-kube-storage-version-migrator: no replicas are available&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator machine-config Progressing is True with : Working towards 4.5.37&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=error msg=&quot;Cluster operator machine-config Degraded is True with RenderConfigFailed: Unable to apply 4.5.37: openshift-config-managed/kube-cloud-config configmap is required on platform GCP but not found: configmap \\&quot;kube-cloud-config\\&quot; not found&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator machine-config Available is False with : Cluster not available for 4.5.37&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator openshift-apiserver Available is False with APIServices_Error: APIServicesAvailable: \\&quot;apps.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;authorization.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;build.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;image.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;oauth.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;project.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;quota.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;route.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;security.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;template.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;user.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator openshift-controller-manager Progressing is True with _DesiredStateNotYetAchieved: Progressing: daemonset/controller-manager: observed generation is 0, desired generation is 8.\\nProgressing: daemonset/controller-manager: number available is 0, desired number available &gt; 1&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator openshift-controller-manager Available is False with _NoPodsAvailable: Available: no daemon pods available on any node.&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator operator-lifecycle-manager-packageserver Available is False with : &quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Cluster operator operator-lifecycle-manager-packageserver Progressing is True with : Working toward 0.15.1&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Pulling debug logs from the bootstrap machine&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=info msg=&quot;Bootstrap gather logs captured here \\&quot;/tmp/installer/log-bundle-20210417204954.tar.gz\\&quot;&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] level=fatal msg=&quot;Bootstrap failed to complete: failed to wait for bootstrapping to complete: timed out waiting for the condition&quot; \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Setup phase finished, prepare env for next steps \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Copying log bundle...                        \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Removing REDACTED info from log...           \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Copying required artifacts to shared dir     \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] {&quot;component&quot;:&quot;entrypoint&quot;,&quot;error&quot;:&quot;wrapped process failed: exit status 1&quot;,&quot;file&quot;:&quot;prow/entrypoint/run.go:80&quot;,&quot;func&quot;:&quot;k8s.io/test-infra/prow/entrypoint.Options.Run&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;Error executing test process&quot;,&quot;severity&quot;:&quot;error&quot;,&quot;time&quot;:&quot;2021-04-17T20:50:28Z&quot;} \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] error: failed to execute wrapped command: exit status 1 \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z]                                              \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Step e2e-gcp-upgrade-ipi-install-install-stableinitial failed after 48m20.074374705s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:50:37Z] Running step e2e-gcp-upgrade-gather-gcp-console. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:51:07Z] Step e2e-gcp-upgrade-gather-gcp-console succeeded after 30.058654549s. \n\x1b[36mINFO\x1b[0m[2021-04-17T20:51:07Z] Running step e2e-gcp-upgrade-gather-must-gather. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:10:07Z] Step e2e-gcp-upgrade-gather-must-gather succeeded after 19m0.055587687s. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:10:07Z] Running step e2e-gcp-upgrade-gather-extra.   \n\x1b[36mINFO\x1b[0m[2021-04-17T21:11:07Z] Step e2e-gcp-upgrade-gather-extra succeeded after 1m0.064604654s. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:11:07Z] Running step e2e-gcp-upgrade-gather-audit-logs. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:11:57Z] Step e2e-gcp-upgrade-gather-audit-logs succeeded after 50.057797698s. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:11:57Z] Running step e2e-gcp-upgrade-ipi-deprovision-deprovision. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:14:47Z] Step e2e-gcp-upgrade-ipi-deprovision-deprovision succeeded after 2m50.060881266s. \n\x1b[36mINFO\x1b[0m[2021-04-17T21:14:47Z] Releasing leases for test e2e-gcp-upgrade    \n\x1b[36mINFO\x1b[0m[2021-04-17T21:14:48Z] Ran for 1h15m51s                             \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Some steps failed:                           \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z]   * could not run steps: step e2e-gcp-upgrade failed: &quot;e2e-gcp-upgrade&quot; pre steps failed: &quot;e2e-gcp-upgrade&quot; pod &quot;e2e-gcp-upgrade-ipi-install-install-stableinitial&quot; failed: the pod ci-op-y3cf82zn/e2e-gcp-upgrade-ipi-install-install-stableinitial failed after 48m15s (failed containers: test): ContainerFailed one or more containers exited \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Container test exited with code 1, reason Error \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] ---                                          \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] \\&quot;quota.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;route.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;security.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;template.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)\\nAPIServicesAvailable: \\&quot;user.openshift.io.v1\\&quot; is not ready: 503 (the server is currently unable to handle the request)&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=info msg=&quot;Cluster operator openshift-controller-manager Progressing is True with _DesiredStateNotYetAchieved: Progressing: daemonset/controller-manager: observed generation is 0, desired generation is 8.\\nProgressing: daemonset/controller-manager: number available is 0, desired number available &gt; 1&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=info msg=&quot;Cluster operator openshift-controller-manager Available is False with _NoPodsAvailable: Available: no daemon pods available on any node.&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=info msg=&quot;Cluster operator operator-lifecycle-manager-packageserver Available is False with : &quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=info msg=&quot;Cluster operator operator-lifecycle-manager-packageserver Progressing is True with : Working toward 0.15.1&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=info msg=&quot;Pulling debug logs from the bootstrap machine&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=info msg=&quot;Bootstrap gather logs captured here \\&quot;/tmp/installer/log-bundle-20210417204954.tar.gz\\&quot;&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] level=fatal msg=&quot;Bootstrap failed to complete: failed to wait for bootstrapping to complete: timed out waiting for the condition&quot; \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Setup phase finished, prepare env for next steps \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Copying log bundle...                        \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Removing REDACTED info from log...           \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Copying required artifacts to shared dir     \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] {&quot;component&quot;:&quot;entrypoint&quot;,&quot;error&quot;:&quot;wrapped process failed: exit status 1&quot;,&quot;file&quot;:&quot;prow/entrypoint/run.go:80&quot;,&quot;func&quot;:&quot;k8s.io/test-infra/prow/entrypoint.Options.Run&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;Error executing test process&quot;,&quot;severity&quot;:&quot;error&quot;,&quot;time&quot;:&quot;2021-04-17T20:50:28Z&quot;} \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] error: failed to execute wrapped command: exit status 1 \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] ---                                          \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Link to step on registry info site: https://steps.ci.openshift.org/reference/ipi-install-install-stableinitial \n\x1b[31mERRO\x1b[0m[2021-04-17T21:14:48Z] Link to job on registry info site: https://steps.ci.openshift.org/job?org=openshift&amp;repo=release&amp;branch=master&amp;test=e2e-gcp-upgrade&amp;variant=ci-4.6-upgrade-from-stable-4.5 \n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_counts</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gets counts for chars, words, lines for a log.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">chars</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">lines</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Create a dataframe with char, words, and lines</span>
+<span class="c1">## count for the logs</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">build_log_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">chars</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">lines</span> <span class="o">=</span> <span class="n">get_counts</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">key</span><span class="p">,</span> <span class="n">chars</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">lines</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;build_log_id&quot;</span><span class="p">,</span> <span class="s2">&quot;chars&quot;</span><span class="p">,</span> <span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="s2">&quot;lines&quot;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>build_log_id</th>
+      <th>chars</th>
+      <th>words</th>
+      <th>lines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1383510269677801472</td>
+      <td>17065</td>
+      <td>1188</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1383601003814719488</td>
+      <td>17063</td>
+      <td>1189</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1383691728313126912</td>
+      <td>17063</td>
+      <td>1189</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1383782446109036544</td>
+      <td>37601</td>
+      <td>2690</td>
+      <td>261</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1383873157873537024</td>
+      <td>16784</td>
+      <td>1167</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>531</th>
+      <td>1447844674805960704</td>
+      <td>20401</td>
+      <td>1485</td>
+      <td>223</td>
+    </tr>
+    <tr>
+      <th>532</th>
+      <td>1448025872249393152</td>
+      <td>20395</td>
+      <td>1480</td>
+      <td>222</td>
+    </tr>
+    <tr>
+      <th>533</th>
+      <td>1448207267424899072</td>
+      <td>20353</td>
+      <td>1477</td>
+      <td>223</td>
+    </tr>
+    <tr>
+      <th>534</th>
+      <td>1448388543654137856</td>
+      <td>20443</td>
+      <td>1484</td>
+      <td>222</td>
+    </tr>
+    <tr>
+      <th>535</th>
+      <td>1448569878565883904</td>
+      <td>20458</td>
+      <td>1486</td>
+      <td>222</td>
+    </tr>
+  </tbody>
+</table>
+<p>536 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="see-the-stats-for-chars-words-lines">
+<h4>See the stats for chars, words, lines<a class="headerlink" href="#see-the-stats-for-chars-words-lines" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;chars&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    5.360000e+02
+mean     3.516793e+04
+std      2.711030e+05
+min      2.120000e+03
+25%      2.041650e+04
+50%      2.052900e+04
+75%      2.809525e+04
+max      6.289343e+06
+Name: chars, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;words&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count       536.000000
+mean       2382.583955
+std       19301.541247
+min         147.000000
+25%        1482.000000
+50%        1494.000000
+75%        1648.000000
+max      447981.000000
+Name: words, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">describe</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;lines&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">describe</span> <span class="o">=</span> <span class="n">describe</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">describe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>536.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>249.042910</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>815.830161</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>19.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>215.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>222.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>222.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>19034.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Markdown</span><span class="p">(</span>
+    <span class="s2">&quot;From the initial analysis above, we see that we have log files &quot;</span>
+    <span class="s2">&quot; with </span><span class="si">{}</span><span class="s2"> lines to </span><span class="si">{}</span><span class="s2"> lines with a mean of ~</span><span class="si">{}</span><span class="s2"> lines. &quot;</span>
+    <span class="s2">&quot;This suggest high variability. The next thing we could look &quot;</span>
+    <span class="s2">&quot; at would be the similarity between log files, &quot;</span>
+    <span class="s2">&quot;performing analysis, templating, and clustering. &quot;</span>
+    <span class="s2">&quot; We will address those questions in an upcoming notebook.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">describe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">describe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">describe</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>From the initial analysis above, we see that we have log files  with 19 lines to 19034 lines with a mean of ~249 lines. This suggest high variability. The next thing we could look  at would be the similarity between log files, performing analysis, templating, and clustering.  We will address those questions in an upcoming notebook.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="events">
+<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">build_events_data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">build</span> <span class="ow">in</span> <span class="n">list_of_builds</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">download_public_file</span><span class="p">(</span>
+        <span class="n">bucket_connection</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">job</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">build</span><span class="si">}</span><span class="s2">/artifacts/build-resources/events.json&quot;</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">build_events_data</span><span class="p">[</span><span class="n">build</span><span class="p">]</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">build_events_data</span><span class="p">[</span><span class="n">build</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Percentage of builds that have the events.json file</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">build_events_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">percent</span> <span class="o">=</span> <span class="n">count</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">build_events_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>99.44029850746269
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyzing the messages of a single build</span>
+<span class="n">single_build</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">build_events_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;uid&quot;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">build_events_data</span><span class="p">[</span><span class="n">single_build</span><span class="p">][</span><span class="s2">&quot;items&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">messages_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">messages</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;UID&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">])</span>
+<span class="n">messages_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UID</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>c694dae6-d31b-469c-b9ca-e139d20ef644</td>
+      <td>Running job periodic-ci-openshift-release-mast...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8174d743-feb7-4446-84f5-def97617fd3c</td>
+      <td>Running job periodic-ci-openshift-release-mast...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>e7545ab7-fa0a-473f-b719-4dbad5e01a65</td>
+      <td>created SCC ranges</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8a49821c-3ef6-4f71-ae64-a3faad6d8365</td>
+      <td>No matching pods found</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>b97c3b80-4e2f-4e5e-8e4a-5e890c3cc4fd</td>
+      <td>found no controller ref for pod "release-image...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>219</th>
+      <td>6e002c16-f8cc-4390-82cb-a6e7f521541e</td>
+      <td>Created container release</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>e0592c0a-de8b-4ab8-9aee-5fe0384dd51f</td>
+      <td>Started container release</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>946cf37e-9ce7-436a-8997-cd88a3ffeea8</td>
+      <td>Container image "gcr.io/k8s-prow/sidecar:v2021...</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>90fa202b-5ac5-4768-86ad-54767e6579d4</td>
+      <td>Created container sidecar</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>9d81659f-c5a9-4446-b86e-ddcc9e590dec</td>
+      <td>Started container sidecar</td>
+    </tr>
+  </tbody>
+</table>
+<p>224 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">messages_df</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count                           224
+unique                           89
+top       Created container sidecar
+freq                             13
+Name: message, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">messages_df</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Created container sidecar</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Started container place-entrypoint</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Started container sidecar</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Container image "gcr.io/k8s-prow/sidecar:v2021...</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Container image "gcr.io/k8s-prow/entrypoint:v2...</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>Add eth0 [10.130.47.13/23]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>Successfully assigned ci-op-y3cf82zn/e2e-gcp-u...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Successfully pulled image "image-registry.open...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Pulling image "image-registry.openshift-image-...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Successfully pulled image "image-registry.open...</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>89 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Markdown</span><span class="p">(</span>
+    <span class="s2">&quot;In the build data, we saw that about </span><span class="si">{}</span><span class="s2">% builds have the events.json file.&quot;</span>
+    <span class="s2">&quot; We further analyzed all the events that happened for a particular build&quot;</span>
+    <span class="s2">&quot; and found the frequencies of the messages. We can repeat the process for&quot;</span>
+    <span class="s2">&quot; all the other builds and find most common messages and perform further&quot;</span>
+    <span class="s2">&quot; analysis.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">percent</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>In the build data, we saw that about 99.44% builds have the events.json file. We further analyzed all the events that happened for a particular build and found the frequencies of the messages. We can repeat the process for all the other builds and find most common messages and perform further analysis.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="save-sample-data">
+<h1>Save sample data<a class="headerlink" href="#save-sample-data" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../../data/raw/gcs/build-logs/&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;sample-build-logs.parquet&quot;</span>
+<span class="n">dataset_base_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">dataset_base_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">build_logs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">build_log_data</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;log&quot;</span><span class="p">])</span>
+<span class="n">build_logs</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../../data/raw/gcs/events/&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;sample-events.json&quot;</span>
+<span class="n">dataset_base_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">dataset_base_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">build_events_data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>In this notebook, we demonstrated how to programmatically access the gcs openshift origins ci archives, pull specific logs types into our notebook for analysis and save them for later use.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/gcsweb-ci"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="build-logs/model_seldon.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Seldon deployment for build log clustering</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../TestGrid/testgrid_EDA.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TestGrid: initial EDA and data collection</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

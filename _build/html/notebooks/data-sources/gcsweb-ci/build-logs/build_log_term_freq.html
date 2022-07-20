@@ -1,0 +1,2067 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Term frequency analysis of build logs &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Seldon deployment for build log clustering" href="model_seldon.html" />
+    <link rel="prev" title="openshift-ci: build logs initial data collection and EDA" href="build_log_EDA.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Bugzilla/bugzilla_EDA.html">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../../_sources/notebooks/data-sources/gcsweb-ci/build-logs/build_log_term_freq.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Term frequency analysis of build logs
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-the-data">
+     Loading the data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-view-of-our-job-log-metadata">
+       A view of our job/log metadata
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#term-frequency-analysis">
+     Term frequency analysis
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clustering">
+     Clustering
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avoiding-the-build-log-format-change">
+     Avoiding the build log format change
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#another-format-change-asterisks">
+       Another format change: asterisks
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-steps">
+     Next steps
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Term frequency analysis of build logs</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Term frequency analysis of build logs
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-the-data">
+     Loading the data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-view-of-our-job-log-metadata">
+       A view of our job/log metadata
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#term-frequency-analysis">
+     Term frequency analysis
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clustering">
+     Clustering
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avoiding-the-build-log-format-change">
+     Avoiding the build log format change
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#another-format-change-asterisks">
+       Another format change: asterisks
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary">
+     Summary
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-steps">
+     Next steps
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="term-frequency-analysis-of-build-logs">
+<h1>Term frequency analysis of build logs<a class="headerlink" href="#term-frequency-analysis-of-build-logs" title="Permalink to this headline">#</a></h1>
+<p>This notebook applies term frequency analysis to build logs in order to determine if the contents of build logs can provide additional insight into job execution.</p>
+<p>For “traditional” log analysis, a <em>Bag of Words (BoW)</em> approach is usually not a good option. BoW completely ignores things like the order in which words (or messages) appear, while normally the order within logs is quite significant.</p>
+<p>However, for CI logs we can exploit characteristics that “traditional” logs don’t usually have: they have a beginning and an end, so we can treat them as documents; and we have multiple occurrences of each “document” (i.e. the build log for each job run).</p>
+<p>Here we are going to attempt to clusterize job runs using the frequency of terms that appear in their build logs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+
+
+<span class="c1"># Some settings for the notebook</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)})</span>
+<span class="n">colormap</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">cm</span><span class="o">.</span><span class="n">brg</span>
+<span class="p">)</span>  <span class="c1"># see https://matplotlib.org/stable/tutorials/colors/colormaps.html for alternatives</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-the-data">
+<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this headline">#</a></h2>
+<p>We start by loading the metadata for a specific CI job. This data is dowloaded and saved by the <a class="reference internal" href="build_log_EDA.html"><span class="doc std std-doc">initial build log EDA</span></a> notebook.</p>
+<p>We also define a couple of helper functions to help us find a particular (already dowloaded) build log and to point to the build’s prow status page, as well as a small function to prepare our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: periodic jobs only (see FIXME in class Builds)</span>
+<span class="n">job_name</span> <span class="o">=</span> <span class="s2">&quot;periodic-ci-openshift-release-master-ci-4.8-e2e-gcp&quot;</span>
+
+<span class="n">logs_path</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/gcs/build-logs/&quot;</span>  <span class="c1"># local cache of build log files</span>
+<span class="n">metadata_path</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/raw/gcs/build-metadata/&quot;</span>  <span class="c1"># path to saved metadata</span>
+<span class="n">metadata_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">metadata_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">job_name</span><span class="si">}</span><span class="s2">_build-logs.csv&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">logs_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">build_id</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">prow_url_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">):</span>
+    <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;origin-ci-test&quot;</span>
+    <span class="c1"># FIXME: this prefix is only for periodic jobs</span>
+    <span class="n">job_prefix</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;logs/</span><span class="si">{</span><span class="n">job_name</span><span class="si">}</span><span class="s2">/&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;https://prow.ci.openshift.org/view/gcs/</span><span class="si">{</span><span class="n">project</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">job_prefix</span><span class="si">}{</span><span class="n">build_id</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">clean_df</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Polishes the metadata DataFrame&quot;&quot;&quot;</span>
+    <span class="n">build_errors</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">build_errors</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Remove builds that erroed (prow error)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;duration&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;start&quot;</span><span class="p">]</span>  <span class="c1"># From timestamps to job duration</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;success&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;SUCCESS&quot;</span>  <span class="c1"># A boolean version of the result</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reading metadata from&quot;</span><span class="p">,</span> <span class="n">metadata_file_name</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">metadata_file_name</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">clean_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading metadata from ../../../../data/raw/gcs/build-metadata/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp_build-logs.csv
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>result</th>
+      <th>size</th>
+      <th>start</th>
+      <th>end</th>
+      <th>duration</th>
+      <th>success</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1368338379971760128</th>
+      <td>FAILURE</td>
+      <td>5846974</td>
+      <td>1615072270</td>
+      <td>1615076702</td>
+      <td>4432</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1372646746210963456</th>
+      <td>SUCCESS</td>
+      <td>9785</td>
+      <td>1616099471</td>
+      <td>1616104582</td>
+      <td>5111</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1375709011390763008</th>
+      <td>SUCCESS</td>
+      <td>9962</td>
+      <td>1616829565</td>
+      <td>1616834000</td>
+      <td>4435</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1380281977160077312</th>
+      <td>SUCCESS</td>
+      <td>3841</td>
+      <td>1617919845</td>
+      <td>1617929494</td>
+      <td>9649</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1385025333723402240</th>
+      <td>SUCCESS</td>
+      <td>3868</td>
+      <td>1619050750</td>
+      <td>1619056186</td>
+      <td>5436</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1381826019446493184</th>
+      <td>SUCCESS</td>
+      <td>3837</td>
+      <td>1618287973</td>
+      <td>1618292751</td>
+      <td>4778</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1371068681810874368</th>
+      <td>SUCCESS</td>
+      <td>9782</td>
+      <td>1615723223</td>
+      <td>1615728027</td>
+      <td>4804</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1377999575511470080</th>
+      <td>SUCCESS</td>
+      <td>12329</td>
+      <td>1617375678</td>
+      <td>1617380533</td>
+      <td>4855</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1369750447904002048</th>
+      <td>FAILURE</td>
+      <td>6467331</td>
+      <td>1615408933</td>
+      <td>1615413675</td>
+      <td>4742</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1382368829539094528</th>
+      <td>SUCCESS</td>
+      <td>3840</td>
+      <td>1618417400</td>
+      <td>1618422303</td>
+      <td>4903</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+<p>837 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="a-view-of-our-job-log-metadata">
+<h3>A view of our job/log metadata<a class="headerlink" href="#a-view-of-our-job-log-metadata" title="Permalink to this headline">#</a></h3>
+<p>The data we work with contains only the following information about each job build:</p>
+<ul class="simple">
+<li><p>The <em>result</em> of the build (wether it was successful or not). The metadata has a label and we also compute a boolean for it.</p></li>
+<li><p>The build <em>start</em> and <em>end</em> timestamps. We compute the <em>duration</em> from that.</p></li>
+<li><p>The <em>size</em> (lenght) in bytes of the <code class="docutils literal notranslate"><span class="pre">build-log</span></code>.</p></li>
+</ul>
+<p>We saw in the initial exploration that with just this information, without even looking at the contents of the logs, we can have a good idea of how/if the build failed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_clusters</span><span class="p">():</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">clusters</span><span class="p">)):</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">colormap</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">clusters</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+            <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;duration&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;o&quot;</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">cluster</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">],</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="n">cluster</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;build-log size (bytes)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;build time (seconds)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+<span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_5_0.png" src="../../../../_images/build_log_term_freq_5_0.png" />
+</div>
+</div>
+<p>This sample job shows a pattern that is common across various jobs that have been observed:</p>
+<ul class="simple">
+<li><p>We see that successful runs have an almost constant and relatively small build log size. We noted in the <a class="reference internal" href="build_log_EDA.html"><span class="doc std std-doc">initial build log EDA</span></a> notebook that the two main log size groups visible in successful runs is due to <a class="reference external" href="https://github.com/openshift/ci-tools/pull/1836">a change in how logs are formatted</a>.</p></li>
+<li><p>Some run failures have big log sizes. These are the ones that incorporate the full output of test suite (successful runs do not include that output).</p></li>
+<li><p>Some runs fail in the preparation steps, before tests can actually be run. Hence, all runs that run for less than a certain time threshold (the time it takes for preparation steps to complete) result in a failure.</p></li>
+</ul>
+<p>Based on that, we could probably have a classifier for pass/fail with decent accuracy just by looking at the log size and execution time. And, of course, we can just look at the result to see if a run fails or succeeds.</p>
+<p>Can the contents of the logs help us group job runs according to different types of success / failure?</p>
+<p>Or, in other words, can we extract additional value/information about what happened during the build by looking at build log contents?</p>
+<p>Let’s try.</p>
+</div>
+</div>
+<div class="section" id="term-frequency-analysis">
+<h2>Term frequency analysis<a class="headerlink" href="#term-frequency-analysis" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a list of paths to the local copy of each build log</span>
+<span class="n">build_logs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">build_id</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">build_logs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As mentioned in the introduction, we are going to apply a technique which is not commonly applied to log data: <a class="reference external" href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">term frequency–inverse document frequency</a> analysis; the idea here is that we can exploit the peculiarities of CI log data (vs traditional log data).</p>
+<p>Before we begin, a key question we must answer is: what is a <em>term</em> for us?</p>
+<p>If we were working with natural language text, typically we would identify terms (<em>tokens</em>) by any separation between words, including spacing and punctuation. Logs, however, often contain terms that include some sort of punctuation character that should not be used to separate them. For example, <code class="docutils literal notranslate"><span class="pre">/file/paths/like/this</span></code> or <code class="docutils literal notranslate"><span class="pre">some.component.like.this</span></code> or maybe <code class="docutils literal notranslate"><span class="pre">something-with:tags</span></code>. We probably want to consider these types of terms as a single unit (token).</p>
+<p>On the other hand, it might be counter-productive to keep all punctuation/separators in:</p>
+<ul class="simple">
+<li><p>Some Kubernetes resource names contain generated parts that look very similar to non-generated content. For example, a Deployment called <code class="docutils literal notranslate"><span class="pre">sample-deployment-3</span></code> can produce a Pod called <code class="docutils literal notranslate"><span class="pre">sample-deployment-3-7fdfd97c84-7rj8b</span></code>. The name of the deployemt is probably relevant, while the name of the Pod is probably not.</p></li>
+<li><p>Some other name parts might refer to a specific version, like <code class="docutils literal notranslate"><span class="pre">v0-5-0-o79ew2-1fdt39x15</span></code>; these look like generated parts but are as interesting as non-generated ones.</p></li>
+</ul>
+<p>The criteria followed below (by default) aims at a compromise, taking advantadge of the fact that we have multiple documents (log files):</p>
+<ul class="simple">
+<li><p>Do not separate by some punctuation like <code class="docutils literal notranslate"><span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+<li><p>Discard tokens that appear in less than 5% of our documents</p></li>
+</ul>
+<p>This should help us e.g. keep a Deployment name as a term and discard a specific Pod name.</p>
+<p>Besides that, the minimum requirement that we impose on tokens is:</p>
+<ul class="simple">
+<li><p>A minimum lenght of 2 alphanumerical characters (or punctuation as mentioned)</p></li>
+<li><p>Not starting with a number</p></li>
+</ul>
+<p>Note that by not allowing numbers as the first character of a token we are discarding all sorts of terms: dates, times, IP addresses, all plain numbers, duration (<code class="docutils literal notranslate"><span class="pre">42s</span></code>), size (<code class="docutils literal notranslate"><span class="pre">28k</span></code>), etc.</p>
+<p>Some experimentation with various options suggests that this particular pattern leads to best results. For alternative versions, see the comments below (and note that <code class="docutils literal notranslate"><span class="pre">token_pattern</span></code> is optional and can be left out completely, to use a default tokenizer that does not allow any punctuation character within tems).</p>
+<p>One option that has not been explored is to separate tokens more aggresively (e.g. with the default tokenizer) and then work with n-grams. Note that most of the names/identifiers that are likely relevant to keep would not be captured by bigrams or even trigrams.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our default token pattern matches tokens which:</span>
+<span class="c1"># - are at least 2-chars long</span>
+<span class="c1"># - start with a letter</span>
+<span class="c1"># - can contain letters, numbers, or any of: _ - / .</span>
+<span class="n">token_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b[a-z][a-z0-9_/\.-]+\b&quot;</span>
+
+<span class="c1"># Alternative token patterns</span>
+<span class="c1"># token_pattern = r&quot;\b[a-z][a-z0-9_/\.:-]+\b&quot;  # keep slahs/dash-colons:together</span>
+<span class="c1"># token_pattern = r&quot;\b[a-z][a-z0-9_/\.:]+\b&quot;  # separate terms-like-this-one, keep colons</span>
+<span class="c1"># token_pattern = r&quot;\b[a-z][a-z0-9_/\.]+\b&quot;  # separate dashes and colons</span>
+<span class="c1"># token_pattern = r&quot;\b[a-z][a-z0-9_\.:]+\b&quot;  # separate terms/like-this-one</span>
+<span class="c1"># token_pattern = r&quot;\b[a-z][a-z0-9_\.]+\b&quot;  # separate slash, dash and colon</span>
+<span class="c1"># token_pattern = r&quot;\b\w[a-z0-9_/\.-]+\b&quot;  # allow numbers</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span>
+    <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
+    <span class="n">min_df</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+    <span class="c1"># stop_words=&#39;english&#39;,  # remove common english words</span>
+    <span class="n">token_pattern</span><span class="o">=</span><span class="n">token_pattern</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">build_logs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done in </span><span class="si">{</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TF-IDF matrix: </span><span class="si">{</span><span class="n">tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> documents x </span><span class="si">{</span><span class="n">tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> terms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done in 82.08 seconds
+TF-IDF matrix: 837 documents x 4339 terms
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting vocabulary (the terms we work with) with the default token pattern is in the order of ~4000 terms.</p>
+<p>If we allow numbers, the vocabulary can easily increase by over an order of magnitude.</p>
+<p>Let’s look at a sample of the resulting vocabulary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; | &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>container/failure-2 | ss2-2 | request/limit | e2e-gcp-gather-audit-logs | nodeauthenticator | mappings | port | router_metrics_type | client.timeout | approved | similar | like | report | accept | main.main | recreatedeployment | deprecated | v1.20.0/test/e2e/framework/framework.go | testsimpleimagechangebuildtriggerfromimagestreamtagcustom | apps/v1/daemonset/openshift-multus/multus/initcontainer/routeoverride-cni/request | apiversion | orphans | us-east1 | incompatible | deployment/idle-test | kubernetes.io/gce-pd | apps/v1/daemonset/openshift-multus/multus/initcontainer/cni-plugins/request | deployment/test-rollover-deployment | loading | nodeconformance | dhe-rsa-aes256-gcm-sha384 | detach | deployment/sample-apiserver-deployment | minute | executing | answer | single-container | persistentvolumeclaim/snapshot-test-pvc | pod/testpod-pclass6 | csi-hostpath-attacher | windows | sti | container | github.com/openshift/origin/pkg/test/ginkgo | recreatedeployment | reason/rolloutinprogress | updatecm-volume | kubernetes.io/gce-pd | sidecar | prometheus-operator.openshift-monitoring.svc | fetch | pod/example-1-deploy | terminationmessagepath | ss-0 | npulling | pod/failure-1 | assetpublicurl | dockercfg | runtime/panic.go | keyfile | controllers | partially-specified | reason/leaderelection | providers | imagepullbackoff | local-client | ns/openshift-ingress-operator | returned | oc | instance | nivcsw | apps/v1/daemonset/openshift-multus/multus/initcontainer/egress-router-binary-copy/request | azure | reason/missingjob | was | pod/history-limit-10-deploy | instances | contains | non-workspace | wanted | resource/name | options | sti-imagestreamtag-1-global-ca | dev/zero | nvcsw | v1.20.0/test/e2e/storage/vsphere/vsphere_volume_diskformat.go | pod/csi-hostpath-snapshotter-0 | minreadytest-1 | endpoints/affinity-nodeport | parameters | v1.project | actual | root | service/test-rolling-update-with-lb | test-docker-build.json | replicaset/sample-crd-conversion-webhook-deployment-5f5c959744 | secret-pod-ephm-test | oauthserverdeploymentdegraded | pod | late
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have each <em>document</em> (i.e. each <code class="docutils literal notranslate"><span class="pre">build-log</span></code> file) represented by a vector of a few thousand dimensions (i.e. one per term in the vocabulary).</p>
+</div>
+<div class="section" id="clustering">
+<h2>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">#</a></h2>
+<p>Let’s now try to apply a clustering algorithm to that group of vectors.</p>
+<p>Here we will try k-means.</p>
+<p>In order to get an idea of the best number of clusters (<span class="math notranslate nohighlight">\(k\)</span>) we should try to build (i.e. how many groups or types of build logs we have) we calculate a few metrics on each number of clusters to help us identify the best <span class="math notranslate nohighlight">\(k\)</span> for our data set:</p>
+<ul class="simple">
+<li><p>plot the sum of squared distances between samples and cluster centroids to use the <a class="reference external" href="https://en.wikipedia.org/wiki/Elbow_method_(clustering)">elbow method</a></p></li>
+<li><p>Calinski-Harabas index</p></li>
+<li><p>Davies-Bouldin index</p></li>
+<li><p>Average Silhouette score</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kmeans_metrics</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">ss</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Sum of squared distances of samples to their closest cluster center</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Caliski-Harabasz index</span>
+    <span class="n">sc</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Silhouette Coefficient</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Davies-Bouldin index</span>
+
+    <span class="n">k_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">kmax</span><span class="p">)</span>
+    <span class="n">x_arr</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>  <span class="c1"># several metrics don&#39;t work with sparse arrays</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_range</span><span class="p">:</span>
+        <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+        <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_arr</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
+        <span class="n">ss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+        <span class="n">ch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">calinski_harabasz_score</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+        <span class="n">sc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">davies_bouldin_score</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),</span> <span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_range</span><span class="p">,</span> <span class="n">ss</span><span class="p">,</span> <span class="s2">&quot;x-&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Elbow method (ss distances within clusters)&quot;</span><span class="p">)</span>
+    <span class="c1"># Not interested in the distance values, only the shape of the plot:</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Calinski-Harabasz Index (higher is better)&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_range</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="s2">&quot;x-&quot;</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Davies-Bouldin Index (lower is better)&quot;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_range</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="s2">&quot;x-&quot;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Number of clusters (k)&quot;</span><span class="p">)</span>
+
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Avg Silhouette score (higher is better)&quot;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_range</span><span class="p">,</span> <span class="n">sc</span><span class="p">,</span> <span class="s2">&quot;x-&quot;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Number of clusters (k)&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">kmeans_metrics</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_13_0.png" src="../../../../_images/build_log_term_freq_13_0.png" />
+</div>
+</div>
+<p>The elbow plot suggests that for our data we should pick <span class="math notranslate nohighlight">\(k = 3\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the clusters created by k-means, let’s take a look at which are the most common terms in each cluster. This should hopefully give us an idea of what type of build belogs to each group:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cluster_terms</span><span class="p">(</span><span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the top tokens for each cluster&quot;&quot;&quot;</span>
+    <span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+    <span class="n">order_centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cluster </span><span class="si">%d</span><span class="s2">:&quot;</span> <span class="o">%</span> <span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">order_centroids</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="n">topn</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">terms</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">describe_clusters</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s2">&quot;clusters with the following metrics:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  - Silhouette coefficient: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">tfidf</span><span class="p">,</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  - Calinski-Harabasz index: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">calinski_harabasz_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;  - Davies-Bouldin index: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">davies_bouldin_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A list of the most common terms in each cluster:&quot;</span><span class="p">)</span>
+    <span class="n">cluster_terms</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+
+
+<span class="n">describe_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 clusters with the following metrics:
+  - Silhouette coefficient: 0.59
+  - Calinski-Harabasz index: 678.42
+  - Davies-Bouldin index: 0.93
+A list of the most common terms in each cluster:
+Cluster 0: apr suite mar openshift/conformance/parallel k8s volumes should driver sig-storage
+Cluster 1: pod completed successfully container in place-entrypoint cp-entrypoint-wrapper sidecar executing
+Cluster 2: step e2e running after succeeded release for latest to
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at that list of most popular terms per cluster we can have an intuition that one of the clusters (cluster <em>0</em>) most likely corresponds to builds that managed to run a test suite where some test(s) failed. We know from the <a class="reference internal" href="build_log_EDA.html"><span class="doc std std-doc">initial build log exploration</span></a> that the build log only shows test logs when there are test failures; in that cluster we see terms like <em>suite</em>, references to <em>conformance</em> test, or references to a <em>sig</em> group that are present in test logs.</p>
+<p>However, for the other two clusters it is hard to say what makes them different. In particular, it seems a bit strange that both show terms related to <em>success</em> in their top list of terms.</p>
+<p>Let’s plot these clusters against the build duration and size to compare with our <a class="reference external" href="#A-view-of-our-log-metadata">initial visualization</a>, to see where they match:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_19_0.png" src="../../../../_images/build_log_term_freq_19_0.png" />
+</div>
+</div>
+<p>The scatter plot explains why it is hard to distinguish the two other clusters:</p>
+<ul class="simple">
+<li><p>the clustering algorithm has separated the two “columns” of successful builds in different clusters</p></li>
+<li><p>the failed builds that are scattered around the successful builds have been grouped together with one of them</p></li>
+</ul>
+<p>Unfortunately, then, this initial clustering produced worse results than what we could obtain initially by just looking at log size and build duration.</p>
+<p>Let’s look closer at what happened here by taking a look at silhouette scoring.</p>
+<p>We will run k-means with different numbers of clusters and plot the clusters’ silhouette for each <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kmeans_silhouette</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mi">13</span><span class="p">):</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">kmax</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">cols</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">cols</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="n">rows</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">kmax</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="c1"># The silhouette coefficient can range from -1, 1 but all of our tests</span>
+        <span class="c1"># lie within [-0.2, 1]</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="c1"># The (k+1)*10 is for inserting blank space between silhouette</span>
+        <span class="c1"># plots of individual clusters, to demarcate them clearly.</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">])</span>
+
+        <span class="c1"># Initialize the clusterer with n_clusters value and a random generator</span>
+        <span class="c1"># seed of 10 for reproducibility.</span>
+        <span class="n">clusterer</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+        <span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="c1"># The silhouette_score gives the average value for all the samples.</span>
+        <span class="c1"># This gives a perspective into the density and separation of the formed</span>
+        <span class="c1"># clusters</span>
+        <span class="n">silhouette_avg</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_score</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cluster_labels</span><span class="p">)</span>
+        <span class="c1"># print(f&quot;For {k} clusters the average silhouette_score is {silhouette_avg:.2f}&quot;)</span>
+
+        <span class="c1"># Compute the silhouette scores for each sample</span>
+        <span class="n">sample_silhouette_values</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">silhouette_samples</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cluster_labels</span><span class="p">)</span>
+
+        <span class="n">y_lower</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+            <span class="c1"># Aggregate the silhouette scores for samples belonging to</span>
+            <span class="c1"># cluster i, and sort them</span>
+            <span class="n">ith_cluster_silhouette_values</span> <span class="o">=</span> <span class="n">sample_silhouette_values</span><span class="p">[</span>
+                <span class="n">cluster_labels</span> <span class="o">==</span> <span class="n">i</span>
+            <span class="p">]</span>
+
+            <span class="n">ith_cluster_silhouette_values</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+            <span class="n">size_cluster_i</span> <span class="o">=</span> <span class="n">ith_cluster_silhouette_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">y_upper</span> <span class="o">=</span> <span class="n">y_lower</span> <span class="o">+</span> <span class="n">size_cluster_i</span>
+
+            <span class="n">color</span> <span class="o">=</span> <span class="n">colormap</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>
+            <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_lower</span><span class="p">,</span> <span class="n">y_upper</span><span class="p">),</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="n">ith_cluster_silhouette_values</span><span class="p">,</span>
+                <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Label the silhouette plots with their cluster numbers at the middle</span>
+            <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">y_lower</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">size_cluster_i</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+            <span class="c1"># Compute the new y_lower for next plot</span>
+            <span class="n">y_lower</span> <span class="o">=</span> <span class="n">y_upper</span> <span class="o">+</span> <span class="mi">10</span>  <span class="c1"># 10 for the 0 samples</span>
+
+        <span class="c1"># The vertical line for average silhouette score of all the values</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">silhouette_avg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;# clusters = </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>  <span class="c1"># Clear the yaxis labels / ticks</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+
+
+<span class="n">kmeans_silhouette</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_21_0.png" src="../../../../_images/build_log_term_freq_21_0.png" />
+</div>
+</div>
+<p>We picked <span class="math notranslate nohighlight">\(k=3\)</span> based on the elbow method, but in the exploration of metrics for different numbers of clusters we can see that some higher number of clusters have some better scores.</p>
+<p>Looking at the silhouette score in particular, we see that the average score increases as the number of clusters grows up to 8 clusters. In the silhouette plots above we can also observe that for <span class="math notranslate nohighlight">\(k&gt;8\)</span> the clustering appears to degrade (even if the average silhouette score remains relavively high)</p>
+<p>The other metrics are also better with <span class="math notranslate nohighlight">\(k=8\)</span> than <span class="math notranslate nohighlight">\(k=3\)</span>, so let’s take a look of how does clustering look like when <span class="math notranslate nohighlight">\(k=8\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_23_0.png" src="../../../../_images/build_log_term_freq_23_0.png" />
+</div>
+</div>
+<p>On the positive side it seems that now we have the failed builds that scatter around successful ones properly separated in their own clusters. On the other hand, with 8 groups of build logs we appear to have excessive separation, in particular within the groups of failures with smaller log sizes.</p>
+<p>It is not shown in this notebook to try to keep output reasonable, but an exploration of sample logs of these clusters does not seem to justify or explain why they would deserve separate clusters.</p>
+<p>Whatt seems clear is that the clustering algorithm is being impacted by the fact that we have, at least, two types of formatting for the logs (both for successful and failed builds): as explained in the <a class="reference internal" href="build_log_EDA.html"><span class="doc std std-doc">initial build log EDA notebook</span></a>, there was <a class="reference external" href="https://github.com/openshift/ci-tools/pull/1836">a change in OpenShift CI tools</a> that caused a change in how build logs are formatted. This results in the “two columns of success” that we see in the visualization (different log contents, and therefore different log lenghts, for logs that would otherwise be almost identical), and it seems to be also impacting the clustering of failed logs.</p>
+<p>Due to the impact of this change in log formatting, let’s try our approach with logs that are a bit more consistently formatted.</p>
+</div>
+<div class="section" id="avoiding-the-build-log-format-change">
+<h2>Avoiding the build log format change<a class="headerlink" href="#avoiding-the-build-log-format-change" title="Permalink to this headline">#</a></h2>
+<p>Here we filter out all the build logs that were generated prior to the format change.</p>
+<p>At the time of this writing, this means that we are removing a higher number of observations than the ones we keep. Moving forward though, all new builds use the new formatting, and therefore it seems more interesting to investigate the results that we can obtain with it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PR 1836 changed the way build logs are formatted</span>
+<span class="c1"># https://github.com/openshift/ci-tools/pull/1836</span>
+<span class="c1"># It was merged on 2021-04-05 16:45 UTC</span>
+<span class="n">pr_1836_merged</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+<span class="n">pr_1836_timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pr_1836_merged</span><span class="o">.</span><span class="n">timestamp</span><span class="p">())</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">pr_1836_timestamp</span><span class="p">]</span>  <span class="c1"># filter out old format logs</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>result</th>
+      <th>size</th>
+      <th>start</th>
+      <th>end</th>
+      <th>duration</th>
+      <th>success</th>
+      <th>cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1380281977160077312</th>
+      <td>SUCCESS</td>
+      <td>3841</td>
+      <td>1617919845</td>
+      <td>1617929494</td>
+      <td>9649</td>
+      <td>True</td>
+      <td>SUCCESS</td>
+    </tr>
+    <tr>
+      <th>1385025333723402240</th>
+      <td>SUCCESS</td>
+      <td>3868</td>
+      <td>1619050750</td>
+      <td>1619056186</td>
+      <td>5436</td>
+      <td>True</td>
+      <td>SUCCESS</td>
+    </tr>
+    <tr>
+      <th>1379152673013501952</th>
+      <td>FAILURE</td>
+      <td>9212120</td>
+      <td>1617650599</td>
+      <td>1617655198</td>
+      <td>4599</td>
+      <td>False</td>
+      <td>FAILURE</td>
+    </tr>
+    <tr>
+      <th>1382952842423177216</th>
+      <td>SUCCESS</td>
+      <td>3838</td>
+      <td>1618556629</td>
+      <td>1618560934</td>
+      <td>4305</td>
+      <td>True</td>
+      <td>SUCCESS</td>
+    </tr>
+    <tr>
+      <th>1379871391536386048</th>
+      <td>FAILURE</td>
+      <td>10168121</td>
+      <td>1617821954</td>
+      <td>1617830667</td>
+      <td>8713</td>
+      <td>False</td>
+      <td>FAILURE</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1380128512421138432</th>
+      <td>FAILURE</td>
+      <td>10251467</td>
+      <td>1617883260</td>
+      <td>1617889070</td>
+      <td>5810</td>
+      <td>False</td>
+      <td>FAILURE</td>
+    </tr>
+    <tr>
+      <th>1386942197940621312</th>
+      <td>FAILURE</td>
+      <td>10913264</td>
+      <td>1619507767</td>
+      <td>1619512517</td>
+      <td>4750</td>
+      <td>False</td>
+      <td>FAILURE</td>
+    </tr>
+    <tr>
+      <th>1384563411320311808</th>
+      <td>FAILURE</td>
+      <td>1830</td>
+      <td>1618940618</td>
+      <td>1618947972</td>
+      <td>7354</td>
+      <td>False</td>
+      <td>FAILURE</td>
+    </tr>
+    <tr>
+      <th>1381826019446493184</th>
+      <td>SUCCESS</td>
+      <td>3837</td>
+      <td>1618287973</td>
+      <td>1618292751</td>
+      <td>4778</td>
+      <td>True</td>
+      <td>SUCCESS</td>
+    </tr>
+    <tr>
+      <th>1382368829539094528</th>
+      <td>SUCCESS</td>
+      <td>3840</td>
+      <td>1618417400</td>
+      <td>1618422303</td>
+      <td>4903</td>
+      <td>True</td>
+      <td>SUCCESS</td>
+    </tr>
+  </tbody>
+</table>
+<p>367 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_26_0.png" src="../../../../_images/build_log_term_freq_26_0.png" />
+</div>
+</div>
+<p>Here we have removed all the build logs prior to the format change. Obviously, our data size has decreased (less than a half at the time of this writing). But we don’t have the “two columns of success” any more: all the successful builds have approximately the same size.</p>
+<p>Let’s rebuild our TF-IDF matrix by vectorizing these build logs only:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span>
+    <span class="nb">input</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span>
+    <span class="n">min_df</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">token_pattern</span><span class="o">=</span><span class="n">token_pattern</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Update the list of log files</span>
+<span class="n">build_logs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">build_id</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">build_logs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">))</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">build_logs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done in </span><span class="si">{</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">t0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TF-IDF matrix: </span><span class="si">{</span><span class="n">tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> documents x </span><span class="si">{</span><span class="n">tfidf</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> terms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done in 53.21 seconds
+TF-IDF matrix: 367 documents x 4169 terms
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE</strong>: we now have only a subset of the original documents, but we obtain more terms! How so?</p>
+<p>This is becasue the threshold for terms to be considered based on the inverse document frequency is specified as a % of the number of documents (the <code class="docutils literal notranslate"><span class="pre">min_df</span></code> parameter). Due to the change in the dataset size, the absolute number has changed.</p>
+<p>Let’s take a look at the metrics and silhouettes of various numbers of clusters for this new data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans_metrics</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">kmeans_silhouette</span><span class="p">(</span><span class="n">tfidf</span><span class="p">,</span> <span class="n">kmax</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_30_0.png" src="../../../../_images/build_log_term_freq_30_0.png" />
+<img alt="../../../../_images/build_log_term_freq_30_1.png" src="../../../../_images/build_log_term_freq_30_1.png" />
+</div>
+</div>
+<p>The elbow plot suggests that we should pick <span class="math notranslate nohighlight">\(k=4\)</span>.</p>
+<p>This time, the rest of the metrics agree that this is a good pick:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="n">describe_clusters</span><span class="p">()</span>
+<span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 clusters with the following metrics:
+  - Silhouette coefficient: 0.85
+  - Calinski-Harabasz index: 1453.79
+  - Davies-Bouldin index: 0.59
+A list of the most common terms in each cluster:
+Cluster 0: e2e step running after succeeded ipi-conf release for openshift-e2e-test
+Cluster 1: apr suite openshift/conformance/parallel k8s should volumes sig-storage driver testpattern
+Cluster 2: step running after succeeded release for e2e-gcp latest https
+Cluster 3: failed release acquire to for error latest not https
+</pre></div>
+</div>
+<img alt="../../../../_images/build_log_term_freq_32_1.png" src="../../../../_images/build_log_term_freq_32_1.png" />
+</div>
+</div>
+<p>This looks much better than our previous initial attempt: the 4 clusters do seem to match and capture the types of builds that we have, clearly separating two different sets of failures - and also grouping the successfuld builds in two different clusters.</p>
+<p>The top terms for each cluster make sense and match with the grouping, but they don’t provide enough hints to help us understand the two groups of successful builds.</p>
+<p>To dig a bit further on this classification, let’s look at one samble job run from each of the groups:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tail_log</span><span class="p">(</span><span class="n">build_id</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">1500</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Prints the last few lines of build_id&#39;s build log file.</span>
+<span class="sd">    The amount to read is in bytes.&quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">log_path_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">)</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt; BUILD </span><span class="si">{</span><span class="n">build_id</span><span class="si">}</span><span class="s2">. Log length: </span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&gt;&gt; BUILD URL: </span><span class="si">{</span><span class="n">prow_url_for</span><span class="p">(</span><span class="n">build_id</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">size</span> <span class="o">&gt;</span> <span class="n">amount</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="n">amount</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>  <span class="c1"># skip the first line as it&#39;s probably incomplete</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt; Sample job run of type&quot;</span><span class="p">,</span> <span class="n">cluster</span><span class="p">)</span>
+    <span class="n">tail_log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">cluster</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Sample job run of type 0
+&gt;&gt; BUILD 1380947233955909632. Log length: 3835 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1380947233955909632
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T18:51:16Z] Running step e2e-***-openshift-e2e-test.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:22:46Z] Step e2e-***-openshift-e2e-test succeeded after 31m30.061462427s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:22:46Z] Running step e2e-***-gather-core-dump.       
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:23:16Z] Step e2e-***-gather-core-dump succeeded after 30.12392026s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:23:16Z] Running step e2e-***-gather-***-console.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:24:06Z] Step e2e-***-gather-***-console succeeded after 50.062247974s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:24:06Z] Running step e2e-***-gather-must-gather.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:27:26Z] Step e2e-***-gather-must-gather succeeded after 3m20.066930755s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:27:26Z] Running step e2e-***-gather-extra.           
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:29:27Z] Step e2e-***-gather-extra succeeded after 2m0.073055011s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:29:27Z] Running step e2e-***-gather-audit-logs.      
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:30:27Z] Step e2e-***-gather-audit-logs succeeded after 1m0.062202998s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:30:27Z] Running step e2e-***-ipi-deprovision-deprovision. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:35:17Z] Step e2e-***-ipi-deprovision-deprovision succeeded after 4m50.069263221s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:35:17Z] Releasing leases for test e2e-***            
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:35:17Z] Ran for 1h20m51s                             
+
+&gt;&gt; Sample job run of type 1
+&gt;&gt; BUILD 1383176786765942784. Log length: 8667736 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1383176786765942784
+
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] [sig-storage] PersistentVolumes NFS with Single PV - PVC pairs create a PV and a pre-bound PVC: test write access [Suite:openshift/conformance/parallel] [Suite:k8s] 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] Writing JUnit report to /logs/artifacts/junit/junit_e2e_20210416-233104.xml 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] error: 43 fail, 1075 pass, 1607 skip (29m38s) 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] ++ date +%s                                  
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] + echo 1618615864                            
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] {&quot;component&quot;:&quot;entrypoint&quot;,&quot;error&quot;:&quot;wrapped process failed: exit status 1&quot;,&quot;file&quot;:&quot;prow/entrypoint/run.go:80&quot;,&quot;func&quot;:&quot;k8s.io/test-infra/prow/entrypoint.Options.Run&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;Error executing test process&quot;,&quot;severity&quot;:&quot;error&quot;,&quot;time&quot;:&quot;2021-04-16T23:31:04Z&quot;} 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] error: failed to execute wrapped command: exit status 1 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] ---                                          
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] Link to step on registry info site: https://steps.ci.openshift.org/reference/openshift-e2e-test 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-16T23:43:05Z] Link to job on registry info site: https://steps.ci.openshift.org/job?org=openshift&amp;repo=release&amp;branch=master&amp;test=e2e-gcp&amp;variant=ci-4.8 
+
+&gt;&gt; Sample job run of type 2
+&gt;&gt; BUILD 1386064720871559168. Log length: 3753 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1386064720871559168
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T21:47:18Z] Step e2e-gcp-ipi-install-install succeeded after 35m30s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T21:47:18Z] Running step e2e-gcp-openshift-e2e-test.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:08Z] Step e2e-gcp-openshift-e2e-test succeeded after 28m50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:08Z] Running step e2e-gcp-gather-core-dump.       
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:38Z] Step e2e-gcp-gather-core-dump succeeded after 30s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:38Z] Running step e2e-gcp-gather-gcp-console.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:17:28Z] Step e2e-gcp-gather-gcp-console succeeded after 50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:17:28Z] Running step e2e-gcp-gather-must-gather.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:20:58Z] Step e2e-gcp-gather-must-gather succeeded after 3m30s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:20:58Z] Running step e2e-gcp-gather-extra.           
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:22:48Z] Step e2e-gcp-gather-extra succeeded after 1m50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:22:48Z] Running step e2e-gcp-gather-audit-logs.      
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:23:48Z] Step e2e-gcp-gather-audit-logs succeeded after 1m0s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:23:48Z] Running step e2e-gcp-ipi-deprovision-deprovision. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:27:38Z] Step e2e-gcp-ipi-deprovision-deprovision succeeded after 3m50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:27:38Z] Releasing leases for test e2e-gcp            
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:27:38Z] Ran for 1h18m16s                             
+
+&gt;&gt; Sample job run of type 3
+&gt;&gt; BUILD 1382678531183480832. Log length: 1799 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1382678531183480832
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:52Z] Resolved release initial to registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-15-062304 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:52Z] Using explicitly provided pull-spec for release latest (registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-15-124724) 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:52Z] Using namespace https://console.build02.ci.openshift.org/k8s/cluster/projects/ci-op-dh34hlyk 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:52Z] Running [input:origin-centos-8], [input:ocp-4.5-upi-installer], [release:latest], [images], e2e-gcp 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:53Z] Tagging origin/centos:8 into pipeline:origin-centos-8. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:53Z] Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:53:53Z] Importing release image latest.              
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:55:23Z] Imported release 4.8.0-0.ci-2021-04-15-124724 created at 2021-04-15 12:53:16 +0000 UTC with 137 images to tag release:latest 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T12:55:23Z] Acquiring leases for test e2e-gcp            
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-15T14:55:23Z] error: Failed to acquire resource, current capacity: 0 free, 70 leased 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-15T14:55:23Z] Ran for 2h1m30s                              
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-15T14:55:23Z] Some steps failed:                           
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-15T14:55:23Z]   * could not run steps: step e2e-gcp failed: failed to acquire lease: resources not found 
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the content of the logs we do see now what makes the difference between the two types of successful logs: one group has the cloud provider (e.g. <em>gcp</em>) obfuscated with asterisks (*). A significant number of occurrences of this difference appear in each log. And remember that the size of the build logs on these two clusters (both successful runs) are relatively short, which means that this difference does make the log files different enough.</p>
+<div class="section" id="another-format-change-asterisks">
+<h3>Another format change: asterisks<a class="headerlink" href="#another-format-change-asterisks" title="Permalink to this headline">#</a></h3>
+<p>Based on the observation above, let’s try one additional data clean up: we will investigate what happens if we modify our tokenizer to accept askerisks as part of the terms, so that for example both of these are considered a term: <code class="docutils literal notranslate"><span class="pre">e2e-gcp-gather-extra</span></code> and <code class="docutils literal notranslate"><span class="pre">e2e-***-gather-extra</span></code> (that last one was two separate tokens in our previous data: <code class="docutils literal notranslate"><span class="pre">e2e</span></code> and <code class="docutils literal notranslate"><span class="pre">gather-extra</span></code>).</p>
+<p>Moreover, this time we will try to apply some domain knowledge, or at least some intuition, to pick the number of clusters, instead of relying on metrics (at least initially). Let’s assume here that we want to be able to differenciate, just by looking at build logs, three types of builds:</p>
+<ul class="simple">
+<li><p>successful builds</p></li>
+<li><p>builds that fail because some tests fail</p></li>
+<li><p>builds that fail due to preparatory / infrastructure steps</p></li>
+</ul>
+<p>So, we will look at the case of <span class="math notranslate nohighlight">\(k=3\)</span>.</p>
+<p>We saw in the initial attempt with <span class="math notranslate nohighlight">\(k=3\)</span> that the clusters were badly mixing successful builds with builds that failed in preparatory steps.</p>
+<p>But then we cleaned the data set a bit by removing different output types and sticking to the current output format. Has this change in the data improved the classification within 3 clusters?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="n">describe_clusters</span><span class="p">()</span>
+<span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 clusters with the following metrics:
+  - Silhouette coefficient: 0.75
+  - Calinski-Harabasz index: 781.93
+  - Davies-Bouldin index: 0.51
+A list of the most common terms in each cluster:
+Cluster 0: e2e step running after succeeded ipi-conf release for openshift-e2e-test
+Cluster 1: apr suite openshift/conformance/parallel k8s should volumes sig-storage driver testpattern
+Cluster 2: step running after succeeded release for latest e2e-gcp to
+</pre></div>
+</div>
+<img alt="../../../../_images/build_log_term_freq_36_1.png" src="../../../../_images/build_log_term_freq_36_1.png" />
+</div>
+</div>
+<p>We see that no, removing the old-format build logs does not seem to have improved the classification within these 3 types of builds much: we have a group that misxes successful builds with fail-during-preparation builds.</p>
+<p>Ok then, let’s see if the additional “cleaning” step that we wanted to do (i.e. to accep asterisks within terms) helps us improve that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b[a-z][a-z0-9_/\.*-]+\b&quot;</span>  <span class="c1"># Accept &#39;*&#39; as part of a token</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">min_df</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">token_pattern</span><span class="o">=</span><span class="n">token_pattern</span><span class="p">)</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">build_logs</span><span class="p">)</span>
+
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="n">describe_clusters</span><span class="p">()</span>
+<span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 clusters with the following metrics:
+  - Silhouette coefficient: 0.80
+  - Calinski-Harabasz index: 1350.32
+  - Davies-Bouldin index: 0.71
+A list of the most common terms in each cluster:
+Cluster 0: step running after succeeded release for latest e2e-gcp e2e-***-ipi-conf
+Cluster 1: apr suite openshift/conformance/parallel k8s should volumes sig-storage driver testpattern
+Cluster 2: failed release acquire to for error latest not https
+</pre></div>
+</div>
+<img alt="../../../../_images/build_log_term_freq_38_1.png" src="../../../../_images/build_log_term_freq_38_1.png" />
+</div>
+</div>
+<p>Great! It turns out that after fine-tuning the tokenizer by accepting terms with asterisks, the clustering algorithm produces 3 groups that match our initial intuition/expectation.</p>
+<p>This suggests that this is a better tokenization approach.</p>
+<p>Let’s look at this cleaner data a bit more though: we see that the metrics we obtain are a bit lower than our previous clustering attempt. How do the metrics look now, with this new tokenization, for various number of clusters?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans_metrics</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../../_images/build_log_term_freq_40_0.png" src="../../../../_images/build_log_term_freq_40_0.png" />
+</div>
+</div>
+<p>While we see an elbow at <span class="math notranslate nohighlight">\(k=3\)</span>, there is also a softer elbow in <span class="math notranslate nohighlight">\(k=5\)</span>.</p>
+<p>And the average Silhouette score and the Calinski-Harabasz index are clearly better for <span class="math notranslate nohighlight">\(k=5\)</span></p>
+<p>So, what do we get if we clusterize these vectors with 5 clusters?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">cluster</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+<span class="n">describe_clusters</span><span class="p">()</span>
+<span class="n">plot_clusters</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 clusters with the following metrics:
+  - Silhouette coefficient: 0.85
+  - Calinski-Harabasz index: 2085.61
+  - Davies-Bouldin index: 0.68
+A list of the most common terms in each cluster:
+Cluster 0: apr suite openshift/conformance/parallel k8s should volumes sig-storage driver testpattern
+Cluster 1: step running after succeeded release for e2e-gcp latest https
+Cluster 2: acquire release failed for to latest steps https not
+Cluster 3: step running after succeeded e2e-***-ipi-conf release for e2e-***-openshift-e2e-test e2e-***-ipi-install-rbac
+Cluster 4: error level msg info failed the to is step
+</pre></div>
+</div>
+<img alt="../../../../_images/build_log_term_freq_42_1.png" src="../../../../_images/build_log_term_freq_42_1.png" />
+</div>
+</div>
+<p>On one hand, we see that we still get the successful builds split in two groups, and according to their top terms it is clear that we are still coping with askerisk obfuscation - which is not too surprising.</p>
+<p>But we also have 3 different groups for builds that fail. One of them is clearly the test-related failures. What about the other two? Let’s get sample log output from each of the groups to try to interpret the different groups better:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt; Sample job run of type&quot;</span><span class="p">,</span> <span class="n">cluster</span><span class="p">)</span>
+    <span class="n">tail_log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">cluster</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Sample job run of type 0
+&gt;&gt; BUILD 1379803403793731584. Log length: 10141089 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1379803403793731584
+
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] Failing tests:                               
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] [sig-instrumentation][Late] Alerts shouldn&#39;t report any alerts in firing or pending state apart from Watchdog and AlertmanagerReceiversNotConfigured and have no gaps in Watchdog firing [Suite:openshift/conformance/parallel] 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] Writing JUnit report to /logs/artifacts/junit/junit_e2e_20210407-153952.xml 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] error: 3 fail, 1113 pass, 1609 skip (25m56s) 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] ++ date +%s                                  
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] + echo 1617809992                            
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] {&quot;component&quot;:&quot;entrypoint&quot;,&quot;error&quot;:&quot;wrapped process failed: exit status 1&quot;,&quot;file&quot;:&quot;prow/entrypoint/run.go:80&quot;,&quot;func&quot;:&quot;k8s.io/test-infra/prow/entrypoint.Options.Run&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;Error executing test process&quot;,&quot;severity&quot;:&quot;error&quot;,&quot;time&quot;:&quot;2021-04-07T15:39:52Z&quot;} 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] error: failed to execute wrapped command: exit status 1 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] ---                                          
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] Link to step on registry info site: https://steps.ci.openshift.org/reference/openshift-e2e-test 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-07T15:53:31Z] Link to job on registry info site: https://steps.ci.openshift.org/job?org=openshift&amp;repo=release&amp;branch=master&amp;test=e2e-***&amp;variant=ci-4.8 
+
+&gt;&gt; Sample job run of type 1
+&gt;&gt; BUILD 1386064720871559168. Log length: 3753 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1386064720871559168
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T21:47:18Z] Step e2e-gcp-ipi-install-install succeeded after 35m30s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T21:47:18Z] Running step e2e-gcp-openshift-e2e-test.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:08Z] Step e2e-gcp-openshift-e2e-test succeeded after 28m50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:08Z] Running step e2e-gcp-gather-core-dump.       
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:38Z] Step e2e-gcp-gather-core-dump succeeded after 30s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:16:38Z] Running step e2e-gcp-gather-gcp-console.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:17:28Z] Step e2e-gcp-gather-gcp-console succeeded after 50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:17:28Z] Running step e2e-gcp-gather-must-gather.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:20:58Z] Step e2e-gcp-gather-must-gather succeeded after 3m30s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:20:58Z] Running step e2e-gcp-gather-extra.           
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:22:48Z] Step e2e-gcp-gather-extra succeeded after 1m50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:22:48Z] Running step e2e-gcp-gather-audit-logs.      
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:23:48Z] Step e2e-gcp-gather-audit-logs succeeded after 1m0s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:23:48Z] Running step e2e-gcp-ipi-deprovision-deprovision. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:27:38Z] Step e2e-gcp-ipi-deprovision-deprovision succeeded after 3m50s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:27:38Z] Releasing leases for test e2e-gcp            
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-24T22:27:38Z] Ran for 1h18m16s                             
+
+&gt;&gt; Sample job run of type 2
+&gt;&gt; BUILD 1380554576037416960. Log length: 1799 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1380554576037416960
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:09Z] Resolved release initial to registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-09-005136 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:09Z] Using explicitly provided pull-spec for release latest (registry.ci.openshift.org/ocp/release:4.8.0-0.ci-2021-04-09-160908) 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:09Z] Using namespace https://console.build02.ci.openshift.org/k8s/cluster/projects/ci-op-p9tmq3i6 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:09Z] Running [input:origin-centos-8], [input:ocp-4.5-upi-installer], [release:latest], [images], e2e-gcp 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:10Z] Tagging origin/centos:8 into pipeline:origin-centos-8. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:10Z] Tagging ocp/4.5:upi-installer into pipeline:ocp-4.5-upi-installer. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:14:10Z] Importing release image latest.              
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:15:41Z] Imported release 4.8.0-0.ci-2021-04-09-160908 created at 2021-04-09 16:13:08 +0000 UTC with 138 images to tag release:latest 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T16:15:41Z] Acquiring leases for test e2e-gcp            
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-09T18:15:41Z] error: Failed to acquire resource, current capacity: 0 free, 70 leased 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-09T18:15:41Z] Ran for 2h1m32s                              
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-09T18:15:41Z] Some steps failed:                           
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-09T18:15:41Z]   * could not run steps: step e2e-gcp failed: failed to acquire lease: resources not found 
+
+&gt;&gt; Sample job run of type 3
+&gt;&gt; BUILD 1380947233955909632. Log length: 3835 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1380947233955909632
+
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T18:51:16Z] Running step e2e-***-openshift-e2e-test.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:22:46Z] Step e2e-***-openshift-e2e-test succeeded after 31m30.061462427s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:22:46Z] Running step e2e-***-gather-core-dump.       
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:23:16Z] Step e2e-***-gather-core-dump succeeded after 30.12392026s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:23:16Z] Running step e2e-***-gather-***-console.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:24:06Z] Step e2e-***-gather-***-console succeeded after 50.062247974s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:24:06Z] Running step e2e-***-gather-must-gather.     
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:27:26Z] Step e2e-***-gather-must-gather succeeded after 3m20.066930755s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:27:26Z] Running step e2e-***-gather-extra.           
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:29:27Z] Step e2e-***-gather-extra succeeded after 2m0.073055011s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:29:27Z] Running step e2e-***-gather-audit-logs.      
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:30:27Z] Step e2e-***-gather-audit-logs succeeded after 1m0.062202998s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:30:27Z] Running step e2e-***-ipi-deprovision-deprovision. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:35:17Z] Step e2e-***-ipi-deprovision-deprovision succeeded after 4m50.069263221s. 
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:35:17Z] Releasing leases for test e2e-***            
+<span class=" -Color -Color-Cyan">INFO</span>[2021-04-10T19:35:17Z] Ran for 1h20m51s                             
+
+&gt;&gt; Sample job run of type 4
+&gt;&gt; BUILD 1385082685361229824. Log length: 23421 bytes
+&gt;&gt; BUILD URL: https://prow.ci.openshift.org/view/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.8-e2e-gcp/1385082685361229824
+
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] ClusterOperators:                            
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] 	clusteroperators are missing                
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] error running backup collection: clusteroperators.config.openshift.io is forbidden: User &quot;system:serviceaccount:ci-op-y5rfxqnl:e2e-gcp&quot; cannot list resource &quot;clusteroperators&quot; in API group &quot;config.openshift.io&quot; at the cluster scopeError from server (Forbidden): namespaces is forbidden: User &quot;system:serviceaccount:ci-op-y5rfxqnl:e2e-gcp&quot; cannot create resource &quot;namespaces&quot; in API group &quot;&quot; at the cluster scope 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] {&quot;component&quot;:&quot;entrypoint&quot;,&quot;error&quot;:&quot;wrapped process failed: exit status 1&quot;,&quot;file&quot;:&quot;prow/entrypoint/run.go:80&quot;,&quot;func&quot;:&quot;k8s.io/test-infra/prow/entrypoint.Options.Run&quot;,&quot;level&quot;:&quot;error&quot;,&quot;msg&quot;:&quot;Error executing test process&quot;,&quot;severity&quot;:&quot;error&quot;,&quot;time&quot;:&quot;2021-04-22T04:32:51Z&quot;} 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] error: failed to execute wrapped command: exit status 1 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] ---                                          
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] Link to step on registry info site: https://steps.ci.openshift.org/reference/gather-audit-logs 
+<span class=" -Color -Color-Red">ERRO</span>[2021-04-22T04:33:35Z] Link to job on registry info site: https://steps.ci.openshift.org/job?org=openshift&amp;repo=release&amp;branch=master&amp;test=e2e-gcp&amp;variant=ci-4.8]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at these sample logs suggests that by tokenizing with our latest pattern and clustering in 5 clusters we can identify these 5 groups of builds:</p>
+<ol class="simple">
+<li><p>failures due to some test(s)</p></li>
+<li><p>successful builds without provider obfuscation</p></li>
+<li><p>failures in CI infrastructure (e.g. lack of capacity)</p></li>
+<li><p>successful builds with provider obfuscation</p></li>
+<li><p>failures during preparation steps, before tests can be executed</p></li>
+</ol>
+<p>That is hopefully a useful grouping, and it certainly does provide additional details beyond what can be deduced just from the log size and duration.</p>
+<p>Finally, as the vocabulary of terms that we have worked with seems to work reasonably well for this task, we will keep a copy of it in case it is useful for other tasks that can benefit from a base vocabulary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab_path</span> <span class="o">=</span> <span class="s2">&quot;../../../../data/processed/build-logs/&quot;</span>
+<span class="n">vocab_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vocab_path</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">job_name</span><span class="si">}</span><span class="s2">_vocabulary.txt&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">vocab_file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
+<p>This notebook applies a clustering algorithm to job runs based on the term freqency within their build logs. This clustering does a decent job at grouping job runs according to their type of failure (e.g. test failure vs infrastructure problem or installer failure). This shows that content analysis does provide additional insight over just plain metadata (size and duration).</p>
+<p>An important additional observation from this notebook is actually before the clustering task: we discuss how <em>inverse document frequency (IDF)</em> can help us in log parsing in the context of CI logs: the fact that we have multiple occurrences of the same log file can aid us at distinguishing unique values (like a generated Pod name) from a more constant part (like a Deployment name), something that standard log parsing approaches would struggle with.</p>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>A bag-of-words technique, TF-IDF, can be successfully applied to CI logs</p>
+<ul>
+<li><p>in that context, tuning parameters like min_df can help in the log parsing task</p></li>
+</ul>
+</li>
+<li><p>Log formatting has an impact in the effectiveness of the downstram task</p>
+<ul>
+<li><p>A log format change in PR 1836 sill has a significant impact despite our approach</p></li>
+<li><p>Along those lines: the difference in step naming (“e2e-gcp vs “e2e-*”) also as an impact</p></li>
+</ul>
+</li>
+<li><p>The choice of which token pattern to use is important</p></li>
+</ul>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>(maybe?) try tokenizing more aggressively and add n-grams as terms.</p></li>
+<li><p>improve the clustering method by trying a different clustering algorithm/approach</p>
+<ul>
+<li><p>other clustering algorithms like dbscan or hierarchical clustering</p></li>
+<li><p>dimensionality reduction prior to clustering</p></li>
+<li><p>a clustering algorithm that is more robust under high dimensionality (i.e. not euclidean distance based)</p></li>
+</ul>
+</li>
+<li><p>attempt to apply a log parser (e.g. Drain) before the vectorizer.</p></li>
+<li><p>explore other NLP techniques like <a class="reference external" href="https://radimrehurek.com/gensim/models/doc2vec.html">doc2vec</a></p></li>
+<li><p>dig on using IDF to aid in vocabulary building for further analysis</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/gcsweb-ci/build-logs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="build_log_EDA.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">openshift-ci: build logs initial data collection and EDA</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="model_seldon.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Seldon deployment for build log clustering</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

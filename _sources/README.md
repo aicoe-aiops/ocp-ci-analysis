@@ -14,6 +14,11 @@ OpenShift, Kubernetes and a few other platforms have made their CI data public. 
 
 * **[Project Content](docs/content.md)**
 
+<<<<<<< HEAD
+=======
+* **[JupyterBook](https://aicoe-aiops.github.io/ocp-ci-analysis/README.html)**
+
+>>>>>>> 7e7fb73... Update documentation
 ## Contact
 
 This project is maintained as part of the [Operate First](https://www.operate-first.cloud/) and AIOps teams in Red Hat’s AI CoE as part of the Office of the CTO. More information can be found at https://www.operate-first.cloud/.

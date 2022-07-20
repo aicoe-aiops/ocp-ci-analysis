@@ -1,0 +1,3329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bugzilla Data for CI Tests on Testgrid &#8212; AI Supported Continuous Integration</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Sippy Export of OpenShift Data - EDA" href="../Sippy/stage/sippy_EDA.html" />
+    <link rel="prev" title="KPI Metrics Visualization" href="../TestGrid/metrics/metric_visualization_generic.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">AI Supported Continuous Integration</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    AI4CI : AI for Continuous Integration
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Getting started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/get-started.html">
+   Get Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/how-to-contribute.html">
+   Contribute to the AI for Continuous Integration Project
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/content.html">
+   Table of Contents
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Failure type classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/README.html">
+   Failure type classification with the TestGrid data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/testgrid_flakiness_detection.html">
+   Flake Detection for TestGrid
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_classifier.html">
+   Failure type classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../failure-type-classification/failure_type_functions.html">
+   Failure type functions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time to merge prediction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../time-to-merge-prediction/README.html">
+   Time to Merge Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Build Log Classifier
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_EDA.html">
+   openshift-ci: build logs initial data collection and EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/build_log_term_freq.html">
+   Term frequency analysis of build logs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/build-logs/model_seldon.html">
+   Seldon deployment for build log clustering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcsweb-ci/prow_archive_discovery.html">
+   Prow Logs and GCS Data
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  TestGrid data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_EDA.html">
+   TestGrid: initial EDA and data collection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_indepth_EDA.html">
+   TestGrid In-Depth EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/testgrid_metadata_EDA.html">
+   TestGrid: exploring in-depth metadata
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../TestGrid/background/testgrid_feature_confirmation.html">
+   TestGrid Additional Features - uniform or unique?
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../TestGrid/metrics/README.html">
+   KPI Metrics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/number_of_flakes.html">
+     Quantify Flakes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/build_pass_failure.html">
+     Quantify Build Pass/Failure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/correlated_failures.html">
+     Correlated test failure sets per test and average size of correlation sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/blocked_timed_out.html">
+     Tests Blocked and Timed Out Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/pct_fixed_each_ts.html">
+     Percent of Failing Tests Fixed
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/persistent_failures_analysis.html">
+     Persistent Failures Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/probability_to_fail.html">
+     Probability To Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/test_pass_failures.html">
+     Quantify test pass/failures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_test.html">
+     Quantify Time to Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/time_to_fail.html">
+     Time to Fail
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/validate_pipeline.html">
+     Validate the succesful running of the Automated Pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/get_raw_data.html">
+     Fetch test grid data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_template.html">
+     {Metric name}
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TestGrid/metrics/metric_visualization_generic.html">
+     KPI Metrics Visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Bugzilla Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sippy data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy_EDA.html">
+   Sippy Export of OpenShift Data - EDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/stage/sippy-analysis.html">
+   SIPPY
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sippy/sippy_failure_correlation.html">
+   Initial EDA
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Telemetry data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Telemetry/telemetry_EDA.html">
+   Telemetry Data for CI Clusters
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Workshop
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/prerequisites.html">
+   Pre-requisites
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/intro_to_project.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/onboarding.html">
+   Onboarding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/git_setup.html">
+   Set up Github environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_development.html">
+   Model Development
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/ml_pipeline.html">
+   Create an ML Pipeline using Elyra and Kubeflow Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/model_deployment.html">
+   Model Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/sql_query_engine.html">
+   SQL Query Engine - Trino
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../docs/workshop/visualization_dashboard.html">
+   Visualization Dashboard - Superset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href=" /v2/gh/aicoe-aiops/ocp-ci-analysis/master?urlpath=lab/tree/notebooks/data-sources/Bugzilla/bugzilla_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://jupyterhub-opf-jupyterhub.apps.smaug.na.operate-first.cloud/hub/user-redirect/git-pull?repo=https%3A//github.com/aicoe-aiops/ocp-ci-analysis&urlpath=lab/tree/ocp-ci-analysis/notebooks/data-sources/Bugzilla/bugzilla_EDA.ipynb&branch=master"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/aicoe-aiops/ocp-ci-analysis/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-sources/Bugzilla/bugzilla_EDA.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/notebooks/data-sources/Bugzilla/bugzilla_EDA.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-linked-bugs">
+     Get Linked Bugs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-jobs-under-each-dashboard">
+       Get Jobs under each Dashboard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-tests-under-each-job">
+       Get Tests under each Job
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-linked-bugs-under-each-test-for-a-given-dashboard">
+       Get Linked Bugs under each Test for a Given Dashboard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-linked-bugs-under-each-test-for-all-dashboards">
+       Get Linked Bugs under each Test for All Dashboards
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-bugzilla-details">
+     Get Bugzilla Details
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-bug-metadata">
+     Inspect Bug Metadata
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#priority">
+       priority
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#blocks">
+       blocks
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#last-change-time">
+       last_change_time
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#keywords">
+       keywords
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#whiteboard">
+       Whiteboard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#description">
+       description
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#resolution">
+       resolution
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cf-doc-type">
+       cf_doc_type
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#op-sys-operating-systems">
+       op_sys : Operating Systems
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#target-release">
+       target_release
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#status">
+       status
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#external-bugs">
+       External Bugs
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#platform">
+       platform
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#severity">
+       severity
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cf-environment">
+       cf_environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#version">
+       version
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#component">
+       component
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sub-component">
+       sub_component
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#product">
+       product
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fixed-in">
+       fixed_in
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summary">
+       summary
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-open">
+       is_open
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contact-metadata">
+     Contact Metadata
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-useful-metadata">
+     Non Useful Metadata
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Bugzilla Data for CI Tests on Testgrid</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Bugzilla Data for CI Tests on Testgrid
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-linked-bugs">
+     Get Linked Bugs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-jobs-under-each-dashboard">
+       Get Jobs under each Dashboard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-tests-under-each-job">
+       Get Tests under each Job
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-linked-bugs-under-each-test-for-a-given-dashboard">
+       Get Linked Bugs under each Test for a Given Dashboard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#get-linked-bugs-under-each-test-for-all-dashboards">
+       Get Linked Bugs under each Test for All Dashboards
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-bugzilla-details">
+     Get Bugzilla Details
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspect-bug-metadata">
+     Inspect Bug Metadata
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#priority">
+       priority
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#blocks">
+       blocks
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#last-change-time">
+       last_change_time
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#keywords">
+       keywords
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#whiteboard">
+       Whiteboard
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#description">
+       description
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#resolution">
+       resolution
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cf-doc-type">
+       cf_doc_type
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#op-sys-operating-systems">
+       op_sys : Operating Systems
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#target-release">
+       target_release
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#status">
+       status
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#external-bugs">
+       External Bugs
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#platform">
+       platform
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#severity">
+       severity
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cf-environment">
+       cf_environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#version">
+       version
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#component">
+       component
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sub-component">
+       sub_component
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#product">
+       product
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fixed-in">
+       fixed_in
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summary">
+       summary
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#is-open">
+       is_open
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contact-metadata">
+     Contact Metadata
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-useful-metadata">
+     Non Useful Metadata
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="bugzilla-data-for-ci-tests-on-testgrid">
+<h1>Bugzilla Data for CI Tests on Testgrid<a class="headerlink" href="#bugzilla-data-for-ci-tests-on-testgrid" title="Permalink to this headline">#</a></h1>
+<p>Currently, we are analyzing OpenShift CI test runs based on the raw run results data available on testgrid. However, we also want to analyze our CI process in terms of how many bugs we were able to discover, how severely these bugs impacted the product, how accurately did the tests pinpoint the problematic component, and so on. Additionally, having bug related data for the CI tests will also enable us to measure and track several KPIs.</p>
+<p>Therefore, in this notebook we will connect the two data sources: Bugzilla and Testgrid. First, we will identify which bugs are linked with each failing test. Then, we will get detailed information regarding each of these bugs from Red Hat Bugzilla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span><span class="p">,</span> <span class="n">find_dotenv</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">bugzilla</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;../TestGrid/metrics&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ipynb.fs.defs.metric_template</span> <span class="kn">import</span> <span class="n">save_to_disk</span>  <span class="c1"># noqa: E402</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load env vars</span>
+<span class="n">load_dotenv</span><span class="p">(</span><span class="n">find_dotenv</span><span class="p">())</span>
+
+<span class="c1"># tqdm extensions for pandas functions</span>
+<span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">()</span>
+
+<span class="c1"># seaborn plot settings</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># current datetime</span>
+<span class="n">current_dt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the red hat dashboard names</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;https://testgrid.k8s.io/redhat-openshift-informing?id=dashboard-group-bar&quot;</span>
+<span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">testgrid_script</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">testgrid_script</span> <span class="o">=</span> <span class="n">testgrid_script</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">dashboard_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">testgrid_script</span> <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">dashboard_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&quot;redhat-assisted-installer&quot;&#39;,
+ &#39;&quot;redhat-openshift-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.1-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.1-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.2-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.3-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.4-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.5-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.6-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.7-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-broken&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.8-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.9-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-ocp-release-4.9-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.3-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.4-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.5-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.5-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.6-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.6-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.7-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.7-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.8-blocking&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.8-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-okd-release-4.9-informing&quot;&#39;,
+ &#39;&quot;redhat-openshift-presubmit-master-gcp&quot;&#39;,
+ &#39;&quot;redhat-osd&quot;&#39;,
+ &#39;&quot;redhat-single-node&quot;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-linked-bugs">
+<h2>Get Linked Bugs<a class="headerlink" href="#get-linked-bugs" title="Permalink to this headline">#</a></h2>
+<p>In this section, we will first identify the linked and associated bugs for all the tests for all jobs under a given dashboard. Then, for the bug ids obtained from this step, we will fetch detailed bug information and better understand the structure and properties of the bugzilla data in the next section. At the end of this section, we’ll collect the linked and associated bugs for all tests under each of the jobs displayed on testgrid, and then save this dataset for further analysis in another notebook.</p>
+<p><strong>NOTE</strong> Running this procedure resulted in really long runtimes: ~30min for one job, &gt;20hrs for all jobs. Therefore we parallelized the code and distributed the workload across multiple processes. This reduced the runtimes to ~1min and ~1hr respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># manager to share objects across processes</span>
+<span class="n">manager</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span>
+
+<span class="c1"># number of max processes</span>
+<span class="n">n_max_processes</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-jobs-under-each-dashboard">
+<h3>Get Jobs under each Dashboard<a class="headerlink" href="#get-jobs-under-each-dashboard" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dict where key is dashboard name, value is list of jobs under that dashboard</span>
+<span class="n">dashboard_jobs_dict</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">get_jobs_in_dashboard</span><span class="p">(</span><span class="n">dj_dict_d_name_tuple</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets jobs listed under each dashboard.</span>
+
+<span class="sd">    :param dj_dict_d_name_tuple: (tuple) Tuple where the first element is the</span>
+<span class="sd">    shared dict where the result is to be stored and the second element is the</span>
+<span class="sd">    dashboard name</span>
+
+<span class="sd">    NOTE: If we want to have tqdm with a multiprocessing Pool, we need to use</span>
+<span class="sd">    pool.imap and thus have only one arg passed. Otherwise we can also split</span>
+<span class="sd">    the args into separate variables</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># unpack args</span>
+    <span class="n">dj_dict</span><span class="p">,</span> <span class="n">d_name</span> <span class="o">=</span> <span class="n">dj_dict_d_name_tuple</span>
+
+    <span class="c1"># get list of jobs</span>
+    <span class="n">dj_dict</span><span class="p">[</span><span class="n">d_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://testgrid.k8s.io/</span><span class="si">{</span><span class="n">d_name</span><span class="si">}</span><span class="s2">/summary&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="p">)</span>
+
+
+<span class="c1"># list of args to be passed to the function. each process will take one element</span>
+<span class="c1"># from this list and call the function with it</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dashboard_names</span><span class="p">:</span>
+    <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="n">dashboard_jobs_dict</span><span class="p">,</span> <span class="n">d</span><span class="p">]))</span>
+<span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;DictProxy object, typeid &#39;dict&#39; at 0x7f8f4017c0a0&gt;,
+ &#39;&quot;redhat-assisted-installer&quot;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># spawn processes and run the function with each arg</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">n_max_processes</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">get_jobs_in_dashboard</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+
+<span class="c1"># sanity check</span>
+<span class="n">dashboard_jobs_dict</span><span class="o">.</span><span class="n">_getvalue</span><span class="p">()[</span><span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 40/40 [00:02&lt;00:00, 18.95it/s]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;periodic-ci-openshift-release-master-ci-4.2-e2e-aws-sdn-multitenant&#39;,
+ &#39;periodic-ci-openshift-release-master-ci-4.2-e2e-gcp&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-console-aws&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-aws-fips&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-aws-fips-serial&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-azure&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-azure-fips&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-azure-fips-serial&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-gcp&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-gcp-fips&#39;,
+ &#39;periodic-ci-openshift-release-master-nightly-4.2-e2e-gcp-fips-serial&#39;,
+ &#39;promote-release-openshift-machine-os-content-e2e-aws-4.1&#39;,
+ &#39;promote-release-openshift-machine-os-content-e2e-aws-4.2&#39;,
+ &#39;promote-release-openshift-machine-os-content-e2e-aws-4.2-s390x&#39;,
+ &#39;release-openshift-ocp-e2e-aws-scaleup-rhel7-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-aws-mirrors-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-aws-proxy-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-aws-upi-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-azure-serial-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-gcp-serial-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-metal-4.2&#39;,
+ &#39;release-openshift-ocp-installer-e2e-metal-serial-4.2&#39;,
+ &#39;release-openshift-origin-installer-e2e-aws-4.2-cnv&#39;,
+ &#39;release-openshift-origin-installer-e2e-aws-upgrade-4.1-stable-to-4.2-ci&#39;,
+ &#39;release-openshift-origin-installer-e2e-aws-upgrade-4.2-stable-to-4.2-nightly&#39;,
+ &#39;release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.1-to-4.2&#39;,
+ &#39;release-openshift-origin-installer-e2e-aws-upgrade-rollback-4.2&#39;,
+ &#39;release-openshift-origin-installer-e2e-azure-upgrade-4.2&#39;,
+ &#39;release-openshift-origin-installer-e2e-gcp-serial-4.2&#39;,
+ &#39;release-openshift-origin-installer-e2e-gcp-upgrade-4.2&#39;,
+ &#39;release-openshift-origin-installer-old-rhcos-e2e-aws-4.2&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-tests-under-each-job">
+<h3>Get Tests under each Job<a class="headerlink" href="#get-tests-under-each-job" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dict where key is (dashboard,job), value is list of tests under that job</span>
+<span class="n">job_tests_dict</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">get_tests_in_job</span><span class="p">(</span><span class="n">jt_dict_dj_pair_tuple</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets tests run under each job.</span>
+
+<span class="sd">    :param jt_dict_dj_pair_tuple: (tuple) Tuple where the first element is the</span>
+<span class="sd">    shared dict where the result is to be stored and the second element is a</span>
+<span class="sd">    tuple of (dashboard, job)</span>
+
+<span class="sd">    NOTE: If we want to have tqdm with a multiprocessing Pool, we need to use</span>
+<span class="sd">    pool.imap and thus have only one arg passed. Otherwise we can also split</span>
+<span class="sd">    the args into separate variables</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># unpack args</span>
+    <span class="n">jt_dict</span><span class="p">,</span> <span class="n">dj_pair</span> <span class="o">=</span> <span class="n">jt_dict_dj_pair_tuple</span>
+
+    <span class="c1"># query testgrid for tests in dashboard, job</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://testgrid.k8s.io/</span><span class="si">{</span><span class="n">dj_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/table?&amp;show-stale-tests=&amp;tab=</span><span class="si">{</span><span class="n">dj_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># if valid response then add to dict, else print the names to debug</span>
+    <span class="k">if</span> <span class="n">ret</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">requests</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+        <span class="n">jt_dict</span><span class="p">[</span><span class="n">dj_pair</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">t</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ret</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tests&quot;</span><span class="p">)</span>  <span class="c1"># , [{&#39;name&#39;: None}])</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;non-successful status code for pair&quot;</span><span class="p">,</span> <span class="n">dj_pair</span><span class="p">)</span>
+        <span class="n">jt_dict</span><span class="p">[</span><span class="n">dj_pair</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+
+<span class="c1"># list of args to be passed to the function. each process will take one element</span>
+<span class="c1"># from this list and call the function with it</span>
+<span class="c1"># NOTE: itertools can be used instead of nested for, but this is more readable</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">jobs</span> <span class="ow">in</span> <span class="n">dashboard_jobs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="nb">tuple</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">job_tests_dict</span><span class="p">,</span>  <span class="c1"># first arg to function</span>
+                    <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">j</span><span class="p">),</span>  <span class="c1"># second arg to function</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+<span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;DictProxy object, typeid &#39;dict&#39; at 0x7f8e6c309bb0&gt;,
+ (&#39;&quot;redhat-assisted-installer&quot;&#39;,
+  &#39;periodic-ci-openshift-release-master-nightly-4.6-e2e-metal-assisted&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># spawn processes and run the function with each arg</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">n_max_processes</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">get_tests_in_job</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+
+<span class="c1"># sanity check</span>
+<span class="n">job_tests_dict</span><span class="o">.</span><span class="n">_getvalue</span><span class="p">()[</span>
+    <span class="p">(</span>
+        <span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;periodic-ci-openshift-release-master-ci-4.2-e2e-gcp&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 609/609 [00:38&lt;00:00, 15.83it/s]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Overall&#39;,
+ &#39;Operator results.operator conditions monitoring&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-ipi-install-install container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-gather-must-gather container test&#39;,
+ &#39;Pod&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp&#39;,
+ &#39;job.initialize&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-ipi-install-install container test&#39;,
+ &#39;Operator results.operator conditions image-registry&#39;,
+ &#39;Operator results.operator conditions authentication&#39;,
+ &#39;Operator results.operator conditions cloud-credential&#39;,
+ &#39;Operator results.operator conditions cluster-autoscaler&#39;,
+ &#39;Operator results.operator conditions console&#39;,
+ &#39;Operator results.operator conditions dns&#39;,
+ &#39;Operator results.operator conditions ingress&#39;,
+ &#39;Operator results.operator conditions insights&#39;,
+ &#39;Operator results.operator conditions kube-apiserver&#39;,
+ &#39;Operator results.operator conditions kube-controller-manager&#39;,
+ &#39;Operator results.operator conditions kube-scheduler&#39;,
+ &#39;Operator results.operator conditions machine-api&#39;,
+ &#39;Operator results.operator conditions machine-config&#39;,
+ &#39;Operator results.operator conditions marketplace&#39;,
+ &#39;Operator results.operator conditions network&#39;,
+ &#39;Operator results.operator conditions node-tuning&#39;,
+ &#39;Operator results.operator conditions openshift-apiserver&#39;,
+ &#39;Operator results.operator conditions openshift-controller-manager&#39;,
+ &#39;Operator results.operator conditions openshift-samples&#39;,
+ &#39;Operator results.operator conditions operator-lifecycle-manager&#39;,
+ &#39;Operator results.operator conditions operator-lifecycle-manager-catalog&#39;,
+ &#39;Operator results.operator conditions operator-lifecycle-manager-packageserver&#39;,
+ &#39;Operator results.operator conditions service-ca&#39;,
+ &#39;Operator results.operator conditions service-catalog-apiserver&#39;,
+ &#39;Operator results.operator conditions service-catalog-controller-manager&#39;,
+ &#39;Operator results.operator conditions storage&#39;,
+ &#39;Symptom Detection.Bug 1812261: iptables is segfaulting&#39;,
+ &#39;Symptom Detection.Infrastructure - AWS simulate policy rate-limit&#39;,
+ &#39;Symptom Detection.Infrastructure - GCP quota exceeded (route to forum-gcp)&#39;,
+ &#39;Symptom Detection.Node process segfaulted&#39;,
+ &#39;Symptom Detection.Undiagnosed panic detected in journal&#39;,
+ &#39;Symptom Detection.Undiagnosed panic detected in pod&#39;,
+ &#39;operator.All images are built and tagged into stable&#39;,
+ &#39;operator.Find the input image ocp-4.5-upi-installer and tag it into the pipeline&#39;,
+ &#39;operator.Find the input image origin-centos-8 and tag it into the pipeline&#39;,
+ &#39;operator.Import the release payload &quot;latest&quot; from an external source&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-gather-***-console container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-gather-audit-logs container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-gather-core-dump container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-gather-extra container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-gather-must-gather container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-ipi-conf container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-ipi-conf-*** container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-ipi-deprovision-deprovision container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-ipi-install-monitoringpvc container test&#39;,
+ &#39;operator.Run multi-stage test e2e-*** - e2e-***-ipi-install-rbac container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-gather-audit-logs container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-gather-core-dump container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-gather-extra container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-gather-gcp-console container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-ipi-conf container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-ipi-conf-gcp container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-ipi-deprovision-deprovision container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-ipi-install-monitoringpvc container test&#39;,
+ &#39;operator.Run multi-stage test e2e-gcp - e2e-gcp-ipi-install-rbac container test&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-linked-bugs-under-each-test-for-a-given-dashboard">
+<h3>Get Linked Bugs under each Test for a Given Dashboard<a class="headerlink" href="#get-linked-bugs-under-each-test-for-a-given-dashboard" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get bugs linked at timestamps up to this amount of time before today</span>
+<span class="n">max_age</span> <span class="o">=</span> <span class="s2">&quot;336h&quot;</span>
+
+<span class="c1"># ci details search url</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://search.ci.openshift.org/&quot;</span>
+
+<span class="n">sample_dashboard</span> <span class="o">=</span> <span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dict where key is (dashboard, job, test), value is list of related bugs</span>
+<span class="n">djt_linked_bugs_dict</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">get_bugs_in_test</span><span class="p">(</span><span class="n">args_tuple</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gets linked and associated bugs for each test+job.</span>
+
+<span class="sd">    Queries the search.ci.openshift website just like the sippy setup does in</span>
+<span class="sd">    its findBug function defined here:</span>
+<span class="sd">    https://github.com/openshift/sippy/blob/1a44268082fc600d69771f95a96b4132c9b84285/pkg/buganalysis/cache.go#L230</span>
+
+<span class="sd">    :param args_tuple: (tuple) Tuple where the first element is the</span>
+<span class="sd">    shared dict where the result is to be stored and the second element is a</span>
+<span class="sd">    tuple of (dashboard, job, test)</span>
+
+<span class="sd">    NOTE: If we want to have tqdm with a multiprocessing Pool, we need to use</span>
+<span class="sd">    pool.imap and thus have only one arg passed. Otherwise we can also split</span>
+<span class="sd">    the args into separate variables</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># unpack</span>
+    <span class="n">djt_linked_bugs</span><span class="p">,</span> <span class="n">djt_tuple</span> <span class="o">=</span> <span class="n">args_tuple</span>
+
+    <span class="c1"># search for linked and associated bugs for this test</span>
+    <span class="c1"># DO NOT AJAX,MOBILE. THIS HACK PREVENTS REQUEST TIME OUT.</span>
+    <span class="c1"># read more here - https://stackoverflow.com/a/63377265/9743348</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s2">&quot;https://search.ci.openshift.org/&quot;</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bug+junit&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="s2">&quot;-1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">djt_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&quot;maxAge&quot;</span><span class="p">:</span> <span class="s2">&quot;336h&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ajax&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mobile&quot;</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;search&quot;</span><span class="p">:</span> <span class="n">djt_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\[&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\]&quot;</span><span class="p">),</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="c1"># the &quot;em&quot; objects in soup have information that can tell us</span>
+    <span class="c1"># whether or not this test had a linked bug for the given job name</span>
+    <span class="n">em_objects</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;em&quot;</span><span class="p">)</span>
+    <span class="n">pct_affected</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">em</span> <span class="ow">in</span> <span class="n">em_objects</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;Found&quot;</span> <span class="ow">in</span> <span class="n">em</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="n">pct_affected</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">em</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">break</span>
+
+    <span class="c1"># init to empty for this test result / reset to empty from previous test result</span>
+    <span class="n">test_bugs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># if percent jobs affected is 0 then the linked bugs correspond to another job</span>
+    <span class="k">if</span> <span class="n">pct_affected</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result_rows</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;tbody&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;tr&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result_rows</span><span class="p">:</span>
+            <span class="n">column_values</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">)</span>
+
+            <span class="c1"># if there is only 1 column then the result is a junit, not bug</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_values</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># check the second column to make sure its a bug, not junit details</span>
+                <span class="k">if</span> <span class="n">column_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;bug&quot;</span><span class="p">:</span>
+                    <span class="n">test_bugs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="n">djt_linked_bugs</span><span class="p">[</span><span class="n">djt_tuple</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_bugs</span>
+
+
+<span class="c1"># list of args to be passed to the function. each process will take one element</span>
+<span class="c1"># from this list and call the function with it</span>
+<span class="c1"># NOTE: this double for loop can be done via itertools too but this is more readable</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">djpair</span><span class="p">,</span> <span class="n">tests</span> <span class="ow">in</span> <span class="n">job_tests_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">djpair</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">sample_dashboard</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="nb">tuple</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="n">djt_linked_bugs_dict</span><span class="p">,</span>  <span class="c1"># first arg to function</span>
+                        <span class="p">(</span><span class="o">*</span><span class="n">djpair</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span>  <span class="c1"># second arg to function</span>
+                    <span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+<span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;DictProxy object, typeid &#39;dict&#39; at 0x7f8f22042d90&gt;,
+ (&#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;,
+  &#39;periodic-ci-openshift-release-master-ci-4.2-e2e-aws-sdn-multitenant&#39;,
+  &#39;Overall&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># spawn processes and run the function with each arg</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">n_max_processes</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">get_bugs_in_test</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+
+<span class="c1"># sanity check</span>
+<span class="n">djt_linked_bugs_dict</span><span class="o">.</span><span class="n">_getvalue</span><span class="p">()[</span>
+    <span class="p">(</span>
+        <span class="s1">&#39;&quot;redhat-openshift-ocp-release-4.2-informing&quot;&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;periodic-ci-openshift-release-master-ci-4.2-e2e-aws-sdn-multitenant&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Operator results.operator conditions monitoring&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 3581/3581 [00:39&lt;00:00, 90.51it/s] 
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1936859&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set of ALL bugs observed for this dashboard</span>
+<span class="n">all_bugs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="c1"># flattened list. each element is (dashboard, job, test, list-of-bugs)</span>
+<span class="n">djt_linked_bugs_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">djt_linked_bugs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+    <span class="n">djt_linked_bugs_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">]))</span>
+    <span class="n">all_bugs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># convert results to df</span>
+<span class="n">linked_bugs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">djt_linked_bugs_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dashboard&quot;</span><span class="p">,</span> <span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bug_ids&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># drop rows where there are no linked bugs</span>
+<span class="n">has_linked_bugs</span> <span class="o">=</span> <span class="n">linked_bugs_df</span><span class="p">[</span><span class="s2">&quot;bug_ids&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">has_linked_bugs</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows, </span><span class="si">{</span><span class="n">has_linked_bugs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> had non-empty linked bugs&quot;</span>
+<span class="p">)</span>
+<span class="n">linked_bugs_df</span> <span class="o">=</span> <span class="n">linked_bugs_df</span><span class="p">[</span><span class="n">has_linked_bugs</span><span class="p">]</span>
+
+<span class="n">linked_bugs_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Out of 3581 rows, 64 had non-empty linked bugs
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dashboard</th>
+      <th>job</th>
+      <th>test_name</th>
+      <th>bug_ids</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>"redhat-openshift-ocp-release-4.2-informing"</td>
+      <td>periodic-ci-openshift-release-master-ci-4.2-e2...</td>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>[1936859]</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>"redhat-openshift-ocp-release-4.2-informing"</td>
+      <td>periodic-ci-openshift-release-master-ci-4.2-e2...</td>
+      <td>job.initialize</td>
+      <td>[1910801, 1927244, 1908880, 1914794, 1951808, ...</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>"redhat-openshift-ocp-release-4.2-informing"</td>
+      <td>periodic-ci-openshift-release-master-ci-4.2-e2...</td>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>[1936859]</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>"redhat-openshift-ocp-release-4.2-informing"</td>
+      <td>periodic-ci-openshift-release-master-ci-4.2-e2...</td>
+      <td>job.initialize</td>
+      <td>[1880960, 1947067, 1915760, 1883991, 1851874, ...</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>"redhat-openshift-ocp-release-4.2-informing"</td>
+      <td>periodic-ci-openshift-release-master-nightly-4...</td>
+      <td>Operator results.operator conditions monitoring</td>
+      <td>[1936859]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="get-linked-bugs-under-each-test-for-all-dashboards">
+<h3>Get Linked Bugs under each Test for All Dashboards<a class="headerlink" href="#get-linked-bugs-under-each-test-for-all-dashboards" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># init as empty dict. key is (dashboard, job, test) and value is the list of related bugs</span>
+<span class="n">djt_linked_bugs_dict</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+
+<span class="c1"># list of args to be passed to the function</span>
+<span class="c1"># this time, we will get linked bugs for all tests in ALL dashboards, not just one</span>
+<span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">djpair</span><span class="p">,</span> <span class="n">tests</span> <span class="ow">in</span> <span class="n">job_tests_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="nb">tuple</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="n">djt_linked_bugs_dict</span><span class="p">,</span>  <span class="c1"># first arg to function</span>
+                    <span class="p">(</span><span class="o">*</span><span class="n">djpair</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span>  <span class="c1"># second arg to function</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+<span class="c1"># spawn processes and run the function with each arg</span>
+<span class="k">with</span> <span class="n">mp</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">n_max_processes</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">get_bugs_in_test</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)))</span>
+
+<span class="c1"># flattened list. each element is (dashboard, job, test, list-of-bugs)</span>
+<span class="n">djt_linked_bugs_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">djt_linked_bugs_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">djt_linked_bugs_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">([</span><span class="o">*</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">]))</span>
+
+<span class="c1"># convert results to df</span>
+<span class="n">linked_bugs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">djt_linked_bugs_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dashboard&quot;</span><span class="p">,</span> <span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="s2">&quot;test_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bug_ids&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 338676/338676 [1:02:25&lt;00:00, 90.41it/s] 
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop rows where there are no linked bugs</span>
+<span class="n">has_linked_bugs</span> <span class="o">=</span> <span class="n">linked_bugs_df</span><span class="p">[</span><span class="s2">&quot;bug_ids&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Out of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">has_linked_bugs</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows, </span><span class="si">{</span><span class="n">has_linked_bugs</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> had non-empty linked bugs&quot;</span>
+<span class="p">)</span>
+<span class="n">linked_bugs_df</span> <span class="o">=</span> <span class="n">linked_bugs_df</span><span class="p">[</span><span class="n">has_linked_bugs</span><span class="p">]</span>
+
+<span class="c1"># save df</span>
+<span class="n">save_to_disk</span><span class="p">(</span>
+    <span class="n">linked_bugs_df</span><span class="p">,</span>
+    <span class="s2">&quot;../../../data/raw/&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;linked-bugs-</span><span class="si">{</span><span class="n">current_dt</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">current_dt</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">current_dt</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Out of 338676 rows, 8225 had non-empty linked bugs
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-bugzilla-details">
+<h2>Get Bugzilla Details<a class="headerlink" href="#get-bugzilla-details" title="Permalink to this headline">#</a></h2>
+<p>In this section, we will get details for the bug ids collected for the sample dashboard in the above section. We will fetch all the available metadata fields for each bug, and but only explore the values in some of these fields. We will perform the meticulous exploratory analysis for all of the available Bugzilla fields in a future notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># connector object to talk to bugzilla</span>
+<span class="n">bzapi</span> <span class="o">=</span> <span class="n">bugzilla</span><span class="o">.</span><span class="n">Bugzilla</span><span class="p">(</span><span class="s2">&quot;bugzilla.redhat.com&quot;</span><span class="p">)</span>
+
+<span class="c1"># look at a sample bug - what properties does this object have?</span>
+<span class="n">samplebug</span> <span class="o">=</span> <span class="n">bzapi</span><span class="o">.</span><span class="n">getbug</span><span class="p">(</span><span class="mi">1883345</span><span class="p">)</span>
+<span class="nb">vars</span><span class="p">(</span><span class="n">samplebug</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;bugzilla&#39;, &#39;_rawdata&#39;, &#39;autorefresh&#39;, &#39;_aliases&#39;, &#39;priority&#39;, &#39;cf_last_closed&#39;, &#39;creator&#39;, &#39;blocks&#39;, &#39;assigned_to_detail&#39;, &#39;last_change_time&#39;, &#39;comments&#39;, &#39;is_cc_accessible&#39;, &#39;keywords&#39;, &#39;creator_detail&#39;, &#39;cc&#39;, &#39;see_also&#39;, &#39;groups&#39;, &#39;assigned_to&#39;, &#39;url&#39;, &#39;qa_contact&#39;, &#39;creation_time&#39;, &#39;whiteboard&#39;, &#39;id&#39;, &#39;depends_on&#39;, &#39;cf_target_upstream_version&#39;, &#39;docs_contact&#39;, &#39;description&#39;, &#39;qa_contact_detail&#39;, &#39;resolution&#39;, &#39;classification&#39;, &#39;cf_doc_type&#39;, &#39;alias&#39;, &#39;op_sys&#39;, &#39;target_release&#39;, &#39;status&#39;, &#39;cc_detail&#39;, &#39;cf_clone_of&#39;, &#39;external_bugs&#39;, &#39;summary&#39;, &#39;is_open&#39;, &#39;platform&#39;, &#39;severity&#39;, &#39;cf_environment&#39;, &#39;flags&#39;, &#39;version&#39;, &#39;tags&#39;, &#39;component&#39;, &#39;sub_components&#39;, &#39;is_creator_accessible&#39;, &#39;cf_release_notes&#39;, &#39;product&#39;, &#39;target_milestone&#39;, &#39;is_confirmed&#39;, &#39;components&#39;, &#39;versions&#39;, &#39;sub_component&#39;, &#39;fixed_in&#39;, &#39;weburl&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE</strong> The above shows what fields/properties related to each bugzilla we have available.
+Upon a bit of investigating we found that</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_rawdata</span></code> just contains the information already captured in other fields in a json format, and thus is redundant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bugzilla</span></code> attribute is depracated / old representation used in the python-bugzilla library, and thus is not useful for analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_aliases</span></code> is a mapping of synonyms for some of the fields, and thus is not useful for analysis</p></li>
+<li><p>The following properties didn’t exist for most bugs (it’s not that these properties has empty values, it’s that the properties themselves didn’t exist as a field for most objects of the Bugzilla class):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">qa_contact_detail</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cf_last_closed</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cf_clone_of</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get all the available fields, except the depracated and duplicate ones</span>
+<span class="n">bug_details_to_get</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">samplebug</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">bug_details_to_get</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;_rawdata&quot;</span><span class="p">)</span>
+<span class="n">bug_details_to_get</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;bugzilla&quot;</span><span class="p">)</span>
+<span class="n">bug_details_to_get</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;_aliases&quot;</span><span class="p">)</span>
+
+<span class="c1"># these two keys are msissing for a lot of bugs</span>
+<span class="n">bug_details_to_get</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;qa_contact_detail&quot;</span><span class="p">)</span>
+<span class="n">bug_details_to_get</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;cf_last_closed&quot;</span><span class="p">)</span>
+<span class="n">bug_details_to_get</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;cf_clone_of&quot;</span><span class="p">)</span>
+
+<span class="n">bug_details_to_get</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;autorefresh&#39;,
+ &#39;priority&#39;,
+ &#39;creator&#39;,
+ &#39;blocks&#39;,
+ &#39;assigned_to_detail&#39;,
+ &#39;last_change_time&#39;,
+ &#39;comments&#39;,
+ &#39;is_cc_accessible&#39;,
+ &#39;keywords&#39;,
+ &#39;creator_detail&#39;,
+ &#39;cc&#39;,
+ &#39;see_also&#39;,
+ &#39;groups&#39;,
+ &#39;assigned_to&#39;,
+ &#39;url&#39;,
+ &#39;qa_contact&#39;,
+ &#39;creation_time&#39;,
+ &#39;whiteboard&#39;,
+ &#39;id&#39;,
+ &#39;depends_on&#39;,
+ &#39;cf_target_upstream_version&#39;,
+ &#39;docs_contact&#39;,
+ &#39;description&#39;,
+ &#39;resolution&#39;,
+ &#39;classification&#39;,
+ &#39;cf_doc_type&#39;,
+ &#39;alias&#39;,
+ &#39;op_sys&#39;,
+ &#39;target_release&#39;,
+ &#39;status&#39;,
+ &#39;cc_detail&#39;,
+ &#39;external_bugs&#39;,
+ &#39;summary&#39;,
+ &#39;is_open&#39;,
+ &#39;platform&#39;,
+ &#39;severity&#39;,
+ &#39;cf_environment&#39;,
+ &#39;flags&#39;,
+ &#39;version&#39;,
+ &#39;tags&#39;,
+ &#39;component&#39;,
+ &#39;sub_components&#39;,
+ &#39;is_creator_accessible&#39;,
+ &#39;cf_release_notes&#39;,
+ &#39;product&#39;,
+ &#39;target_milestone&#39;,
+ &#39;is_confirmed&#39;,
+ &#39;components&#39;,
+ &#39;versions&#39;,
+ &#39;sub_component&#39;,
+ &#39;fixed_in&#39;,
+ &#39;weburl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a df containing details of all linked and associated bugs</span>
+<span class="n">bugs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bug_id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">bug_details_to_get</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_bugs</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="n">bugs_df</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">bug_id</span><span class="o">=</span><span class="n">all_bugs</span><span class="p">)</span>
+<span class="n">bugs_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bug_id</th>
+      <th>autorefresh</th>
+      <th>priority</th>
+      <th>creator</th>
+      <th>blocks</th>
+      <th>assigned_to_detail</th>
+      <th>last_change_time</th>
+      <th>comments</th>
+      <th>is_cc_accessible</th>
+      <th>keywords</th>
+      <th>...</th>
+      <th>is_creator_accessible</th>
+      <th>cf_release_notes</th>
+      <th>product</th>
+      <th>target_milestone</th>
+      <th>is_confirmed</th>
+      <th>components</th>
+      <th>versions</th>
+      <th>sub_component</th>
+      <th>fixed_in</th>
+      <th>weburl</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1936780</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1866023</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1901472</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1772295</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1905680</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 53 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fill_bug_details</span><span class="p">(</span><span class="n">bug_row</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Populate details for each bug</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">bzapi</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">bug</span> <span class="o">=</span> <span class="n">bzapi</span><span class="o">.</span><span class="n">getbug</span><span class="p">(</span><span class="n">bug_row</span><span class="o">.</span><span class="n">bug_id</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bug_row</span>
+
+    <span class="k">for</span> <span class="n">detail</span> <span class="ow">in</span> <span class="n">bug_row</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">bug_row</span><span class="p">[</span><span class="n">detail</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">bug</span><span class="p">,</span> <span class="n">detail</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">detail</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">bug_row</span>
+
+
+<span class="n">bugs_df</span><span class="o">.</span><span class="n">progress_apply</span><span class="p">(</span><span class="n">fill_bug_details</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bugs_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 2957/2957 [32:38&lt;00:00,  1.51it/s]  
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bug_id</th>
+      <th>autorefresh</th>
+      <th>priority</th>
+      <th>creator</th>
+      <th>blocks</th>
+      <th>assigned_to_detail</th>
+      <th>last_change_time</th>
+      <th>comments</th>
+      <th>is_cc_accessible</th>
+      <th>keywords</th>
+      <th>...</th>
+      <th>is_creator_accessible</th>
+      <th>cf_release_notes</th>
+      <th>product</th>
+      <th>target_milestone</th>
+      <th>is_confirmed</th>
+      <th>components</th>
+      <th>versions</th>
+      <th>sub_component</th>
+      <th>fixed_in</th>
+      <th>weburl</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1936780</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1866023</td>
+      <td>False</td>
+      <td>medium</td>
+      <td>Noam Manos</td>
+      <td>[]</td>
+      <td>{'real_name': 'Harshal Patil', 'email': 'harpa...</td>
+      <td>20201211T04:08:02</td>
+      <td>[{'is_private': False, 'count': 0, 'creator': ...</td>
+      <td>True</td>
+      <td>[Reopened]</td>
+      <td>...</td>
+      <td>True</td>
+      <td></td>
+      <td>OpenShift Container Platform</td>
+      <td>---</td>
+      <td>True</td>
+      <td>[Node]</td>
+      <td>[4.4]</td>
+      <td>Kubelet</td>
+      <td></td>
+      <td>https://bugzilla.redhat.com/show_bug.cgi?id=18...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1901472</td>
+      <td>False</td>
+      <td>high</td>
+      <td>Martin André</td>
+      <td>[]</td>
+      <td>{'real_name': 'Martin André', 'email': 'm.andr...</td>
+      <td>20210224T15:36:19</td>
+      <td>[{'is_private': False, 'count': 0, 'creator': ...</td>
+      <td>True</td>
+      <td>[UpcomingSprint]</td>
+      <td>...</td>
+      <td>True</td>
+      <td></td>
+      <td>OpenShift Container Platform</td>
+      <td>---</td>
+      <td>True</td>
+      <td>[Machine Config Operator]</td>
+      <td>[4.7]</td>
+      <td></td>
+      <td></td>
+      <td>https://bugzilla.redhat.com/show_bug.cgi?id=19...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1772295</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1905680</td>
+      <td>False</td>
+      <td>high</td>
+      <td>Mike Fiedler</td>
+      <td>[1906033]</td>
+      <td>{'real_name': 'OVN Team', 'email': 'ovnteam', ...</td>
+      <td>20210127T10:43:37</td>
+      <td>[{'is_private': False, 'count': 0, 'creator': ...</td>
+      <td>True</td>
+      <td>[]</td>
+      <td>...</td>
+      <td>True</td>
+      <td></td>
+      <td>Red Hat Enterprise Linux Fast Datapath</td>
+      <td>---</td>
+      <td>True</td>
+      <td>[ovn2.13]</td>
+      <td>[RHEL 8.0]</td>
+      <td></td>
+      <td></td>
+      <td>https://bugzilla.redhat.com/show_bug.cgi?id=19...</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 53 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># custom converting each column into a dtype that pyarrow can work with is tricky</span>
+<span class="c1"># as a hack, we&#39;ll convert the df to a csv (in a buffer) and then read that csv</span>
+<span class="c1"># so that pandas does the type comprehension by itself</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">bugs_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">bugs_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+
+<span class="c1"># save raw data</span>
+<span class="n">save_to_disk</span><span class="p">(</span>
+    <span class="n">bugs_df</span><span class="p">,</span>
+    <span class="s2">&quot;../../../data/raw/&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;bug-details-</span><span class="si">{</span><span class="n">current_dt</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">current_dt</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">current_dt</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">.parquet&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspect-bug-metadata">
+<h2>Inspect Bug Metadata<a class="headerlink" href="#inspect-bug-metadata" title="Permalink to this headline">#</a></h2>
+<p>In this section, we will look into some of the metadata fields available in bugzilla. We will not go through every field, but rather the ones that seem more important features of a bug.</p>
+<p>To learn more about what each of these fields represents, please check out the official docs at <a class="reference external" href="https://bugzilla.readthedocs.io/en/latest/using/understanding.html">Bugzilla</a>, <a class="reference external" href="https://bugzilla.redhat.com/docs/en/html/using/understanding.html">Red Hat Bugzilla</a>, or <a class="reference external" href="https://github.com/python-bugzilla/python-bugzilla/blob/82972796cf04f1ac06525670c272465a66d77da1/man/bugzilla.rst#global-options">python-bugzilla</a>.</p>
+<div class="section" id="priority">
+<h3>priority<a class="headerlink" href="#priority" title="Permalink to this headline">#</a></h3>
+<p>The priority field is used to prioritize bugs, either by the assignee, or someone else with authority to direct their time such as a project manager.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>unspecified    945
+high           702
+medium         637
+low            267
+urgent         264
+Name: priority, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Priority Label&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Priority Labels&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_32_0.png" src="../../../_images/bugzilla_EDA_32_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="blocks">
+<h3>blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">#</a></h3>
+<p>The blocks field lists the bugs that are blocked by this particular bug.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_n_blocked</span><span class="p">(</span><span class="n">blockedlist</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">blockedlist</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="n">nblocked</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;blocks&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_n_blocked</span><span class="p">)</span>
+<span class="n">nblocked</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2      2052
+9       589
+0       142
+18      133
+27       27
+36        7
+45        4
+54        1
+63        1
+351       1
+Name: blocks, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nblocked</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs Blocked&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Number of Bugs Blocked&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_35_0.png" src="../../../_images/bugzilla_EDA_35_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="last-change-time">
+<h3>last_change_time<a class="headerlink" href="#last-change-time" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_change_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;last_change_time&quot;</span><span class="p">])</span>
+<span class="n">last_change_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                      NaT
+1      2020-12-11 04:08:02
+2      2021-02-24 15:36:19
+3                      NaT
+4      2021-01-27 10:43:37
+               ...        
+2952   2021-01-12 15:18:40
+2953   2021-02-24 15:58:07
+2954   2021-03-16 19:37:14
+2955   2021-01-06 22:34:45
+2956   2021-04-05 17:55:02
+Name: last_change_time, Length: 2957, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_change_time</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Last Change Date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Last Change Dates&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_38_0.png" src="../../../_images/bugzilla_EDA_38_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="keywords">
+<h3>keywords<a class="headerlink" href="#keywords" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;keywords&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]                                                                                1966
+[&#39;Reopened&#39;]                                                                       170
+[&#39;Upgrades&#39;]                                                                       168
+[&#39;UpcomingSprint&#39;]                                                                 123
+[&#39;TestBlocker&#39;]                                                                     54
+                                                                                  ... 
+[&#39;Performance&#39;]                                                                      1
+[&#39;Triaged&#39;, &#39;Upgrades&#39;]                                                              1
+[&#39;RFE&#39;, &#39;UpcomingSprint&#39;]                                                            1
+[&#39;Regression&#39;, &#39;ServiceDeliveryBlocker&#39;, &#39;UpgradeBlocker&#39;, &#39;Upgrades&#39;]               1
+[&#39;Regression&#39;, &#39;Reopened&#39;, &#39;ServiceDeliveryImpact&#39;, &#39;TestBlocker&#39;, &#39;Upgrades&#39;]       1
+Name: keywords, Length: 86, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wordcloud to get rough aggregated idea of which keywords occur the most</span>
+<span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">max_font_size</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">max_words</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+    <span class="n">bugs_df</span><span class="o">.</span><span class="n">keywords</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">cat</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># Display the generated image:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_41_0.png" src="../../../_images/bugzilla_EDA_41_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="whiteboard">
+<h3>Whiteboard<a class="headerlink" href="#whiteboard" title="Permalink to this headline">#</a></h3>
+<p>A free-form text area for adding short notes and tags to a bug.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;whiteboard&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>logging-exploration                          47
+LifecycleStale                               36
+LifecycleReset                               30
+logging-core                                 20
+Scrubbed                                     12
+TechnicalReleaseBlocker                       9
+multi-arch                                    8
+aos-scalability-46                            8
+UpdateRecommendationsBlocked                  7
+SDN-CI-IMPACT                                 7
+devex                                         7
+non-multi-arch                                5
+logging-exploration osd-45-logging            5
+IBMROKS                                       5
+AI-Team-Core                                  4
+AI-Team-Platform                              3
+aos-scalability-48                            2
+component:jenkins-2-plugins                   2
+workloads                                     2
+47hack                                        2
+aos-scalability-47                            2
+pre-merge-verified                            2
+ImpactStatementRequested                      2
+ImpactStatementProposed                       2
+non-multi-arch, bootimage                     2
+wip                                           2
+coreos                                        2
+aws                                           1
+aos-scalability-46 LifecycleStale             1
+plusminusreview                               1
+needsqa                                       1
+Logging                                       1
+aos-scalability-43                            1
+LifecycleFrozen                               1
+4.5                                           1
+stale                                         1
+MULTI-ARCH                                    1
+aos-scalability-45                            1
+osd-45-logging, logging-exploration           1
+logging-exploration, n                        1
+Telco                                         1
+backport:4.5                                  1
+OCP-Metal-juke-3                              1
+osd-45-logging, logging-core                  1
+buildcop                                      1
+logging-core, logging-exploration             1
+webscale                                      1
+LifecycleReset,LifecycleFrozen                1
+workloads, Multi-Arch                         1
+OCP-Metal-juke-5                              1
+multi-arch LifecycleReset                     1
+assisted-installer-prod                       1
+aos-scalability-45 LifecycleStale             1
+SingleNode LifecycleReset                     1
+groom                                         1
+AI-Team-OCS                                   1
+aos-scalability-46 LifecycleReset             1
+47hack, logging-exploration, logging-core     1
+SDN-CI-IMPACT MULTI-ARCH                      1
+trt LifecycleStale                            1
+Name: whiteboard, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Whiteboard text&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Whiteboard texts&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_44_0.png" src="../../../_images/bugzilla_EDA_44_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="description">
+<h3>description<a class="headerlink" href="#description" title="Permalink to this headline">#</a></h3>
+<p>This conatins descriptions for each bugzilla ticket.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                                     NaN
+1       Description of problem:\nOn OCP 4.4.3, that wa...
+2       Description of problem:\n\nThe bootstrap node ...
+3                                                     NaN
+4       Description of problem:\n\n1. On a 10 node clu...
+                              ...                        
+2952    Description of problem:\n4.7 to 4.6 downgrade ...
+2953    Description of problem:\nTry to install &quot;opens...
+2954    Document URL: \n\nhttps://docs.openshift.com/c...
+2955    Creating a new cluster on OpenShift 4.6 gets m...
+2956    Description of problem:\n\nCustomer upgraded f...
+Name: description, Length: 2957, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resolution">
+<h3>resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;resolution&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERRATA               1109
+DUPLICATE             282
+NOTABUG               268
+CURRENTRELEASE        104
+WONTFIX                80
+INSUFFICIENT_DATA      59
+WORKSFORME             59
+DEFERRED               48
+EOL                    28
+NEXTRELEASE            17
+UPSTREAM               11
+CANTFIX                 9
+Name: resolution, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Resolution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Resolutions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_50_0.png" src="../../../_images/bugzilla_EDA_50_0.png" />
+</div>
+</div>
+<p>From the above graph, we can infer that we have most values available for resolution, even though we have many values as empty, this looks like a promising parameter.</p>
+</div>
+<div class="section" id="cf-doc-type">
+<h3>cf_doc_type<a class="headerlink" href="#cf-doc-type" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;cf_doc_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>If docs needed, set a value    2188
+No Doc Update                   375
+Bug Fix                         224
+Enhancement                      13
+Release Note                      8
+Known Issue                       5
+Removed functionality             2
+Name: cf_doc_type, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Doc Type&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Doc Types&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_54_0.png" src="../../../_images/bugzilla_EDA_54_0.png" />
+</div>
+</div>
+<p>From the above graph, we see that most of the tickets have the value for <code class="docutils literal notranslate"><span class="pre">doc_type</span></code>. This could be used to classify the tickets according to the doc type.</p>
+</div>
+<div class="section" id="op-sys-operating-systems">
+<h3>op_sys : Operating Systems<a class="headerlink" href="#op-sys-operating-systems" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;op_sys&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unspecified    2419
+Linux           333
+All              59
+Windows           2
+Mac OS            2
+Name: op_sys, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Operating System&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Operating Systems&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_58_0.png" src="../../../_images/bugzilla_EDA_58_0.png" />
+</div>
+</div>
+<p>From the above graph, we can see that we have four OS(s) across the bugs.</p>
+</div>
+<div class="section" id="target-release">
+<h3>target_release<a class="headerlink" href="#target-release" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;target_release&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Target Release&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Target Releases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_61_0.png" src="../../../_images/bugzilla_EDA_61_0.png" />
+</div>
+</div>
+<p>From the above graph, we see the various target releases frequency. This value also is mostly not assigned but we still have many observations.</p>
+</div>
+<div class="section" id="status">
+<h3>status<a class="headerlink" href="#status" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CLOSED             2074
+NEW                 218
+VERIFIED            207
+ASSIGNED            200
+POST                 80
+ON_QA                27
+MODIFIED              7
+RELEASE_PENDING       2
+Name: status, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Status&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Statuses&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_65_0.png" src="../../../_images/bugzilla_EDA_65_0.png" />
+</div>
+</div>
+<p>The above graph, shows various status across tickets.</p>
+</div>
+<div class="section" id="external-bugs">
+<h3>External Bugs<a class="headerlink" href="#external-bugs" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;external_bugs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>external_bugs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>[]</th>
+      <td>1259</td>
+    </tr>
+    <tr>
+      <th>[{'ext_description': 'Bug 1932114: Detect Nodes Network MTU', 'ext_bz_id': 131, 'ext_priority': 'None', 'bug_id': 1932114, 'ext_bz_bug_id': 'openshift/cluster-network-operator/pull/1070', 'id': 1781667, 'ext_status': 'open', 'type': {'must_send': False, 'can_send': False, 'description': 'Github', 'can_get': True, 'url': 'https://github.com/', 'id': 131, 'send_once': False, 'type': 'GitHub', 'full_url': 'https://github.com/%id%'}}, {'ext_description': 'Bug 1932114: Allow to config network MTU', 'ext_bz_id': 131, 'ext_priority': 'None', 'bug_id': 1932114, 'ext_bz_bug_id': 'openshift/kuryr-kubernetes/pull/506', 'id': 1781668, 'ext_status': 'open', 'type': {'must_send': False, 'can_send': False, 'description': 'Github', 'can_get': True, 'url': 'https://github.com/', 'id': 131, 'send_once': False, 'type': 'GitHub', 'full_url': 'https://github.com/%id%'}}]</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>[{'ext_description': '[release-4.5] Bug 1880318: Update k8s version to v0.18.6', 'ext_bz_id': 131, 'ext_priority': 'None', 'bug_id': 1880318, 'ext_bz_bug_id': 'openshift/insights-operator/pull/284', 'id': 1702231, 'ext_status': 'closed', 'type': {'must_send': False, 'can_send': False, 'description': 'Github', 'can_get': True, 'url': 'https://github.com/', 'id': 131, 'send_once': False, 'type': 'GitHub', 'full_url': 'https://github.com/%id%'}}, {'ext_description': 'None', 'ext_bz_id': 139, 'ext_priority': 'None', 'bug_id': 1880318, 'ext_bz_bug_id': 'RHBA-2021:0033', 'id': 1724581, 'ext_status': 'None', 'type': {'must_send': False, 'can_send': False, 'description': 'Red Hat Product Errata', 'can_get': False, 'url': 'https://access.redhat.com/errata/', 'id': 139, 'send_once': False, 'type': 'None', 'full_url': 'https://access.redhat.com/errata/%id%'}}]</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>[{'ext_description': 'None', 'ext_bz_id': 139, 'ext_priority': 'None', 'bug_id': 1915007, 'ext_bz_bug_id': 'RHSA-2021:0037', 'id': 1723319, 'ext_status': 'None', 'type': {'must_send': False, 'can_send': False, 'description': 'Red Hat Product Errata', 'can_get': False, 'url': 'https://access.redhat.com/errata/', 'id': 139, 'send_once': False, 'type': 'None', 'full_url': 'https://access.redhat.com/errata/%id%'}}]</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>[{'ext_description': 'None', 'ext_bz_id': 139, 'ext_priority': 'None', 'bug_id': 1880354, 'ext_bz_bug_id': 'RHBA-2020:4196', 'id': 1641543, 'ext_status': 'None', 'type': {'must_send': False, 'can_send': False, 'description': 'Red Hat Product Errata', 'can_get': False, 'url': 'https://access.redhat.com/errata/', 'id': 139, 'send_once': False, 'type': 'None', 'full_url': 'https://access.redhat.com/errata/%id%'}}]</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="platform">
+<h3>platform<a class="headerlink" href="#platform" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">platform</span></code> field indicates the hardware platform the bug was observed on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unspecified    2381
+x86_64          249
+All             126
+s390x            36
+ppc64le          22
+ppc64             1
+Name: platform, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Platform&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Bug Platforms&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_71_0.png" src="../../../_images/bugzilla_EDA_71_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="severity">
+<h3>severity<a class="headerlink" href="#severity" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">severity</span></code> field categorzies the severity level of each bug. Let’s see the different severity levels defined. Let’s plot a simple graph to visualize the distribution of bug severities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>high           1011
+medium          962
+urgent          350
+low             329
+unspecified     163
+Name: severity, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Severity Level&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Bug Severities&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_75_0.png" src="../../../_images/bugzilla_EDA_75_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="cf-environment">
+<h3>cf_environment<a class="headerlink" href="#cf-environment" title="Permalink to this headline">#</a></h3>
+<p>Not too sure what <code class="docutils literal notranslate"><span class="pre">cf_environment</span></code> is supposed to return</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;cf_environment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cf_environment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Undiagnosed panic detected in pod</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>[sig-cluster-lifecycle] cluster upgrade should be fast</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>[sig-arch] Managed cluster should have no crashlooping pods in core namespaces over four minutes [Suite:openshift/conformance/parallel]</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>test: operator</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>[sig-arch][Feature:ClusterUpgrade] Cluster should remain functional during upgrade [Disruptive] [Serial]</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>[sig-network][Feature:Router] The HAProxy router should expose prometheus metrics for a route</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>[sig-network-edge][Conformance][Area:Networking][Feature:Router] The HAProxy router should pass the h2spec conformance tests [Suite:openshift/conformance/parallel/minimal]</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>operator.Run multi-stage test e2e-ovirt - e2e-ovirt-ipi-install-install container test</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>[sig-scheduling] Multi-AZ Clusters should spread the pods of a replication controller across zones</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>test: Overall</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>145 rows × 1 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="version">
+<h3>version<a class="headerlink" href="#version" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">version</span></code> field indicates the version of the software the bug was found in. Let’s plot a simple graph to visualize the distribution of bugs across different software versions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;version&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.6             821
+4.5             617
+4.7             601
+4.8             240
+4.4             234
+4.6.z           117
+4.3.z            79
+4.3.0            41
+4.2.0            22
+4.2.z            17
+2.5.0             6
+unspecified       3
+1.3.0             3
+2.4.0             2
+8.2               2
+RHEL 8.0          1
+FDB 18.11         1
+rhacm-1.0.z       1
+2.6.1             1
+FDP 20.E          1
+16.1 (Train)      1
+FDP 20.F          1
+rhacm-2.2.z       1
+2.3.0             1
+2.4.1             1
+Name: version, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Software Versions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different Software Versions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_80_0.png" src="../../../_images/bugzilla_EDA_80_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="component">
+<h3>component<a class="headerlink" href="#component" title="Permalink to this headline">#</a></h3>
+<p>Bugs are categorised into Product and Component. Components are second-level categories and the <code class="docutils literal notranslate"><span class="pre">component</span></code> field indicates which component is affected by the bug.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;component&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Networking                 374
+Node                       178
+Storage                    169
+OLM                        157
+Machine Config Operator    147
+                          ... 
+DPDK                         1
+Eventing                     1
+OVN                          1
+SSP                          1
+Templates                    1
+Name: component, Length: 82, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Component&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different components&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_83_0.png" src="../../../_images/bugzilla_EDA_83_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="sub-component">
+<h3>sub_component<a class="headerlink" href="#sub-component" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">sub_component</span></code> field indicates the sub-component of a specifc component the bug affects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;sub_component&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ovn-kubernetes                    145
+openshift-sdn                     143
+OLM                               137
+Kubelet                            86
+Operators                          64
+CRI-O                              48
+openshift-installer                47
+Other Providers                    45
+kuryr                              37
+Kubernetes                         24
+Storage                            22
+OpenShift on RHV                   21
+assisted-service                   21
+multus                             20
+SR-IOV                             20
+OperatorHub                        20
+OpenShift on OpenStack             19
+OpenShift on Bare Metal IPI        16
+OpenStack CSI Drivers              15
+Local Storage Operator             13
+Autoscaler (HPA, VPA)              12
+oVirt CSI Driver                    9
+cluster-baremetal-operator          7
+Kubernetes External Components      7
+OpenStack Provider                  7
+ironic                              6
+oVirt Provider                      6
+BareMetal Provider                  6
+openshift-ansible                   5
+assisted-ui                         4
+mDNS                                4
+runtime-cfg                         4
+operator                            3
+Installer                           3
+controller-manager                  3
+apps                                2
+Single Node OpenShift               2
+KubeVirt Provider                   2
+baremetal-operator                  2
+stand-alone                         2
+operand                             2
+CPU manager                         2
+Cluster Autoscaler                  1
+OpenShift on KubeVirt               1
+Networking Misc                     1
+discovery-agent                     1
+build                               1
+other                               1
+Name: sub_component, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Subcomponent&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distrbution across different subcomponents&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_86_0.png" src="../../../_images/bugzilla_EDA_86_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="product">
+<h3>product<a class="headerlink" href="#product" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">product</span></code> field indicates the software product affected by the bug.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;product&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OpenShift Container Platform                          2787
+Container Native Virtualization (CNV)                   11
+Red Hat Enterprise Linux Fast Datapath                   4
+Migration Toolkit for Containers                         3
+Red Hat Advanced Cluster Management for Kubernetes       2
+Red Hat OpenShift Pipelines                              2
+Red Hat OpenShift Container Storage                      2
+Red Hat Enterprise Linux 8                               2
+OpenShift Serverless                                     1
+Red Hat OpenStack                                        1
+Name: product, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot a simple graph to visualize the distribution of bugs across different products</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Software Products&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distrbution across different software products&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_90_0.png" src="../../../_images/bugzilla_EDA_90_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="fixed-in">
+<h3>fixed_in<a class="headerlink" href="#fixed-in" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;fixed_in&quot;</span><span class="p">][:</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     NaN
+1     NaN
+2     NaN
+3     NaN
+4     NaN
+5     NaN
+6     NaN
+7     NaN
+8     NaN
+9     NaN
+10    NaN
+11    NaN
+12    NaN
+13    NaN
+14    NaN
+Name: fixed_in, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;fixed_in&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([nan, &#39;assisted-ui-lib v0.0.13-wizard&#39;,
+       &#39;cri-o-1.20.2, openshift 4.7.4&#39;, &#39;jkaur@redhat.com&#39;,
+       &#39;OCP-Metal-v1.0.18.2&#39;, &#39;runc-1.0.0-82.rhaos4.6.git086e841.el8&#39;,
+       &#39;podman-1.6.4-11.rhaos4.3.el8&#39;, &#39;OCP-Metal-v1.0.12.1&#39;, &#39;2.5.0&#39;,
+       &#39;v0.1.10&#39;, &#39;4.8&#39;, &#39;cri-o-1.19.0-62.rhaos4.6.git10c7a86.el8&#39;,
+       &#39;4.6.4&#39;, &#39;podman-1.9.3-1.rhaos4.6.el8&#39;, &#39;OCP-Metal-V1.0.17.3&#39;,
+       &#39;4.7.0-0.nightly-2020-12-17-001141&#39;,
+       &#39;runc-1.0.0-81.rhaos4.6.git5b757d4&#39;, &#39;OCP-Metal-v1.0.9.5&#39;,
+       &#39;milei@redhat.com , annair@redhat.com&#39;,
+       &#39;runc-1.0.0-67.rc10.rhaos4.3.el7&#39;, &#39;OCP-Metal-v1.0.18.1&#39;,
+       &#39;annair@redhat.com, milei@redhat.com&#39;, &#39;facet-lib v1.4.9&#39;,
+       &#39;virt-cdi-importer 2.6.0-15&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">fixed_in</span></code> field seems to indicate the software version the bug was fixed in. However, it doesn’t seem to be applicable to all bugs as some bugs may still be open and not yet resolved.</p>
+</div>
+<div class="section" id="summary">
+<h3>summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h3>
+<p>The bug summary is a short sentence which succinctly describes what the bug is about.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                                     NaN
+1       OCP nodes with low disk space after ~20-40 day...
+2       [OSP] Bootstrap and master nodes use different...
+3                                                     NaN
+4       ovnkube-node/ovn-controller does not scale - r...
+                              ...                        
+2952    4.7 to 4.6 downgrade stuck at openshift-apiser...
+2953    &quot;installed&quot; operator status in operatorhub pag...
+2954    Need new section to address horizontal-pod-aut...
+2955        New version of OCP 4.6 uses unreleased kernel
+2956    Upgrade to OCP 4.6.9 results in cluster-wide D...
+Name: summary, Length: 2957, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nan
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="is-open">
+<h3>is_open<a class="headerlink" href="#is-open" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span> <span class="o">=</span> <span class="n">bugs_df</span><span class="p">[</span><span class="s2">&quot;is_open&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">vc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    2074
+True      741
+Name: is_open, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;is_open&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Bugs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Bug distribution across different is_open values&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/bugzilla_EDA_100_0.png" src="../../../_images/bugzilla_EDA_100_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="contact-metadata">
+<h2>Contact Metadata<a class="headerlink" href="#contact-metadata" title="Permalink to this headline">#</a></h2>
+<p>These fields contain information for people responsible for QA, creation of bug, etc. These are not useful for the initial EDA.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">docs_contact_value</span></code> and <code class="docutils literal notranslate"><span class="pre">qa_contact</span></code>: The people responsible for contacting and fixing the bug.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">creator</span></code>: The person who created the bug.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assigned_to</span></code>: The person responsible for fixing the bug.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cc</span></code>: The mailing list subscribed to get updates for a bug.</p></li>
+</ul>
+</div>
+<div class="section" id="non-useful-metadata">
+<h2>Non Useful Metadata<a class="headerlink" href="#non-useful-metadata" title="Permalink to this headline">#</a></h2>
+<p>These fields mostly had either the same value or empty. Therefore, these are not useful for our analysis.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tags</span></code>: The tags field seems to be empty for most bugs so we can probably ignore this field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flags</span></code>: The flags field seems to return empty for most bugs. For thos bugs which have this field set, it seems to have redundant information which are already available in other bug fields so we can probably ignore this field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_creator_accessible</span></code>: The is_creator_accessible field returns a boolean value, but doesn’t seem to be useful for our analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cf_release_notes</span></code>: The cf_release_notes is the basis of the errata or release note for the bug. It can also be used for change logs. However, it seems to be empty for most bugs and can be excluded from our analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_milestone</span></code>: The target_milestone is used to define when the engineer the bug is assigned to expects to fix it. However, it doesn’t seem to be applicable for most bugs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_confirmed</span></code>: The is_confirmed field seems to return a boolean value (not sure what it indicates) and doesn’t seem to be useful for our analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">components</span></code>: The components field returns the same values as the component field, but in a list format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_components</span></code> - The sub_components field is similar to the sub_component field, but returns both the component and sub-component affected by the bug in a dictionary format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">versions</span></code>: The versions field returns the same values as the version field, but in a list format.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h1>
+<p>In this notebook, we show how the bug ids related to each test under each job for all dashboards can be determined, and saved a sample of this mapping as the linked-bugs dataset. We also showed how detailed information for a set of bug ids can be collected, and saved a sample of this dataset as the bug-details dataset. These datasets open up several avenues for exploration, such as in-depth bugs data EDA, and EDA for testgrid + bugs datasets put together, which we will explore in future notebooks.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/data-sources/Bugzilla"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../TestGrid/metrics/metric_visualization_generic.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">KPI Metrics Visualization</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Sippy/stage/sippy_EDA.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sippy Export of OpenShift Data - EDA</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By AIOps<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
