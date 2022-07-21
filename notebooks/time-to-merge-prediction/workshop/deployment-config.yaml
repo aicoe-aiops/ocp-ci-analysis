@@ -26,28 +26,26 @@ spec:
           - name: S3_ENDPOINT
             valueFrom:
               secretKeyRef:
-                key: S3_ENDPOINT
-                name: thoth-github-pr-ttm
+                key: AIOPS_TOOLS_WORKSHOP_S3_ENDPOINT
+                name: s3buckets
           - name: S3_ACCESS_KEY
             valueFrom:
               secretKeyRef:
-                key: S3_ACCESS_KEY
-                name: thoth-github-pr-ttm
+                key: AIOPS_TOOLS_WORKSHOP_AWS_ACCESS_KEY_ID
+                name: s3buckets
           - name: S3_SECRET_KEY
             valueFrom:
               secretKeyRef:
-                key: S3_SECRET_KEY
-                name: thoth-github-pr-ttm
+                key: AIOPS_TOOLS_WORKSHOP_AWS_SECRET_ACCESS_KEY
+                name: s3buckets
           - name: S3_BUCKET
             valueFrom:
               secretKeyRef:
-                key: S3_BUCKET
-                name: thoth-github-pr-ttm
+                key: AIOPS_TOOLS_WORKSHOP_BUCKET
+                name: s3buckets
           - name: S3_MODEL_KEY
-            valueFrom:
-              secretKeyRef:
-                key: S3_MODEL_KEY
-                name: thoth-github-pr-ttm
+            value: 'CEPH_BUCKET_PREFIX/ORG/REPO/ttm-model'
+
     svcOrchSpec:
       resources:
         requests:
