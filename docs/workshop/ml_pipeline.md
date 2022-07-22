@@ -1,6 +1,6 @@
 # Create an ML Pipeline using Elyra and Kubeflow Pipelines
 
-In order to run the above notebooks in automation, we can configure a Kubeflow Pipeline using the Elyra notebook pipelines editor from Jupyterlab.
+In this section, we will learn how to run the training pipeline of the ML model in automation. To learn more about the training process, refer to the chanper on [Model Development](https://aicoe-aiops.github.io/ocp-ci-analysis/docs/workshop/model_development.html). In order to run te above notebooks in automation, we use [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/introduction/) and [elyra notebook pipelines visual editor](https://elyra.readthedocs.io/en/stable/).
 
 ## Create kubeflow runtime configuration
 
