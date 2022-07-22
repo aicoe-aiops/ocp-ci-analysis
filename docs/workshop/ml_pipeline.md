@@ -1,6 +1,6 @@
 # Create an ML Pipeline using Elyra and Kubeflow Pipelines
 
-In order to run the above notebooks in automation, we can configure a Kubeflow Pipeline using the Elyra notebook pipelines editor from Jupyterlab
+In order to run the above notebooks in automation, we can configure a Kubeflow Pipeline using the Elyra notebook pipelines editor from Jupyterlab.
 
 ## Create kubeflow runtime configuration
 
