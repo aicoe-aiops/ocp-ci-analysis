@@ -1,4 +1,32 @@
 
+## Release 0.4.0 (2022-07-22T17:19:15)
+* 4982244 updated workshop docs
+* 4fa8bf9 update workshop documentation for onboarding, github setup and visualization
+* 0d58fc2 Modified Model-deployment files for workshop
+* 642c53e Modified deployment config for workshop
+* 477ff0c Added model deployment files
+* 51aa66a added model dev, ml pipeline files
+* 023b53f And onboarding documentation for workshop
+* e377aca add workshop files
+* 664227e Added model deployment instruction file
+* 3d00888 added ttm thoth deployment and inference files
+* c4c11c2 Add elyra pipeline to run github pr ttm workflow.
+* 15daf3d Add json exports for thoth support and openshift origin dashboards.
+* 30d0ddb Adds framework and docs for workshop and update toc for jupyterbook
+* 948bd27 ttm model feature engg and model training
+* 1be4eff Update import path for utils in metric template.
+* eefffaa added model deployment files for thoth-support
+* 6e9ac61 added aakanksha to approvers
+* 0a94298 added workshop outline
+* db24f62 Correct URLs for jupyterhub on operate-first.cloud
+* a9ec84d Bump lxml from 4.9.0 to 4.9.1
+* 3962ba1 Replace links to zero cluster with newer links.
+* 8713531 Rename output classes returned in github pr ttm prediction svc.
+* 71e0d1b Update installation of src during s2i to use https
+* 4bf6a4e Append PR data from prescriptions repo
+* c5b4da5 Bump notebook from 6.4.11 to 6.4.12
+* a8a5529 feature engg for ttm model
+
 ## Release 0.3.0 (2022-05-25T20:04:18)
 * b572b7b Add architecture diagram
 * f65ce8b Adding github data extraction notebook
