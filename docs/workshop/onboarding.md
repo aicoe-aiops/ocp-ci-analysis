@@ -13,12 +13,7 @@ To get started with this tour, let’s first introduce you to the various tools 
 
 1. **Openshift Console -**
 
-The Operate First initiative currently manages two clusters within the [MOC environment](https://massopen.cloud/).
-
-* [Smaug cluster](https://console-openshift-console.apps.smaug.na.operate-first.cloud/) for all user workloads
-* [Infra cluster](https://console-openshift-console.apps.moc-infra.massopen.cloud/) for cluster management, housing ACM and ArgoCD
-
-For this workshop, we shall proceed with using the [Smaug cluster](https://console-openshift-console.apps.smaug.na.operate-first.cloud/).
+For this workshop, we will start by logging in to the [Openshift Console](https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/aiops-tools-workshop/routes).
 
 ![Cluster Login Page](../assets/images/cluster1.png)
 
