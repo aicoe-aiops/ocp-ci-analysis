@@ -15,3 +15,4 @@ TRINO_PASSWD=trino-password
 TRINO_HOST=trino-host
 TRINO_PORT=trino-port
 CHOSEN_MODEL=rf
+REMOTE=1
