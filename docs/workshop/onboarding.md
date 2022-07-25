@@ -4,10 +4,16 @@ Hello and welcome to the workshop on building a simple AIOps tool on the [Operat
 
 In this workshop, you will learn how to collect data from an open CI/CD data source, use Jupyterlab and its extensions to manage dependencies, and run jupyter notebooks. You will learn how to perform automated, repeatable experiments using Elyra and Kubeflow Pipelines, create and deploy machine learning modes on OpenShift using Seldon and visualize results on a Superset dashboard.
 
-### Access
+## Access to Services on Operate First
 
-To get access to the services please add your github username [here](https://docs.google.com/spreadsheets/d/1j-i0O-sbk6WWZpWsMl9uSpUjaeQ5LXEY44iNp-vk2eA/edit?usp=sharing), and you will be provided access.
+### Step 1: Create Github Account
+In order to get started with the workshop, it's vital to have a github account, so please create a github account by signing up on [github.com](https://github.com/).
 
+### Step 2: Get added to the cluster
+
+To get access to the services please add your github username [here](https://etherpad.opendev.org/p/workshop_scale_2022), and you will be provided access.
+
+### Step 3: Try out the Services
 
 To get started with this tour, let’s first introduce you to the various tools that are available on Operate First environment and will help us in building the AIOps application using Operate First.
 
@@ -23,7 +29,9 @@ Select login with `operate-first`, and login into the cluster by using your Gith
 
 2. **Ceph S3 storage -**
 
-Ceph provides a unified storage service with an object, block, and file interface from a single cluster built from commodity hardware components. Operate First hosts a public ceph storage bucket that is accessible by anyone. You can find the credentials and other information for this bucket [here](https://etherpad.opendev.org/p/workshop_scale_2022).
+Ceph provides a unified storage service with an object, block, and file interface from a single cluster built from commodity hardware components. Operate First hosts a public ceph storage bucket that is accessible by anyone. You can find the credentials and other information for this bucket [here](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw).
+
+To get the password to this vault, please check with the workshop organizers during the workshop.
 
 **_Some things to note:_**
 
@@ -55,7 +63,7 @@ JupyterHub is the best way to serve Jupyter notebook for multiple users. It is a
 
 - Get metrics and ensure proper governance and compliance for your running machine learning models.
 
-In order to access Seldon on Red Hat Openshift, you will need to go to the [Openshift Console](link) and go to `Operators` and search for `Seldon Operator`.
+In order to access Seldon on Red Hat Openshift, you will need to go to the [Openshift Console](https://console-openshift-console.apps.smaug.na.operate-first.cloud/k8s/ns/aiops-tools-workshop/routes) and go to `Operators` and search for `Seldon Operator`.
 
 ![Openshift Console](../assets/images/console-operators.png)
 
@@ -69,7 +77,7 @@ After extracting and analyzing the data in Jupyterhub, we use Trino to store our
 
 6. **Cloudbeaver -**
 
-[CloudBeaver](http://cloudbeaver-aiops-tools-workshop.apps.smaug.na.operate-first.cloud/) is a popular web application that provides a rich UI for working and interacting with SQL databases. The data we exported by using Trino can be accessed in the [CloudBeaver UI](http://cloudbeaver-opf-trino.apps.smaug.na.operate-first.cloud/) and can be queried by SQL queries.
+[CloudBeaver](http://cloudbeaver-aiops-tools-workshop.apps.smaug.na.operate-first.cloud/) is a popular web application that provides a rich UI for working and interacting with SQL databases. The data we exported by using Trino can be accessed in the [CloudBeaver UI](http://cloudbeaver-aiops-tools-workshop.apps.smaug.na.operate-first.cloud/) and can be queried by SQL queries.
 
 7. **Superset -**
 
