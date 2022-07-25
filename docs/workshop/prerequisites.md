@@ -1,7 +1,7 @@
 # Pre-requisites
 
 In this workshop we will learn how to build an AIOps tool from scratch on the [Operate First](https://www.operate-first.cloud/) community cloud and learn how to move your AI workloads to this cloud.
-We will introduce concepts like AIOps, Data Science Model development process, the project [opendatahub](https://opendatahub.io/) and share an end to end example of a cloud-native data science development process on the open Operate First community cloud.
+We will introduce concepts like AIOps, Data Science Model development process, the project [Open Data Hub](https://opendatahub.io/), and share an end to end example of a cloud-native data science development process on the open Operate First community cloud.
 
 Following are some pre-requisites for the workshop:
 
