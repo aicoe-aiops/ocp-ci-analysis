@@ -1,18 +1,22 @@
-GITHUB_ORG=my-org
-GITHUB_REPO=my-repo
-PROJECT_S3_FOLDER=my-name
-S3_ACCESS_KEY=access-key
-S3_ENDPOINT_URL=endpoint
-S3_BUCKET=bucket-name
-S3_SECRET_KEY=secret-key
-CEPH_BUCKET=bucket
-CEPH_BUCKET_PREFIX=raw-data
-CEPH_KEY_ID=access-key
-CEPH_SECRET_KEY=secret-key
-GITHUB_ACCESS_TOKEN_TODAY=generate-your-personal-access-token
-TRINO_USER=trino-admin
-TRINO_PASSWD=trino-password
-TRINO_HOST=trino-host
-TRINO_PORT=trino-port
-CHOSEN_MODEL=rf
+GITHUB_REPO= operate-first
+GITHUB_ORG= support
+
+S3_ACCESS_KEY= xyz
+S3_ENDPOINT_URL= https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud
+S3_BUCKET= aiops-tools-workshop-2
+S3_SECRET_KEY= abc
+
+CEPH_BUCKET= aiops-tools-workshop-2
+CEPH_BUCKET_PREFIX= JohnDoe
+CEPH_KEY_ID= xyz
+CEPH_SECRET_KEY= abc
+
+GITHUB_ACCESS_TOKEN= ghp_abcdefgh
+
+TRINO_USER= user
+TRINO_PASSWD= abcd
+TRINO_HOST= trino-aiops-tools-workshop.apps.smaug.na.operate-first.cloud
+TRINO_PORT= 443
+
+CHOSEN_MODEL= 'rf'
 REMOTE=1
