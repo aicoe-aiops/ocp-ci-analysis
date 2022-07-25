@@ -14,7 +14,7 @@ OpenShift, Kubernetes and a few other platforms have made their CI data public. 
 
 * **[Project Content](docs/content.md)**
 
-* **[Workshop Start Here](https://aicoe-aiops.github.io/ocp-ci-analysis/docs/workshop/prerequisites.html)**
+* **[Workshop Start Here](docs/workshop/prerequisites.md)**
 
 ## Contact
 

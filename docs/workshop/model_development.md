@@ -35,7 +35,9 @@ Once you have cloned the repository, [cd](https://linuxize.com/post/linux-cd-com
 
 `vi .env`
 
-[Add](https://www.cs.colostate.edu/helpdocs/vi.html) the following contents to the .env file. For Bucket and Trino credentials refer to this [link](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw). The password to this vault will be shared during the workshop. For an example `.env` file refer to this [sample env file](../../notebooks/time-to-merge-prediction/workshop/env_example_workshop).
+[Add](https://www.cs.colostate.edu/helpdocs/vi.html) the following contents to the .env file. For env file refer to this [link](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw). The password to this vault will be shared during the workshop. Copy the contents of the file from bitwarden and paste it in your `.env` file.
+
+For an example `.env` file refer to this [sample env file](../../notebooks/time-to-merge-prediction/workshop/env_example_workshop).
 
 [Save](https://www.cs.colostate.edu/helpdocs/vi.html) the file and start going over the notebooks.
 
@@ -54,7 +56,7 @@ For faster download, choose a repository which does not have too many PRs. For e
     CEPH_BUCKET_PREFIX= set this to your username, this is the location/key where the files will be stored on S3 storage
     CEPH_KEY_ID= S3 bucket access key ID
     CEPH_SECRET_KEY= S3 bucket secret key
-    GITHUB_ACCESS_TOKEN_TODAY= Your Github personal access token generated from the previous step
+    GITHUB_ACCESS_TOKEN= Your Github personal access token generated from the previous step
     TRINO_USER= trino user
     TRINO_PASSWD= trino password
     TRINO_HOST= trino host
