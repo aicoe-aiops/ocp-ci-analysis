@@ -11,3 +11,12 @@ Following are some pre-requisites for the workshop:
 3. **Familiarity with Python** - The AIOps tools has been built using the Python programming language. Familiarity with Python is preferred but not compulsory. One can still complete the workshop without prior Python knowledge.
 
 You do not need to be familiar with these any of tools being used in this workshop, and you should have around an intermediate level of comfort with technology and learning new technical concepts.
+
+### A note on the Environment Used
+
+All of the services used in this work shop are deployed on [OpenShift Container Platform][ocp].
+The entire suite of tools and their configurations can be found [here][configs].
+Anyone with an Openshift Cluster (v4.9+) can leverage these configurations and recreate the Workshop Environment.
+
+[ocp]: https://www.redhat.com/en/technologies/cloud-computing/openshift/container-platform
+[configs]: https://github.com/operate-first/apps/tree/master/workshops/aiops-tools
