@@ -4,10 +4,15 @@ Hello and welcome to the workshop on building a simple AIOps tool on the [Operat
 
 In this workshop, you will learn how to collect data from an open CI/CD data source, use Jupyterlab and its extensions to manage dependencies, and run jupyter notebooks. You will learn how to perform automated, repeatable experiments using Elyra and Kubeflow Pipelines, create and deploy machine learning modes on OpenShift using Seldon and visualize results on a Superset dashboard.
 
-## Access to Services on Operate First
+## Access Services on Operate First
 
 ### Step 1: Create Github Account
-In order to get started with the workshop, it's vital to have a github account, so please create a github account by signing up on [github.com](https://github.com/).
+
+In order to get started with the workshop, it's vital to have a github account, so please create a github account.
+
+Go to[ github.com](https://github.com/) and click on `Sign Up` to create a new account.
+
+![alt_text](../assets/images/git-setup-git-account.png "image_tooltip")
 
 ### Step 2: Get added to the cluster
 
