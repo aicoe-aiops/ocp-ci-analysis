@@ -37,7 +37,7 @@ Once you have cloned the repository, [cd](https://linuxize.com/post/linux-cd-com
 
 `vi .env`
 
-[Add](https://www.cs.colostate.edu/helpdocs/vi.html) the following contents to the .env file. For env file refer to this [link](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw). The password to this vault will be shared during the workshop. Copy the contents of the file from bitwarden and paste it in your `.env` file. Make the following changes to your `.env` file.
+[Add](https://www.cs.colostate.edu/helpdocs/vi.html) the following contents to the .env file. For env file refer to this [link](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw). The password to this vault will be shared during the workshop. Copy the contents of the file from the Bitwarden vault and paste it in your `.env` file. Make the following changes to your `.env` file.
 
 For an example `.env` file refer to this [sample env file](../../notebooks/time-to-merge-prediction/workshop/env_example_workshop).
 
@@ -45,7 +45,7 @@ For an example `.env` file refer to this [sample env file](../../notebooks/time-
 
 Modify the following fields in the .env file:
 
-```
+
    - **GITHUB_REPO**=(Optional - Can also use default) Specify Github repository that you wish to download
 
    - **GITHUB_ORG**=(Optional - Can also use default) Github organization that the repository belongs to. If it's on your personal account, this will be your username.
@@ -58,7 +58,6 @@ Modify the following fields in the .env file:
 
    - **REMOTE**=Recommend keeping this to 1 unless you want to download and save files locally.
 
-```
 
 [Save](https://www.cs.colostate.edu/helpdocs/vi.html) the file and start going over the notebooks.
 
@@ -79,7 +78,7 @@ The aim of the model that we are training is to take a Github repository of inte
 
 ### Data collection
 
-In order to collect the data from Github repositories, we use the thoth-station [MI- Scheduler](https://github.com/thoth-station/mi-scheduler) that collects and analyzes metadata information from Github repositories and stores them on ceph object storage. We use the MI-Scheduler tool to collect Pull Request data from a repository of your choice.
+In order to collect the data from Github repositories, we use the thoth-station [MI- Scheduler](https://github.com/thoth-station/mi-scheduler) that collects and analyzes metadata information from Github repositories and stores them on S3 object storage. We use the MI-Scheduler tool to collect Pull Request data from a repository of your choice.
 
 ### Feature engineering
 

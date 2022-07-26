@@ -24,7 +24,7 @@ To verify that the table was created, we run a `select query` from the notebook,
 
 ![create trino tables](../assets/images/trino-view-table.png).
 
-To verify that it was created succesfully from the Cloudbeaver UI, login into [Cloudbeaver](http://cloudbeaver-aiops-tools-workshop.apps.smaug.na.operate-first.cloud/).
+To verify that it was created successfully from the Cloudbeaver UI, login into [Cloudbeaver](http://cloudbeaver-aiops-tools-workshop.apps.smaug.na.operate-first.cloud/).
 
 ![create trino tables](../assets/images/cloudbeaver-logged-in.png)
 
@@ -35,4 +35,4 @@ Double click on the table and it should show the contents of the table.
 ![create trino tables](../assets/images/cloudbeaver-view-table.png)
 
 
-Once you confirm that this table is created succesfully, you can move on to creating a Superset dashboard in the [next chapter](./visualization_dashboard.md)
+Once you confirm that this table is created successfully, you can move on to creating a Superset dashboard in the [next chapter](./visualization_dashboard.md)

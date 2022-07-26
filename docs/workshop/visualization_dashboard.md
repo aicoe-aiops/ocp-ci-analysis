@@ -62,7 +62,7 @@ Here's how your dashboard would look like -
 ![alt_text](../assets/images/superset-dash7.png "image_tooltip")
 
 
-And that's it, now you have learnt how to create visualizations in Apache Superset using tables created from data collected from a Github repository.
+And that's it, now you have learned how to create visualizations in Apache Superset using tables created from data collected from a Github repository.
 
 To learn more about Superset and look at some already prepared Dashboards by our team:
 

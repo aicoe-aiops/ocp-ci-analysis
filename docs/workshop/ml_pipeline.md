@@ -1,6 +1,6 @@
 # Create an ML Pipeline using Elyra and Kubeflow Pipelines
 
-In this section, we will learn how to run the training pipeline of the ML model in automation. To learn more about the training process, refer to the chanper on [Model Development](https://aicoe-aiops.github.io/ocp-ci-analysis/docs/workshop/model_development.html). In order to run te above notebooks in automation, we use [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/introduction/) and [elyra notebook pipelines visual editor](https://elyra.readthedocs.io/en/stable/).
+In this section, we will learn how to run the training pipeline of the ML model in automation. To learn more about the training process, refer to the chapter on [Model Development](https://aicoe-aiops.github.io/ocp-ci-analysis/docs/workshop/model_development.html). In order to run te above notebooks in automation, we use [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/introduction/) and [elyra notebook pipelines visual editor](https://elyra.readthedocs.io/en/stable/).
 
 ## Create kubeflow runtime configuration
 
@@ -14,9 +14,10 @@ Click the Runtimes icon on the left hand side toolbar. Click the ‘+’ on the 
 * **Authentication Type:** No Authentication
 * **Cloud Object Storage Endpoint:** S3 Endpoint
 * **Cloud Object Storage Bucket Name:** S3 Bucket Name
-* **Cloud Object Storage Authentication Type:** USER_CREDENTIALS
-* **Cloud Object Storage Username:** S3 Access Key ID
-* **Cloud Object Storage Password:** S3 Secret Key
+* **Cloud Object Storage Authentication Type:** KUBERNETES_SECRET
+* **Cloud Object Storage Credentials Secret:** aiops-tools-workshop-s3
+* **Cloud Object Storage Username:** AWS Access Key ID
+* **Cloud Object Storage Password:** AWS Secret Key
 
 ![kubeflow pipeline runtime config](../assets/images/ml-pipeline-kfp-config.png "image_tooltip")
 

@@ -1,6 +1,6 @@
 # Model Deployment
 
-Once you complete the process of feature engineering and model training and come up with the best possible model. It is now time to deploy your model as a service. We use [Seldon](https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/s2i.html) Operator on Red Hat OpenShift in order to create an endpoint which can be accessed from a terminal or jupyter notebook or can even be integrated with a bot which can directly comment on your new PullRequest.
+Once you complete the process of feature engineering and model training and come up with the best possible model. It is now time to deploy your model as a service. We use [Seldon](https://docs.seldon.io/projects/seldon-core/en/latest/wrappers/s2i.html) Operator on Red Hat OpenShift in order to create an endpoint which can be accessed from a terminal or jupyter notebook or can even be integrated with a bot which can directly comment on your new pull request.
 
 In order to deploy your model,
 
@@ -50,11 +50,11 @@ Here you can again see the list of different routes for different services. In o
 
 ![deployment_config](../assets/images/OpenShift_console8.png)
 
-- Name : You can give any name you like
-- Host name: It will be generated later. No need to write.
-- Path : /predict
-- Service: It is the classifier service from the yaml file created while creating Seldon Deployments. You can select that service from the drop down. If you need to check it, you can go to services and clicking on it will show us the owner of the service.
-- Target Service: After you select your service, you should see the target port to be either 9000/6000/5000. You can select 9000.
+- **Name** : You can give any name you like
+- **Host name** : It will be generated later. No need to write.
+- **Path** : /predict
+- **Service** : It is the classifier service from the yaml file created while creating Seldon Deployments. You can select that service from the drop down. If you need to check it, you can go to services and clicking on it will show us the owner of the service.
+- **Target Service** : After you select your service, you should see the target port to be either 9000/6000/5000. You can select 9000.
 
 9. Now click to create a service. Once you do that. Your route will be created which contains model endpoint location.
 
