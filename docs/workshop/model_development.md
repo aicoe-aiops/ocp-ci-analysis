@@ -4,7 +4,7 @@ In this section, we will learn how to train an AIOps model from scratch. The mod
 
 To train such a model, we will be using a Jupyterlab environment and make use of jupyter notebooks. The following steps will walk you through how to train a Github time to merge model.
 
-## Set Environment Variables
+## Clone the Repository
 
 This is an important step to get right for successfully being able to run the jupyter notebooks.
 
@@ -27,6 +27,8 @@ Optional: You can also [generate an SSH key](https://docs.github.com/en/authenti
 
 If you do not have a Github account or have not forked the repository, move to chapter on [Set up Git environment](./git_setup.md).
 
+## Set Environment Variables
+
 * Set up environment variables at the root of the repository.
 
 Once you have cloned the repository, [cd](https://linuxize.com/post/linux-cd-command/) into the repository and create a `.env` file.
@@ -35,36 +37,32 @@ Once you have cloned the repository, [cd](https://linuxize.com/post/linux-cd-com
 
 `vi .env`
 
-[Add](https://www.cs.colostate.edu/helpdocs/vi.html) the following contents to the .env file. For env file refer to this [link](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw). The password to this vault will be shared during the workshop. Copy the contents of the file from bitwarden and paste it in your `.env` file.
+[Add](https://www.cs.colostate.edu/helpdocs/vi.html) the following contents to the .env file. For env file refer to this [link](https://vault.bitwarden.com/#/send/zTA4PuNJwEW6kq7ZAUnY8g/pf51QZhZcEQ4QCEN7Lbszw). The password to this vault will be shared during the workshop. Copy the contents of the file from bitwarden and paste it in your `.env` file. Make the following changes to your `.env` file.
 
 For an example `.env` file refer to this [sample env file](../../notebooks/time-to-merge-prediction/workshop/env_example_workshop).
 
+**Note**: We would be downloading Pull Requests data from a Github repository.For faster download, choose a repository which does not have too many PRs. For example purposes, we have chosen a repository with ~1000 PRs
+
+Modify the following fields in the .env file:
+
+```
+   - **GITHUB_REPO**=(Optional - Can also use default) Specify Github repository that you wish to download
+
+   - **GITHUB_ORG**=(Optional - Can also use default) Github organization that the repository belongs to. If it's on your personal account, this will be your username.
+
+   - **CEPH_BUCKET_PREFIX**= Your Github username. The location/key where the files will be stored on S3 storage.
+
+   - **GITHUB_ACCESS_TOKEN**= Your Github personal access token generated from the previous step.
+
+   - **CHOSEN_MODEL**=(Optional - Can also use default) Model that you wish to choose for deployment. Either one of 'rf', 'xgbc', 'svc', 'gnb'
+
+   - **REMOTE**=Recommend keeping this to 1 unless you want to download and save files locally.
+
+```
+
 [Save](https://www.cs.colostate.edu/helpdocs/vi.html) the file and start going over the notebooks.
 
-**Note**: We would be downloading Pull Requests data from a Github repository.
-
-For faster download, choose a repository which does not have too many PRs. For example purposes, we have chosen a repository with ~1000 PRs
-
-```
-    GITHUB_REPO= Github repository that you wish to download
-    GITHUB_ORG= Github organization that the repository belongs to. If it's on your personal account, this will be your username.
-    S3_ACCESS_KEY= S3 bucket access key
-    S3_ENDPOINT_URL= S3 bucket endpoint
-    S3_BUCKET= S3 bucket name
-    S3_SECRET_KEY= S3 bucket secret key
-    CEPH_BUCKET= S3 bucket name
-    CEPH_BUCKET_PREFIX= set this to your username, this is the location/key where the files will be stored on S3 storage
-    CEPH_KEY_ID= S3 bucket access key ID
-    CEPH_SECRET_KEY= S3 bucket secret key
-    GITHUB_ACCESS_TOKEN= Your Github personal access token generated from the previous step
-    TRINO_USER= trino user
-    TRINO_PASSWD= trino password
-    TRINO_HOST= trino host
-    TRINO_PORT= trino port
-    CHOSEN_MODEL= Model that you wish to choose for deployment. Either one of 'rf', 'xgbc', 'svc', 'gnb'
-    REMOTE=1
-
-```
+   - Test your .env variables setup by running the notebook [00_read_env](https://github.com/aicoe-aiops/ocp-ci-analysis/notebooks/time-to-merge-prediction/workshop/00_read_env.ipynb). If you're able to successfully run the notebook, that means your .env file is configured properly. Now, you can move on to model development.
 
 ## Model Development
 
