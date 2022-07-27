@@ -14,11 +14,14 @@ parts:
     - file: docs/workshop/git_setup
     - file: docs/workshop/model_development
       sections:
+      - file: notebooks/time-to-merge-prediction/workshop/00_read_env
       - file: notebooks/time-to-merge-prediction/workshop/01_data_collection
       - file: notebooks/time-to-merge-prediction/workshop/02_feature_engineering
       - file: notebooks/time-to-merge-prediction/workshop/03_model_training
     - file: docs/workshop/ml_pipeline
     - file: docs/workshop/model_deployment
+      sections:
+      - file: notebooks/time-to-merge-prediction/workshop/04_model_inference
     - file: docs/workshop/sql_query_engine
     - file: docs/workshop/visualization_dashboard
   - caption: Failure type classifier
