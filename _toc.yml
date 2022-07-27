@@ -11,6 +11,7 @@ parts:
     - file: docs/workshop/prerequisites
     - file: docs/workshop/intro_to_project
     - file: docs/workshop/onboarding
+    - file: notebooks/time-to-merge-prediction/workshop/intro_to_jupyternotebooks
     - file: docs/workshop/git_setup
     - file: docs/workshop/model_development
       sections:
