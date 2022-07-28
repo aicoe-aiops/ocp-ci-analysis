@@ -23,7 +23,8 @@
                 "CEPH_BUCKET=aiops-tools-workshop-2",
                 "CEPH_BUCKET_PREFIX=",
                 "CEPH_KEY_ID=",
-                "CEPH_SECRET_KEY="
+                "CEPH_SECRET_KEY=",
+                "S3_ENDPOINT_URL=https://s3-rook-openshift-storage.apps.morty.emea.operate-first.cloud"
               ],
               "dependencies": [],
               "include_subdirectories": false,
