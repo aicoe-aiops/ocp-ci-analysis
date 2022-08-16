@@ -16,7 +16,7 @@ Go to[ github.com](https://github.com/) and click on `Sign Up` to create a new a
 
 ### Step 2: Get added to the cluster
 
-To get access to the services please add your github username [here](https://etherpad.opendev.org/p/workshop_scale_2022), and you will be provided access.
+To get access to the services please add your github username [here](https://etherpad.opendev.org/p/devconfus_workshop_2022), and you will be provided access.
 
 ### Step 3: Try out the Services
 
@@ -34,7 +34,7 @@ Select login with `operate-first`, and login into the cluster by using your Gith
 
 2. **Ceph S3 storage -**
 
-Ceph provides a unified storage service with an object, block, and file interface from a single cluster built from commodity hardware components. Operate First hosts a public ceph storage bucket that is accessible by anyone. You can find the credentials and other information for this bucket [here](https://vault.bitwarden.com/#/send/55f31OqxD0OxYK7rAMvHBA/Opa_QFim6RKq4XNpmRDhzw).
+Ceph provides a unified storage service with an object, block, and file interface from a single cluster built from commodity hardware components. Operate First hosts a public ceph storage bucket that is accessible by anyone. You can find the credentials and other information for this bucket [here](https://vault.bitwarden.com/#/send/8Zb0SZ-JsECGqK7zATBAHA/2BKcSw3EYJKUoBLTG4oVBg).
 
 To get the password to this vault, please check with the workshop organizers during the workshop.
 
