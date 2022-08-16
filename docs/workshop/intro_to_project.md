@@ -1,5 +1,7 @@
 # Introduction
 
+[Slides for the Workshop](../intro_to_workshop_devconf22.pdf)
+
 ## Introduction to AIOps
 
 ![Intro to AIOps](../assets/images/intro_to_aiops.png)
