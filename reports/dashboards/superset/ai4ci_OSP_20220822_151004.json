@@ -1,0 +1,1221 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": "",
+                "dashboard_title": "AI4CI: Optimal Stopping Point",
+                "description": null,
+                "json_metadata": "{\"timed_refresh_immune_slices\": [], \"expanded_slices\": {}, \"refresh_frequency\": 0, \"default_filters\": \"{\\\"50\\\": {\\\"grid\\\": [\\\"periodic-ci-openshift-assisted-service-master-edge-e2e-metal-assisted-kube-api-late-binding-single-node-periodic\\\"]}}\", \"color_scheme\": null, \"filter_scopes\": {\"28\": {\"tab\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"48\": {\"test\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}, \"50\": {\"grid\": {\"scope\": [\"ROOT_ID\"], \"immune\": []}}}, \"remote_id\": 17}",
+                "position_json": "{\"CHART-0UwgUwA0sw\":{\"children\":[],\"id\":\"CHART-0UwgUwA0sw\",\"meta\":{\"chartId\":49,\"height\":36,\"sliceName\":\"Number of builds passing\",\"uuid\":\"78b4bdf5-1bbe-4ec6-8ba0-731dd9d89880\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-iOACx3-LX\",\"ROW-kiQFYmUfoe\"],\"type\":\"CHART\"},\"CHART-5QIhbqtvY-\":{\"children\":[],\"id\":\"CHART-5QIhbqtvY-\",\"meta\":{\"chartId\":30,\"height\":34,\"sliceName\":\"Pass to Fail Rate\",\"uuid\":\"79cfa9b3-acb4-427d-a4da-daa9773ae661\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-74mReX9Dm\"],\"type\":\"CHART\"},\"CHART-5UnRH3qPG7\":{\"children\":[],\"id\":\"CHART-5UnRH3qPG7\",\"meta\":{\"chartId\":37,\"height\":36,\"sliceName\":\"Total Number of Builds\",\"uuid\":\"588a7f5a-56e4-427b-9381-06d78f0982f9\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-iOACx3-LX\",\"ROW-kiQFYmUfoe\"],\"type\":\"CHART\"},\"CHART-BWWpBYhJVu\":{\"children\":[],\"id\":\"CHART-BWWpBYhJVu\",\"meta\":{\"chartId\":44,\"height\":34,\"sliceName\":\"Fail to Pass Rate\",\"uuid\":\"7ac76937-d25a-4010-a0b4-b6b05c8e3b67\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-74mReX9Dm\"],\"type\":\"CHART\"},\"CHART-ByMpWwKjgr\":{\"children\":[],\"id\":\"CHART-ByMpWwKjgr\",\"meta\":{\"chartId\":43,\"height\":51,\"sliceName\":\"Percentage of Tests Fixed\",\"uuid\":\"ee4648c3-1add-4d56-b8e9-2305383047e6\",\"width\":8},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-gfJCahtgMN\",\"ROW-VEtqfOIKo\"],\"type\":\"CHART\"},\"CHART-H8SQkln9Z-\":{\"children\":[],\"id\":\"CHART-H8SQkln9Z-\",\"meta\":{\"chartId\":36,\"height\":35,\"sliceName\":\"Mean Time to Fix\",\"uuid\":\"849b3a56-c800-4000-8d3f-5fa32b99d03a\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-B3v-09uzFZ\"],\"type\":\"CHART\"},\"CHART-IzCWE6kTFJ\":{\"children\":[],\"id\":\"CHART-IzCWE6kTFJ\",\"meta\":{\"chartId\":39,\"height\":57,\"sliceName\":\"Avg Duration of Tests per Grid\",\"uuid\":\"55aa3e4f-5bfe-4731-94e6-a360b931fa3c\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\",\"TAB-Dhr6CM_Wvu\",\"ROW-Vdh9fdYX11\"],\"type\":\"CHART\"},\"CHART-O7TNUhgWko\":{\"children\":[],\"id\":\"CHART-O7TNUhgWko\",\"meta\":{\"chartId\":31,\"height\":34,\"sliceName\":\"Mean Length of Failures    \",\"uuid\":\"d05de09c-2cca-4614-8f1f-562c56fb96b1\",\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-B3v-09uzFZ\"],\"type\":\"CHART\"},\"CHART-UlquIYLVhy\":{\"children\":[],\"id\":\"CHART-UlquIYLVhy\",\"meta\":{\"chartId\":28,\"height\":26,\"sliceName\":\"Tabs\",\"uuid\":\"2fa3e09a-fd56-4fa2-a509-30060b061732\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-X5l14mrFf7\"],\"type\":\"CHART\"},\"CHART-WQeNiSGMh0\":{\"children\":[],\"id\":\"CHART-WQeNiSGMh0\",\"meta\":{\"chartId\":29,\"height\":36,\"sliceName\":\"Number of tests passing\",\"uuid\":\"2f5f4ffb-fd6c-474c-864b-e9a6b21fbcb0\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\",\"ROW-7wlKyo9Y6_\"],\"type\":\"CHART\"},\"CHART-_KJgaOMMEz\":{\"children\":[],\"id\":\"CHART-_KJgaOMMEz\",\"meta\":{\"chartId\":45,\"height\":53,\"sliceName\":\"Avg Test Duration\",\"uuid\":\"bcbe7a14-bd4b-450e-bbb4-e1bce8ad221e\",\"width\":9},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\",\"TAB-Dhr6CM_Wvu\",\"ROW-lkKfwN5-k\"],\"type\":\"CHART\"},\"CHART-_U0EtlyonR\":{\"children\":[],\"id\":\"CHART-_U0EtlyonR\",\"meta\":{\"chartId\":32,\"height\":35,\"sliceName\":\"Total Number of Tests\",\"uuid\":\"fe9f1783-fe97-461d-b426-99c89d275b7f\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\",\"ROW-7wlKyo9Y6_\"],\"type\":\"CHART\"},\"CHART-bU5PCxPYwV\":{\"children\":[],\"id\":\"CHART-bU5PCxPYwV\",\"meta\":{\"chartId\":47,\"height\":36,\"sliceName\":\"Number of builds failing\",\"uuid\":\"67c497cb-e60a-4979-a95c-1089b0a543a3\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-iOACx3-LX\",\"ROW-kiQFYmUfoe\"],\"type\":\"CHART\"},\"CHART-cxCtUqoxnB\":{\"children\":[],\"id\":\"CHART-cxCtUqoxnB\",\"meta\":{\"chartId\":35,\"height\":51,\"sliceName\":\"Percent of Passing Tests\",\"uuid\":\"46757ec2-31b9-4719-b815-be3fd2a28e14\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\",\"ROW-3xmxJ25xi5\"],\"type\":\"CHART\"},\"CHART-d0Y1NHJWt4\":{\"children\":[],\"id\":\"CHART-d0Y1NHJWt4\",\"meta\":{\"chartId\":51,\"height\":50,\"sliceName\":\"Distribution of Builds Passing and Failing\",\"uuid\":\"fcfc161d-376a-42fa-8559-03eb55b0979f\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-iOACx3-LX\",\"ROW-13x64bB6FA\"],\"type\":\"CHART\"},\"CHART-foFXpniLji\":{\"children\":[],\"id\":\"CHART-foFXpniLji\",\"meta\":{\"chartId\":50,\"height\":26,\"sliceName\":\"Grids\",\"uuid\":\"a8f8aa6f-96a1-485b-9dfe-5e1b6b86120d\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-X5l14mrFf7\"],\"type\":\"CHART\"},\"CHART-hhj82FiId6\":{\"children\":[],\"id\":\"CHART-hhj82FiId6\",\"meta\":{\"chartId\":52,\"height\":51,\"sliceName\":\"Percent of Failing Tests\",\"uuid\":\"2327e3a2-4231-4da8-8c50-7ed33e21265a\",\"width\":6},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\",\"ROW-3xmxJ25xi5\"],\"type\":\"CHART\"},\"CHART-kiievd65mC\":{\"children\":[],\"id\":\"CHART-kiievd65mC\",\"meta\":{\"chartId\":48,\"height\":26,\"sliceName\":\"Tests\",\"uuid\":\"453bc048-e39e-42af-b67b-b99f22fb7c6a\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-X5l14mrFf7\"],\"type\":\"CHART\"},\"CHART-zkgG0HaRFG\":{\"children\":[],\"id\":\"CHART-zkgG0HaRFG\",\"meta\":{\"chartId\":33,\"height\":36,\"sliceName\":\"Number of tests failing\",\"uuid\":\"1252348c-364a-4ba1-849e-5e05f02e0f2d\",\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\",\"ROW-7wlKyo9Y6_\"],\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"GRID_ID\":{\"children\":[\"ROW-gi4TcbJQJd\",\"ROW-kn1oT5KoNv\",\"ROW-X5l14mrFf7\",\"HEADER-PDIpBDiqNh\",\"ROW-5DA0qd2dRU\",\"TABS-AACBYa--75\",\"HEADER-RB-cWnI6oR\",\"ROW-CX7A4V_WFN\",\"TABS-53G2hHzJ6X\",\"HEADER-VTEYwGnb5U\",\"ROW-2rx9mWAl_Q\",\"TABS-X4bgVGeXD1\",\"ROW-q9deCbg-63\",\"ROW-gP8XRtcFo\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER-PDIpBDiqNh\":{\"children\":[],\"id\":\"HEADER-PDIpBDiqNh\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Tests & Builds\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER-RB-cWnI6oR\":{\"children\":[],\"id\":\"HEADER-RB-cWnI6oR\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Tests Fixed, Persistent Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER-VTEYwGnb5U\":{\"children\":[],\"id\":\"HEADER-VTEYwGnb5U\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"Test Durations\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"AI4CI: Optimal Stopping Point\"},\"type\":\"HEADER\"},\"MARKDOWN--Z6lAU4DDr\":{\"children\":[],\"id\":\"MARKDOWN--Z6lAU4DDr\",\"meta\":{\"code\":\"### Average Duration of Tests per Grid\\n\\nWhat is the average running time of tests per grid.\\n\",\"height\":50,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\",\"TAB-Dhr6CM_Wvu\",\"ROW-Vdh9fdYX11\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-0MQkc56llr\":{\"children\":[],\"id\":\"MARKDOWN-0MQkc56llr\",\"meta\":{\"code\":\"### Mean Length Of Failure\\n\\nHow many times was the build (test suite) run before a failing test started to pass\",\"height\":35,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-B3v-09uzFZ\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-5tsZb66OHX\":{\"children\":[],\"id\":\"MARKDOWN-5tsZb66OHX\",\"meta\":{\"code\":\"Sometimes, the failing tests start to pass without any new code changes. We have tried to capture such metrics like \\n* percentage of tests that fixed over time, \\n* how many times was a build/test run before a failing test started to pass\\n* how much time did it take before a failing test started to pass\\n* what percentage of tests resulted in a `fail` to `pass` transition or `pass` to `fail` transition.\",\"height\":21,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-CX7A4V_WFN\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-9Re4GirTtp\":{\"children\":[],\"id\":\"MARKDOWN-9Re4GirTtp\",\"meta\":{\"code\":\"Sometimes, these tests/build runs take a lot longer than expected to run and finish. \\n\\n\\nSo let's try to look into what are the usual durations of these tests and then we shall look into identifying what is an **Optimal Stopping Point**\",\"height\":14,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-2rx9mWAl_Q\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-JNUPPcXwS1\":{\"children\":[],\"id\":\"MARKDOWN-JNUPPcXwS1\",\"meta\":{\"code\":\"### Average test duration \\nWhat is the average running time of test over multiple runs\\n\",\"height\":53,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\",\"TAB-Dhr6CM_Wvu\",\"ROW-lkKfwN5-k\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-OyaCmkdJw5\":{\"children\":[],\"id\":\"MARKDOWN-OyaCmkdJw5\",\"meta\":{\"code\":\"Every time an individual contributor adds a Pull Request to a github repository, the PR is subject to a certain tests and build runs before the PR is merged into the codebase. Testgrid mainly collects this information and displays it a 2-D format, and presents the important information like what all tests/build runs were done on a certain PR, how many of them were passing or failing. So, by extracting this information we have calculated the following metrics.\",\"height\":16,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-5DA0qd2dRU\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-Qu0zyimYTv\":{\"children\":[],\"id\":\"MARKDOWN-Qu0zyimYTv\",\"meta\":{\"code\":\"# Passing Distribution\\n\\n<a href=\\\"https://ibb.co/qpVyh3y\\\"><img src=\\\"https://i.ibb.co/gJhjQLj/Passing-Dist.png\\\" alt=\\\"Passing-Dist\\\" border=\\\"0\\\" align=\\\"left\\\"></a>\\n\\n**Passing Distribution**\\n\\nThe top 2 distributions based on betterment of fit are **Pearson distribution** and **Weibull Min distribution**. \\n\\n* **The Histogram plot** - shows the distribution of test duration values over all the data points. \\n* **The Pearson and Weibull Min graphs** - are density plots which are a smoothed, continuous version of a histogram estimated from the data. It plots the probability density function (along Y-axis) vs the test duration values (along X-axis). \\n\\n<br></br>\\n\\n**Probability Density Plots**\\n\\nProbability density plots are used to understand data distribution for a continuous variable and we want to know the likelihood (or probability) of obtaining a range of values that the continuous variable can assume. The area under the curve contains the probabilities for the test duration values.\\n\\n<br></br>\\n\\n# Failure Distribution\\n\\n<br></br>\\n\\n\\n<a href=\\\"https://ibb.co/rHsF11D\\\"><img src=\\\"https://i.ibb.co/GRTnbbz/Failing-Dist.png\\\" alt=\\\"Failing-Dist\\\" border=\\\"0\\\" align=\\\"left\\\"></a>\\n\\n**Failure Distribution**\\n\\nThe top 2 distributions based on betterment of fit are **Inverse Gaussian distribution** and **Log Normal distribution**. Let's plot the graphs for these two distributions.\\n\\n* **The Histogram plot** - shows the distribution of test duration values over all the data points. \\n* **The Inverse Gaussian and Log Normal graphs** - are density plots which are a smoothed, continuous version of a histogram estimated from the data. It plots the probability density function (along Y-axis) vs the test duration values (along X-axis).\\n\\n\\n\",\"height\":119,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-q9deCbg-63\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-Vy4ADUtWM5\":{\"children\":[],\"id\":\"MARKDOWN-Vy4ADUtWM5\",\"meta\":{\"code\":\"## Percentage of Tests Fixed Over Time\\n\\nSome tests that are failing in the previous test run can get fixed in the next test run. This metric calculates the percentage of tests that were fixed over time.\",\"height\":50,\"width\":4},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-gfJCahtgMN\",\"ROW-VEtqfOIKo\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-c09kBzu3wM\":{\"children\":[],\"id\":\"MARKDOWN-c09kBzu3wM\",\"meta\":{\"code\":\"### Mean Time To Fix\\n\\nHow much time did it take before a failing test started to pass.\",\"height\":35,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-B3v-09uzFZ\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-cg4AnGa9AE\":{\"children\":[],\"id\":\"MARKDOWN-cg4AnGa9AE\",\"meta\":{\"code\":\"# Dashboard Overview\\n\\n## AI4CI: AI for Continuous Integration\\n\\nOne major component of the software development and operations workflow is Continuous Integration (CI), which involves running automated builds and tests of software before it is merged into a production code base. OpenShift, Kubernetes and a few other platforms have made their CI data public. Our aim is to cultivate open source AIOps projects by developing, integrating and operating AI tools for CI by leveraging the open data that has been made available by OpenShift, Kubernetes and others.\\n\\n## KPI Metrics\\n\\nIn order to measure the effectiveness and quality of our CI testing process, we need to establish the relevant key performance indicators, or KPIs. These KPIs can not only help us evaluate any AI-based enhancements we make to the CI processes, but also pinpoint what specific areas need the most improvement and therefore should be devoted resources to. **In this dashboard, we will visualize some of the important KPIs that help us to understand the CI testing process in more depth.**\\n\\n## Data Sources\\n\\nWe mainly collect, explore and analyze the **TestGrid** data source, as well as log output from OpenShift CI. **TestGrid is a highly-configurable, interactive dashboard for viewing your test results in a grid.**\\n\",\"height\":47,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-gi4TcbJQJd\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-eBbeky0VaS\":{\"children\":[],\"id\":\"MARKDOWN-eBbeky0VaS\",\"meta\":{\"code\":\"# Optimal Stopping Point Distributions\\n\\n<a href=\\\"https://ibb.co/84Q54rQ\\\"><img src=\\\"https://i.ibb.co/fGTpGkT/Screen-Shot-2022-08-18-at-11-42-15-AM.png\\\" alt=\\\"Screen-Shot-2022-08-18-at-11-42-15-AM\\\" align=\\\"left\\\"></a>\\n\\n\\n<br></br>\\n\\nFrom the graph, we see that **passing tests (orange line)** have a narrower range and smaller std, with an expected run time of between 20 and 110 seconds. \\n\\n**Failing tests (blue line)** are much less reliable with a run time spanning from 0 to 240 seconds. From this graph, we can claim that a **test run longer than ~72 seconds starts to have an increased probability of being a failure** and hence can be considered as an **optimal stopping point.**\",\"height\":70,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-gP8XRtcFo\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-kwvoK0FYE8\":{\"children\":[],\"id\":\"MARKDOWN-kwvoK0FYE8\",\"meta\":{\"code\":\"### Pass To Fail Rate\\n\\nWhat percentage of test runs resulted in a \\u201cpass\\u201d to \\u201cfail\\u201d transition.\",\"height\":34,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-74mReX9Dm\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-n6SzIppe8c\":{\"children\":[],\"id\":\"MARKDOWN-n6SzIppe8c\",\"meta\":{\"code\":\"### Fail To Pass Rate\\n\\nWhat percentage of test runs resulted in a \\u201cfail\\u201d to \\u201cpass\\u201d transition.\",\"height\":34,\"width\":3},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\",\"ROW-74mReX9Dm\"],\"type\":\"MARKDOWN\"},\"MARKDOWN-nD04Pkev9J\":{\"children\":[],\"id\":\"MARKDOWN-nD04Pkev9J\",\"meta\":{\"code\":\"### Dashboard Filters\\n\\nWe have the following filters that can used to select:\\n\\n* **Tabs** - Select a specific dashboard tab from TestGrid \\n* **Grids** - Select a specific grid from TestGrid\\n* **Tests** - Select a specific test to analyze\",\"height\":24,\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-kn1oT5KoNv\"],\"type\":\"MARKDOWN\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-13x64bB6FA\":{\"children\":[\"CHART-d0Y1NHJWt4\"],\"id\":\"ROW-13x64bB6FA\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-iOACx3-LX\"],\"type\":\"ROW\"},\"ROW-2rx9mWAl_Q\":{\"children\":[\"MARKDOWN-9Re4GirTtp\"],\"id\":\"ROW-2rx9mWAl_Q\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-3xmxJ25xi5\":{\"children\":[\"CHART-cxCtUqoxnB\",\"CHART-hhj82FiId6\"],\"id\":\"ROW-3xmxJ25xi5\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\"],\"type\":\"ROW\"},\"ROW-5DA0qd2dRU\":{\"children\":[\"MARKDOWN-OyaCmkdJw5\"],\"id\":\"ROW-5DA0qd2dRU\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-74mReX9Dm\":{\"children\":[\"MARKDOWN-n6SzIppe8c\",\"CHART-BWWpBYhJVu\",\"MARKDOWN-kwvoK0FYE8\",\"CHART-5QIhbqtvY-\"],\"id\":\"ROW-74mReX9Dm\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\"],\"type\":\"ROW\"},\"ROW-7wlKyo9Y6_\":{\"children\":[\"CHART-_U0EtlyonR\",\"CHART-WQeNiSGMh0\",\"CHART-zkgG0HaRFG\"],\"id\":\"ROW-7wlKyo9Y6_\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-p8AloJGFA4\"],\"type\":\"ROW\"},\"ROW-B3v-09uzFZ\":{\"children\":[\"MARKDOWN-0MQkc56llr\",\"CHART-O7TNUhgWko\",\"MARKDOWN-c09kBzu3wM\",\"CHART-H8SQkln9Z-\"],\"id\":\"ROW-B3v-09uzFZ\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-UHGlqoKvn\"],\"type\":\"ROW\"},\"ROW-CX7A4V_WFN\":{\"children\":[\"MARKDOWN-5tsZb66OHX\"],\"id\":\"ROW-CX7A4V_WFN\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-VEtqfOIKo\":{\"children\":[\"MARKDOWN-Vy4ADUtWM5\",\"CHART-ByMpWwKjgr\"],\"id\":\"ROW-VEtqfOIKo\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\",\"TAB-gfJCahtgMN\"],\"type\":\"ROW\"},\"ROW-Vdh9fdYX11\":{\"children\":[\"MARKDOWN--Z6lAU4DDr\",\"CHART-IzCWE6kTFJ\"],\"id\":\"ROW-Vdh9fdYX11\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\",\"TAB-Dhr6CM_Wvu\"],\"type\":\"ROW\"},\"ROW-X5l14mrFf7\":{\"children\":[\"CHART-UlquIYLVhy\",\"CHART-foFXpniLji\",\"CHART-kiievd65mC\"],\"id\":\"ROW-X5l14mrFf7\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-gP8XRtcFo\":{\"children\":[\"MARKDOWN-eBbeky0VaS\"],\"id\":\"ROW-gP8XRtcFo\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-gi4TcbJQJd\":{\"children\":[\"MARKDOWN-cg4AnGa9AE\"],\"id\":\"ROW-gi4TcbJQJd\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-kiQFYmUfoe\":{\"children\":[\"CHART-5UnRH3qPG7\",\"CHART-0UwgUwA0sw\",\"CHART-bU5PCxPYwV\"],\"id\":\"ROW-kiQFYmUfoe\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\",\"TAB-iOACx3-LX\"],\"type\":\"ROW\"},\"ROW-kn1oT5KoNv\":{\"children\":[\"MARKDOWN-nD04Pkev9J\"],\"id\":\"ROW-kn1oT5KoNv\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-lkKfwN5-k\":{\"children\":[\"MARKDOWN-JNUPPcXwS1\",\"CHART-_KJgaOMMEz\"],\"id\":\"ROW-lkKfwN5-k\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\",\"TAB-Dhr6CM_Wvu\"],\"type\":\"ROW\"},\"ROW-q9deCbg-63\":{\"children\":[\"MARKDOWN-Qu0zyimYTv\"],\"id\":\"ROW-q9deCbg-63\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"TAB-Dhr6CM_Wvu\":{\"children\":[\"ROW-Vdh9fdYX11\",\"ROW-lkKfwN5-k\"],\"id\":\"TAB-Dhr6CM_Wvu\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Time to Test\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-X4bgVGeXD1\"],\"type\":\"TAB\"},\"TAB-UHGlqoKvn\":{\"children\":[\"ROW-B3v-09uzFZ\",\"ROW-74mReX9Dm\"],\"id\":\"TAB-UHGlqoKvn\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Persistent Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\"],\"type\":\"TAB\"},\"TAB-gfJCahtgMN\":{\"children\":[\"ROW-VEtqfOIKo\"],\"id\":\"TAB-gfJCahtgMN\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Percentage of Tests Fixed\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-53G2hHzJ6X\"],\"type\":\"TAB\"},\"TAB-iOACx3-LX\":{\"children\":[\"ROW-kiQFYmUfoe\",\"ROW-13x64bB6FA\"],\"id\":\"TAB-iOACx3-LX\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Build Pass and Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\"],\"type\":\"TAB\"},\"TAB-p8AloJGFA4\":{\"children\":[\"ROW-7wlKyo9Y6_\",\"ROW-3xmxJ25xi5\"],\"id\":\"TAB-p8AloJGFA4\",\"meta\":{\"defaultText\":\"Tab title\",\"placeholder\":\"Tab title\",\"text\":\"Test Pass and Failures\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"TABS-AACBYa--75\"],\"type\":\"TAB\"},\"TABS-53G2hHzJ6X\":{\"children\":[\"TAB-gfJCahtgMN\",\"TAB-UHGlqoKvn\"],\"id\":\"TABS-53G2hHzJ6X\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"},\"TABS-AACBYa--75\":{\"children\":[\"TAB-p8AloJGFA4\",\"TAB-iOACx3-LX\"],\"id\":\"TABS-AACBYa--75\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"},\"TABS-X4bgVGeXD1\":{\"children\":[\"TAB-Dhr6CM_Wvu\"],\"id\":\"TABS-X4bgVGeXD1\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"TABS\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 28,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"8__table\", \"date_filter\": false, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"tab\", \"key\": \"dxgyRFMFh\", \"multiple\": true, \"searchAllOptions\": false}], \"granularity_sqla\": \"timestamp\", \"instant_filtering\": true, \"slice_id\": 55, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 28, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Tabs",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 48,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"8__table\", \"date_filter\": false, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"test\", \"key\": \"TdMcAiEQh\", \"multiple\": true, \"searchAllOptions\": false}], \"granularity_sqla\": \"timestamp\", \"instant_filtering\": true, \"slice_id\": 75, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 48, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Tests",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 50,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"8__table\", \"date_filter\": false, \"filter_configs\": [{\"asc\": true, \"clearable\": true, \"column\": \"grid\", \"key\": \"QeH1-FnGV\", \"multiple\": true, \"searchAllOptions\": false}], \"granularity_sqla\": \"timestamp\", \"instant_filtering\": true, \"slice_id\": 78, \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"filter_box\", \"remote_id\": 50, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Grids",
+                            "viz_type": "filter_box"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 35,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"supersetColors\", \"datasource\": \"66__table\", \"date_format\": \"smart_date\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"groupby\": [\"passing\"], \"innerRadius\": 30, \"label_line\": false, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 37, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_ar18n5wj68r_u2wwlg2d2bc\", \"sqlExpression\": null}, \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 70, \"row_limit\": 10000, \"show_labels\": true, \"show_labels_threshold\": 5, \"show_legend\": false, \"slice_id\": 35, \"sort_by_metric\": true, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 35, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":66,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"passing\"],\"metrics\":[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"test\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":37,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"VARCHAR\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(test)\",\"optionName\":\"metric_ar18n5wj68r_u2wwlg2d2bc\",\"sqlExpression\":null}],\"orderby\":[[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"test\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":37,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"VARCHAR\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(test)\",\"optionName\":\"metric_ar18n5wj68r_u2wwlg2d2bc\",\"sqlExpression\":null},false]],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Percent of Passing Tests",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 29,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_6r3pbdi5hmk_ryxdwhi61ch\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"passing = True\", \"subject\": null}], \"datasource\": \"66__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 29, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 29, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":66,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"(passing = True)\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of tests passing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 32,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"66__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 37, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_3tce6ofaivb_hbj73hwx82m\", \"sqlExpression\": null}, \"slice_id\": 32, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 32, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":66,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"test\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":37,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"VARCHAR\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(test)\",\"optionName\":\"metric_3tce6ofaivb_hbj73hwx82m\",\"sqlExpression\":null}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Total Number of Tests",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 52,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"supersetColors\", \"datasource\": \"66__table\", \"date_format\": \"smart_date\", \"donut\": false, \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"groupby\": [\"failure\"], \"innerRadius\": 30, \"label_line\": false, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 37, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_59hg7and49_obpojuu2ih\", \"sqlExpression\": null}, \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 67, \"row_limit\": 10000, \"show_labels\": true, \"show_labels_threshold\": 5, \"show_legend\": false, \"slice_id\": 52, \"sort_by_metric\": true, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 52, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":66,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"failure\"],\"metrics\":[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"test\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":37,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"VARCHAR\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(test)\",\"optionName\":\"metric_59hg7and49_obpojuu2ih\",\"sqlExpression\":null}],\"orderby\":[[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"test\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":37,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"VARCHAR\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(test)\",\"optionName\":\"metric_59hg7and49_obpojuu2ih\",\"sqlExpression\":null},false]],\"annotation_layers\":[],\"row_limit\":10000,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Percent of Failing Tests",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.test_pass_failures",
+                            "datasource_type": "table",
+                            "id": 33,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_4htx0keb1bn_nj5silinsgi\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"failure = True\", \"subject\": null}], \"datasource\": \"66__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 33, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 33, \"datasource_name\": \"test_pass_failures\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":66,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"(failure = True)\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of tests failing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 49,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_257huo6oxqv_lnn9h5rj45q\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"build_passing = True\", \"subject\": null}], \"datasource\": \"64__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 49, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 49, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":64,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"(build_passing = True)\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of builds passing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 47,
+                            "params": "{\"adhoc_filters\": [{\"clause\": \"WHERE\", \"comparator\": null, \"expressionType\": \"SQL\", \"filterOptionName\": \"filter_mqxczu7p8df_hcfowzaz5g\", \"isExtra\": false, \"isNew\": false, \"operator\": null, \"sqlExpression\": \"build_failure = True\", \"subject\": null}], \"datasource\": \"64__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": \"count\", \"slice_id\": 47, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 47, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":64,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"(build_failure = True)\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Number of builds failing",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 51,
+                            "params": "{\"adhoc_filters\": [], \"color_scheme\": \"SUPERSET_DEFAULT\", \"datasource\": \"64__table\", \"date_format\": \"smart_date\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"groupby\": [\"build_status\"], \"innerRadius\": 30, \"label_type\": \"key_percent\", \"labels_outside\": true, \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"metric\": \"count\", \"number_format\": \"SMART_NUMBER\", \"outerRadius\": 70, \"row_limit\": 100, \"show_labels\": true, \"show_labels_threshold\": 5, \"show_legend\": true, \"slice_id\": 51, \"sort_by_metric\": true, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"pie\", \"remote_id\": 51, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":64,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"build_status\"],\"metrics\":[\"count\"],\"orderby\":[[\"count\",false]],\"annotation_layers\":[],\"row_limit\":100,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Distribution of Builds Passing and Failing",
+                            "viz_type": "pie"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.build_pass_failure",
+                            "datasource_type": "table",
+                            "id": 37,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"64__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT\", \"column\": {\"column_name\": \"test\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 11, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"VARCHAR\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT(test)\", \"optionName\": \"metric_cwmkseccyl9_wvihq7y5zy\", \"sqlExpression\": null}, \"slice_id\": 37, \"subheader_font_size\": 0.15, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 37, \"datasource_name\": \"build_pass_failure\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":64,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"aggregate\":\"COUNT\",\"column\":{\"column_name\":\"test\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":11,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"VARCHAR\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"COUNT(test)\",\"optionName\":\"metric_cwmkseccyl9_wvihq7y5zy\",\"sqlExpression\":null}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Total Number of Builds",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 31,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"mean_fail_len\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 30, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(mean_fail_len)\", \"optionName\": \"metric_3jlta3rv8ti_la43jpfg7yr\", \"sqlExpression\": null}, \"slice_id\": 7, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 31, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Mean Length of Failures    ",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.pct_fixed_each_ts",
+                            "datasource_type": "table",
+                            "id": 43,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"bnbColors\", \"columns\": [], \"datasource\": \"71__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"timestamp\", \"groupby\": [\"timestamp\"], \"label_colors\": {}, \"metrics\": [{\"aggregate\": \"SUM\", \"column\": {\"column_name\": \"pct_fixed\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 25, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"SUM(pct_fixed)\", \"optionName\": \"metric_6841xgkmtaw_vfoirv0sli\", \"sqlExpression\": null}], \"order_bars\": true, \"order_desc\": true, \"reduce_x_ticks\": true, \"row_limit\": 100, \"show_controls\": false, \"show_legend\": false, \"slice_id\": 43, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Timestamps\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"y_axis_label\": \"Percentage of Tests Fixed\", \"remote_id\": 43, \"datasource_name\": \"pct_fixed_each_ts\", \"schema\": \"default\", \"database_name\": \"Trino\"}",
+                            "query_context": "{\"datasource\":{\"id\":71,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[{\"col\":\"grid\",\"op\":\"IN\",\"val\":[\"periodic-ci-openshift-assisted-service-master-edge-e2e-metal-assisted-kube-api-late-binding-single-node-periodic\"]}],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"timestamp\"],\"metrics\":[{\"aggregate\":\"SUM\",\"column\":{\"column_name\":\"pct_fixed\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":25,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"REAL\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"SUM(pct_fixed)\",\"optionName\":\"metric_6841xgkmtaw_vfoirv0sli\",\"sqlExpression\":null}],\"annotation_layers\":[],\"row_limit\":100,\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Percentage of Tests Fixed",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 36,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"mean_time_to_fix\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 31, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(mean_time_to_fix)\", \"optionName\": \"metric_if9d79gj05o_fk4g0jovbp\", \"sqlExpression\": null}, \"slice_id\": 8, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 36, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Mean Time to Fix",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 30,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"pass_to_fail_rate\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 32, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(pass_to_fail_rate)\", \"optionName\": \"metric_qp7hstzmr3_smc3o7sf7w\", \"sqlExpression\": null}, \"slice_id\": 9, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 30, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Pass to Fail Rate",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.persistent_failures",
+                            "datasource_type": "table",
+                            "id": 44,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"18__table\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"fail_to_pass_rate\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 33, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(fail_to_pass_rate)\", \"optionName\": \"metric_cc0afi3ien7_spff3aqkmb8\", \"sqlExpression\": null}, \"slice_id\": 10, \"subheader_font_size\": 0.15, \"time_range\": \"Last day\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 44, \"datasource_name\": \"persistent_failures\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Fail to Pass Rate",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.time_to_test",
+                            "datasource_type": "table",
+                            "id": 39,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": true, \"bottom_margin\": \"auto\", \"color_scheme\": \"bnbColors\", \"columns\": [], \"datasource\": \"12__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"grid\"], \"label_colors\": {\"AVG(test_duration)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"metrics\": [{\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"test_duration\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 44, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(test_duration)\", \"optionName\": \"metric_84y9tmk4m3p_x05to8fnpaq\", \"sqlExpression\": null}], \"order_bars\": false, \"order_desc\": false, \"reduce_x_ticks\": false, \"row_limit\": 100, \"show_bar_value\": false, \"show_legend\": true, \"slice_id\": 16, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Grid\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"~g\", \"remote_id\": 39, \"datasource_name\": \"time_to_test\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": null,
+                            "slice_name": "Avg Duration of Tests per Grid",
+                            "viz_type": "dist_bar"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "default.time_to_test",
+                            "datasource_type": "table",
+                            "id": 45,
+                            "params": "{\"adhoc_filters\": [], \"bar_stacked\": false, \"bottom_margin\": \"auto\", \"color_scheme\": \"supersetColors\", \"columns\": [], \"datasource\": \"12__table\", \"granularity_sqla\": \"timestamp\", \"groupby\": [\"test\"], \"label_colors\": {\"AVG(test_duration)\": \"#5AC189\", \"false\": \"#1FA8C9\", \"true\": \"#454E7C\"}, \"metrics\": [{\"aggregate\": \"AVG\", \"column\": {\"column_name\": \"test_duration\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 44, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"REAL\", \"verbose_name\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"AVG(test_duration)\", \"optionName\": \"metric_m4sl89c142_t6kg4vxdgng\", \"sqlExpression\": null}], \"order_desc\": false, \"row_limit\": 100, \"slice_id\": 18, \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"url_params\": {}, \"viz_type\": \"dist_bar\", \"x_axis_label\": \"Tests\", \"x_ticks_layout\": \"auto\", \"y_axis_bounds\": [null, null], \"y_axis_format\": \"~g\", \"remote_id\": 45, \"datasource_name\": \"time_to_test\", \"schema\": \"default\", \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                            "query_context": "{\"datasource\":{\"id\":67,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"timestamp\",\"filters\":[],\"extras\":{\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[\"test\"],\"metrics\":[{\"aggregate\":\"AVG\",\"column\":{\"column_name\":\"test_duration\",\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"id\":44,\"is_dttm\":false,\"python_date_format\":null,\"type\":\"REAL\",\"verbose_name\":null},\"expressionType\":\"SIMPLE\",\"hasCustomLabel\":false,\"isNew\":false,\"label\":\"AVG(test_duration)\",\"optionName\":\"metric_m4sl89c142_t6kg4vxdgng\",\"sqlExpression\":null}],\"annotation_layers\":[],\"row_limit\":100,\"timeseries_limit\":0,\"order_desc\":false,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Avg Test Duration",
+                            "viz_type": "dist_bar"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 368,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 71,
+                            "type": "TIMESTAMP",
+                            "uuid": "054cee3b-bbd2-4c56-9e1e-ec61489ef775",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 369,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 71,
+                            "type": "VARCHAR",
+                            "uuid": "e1313829-703e-4213-acfb-1201f03f3956",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 370,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 71,
+                            "type": "VARCHAR",
+                            "uuid": "5fea3065-de28-4380-8311-644fa04e4254",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "pct_fixed",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 371,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 71,
+                            "type": "REAL",
+                            "uuid": "843639a4-74ed-4d0f-9abe-200460aaecdc",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 71,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 71,
+                            "uuid": "cb667e79-8627-4fe8-84aa-0a8597e3ea14",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 71, \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "pct_fixed_each_ts",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 342,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 66,
+                            "type": "TIMESTAMP",
+                            "uuid": "be3a458b-5f80-4e11-831a-e5b56392fd4a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 343,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 66,
+                            "type": "VARCHAR",
+                            "uuid": "2c590185-77cb-403e-83fb-7d82e49bfa6e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 344,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 66,
+                            "type": "VARCHAR",
+                            "uuid": "51958a85-05bb-4583-b0f6-95cd80e551a5",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 345,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 66,
+                            "type": "VARCHAR",
+                            "uuid": "0ebc5f69-3b60-4fe8-a646-6ec0da7bf22e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "failure",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 346,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 66,
+                            "type": "BOOLEAN",
+                            "uuid": "bde8b36e-f287-42b5-9459-22718a4375c1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "passing",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 347,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 66,
+                            "type": "BOOLEAN",
+                            "uuid": "72c88716-debf-4454-8730-1321168da24c",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 66,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 66,
+                            "uuid": "7a143913-e196-4b50-97f4-3e264c896806",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 66, \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "test_pass_failures",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 348,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 67,
+                            "type": "TIMESTAMP",
+                            "uuid": "bd632066-00ff-4506-b99e-72b4b1b751e7",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 349,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 67,
+                            "type": "VARCHAR",
+                            "uuid": "27b106bb-5f1c-4fb4-b4af-8be56be60da9",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 350,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 67,
+                            "type": "VARCHAR",
+                            "uuid": "87eb5565-ee16-4c23-91c1-9831ff28ac1f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 351,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 67,
+                            "type": "VARCHAR",
+                            "uuid": "0a60d6d7-daa9-42ab-8005-62ae8fb485dc",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "test_duration",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 352,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 67,
+                            "type": "REAL",
+                            "uuid": "eb3be387-810e-4275-968c-d774ba692330",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 67,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 67,
+                            "uuid": "4798d691-8845-46ff-baf9-80c24654a664",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 67, \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                "schema": "default",
+                "sql": null,
+                "table_name": "time_to_test",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 358,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "VARCHAR",
+                            "uuid": "64167f56-a5ab-421d-8c55-ed6a069aa6fa",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 359,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "VARCHAR",
+                            "uuid": "b57b063c-095e-40cd-bec9-b01d50ebf38f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 360,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "VARCHAR",
+                            "uuid": "5aa15826-2fda-445d-a462-013d07ca8001",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "consec_fail_rate",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 361,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "REAL",
+                            "uuid": "e011cfaf-9c01-4160-962b-5f01062ebc19",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "mean_fail_len",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 362,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "REAL",
+                            "uuid": "b686e8e2-95b9-4fd0-b8b3-da3b46dbf16a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "mean_time_to_fix",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 363,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "REAL",
+                            "uuid": "0a4b92eb-4f5c-4f78-9c61-7039d471ba3d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "pass_to_fail_rate",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 364,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "REAL",
+                            "uuid": "296b0b46-093c-455f-9ed8-6b00b411dd4e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "column_name": "fail_to_pass_rate",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 365,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 69,
+                            "type": "REAL",
+                            "uuid": "da01e08b-891a-4428-a108-03ad124f58d8",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:12"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 69,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 69,
+                            "uuid": "a127df94-d772-4904-a306-7696b9d4869d",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 69, \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "persistent_failures",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "timestamp",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 333,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "TIMESTAMP",
+                            "uuid": "f232b7c8-3d17-4d4c-895f-88cc4b2bbbcb",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "tab",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 334,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "VARCHAR",
+                            "uuid": "c85bc595-ce48-446e-83ea-6800492725e4",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "grid",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 335,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "VARCHAR",
+                            "uuid": "85ae1038-0d8c-46e3-9c14-4f3406a9480d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "test",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 336,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "VARCHAR",
+                            "uuid": "15ea7b73-0520-4df6-96df-973fd8e05467",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "build_failure",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 337,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "BOOLEAN",
+                            "uuid": "c7a424ae-f492-4b65-8f6d-d402a236b494",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "build_passing",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 338,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "BOOLEAN",
+                            "uuid": "6c4a3cc4-bf76-46e7-8de0-6e8fa582f75f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "column_name": "build_status",
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 339,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 64,
+                            "type": "VARCHAR",
+                            "uuid": "cfff17c6-7d5e-4726-87d2-701ae368d982",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "timestamp",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 4,
+                            "changed_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "created_by_fk": 4,
+                            "created_on": {
+                                "__datetime__": "2022-06-01T17:56:11"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 64,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 64,
+                            "uuid": "89bbc991-557d-4f84-acae-96197033f95e",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 64, \"database_name\": \"Trino\", \"import_time\": 1654106171}",
+                "schema": "default",
+                "sql": "",
+                "table_name": "build_pass_failure",
+                "template_params": null
+            }
+        }
+    ]
+}
